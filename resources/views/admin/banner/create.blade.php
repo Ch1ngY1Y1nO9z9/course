@@ -13,38 +13,40 @@
                     <div class="card-body">
                         <form class="form-horizontal" method="post" action="/admin/banner/store" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                            <div class="form-group">
-                                <label for="sort" class="col-sm-1 control-label">權重</label>
-                                <div class="col-sm-5">
+                            <div class="form-group row">
+                                <label for="sort" class="col-sm-2 control-label">權重</label>
+                                <div class="col-sm-10">
                                     <input type="number" class="form-control" id="sort" name="sort" step="1" min="1" value="1">
                                 </div>
-                                <label for="slider_a_href" class="col-sm-1 control-label">超連結</label>
-                                <div class="col-sm-5">
+                            </div>
+                            <div class="form-group row">
+                                <label for="slider_a_href" class="col-sm-2 control-label">超連結</label>
+                                <div class="col-sm-10">
                                     <input type="text" class="form-control" id="slider_a_href" name="slider_a_href">
                                 </div>
                             </div>
 
                             <hr>
 
-                            <div class="form-group">
-                                <label for="slider_alt" class="col-sm-1 control-label">圖片替代文字(alt)</label>
-                                <div class="col-sm-11">
+                            <div class="form-group row">
+                                <label for="slider_alt" class="col-sm-2 control-label">圖片替代文字(alt)</label>
+                                <div class="col-sm-10">
                                     <input type="text" class="form-control" id="slider_alt" name="slider_alt">
                                 </div>
                             </div>
 
                             <hr>
 
-                            <div class="form-group">
-                                <label for="upload_file" class="col-sm-1 control-label">上傳圖片</label>
-                                <div class="col-sm-11">
+                            <div class="form-group row">
+                                <label for="upload_file" class="col-sm-2 control-label">上傳圖片</label>
+                                <div class="col-sm-10">
                                     <input type="file" class="form-control" id="upload_file" name="upload_file">
                                 </div>
                             </div>
                             <span class="text-danger">＊建議尺寸大小為寬 1330px,高 300px</span>
                             <hr>
 
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <div class="col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">新增</button>
                                 </div>

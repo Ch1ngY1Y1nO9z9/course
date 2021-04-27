@@ -17,24 +17,24 @@
                         <form class="form-horizontal" method="post" action="/admin/plan_article/store" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-                            <div class="form-group">
-                                <label for="title" class="col-sm-1 control-label">標題</label>
-                                <div class="col-sm-11">
+                            <div class="form-group row">
+                                <label for="title" class="col-sm-2 control-label">標題</label>
+                                <div class="col-sm-10">
                                     <input type="text" class="form-control" id="title" name="title">
                                 </div>
                             </div>
 
                             <hr>
 
-                            <div class="form-group">
-                                <label for="upload_files" class="col-sm-1 control-label">上傳檔案</label>
-                                <div class="col-sm-11">
+                            <div class="form-group row">
+                                <label for="upload_files" class="col-sm-2 control-label">上傳檔案</label>
+                                <div class="col-sm-10">
                                     <input type="file" class="form-control" id="upload_files" name="upload_files[]" multiple>
                                 </div>
                             </div>
                             <hr>
 
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <div class="col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">新增</button>
                                 </div>

@@ -17,37 +17,39 @@
                         <form class="form-horizontal" method="post" action="/admin/plan_article/update/{{$list->id}}" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-                            <div class="form-group">
-                                <label for="title" class="col-sm-1 control-label">文章標題</label>
-                                <div class="col-sm-11">
+                            <div class="form-group row">
+                                <label for="title" class="col-sm-2 control-label">文章標題</label>
+                                <div class="col-sm-10">
                                     <input type="text" class="form-control" id="title" name="title" value="{{$list->title}}">
                                 </div>
                             </div>
 
                             <hr>
 
-                            <div class="form-group">
-                                <label for="del_files" class="col-sm-1 control-label">刪除檔案</label>
+                            <div class="form-group row">
+                                <label for="del_files" class="col-sm-2 control-label">刪除檔案</label>
                                 <div class="clearfix"></div>
                                 <div class="col-sm-1"></div>
-                                <div class="col-sm-11">
-                                    @foreach($list->download_files as $file)
-                                        <div class="col-sm-3">
-                                            <input type="checkbox" name="del_files[]" value="{{$file->id}}">
-                                            <a href="{{$file->url}}" download="{{$file->old_filename}}">{{$file->old_filename}}</a>
-                                        </div>
-                                    @endforeach
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        @foreach($list->download_files as $file)
+                                            <div class="col-sm-3 mb-3">
+                                                <input type="checkbox" name="del_files[]" value="{{$file->id}}">
+                                                <a href="{{$file->url}}" download="{{$file->old_filename}}">{{$file->old_filename}}</a>
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="upload_files" class="col-sm-1 control-label">上傳檔案</label>
-                                <div class="col-sm-11">
+                            <div class="form-group row">
+                                <label for="upload_files" class="col-sm-2 control-label">上傳檔案</label>
+                                <div class="col-sm-10">
                                     <input type="file" class="form-control" id="upload_files" name="upload_files[]" multiple>
                                 </div>
                             </div>
                             <hr>
 
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <div class="col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">送出</button>
                                 </div>

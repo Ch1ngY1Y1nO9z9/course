@@ -17,13 +17,14 @@
 
                     <form class="form-horizontal" method="post" action="/admin/youtube_video">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                        <div class="form-group">
+                        <div class="form-group row">
                             <label for="plan_type" class="col-sm-2 control-label">Youtube連結</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-10">
                                 <input name="youtube_url" type="text" class="form-control" value="{{$youtube_url->title}}">
                             </div>
-
-                            <div class="col-sm-1 text-center">
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 text-center">
                                 <button type="submit" class="btn btn-success">更新</button>
                             </div>
                         </div>

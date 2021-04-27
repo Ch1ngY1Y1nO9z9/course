@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <form class="form-horizontal" method="post" action="/admin/plan_page/update/{{$page->id}}">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <label for="content" class="col-sm-1 control-label">內文</label>
                                 <div class="col-sm-11">
                                     <textarea class="summernote" id="main_content" name="main_content">{{$page->content}}</textarea>
@@ -25,7 +25,7 @@
 
                             <hr>
 
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <div class="col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">送出</button>
                                 </div>

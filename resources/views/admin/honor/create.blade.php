@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <form class="form-horizontal" method="post" action="/admin/honor/store">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                            <div class="form-group">
+                            <div class="form-group row">
                                 {{--<label for="plan_type" class="col-sm-1 control-label">企劃別</label>--}}
                                 {{--<div class="col-sm-5">--}}
                                     {{--<select id="plan_type" class="form-control" name="plan_type">--}}
@@ -31,33 +31,33 @@
                                     {{--</select>--}}
                                 {{--</div>--}}
 
-                                <label for="date" class="col-sm-1 control-label">日期</label>
-                                <div class="col-sm-5">
+                                <label for="date" class="col-sm-2 control-label">日期</label>
+                                <div class="col-sm-10">
                                     <input type="text" class="form-control" id="date" name="date" data-toggle="datepicker">
                                 </div>
                             </div>
 
                             <hr>
 
-                            <div class="form-group">
-                                <label for="title" class="col-sm-1 control-label">文章標題</label>
-                                <div class="col-sm-11">
+                            <div class="form-group row">
+                                <label for="title" class="col-sm-2 control-label">文章標題</label>
+                                <div class="col-sm-10">
                                     <input type="text" class="form-control" id="title" name="title">
                                 </div>
                             </div>
 
                             <hr>
 
-                            <div class="form-group">
-                                <label for="content" class="col-sm-1 control-label">內文</label>
-                                <div class="col-sm-11">
+                            <div class="form-group row">
+                                <label for="content" class="col-sm-2 control-label">內文</label>
+                                <div class="col-sm-10">
                                     <textarea class="summernote" id="main_content" name="main_content"></textarea>
                                 </div>
                             </div>
 
                             <hr>
 
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <div class="col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">新增</button>
                                 </div>

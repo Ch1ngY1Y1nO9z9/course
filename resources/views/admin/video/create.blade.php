@@ -14,9 +14,9 @@
                     <div class="card-body">
                         <form class="form-horizontal" method="post" action="/admin/video/store">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                            <div class="form-group">
-                                <label for="article_type" class="col-sm-1 control-label">企劃別</label>
-                                <div class="col-sm-5">
+                            <div class="form-group row">
+                                <label for="article_type" class="col-sm-2 control-label">企劃別</label>
+                                <div class="col-sm-10">
                                     <select id="plan_type" class="form-control" name="plan_type">
                                         <option value="重要訊息">重要訊息</option>
                                         <option value="分項計畫A">分項計畫A</option>
@@ -28,34 +28,36 @@
                                         <option value="其他">其他</option>
                                     </select>
                                 </div>
+                            </div>
 
-                                <label for="date" class="col-sm-1 control-label">日期</label>
-                                <div class="col-sm-5">
+                            <div class="form-group row">
+                                <label for="date" class="col-sm-2 control-label">日期</label>
+                                <div class="col-sm-10">
                                     <input type="text" class="form-control" id="date" name="date" data-toggle="datepicker">
                                 </div>
                             </div>
 
                             <hr>
 
-                            <div class="form-group">
-                                <label for="title" class="col-sm-1 control-label">文章標題</label>
-                                <div class="col-sm-11">
+                            <div class="form-group row">
+                                <label for="title" class="col-sm-2 control-label">文章標題</label>
+                                <div class="col-sm-10">
                                     <input type="text" class="form-control" id="title" name="title">
                                 </div>
                             </div>
 
                             <hr>
 
-                            <div class="form-group">
-                                <label for="content" class="col-sm-1 control-label">網址</label>
-                                <div class="col-sm-11">
+                            <div class="form-group row">
+                                <label for="content" class="col-sm-2 control-label">網址</label>
+                                <div class="col-sm-10">
                                     <input class="form-control" id="main_content" name="main_content">
                                 </div>
                             </div>
 
                             <hr>
 
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <div class="col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">新增</button>
                                 </div>
