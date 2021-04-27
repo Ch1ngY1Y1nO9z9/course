@@ -108,14 +108,14 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                     <li class="nav-item">
-                        <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapse2">
+                        <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapse_1">
                             <i class="fas fa-file-signature"></i>
                             <span>首頁相關設定</span>
                         </a>
-                        <div id="collapse2" class="collapse" data-parent="#accordionSidebar">
+                        <div id="collapse_1" class="collapse">
                             <div class="bg-white py-2 collapse-inner rounded">
                                     <a class="collapse-item" href="/admin/banner">
-                                        Banner
+                                        首頁輪播圖
                                     </a>
 
                                     <a class="collapse-item" href="/admin/important">
@@ -137,11 +137,11 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapse3">
+                        <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapse_2">
                             <i class="fas fa-file-signature"></i>
-                            <span>高教深耕計畫</span>
+                            <span>計畫內容管理</span>
                         </a>
-                        <div id="collapse3" class="collapse" data-parent="#accordionSidebar">
+                        <div id="collapse_2" class="collapse">
                             <div class="bg-white py-2 collapse-inner rounded">
                                     <a class="collapse-item" href="/admin/plan_page/1">
                                         計畫架構
@@ -196,11 +196,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed pt-2 pb-3" href="#" data-toggle="collapse" data-target="#collapse4">
+                        <a class="nav-link collapsed pt-2 pb-3" href="#" data-toggle="collapse" data-target="#collapse_3">
                             <i class="fas fa-file-signature"></i>
                             <span>宣傳專區</span>
                         </a>
-                        <div id="collapse4" class="collapse" data-parent="#accordionSidebar">
+                        <div id="collapse_3" class="collapse">
                             <div class="bg-white py-2 collapse-inner rounded">
                                     <a class="collapse-item" href="/admin/highlight">
                                         特色亮點成果
@@ -242,61 +242,33 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapse3">
-                        <i class="fas fa-users"></i>
+                    <a class="nav-link py-2 collapsed" href="/admin/">
+                        <i class="fas fa-file-signature"></i>
                         <span>課程管理</span>
                     </a>
-                    <div id="collapse3" class="collapse"  data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item"
-                                    href="/">
-                                    課程管理
-                                </a>
-
-                                <a class="collapse-item"
-                                    href="/">
-                                    查看選課名單
-                                </a>
-
-                                <a class="collapse-item"
-                                    href="/">
-                                    查看點名紀錄
-                                </a>
-                        </div>
-                    </div>
                 </li>
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapse5">
-                        <i class="fas fa-user-tie"></i>
-                        <span>修課紀錄</span>
+                    <a class="nav-link collapsed py-2" href="/admin/">
+                        <i class="fas fa-file-signature"></i>
+                        <span>學生修課紀錄</span>
                     </a>
-                    <div id="collapse5" class="collapse"  data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item"
-                                    href="/">
-                                    學生列表
-                                </a>
-                        </div>
-                    </div>
                 </li>
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed pt-2 pb-3" href="#" data-toggle="collapse" data-target="#collapse5">
+                    <a class="nav-link collapsed pt-2 pb-3" href="#" data-toggle="collapse" data-target="#collapse_6">
                         <i class="fas fa-user-tie"></i>
                         <span>帳號管理</span>
                     </a>
-                    <div id="collapse5" class="collapse"  data-parent="#accordionSidebar">
+                    <div id="collapse_6" class="collapse">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="/">
                                 教師帳號管理
                             </a>
-                        </div>
-                        <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="/">
                                 學生帳號管理
                             </a>
-                    </div>
+                        </div>
                     </div>
                 </li>
             @endif
@@ -314,51 +286,28 @@
     
                     <!-- Nav Item - Pages Collapse Menu -->
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="/admin/">
+                        <a class="nav-link py-2 pt-3 collapsed" href="/admin/">
                             <i class="fas fa-file-signature"></i>
                             <span>儀表板</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3">
-                            <i class="fas fa-users"></i>
+                        <a class="nav-link py-2 collapsed" href="/admin/">
+                            <i class="fas fa-file-signature"></i>
                             <span>課程管理</span>
                         </a>
-                        <div id="collapse3" class="collapse"  data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                    <a class="collapse-item"
-                                        href="/">
-                                        課程管理
-                                    </a>
-
-                                    <a class="collapse-item"
-                                        href="/">
-                                        查看選課名單
-                                    </a>
-
-                                    <a class="collapse-item"
-                                        href="/">
-                                        線上點名
-                                    </a>
-
-                                    <a class="collapse-item {{ Request::is('reward_point_record*') ? 'active' : '' }}"
-                                        href="/">
-                                        查看點名紀錄
-                                    </a>
-                            </div>
-                        </div>
                     </li>
                     <!-- Nav Item - Pages Collapse Menu -->
                         <li class="nav-item">
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6">
+                            <a class="nav-link py-2 pb-3 collapsed" href="#" data-toggle="collapse" data-target="#collapse_8">
                                 <i class="fas fa-user-tie"></i>
-                                <span>教師資料管理</span>
+                                <span>個人資料管理</span>
                             </a>
-                            <div id="collapse6" class="collapse"  data-parent="#accordionSidebar">
+                            <div id="collapse_8" class="collapse">
                                 <div class="bg-white py-2 collapse-inner rounded">
                                         <a class="collapse-item"
                                            href="/">
-                                           教師資料編輯(學歷、經歷)
+                                           個人資料編輯
                                         </a>
     
                                         <a class="collapse-item"
@@ -382,23 +331,23 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="/admin/">
+                    <a class="nav-link py-2 pt-3 collapsed" href="/admin/">
                         <i class="fas fa-file-signature"></i>
                         <span>儀表板</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="/admin/">
+                    <a class="nav-link py-2 collapsed" href="/admin/">
                         <i class="fas fa-file-signature"></i>
                         <span>課程公告</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3">
+                    <a class="nav-link py-2 collapsed" href="#" data-toggle="collapse" data-target="#collapse_10">
                         <i class="fas fa-users"></i>
                         <span>選課</span>
                     </a>
-                    <div id="collapse3" class="collapse"  data-parent="#accordionSidebar">
+                    <div id="collapse_10" class="collapse">
                         <div class="bg-white py-2 collapse-inner rounded">
                                 <a class="collapse-item"
                                     href="/">
@@ -409,11 +358,11 @@
                 </li>
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse7">
+                    <a class="nav-link py-2 collapsed" href="#" data-toggle="collapse" data-target="#collapse_11">
                         <i class="fas fa-user-tie"></i>
                         <span>修課紀錄</span>
                     </a>
-                    <div id="collapse7" class="collapse"  data-parent="#accordionSidebar">
+                    <div id="collapse_11" class="collapse">
                         <div class="bg-white py-2 collapse-inner rounded">
                                 <a class="collapse-item"
                                     href="/">
@@ -430,15 +379,15 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse8">
+                    <a class="nav-link py-2 pb-3 collapsed" href="#" data-toggle="collapse" data-target="#collapse_12">
                         <i class="fas fa-user-tie"></i>
                         <span>個人資料管理</span>
                     </a>
-                    <div id="collapse8" class="collapse"  data-parent="#accordionSidebar">
+                    <div id="collapse_12" class="collapse">
                         <div class="bg-white py-2 collapse-inner rounded">
                                 <a class="collapse-item"
                                     href="/">
-                                    學生個人資料編輯
+                                    個人資料編輯
                                 </a>
 
                                 <a class="collapse-item"
@@ -464,14 +413,10 @@
 
     <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
             <!-- Main Content -->
             <div id="content">
-
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-
                     <!-- Sidebar Toggle (Topbar) -->
                     <button  type="button" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
@@ -480,50 +425,21 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto align-items-center">
                         @if(Auth::check())
-                            <li class="nav-item">@if(Auth::user()->role == "staff")
-                                    <a class="btn btn-success text-white maintenance">維護模式</a>
-                                @endif
+                            <li class="nav-item">
                             </li>
 
-                            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                            {{-- <li class="nav-item dropdown no-arrow d-sm-none">
-                                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-search fa-fw"></i>
-                                </a>
-                                <!-- Dropdown - Messages -->
-                                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                     aria-labelledby="searchDropdown">
-                                    <form class="form-inline mr-auto w-100 navbar-search">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control bg-light border-0 small"
-                                                   placeholder="Search for..." aria-label="Search"
-                                                   aria-describedby="basic-addon2">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary" type="button">
-                                                    <i class="fas fa-search fa-sm"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li> --}}
-
                             <div class="topbar-divider d-none d-sm-block"></div>
-
-
-                            <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{Auth::user()->name}}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <!-- <a href="#" class="dropdown-item"><i class="fa fa-user"
-                                            style="margin-right: 7px;"></i>Profile</a>
+                                    <a href="#" class="dropdown-item"><i class="fa fa-user"
+                                            style="margin-right: 7px;"></i>修改個人資料</a>
                                     <a href="#" class="dropdown-item"><i class="fa fa-cog"
-                                            style="margin-right: 5px;"></i>Settings</a>
-                                    <div class="dropdown-divider"></div> -->
+                                            style="margin-right: 5px;"></i>更改密碼</a>
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -532,10 +448,6 @@
                                 </div>
                             </li>
                         @endif
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                              document.getElementById('logout-form').submit();">
-                         <i class="fa fa-sign-out-alt" style="margin-right: 5px;"></i>登出
                      </a>
                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                          @csrf
@@ -550,7 +462,6 @@
                 <div id="content">
                     @yield('content')
                 </div>
-                <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
@@ -560,7 +471,6 @@
     </div>
     <!-- End of Page Wrapper -->
 
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="topbar">
         <div class="container">
             <button type="button" id="sidebarCollapse" class="btn btn-info">
@@ -569,7 +479,7 @@
             </button>
 
             <div class="navbar-brand">
-                店家管理系統
+                中山醫學大學USR資訊平台
             </div>
 
             @if(Auth::check())
