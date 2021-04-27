@@ -95,7 +95,7 @@
                 <hr class="sidebar-divider">
                 <!-- Heading -->
                 <div class="sidebar-heading">
-                    高教深耕
+                    USR
                 </div>
 
                 <!-- Nav Item - Pages Collapse Menu -->
@@ -602,7 +602,9 @@
 </div>
 
 <!-- Scripts -->
-<script src="{{ mix('js/app.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
@@ -621,55 +623,6 @@
         $("body").addClass("sidebar-toggled");
         $("#accordionSidebar").addClass("toggled");
     }
-
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-
-    // href="/maintenance
-    let maintenance_btn = document.querySelector(".maintenance");
-    if(maintenance_btn){
-        maintenance_btn.addEventListener("click", function () {
-            swal({
-                title: "您確定要進入維護模式？",
-                text: "進入維護模式後任何人都無法進入該網站，亦無法自己解除，需要聯絡技術團隊才能解除維護模式。",
-                icon: "warning",
-                buttons: {
-                    ok: "確定",
-                    cancel: "取消",
-                },
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        swal({
-                            title: "再次確認要進入維護模式？",
-                            text: "進入維護模式後任何人都無法進入該網站，亦無法自己解除，需要聯絡技術團隊才能解除維護模式。",
-                            icon: "warning",
-                            buttons: {
-                                ok: "確定",
-                                cancel: "取消",
-                            },
-                            dangerMode: true,
-                        })
-                            .then((willDelete) => {
-                                if (willDelete) {
-                                    axios.get('/maintenance')
-                                        .then(function (response) {
-                                            window.onbeforeunload = null;
-                                            window.location.reload();
-                                        })
-                                        .catch((error) => {
-                                            window.onbeforeunload = null;
-                                            window.location.reload();
-                                        })
-                                }
-                            });
-                    }
-                });
-        });
-    }
-
 </script>
 @yield('js')
 </body>
