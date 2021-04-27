@@ -8,17 +8,17 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">高教深耕計畫-{{$page->name}}</h3>
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">高教深耕計畫-{{$page->name}}</h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
                         <form class="form-horizontal" method="post" action="/admin/plan_page/update/{{$page->id}}">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group">
-                                <label for="content" class="col-xs-1 control-label">內文</label>
-                                <div class="col-xs-11">
+                                <label for="content" class="col-sm-1 control-label">內文</label>
+                                <div class="col-sm-11">
                                     <textarea class="summernote" id="main_content" name="main_content">{{$page->content}}</textarea>
                                 </div>
                             </div>
@@ -26,7 +26,7 @@
                             <hr>
 
                             <div class="form-group">
-                                <div class="col-xs-12 text-center">
+                                <div class="col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">送出</button>
                                 </div>
                             </div>

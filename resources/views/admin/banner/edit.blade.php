@@ -8,21 +8,21 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Banner管理 － 編輯圖片</h3>
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Banner管理 － 編輯圖片</h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
                         <form class="form-horizontal" method="post" action="/admin/banner/update/{{$list->id}}" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group">
-                                <label for="sort" class="col-xs-1 control-label">權重</label>
-                                <div class="col-xs-5">
+                                <label for="sort" class="col-sm-1 control-label">權重</label>
+                                <div class="col-sm-5">
                                     <input type="number" class="form-control" id="sort" name="sort" step="1" min="1" value="{{$list->sort}}">
                                 </div>
-                                <label for="slider_a_href" class="col-xs-1 control-label">超連結</label>
-                                <div class="col-xs-5">
+                                <label for="slider_a_href" class="col-sm-1 control-label">超連結</label>
+                                <div class="col-sm-5">
                                     <input type="text" class="form-control" id="slider_a_href" name="slider_a_href" value="{{$list->slider_a_href}}">
                                 </div>
                             </div>
@@ -30,8 +30,8 @@
                             <hr>
 
                             <div class="form-group">
-                                <label for="slider_alt" class="col-xs-1 control-label">圖片替代文字(alt)</label>
-                                <div class="col-xs-11">
+                                <label for="slider_alt" class="col-sm-1 control-label">圖片替代文字(alt)</label>
+                                <div class="col-sm-11">
                                     <input type="text" class="form-control" id="slider_alt" name="slider_alt" value="{{$list->slider_alt}}">
                                 </div>
                             </div>
@@ -39,8 +39,8 @@
                             <hr>
 
                             <div class="form-group">
-                                <label class="col-xs-1 control-label">目前圖片</label>
-                                <div class="col-xs-11">
+                                <label class="col-sm-1 control-label">目前圖片</label>
+                                <div class="col-sm-11">
                                     <img width="250px" src="{{$list->slider_url}}" alt="{{$list->slider_alt}}"/>
                                 </div>
                             </div>
@@ -48,8 +48,8 @@
                             <hr>
 
                             <div class="form-group">
-                                <label for="upload_file" class="col-xs-1 control-label">上傳圖片</label>
-                                <div class="col-xs-11">
+                                <label for="upload_file" class="col-sm-1 control-label">上傳圖片</label>
+                                <div class="col-sm-11">
                                     <input type="file" class="form-control" id="upload_file" name="upload_file">
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
 
                             <hr>
                             <div class="form-group">
-                                <div class="col-xs-12 text-center">
+                                <div class="col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">送出</button>
                                 </div>
                             </div>

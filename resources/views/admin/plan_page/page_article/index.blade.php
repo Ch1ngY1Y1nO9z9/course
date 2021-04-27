@@ -1,17 +1,17 @@
 @extends('layouts.app')
 @section('css')
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/b-1.5.1/b-html5-1.5.1/r-2.2.1/datatables.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 @endsection
 
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">高教深耕計畫 - 相關法規管理</h3>
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">高教深耕計畫 - 相關法規管理</h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
                         <a class="btn btn-success" href="/admin/plan_article/create">新增檔案</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
@@ -52,7 +52,8 @@
 @section('js')
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/b-1.5.1/b-html5-1.5.1/r-2.2.1/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#table').DataTable();

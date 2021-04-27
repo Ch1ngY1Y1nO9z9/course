@@ -159,7 +159,7 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-12 col-md-6">
+        <div class="col-sm-12 col-md-6">
             <div class="sen4">
                 <div class="sen4_top" style="position: relative">
                     <img class="img-fluid" src="/imgs/panel_video_title2.png" alt="修平 高教深耕 影音集錦 標題">
@@ -177,7 +177,7 @@
             </div>
         </div>
 
-        <div class="col-xs-12 col-md-6">
+        <div class="col-sm-12 col-md-6">
             <div class="sen3">
                 <div class="sen3_top">
                     <img class="img-fluid" src="/imgs/panel_video_title1.png" alt="修平 高教深耕 活動紀錄 標題">

@@ -7,12 +7,12 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">高教深耕計畫-{{$page->name}}-管理</h3>
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">高教深耕計畫-{{$page->name}}-管理</h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
                         <form class="form-horizontal" method="post" action="/admin/plan_page/update/{{$page->id}}">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
@@ -24,7 +24,7 @@
                         <hr>
 
                         <div class="form-group">
-                            <div class="col-xs-12 text-center">
+                            <div class="col-sm-12 text-center">
                                 <button type="submit" class="btn btn-success">更新</button>
                             </div>
                         </div>
