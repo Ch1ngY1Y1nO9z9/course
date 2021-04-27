@@ -63,16 +63,34 @@ $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-//$this->get('register', 'Auth\RegisterController@showRegistrationForm');
-//$this->post('register', 'Auth\RegisterController@register');
+$this->get('register', 'Auth\RegisterController@showRegistrationForm');
+$this->post('register', 'Auth\RegisterController@register');
 
 // Password Reset Routes...
-//$this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
-//$this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
-//$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
-//$this->post('password/reset', 'Auth\ResetPasswordController@reset');
+// $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+// $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+// $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+// $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+// 學生
+Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
+    //reset password
+    $this->get('/reset_password', 'AdminController@get_reset_password');
+    $this->post('/reset_password', 'AdminController@reset_password');
 
 
+});
+
+// 教師
+Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
+    //reset password
+    $this->get('/reset_password', 'AdminController@get_reset_password');
+    $this->post('/reset_password', 'AdminController@reset_password');
+
+});
+
+
+// 管理員
 Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     //reset password
     $this->get('/reset_password', 'AdminController@get_reset_password');
