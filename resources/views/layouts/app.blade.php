@@ -25,6 +25,10 @@
     <link rel="stylesheet" href="/css/layouts.css">
     <link rel="stylesheet" href="/css/table.css">
     <style>
+        .card-title {
+            font-size: 20px;
+            margin-bottom: 0;
+        }
         .sidebar_arrow {
             position: relative;
         }
