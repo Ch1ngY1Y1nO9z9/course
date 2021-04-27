@@ -11,7 +11,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">高教深耕計畫管理 - 相關法規管理 - 新增</h3>
+                        <h3 class="card-title">USR計畫管理 - 相關法規管理 - 新增</h3>
                     </div>
                     <div class="card-body">
                         <form class="form-horizontal" method="post" action="/admin/plan_article/store" enctype="multipart/form-data">

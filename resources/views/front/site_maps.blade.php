@@ -73,7 +73,7 @@
     <div class="content container-fluid" style="margin-top: 30px">
         <ul class="cascading">
             <li>
-                <a href="#" title="修平科技大學 高教深耕計畫">高教深耕計畫</a>
+                <a href="#" title="中山醫學大學科技大學 USR計畫">USR計畫</a>
                 <ul>
                     <li>
                         <a href="/plan_architecture" title="計畫架構">1. 計畫架構</a>
@@ -94,7 +94,7 @@
             </li>
 
             <li>
-                <a href="#" title="修平科技大學 高教深耕計畫">網站總覽</a>
+                <a href="#" title="中山醫學大學科技大學 USR計畫">網站總覽</a>
                 <ul>
                     <li>
                         <a href="/news" title="最新消息">1. 最新消息</a>

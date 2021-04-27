@@ -38,9 +38,9 @@
                     @foreach($article->download_files as $file)
                         <a style="margin-right: 5px" href="{{$file->url}}" download="{{$file->old_filename}}">
                             @if($file->ext == 'docx' || $file->ext == 'doc' ||$file->ext == 'odt')
-                                <img class="img-fluid" width="40" src="/imgs/word-01.png" alt="修平 高教深耕計畫 相關法律">
+                                <img class="img-fluid" width="40" src="/imgs/word-01.png" alt="中山醫學大學 USR計畫 相關法律">
                             @elseif($file->ext == 'pdf')
-                                <img class="img-fluid" width="40" src="/imgs/pdf-01.png" alt="修平 高教深耕計畫 相關法律">
+                                <img class="img-fluid" width="40" src="/imgs/pdf-01.png" alt="中山醫學大學 USR計畫 相關法律">
                             @else
                                 <button class="btn btn-sm btn-outline-info">{{$file->old_filename}}</button>
                             @endif

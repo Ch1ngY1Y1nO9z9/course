@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">高教深耕計畫 - 相關法規管理</h3>
+                        <h3 class="card-title">USR計畫 - 相關法規管理</h3>
                     </div>
                     <div class="card-body">
                         <a class="btn btn-success" href="/admin/plan_article/create">新增檔案</a>

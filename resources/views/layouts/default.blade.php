@@ -271,7 +271,7 @@
                 <a href="/">回到首頁</a>
             </li>
             <li>
-                <a href="http://www.hust.edu.tw/">修平首頁</a>
+                <a href="http://www.hust.edu.tw/">中山醫學大學首頁</a>
             </li>
             <li>
                 <a href="/site_maps">網站地圖</a>
@@ -282,7 +282,7 @@
         </ul>
         <div class="logo">
             <a href="/">
-                <img class="img-fluid" src="/imgs/LOGO-HUST.gif" alt="修平科技大學 高等教育深耕計畫">
+                <img class="img-fluid" src="/imgs/LOGO-HUST.gif" alt="中山醫學大學科技大學 高等教育深耕計畫">
             </a>
         </div>
     </div>
@@ -291,7 +291,7 @@
 <nav id="mobile-nav" class="navbar navbar-expand-xl navbar-light" style="background-color: #fff">
     <div class="container">
         <a class="navbar-brand" href="/" style="max-width: calc(100% - 80px);">
-            <img class="img-fluid" src="/imgs/logo.gif" alt="修平科技大學 高等教育深耕計畫">
+            <img class="img-fluid" src="/imgs/logo.gif" alt="中山醫學大學科技大學 高等教育深耕計畫">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -341,7 +341,7 @@
                     <img class="img-fluid" src="/imgs/nav_news.png"
                          onmouseover="this.src='/imgs/nav_news_hover.png';"
                          onmouseout="this.src='/imgs/nav_news.png';"
-                         alt="修平 高教深耕 最新消息">
+                         alt="中山醫學大學 USR 最新消息">
                     <p>最新消息</p>
                 </div>
             </a>
@@ -352,7 +352,7 @@
                     <img class="img-fluid" src="/imgs/nav_plan_results.png"
                          onmouseover="this.src='/imgs/nav_plan_results_hover.png';"
                          onmouseout="this.src='/imgs/nav_plan_results.png';"
-                         alt="修平 高教深耕 計畫成果">
+                         alt="中山醫學大學 USR 計畫成果">
                     <p>計畫成果</p>
                 </div>
             </a>
@@ -363,7 +363,7 @@
                     <img class="img-fluid" src="/imgs/nav_video.png"
                          onmouseover="this.src='/imgs/nav_video_hover.png';"
                          onmouseout="this.src='/imgs/nav_video.png';"
-                         alt="修平 高教深耕 影音專區">
+                         alt="中山醫學大學 USR 影音專區">
                     <p>影音專區</p>
                 </div>
             </a>
@@ -374,7 +374,7 @@
                     <img class="img-fluid" src="/imgs/nav_activity_calendar.png"
                          onmouseover="this.src='/imgs/nav_activity_calendar_hover.png';"
                          onmouseout="this.src='/imgs/nav_activity_calendar.png';"
-                         alt="修平 高教深耕 活動行事曆">
+                         alt="中山醫學大學 USR 活動行事曆">
                     <p>活動行事曆</p>
                 </div>
             </a>
@@ -385,7 +385,7 @@
                     <img class="img-fluid" src="/imgs/nav_honors.png"
                          onmouseover="this.src='/imgs/nav_honors_hover.png';"
                          onmouseout="this.src='/imgs/nav_honors.png';"
-                         alt="修平 高教深耕 師生榮譽榜">
+                         alt="中山醫學大學 USR 師生榮譽榜">
                     <p>師生榮譽榜</p>
                 </div>
             </a>
@@ -396,7 +396,7 @@
                     <img class="img-fluid" src="/imgs/nav_downloads.png"
                          onmouseover="this.src='/imgs/nav_downloads_hover.png';"
                          onmouseout="this.src='/imgs/nav_downloads.png';"
-                         alt="修平 高教深耕 下載專區">
+                         alt="中山醫學大學 USR 下載專區">
                     <p>下載專區</p>
                 </div>
             </a>
@@ -406,7 +406,7 @@
                 <img class="img-fluid" src="/imgs/nav_publicity_area.png"
                      onmouseover="this.src='/imgs/nav_publicity_area_hover.png';"
                      onmouseout="this.src='/imgs/nav_publicity_area.png';"
-                     alt="修平 高教深耕 宣傳專區">
+                     alt="中山醫學大學 USR 宣傳專區">
                 <p>宣傳專區</p>
 
                 <div class="li7-collapse">
@@ -430,13 +430,13 @@
                 </div>
             @endforeach
             {{--<div class="swiper-slide">--}}
-                {{--<img class="img-fluid" src="/imgs/banner1.jpg" alt="修平 高教深耕 首頁輪播圖片">--}}
+                {{--<img class="img-fluid" src="/imgs/banner1.jpg" alt="中山醫學大學 USR 首頁輪播圖片">--}}
             {{--</div>--}}
             {{--<div class="swiper-slide">--}}
-                {{--<img class="img-fluid" src="/imgs/banner2.jpg" alt="修平 高教深耕 首頁輪播圖片">--}}
+                {{--<img class="img-fluid" src="/imgs/banner2.jpg" alt="中山醫學大學 USR 首頁輪播圖片">--}}
             {{--</div>--}}
             {{--<div class="swiper-slide">--}}
-                {{--<img class="img-fluid" src="/imgs/banner3.jpg" alt="修平 高教深耕 首頁輪播圖片">--}}
+                {{--<img class="img-fluid" src="/imgs/banner3.jpg" alt="中山醫學大學 USR 首頁輪播圖片">--}}
             {{--</div>--}}
         </div>
         <!-- Add Arrows -->
@@ -455,14 +455,14 @@
             <div class="col-md-3 main_left flex-column">
                 <div class="meun">
                     <div class="menu1">
-                        <img class="img-fluid" src="/imgs/menu02-01.png" alt="修平 高教深耕計畫 標題">
+                        <img class="img-fluid" src="/imgs/menu02-01.png" alt="中山醫學大學 USR計畫 標題">
                     </div>
                     <div class="menu2">
                         <a href="/plan_architecture" title="計畫架構">
                             <img class="img-fluid" src="/imgs/menu02-02.png"
                                  onmouseover="this.src='/imgs/menu02-02_hover.png';"
                                  onmouseout="this.src='/imgs/menu02-02.png';"
-                                 alt="修平 高教深耕計畫 計畫架構">
+                                 alt="中山醫學大學 USR計畫 計畫架構">
                         </a>
                     </div>
                     <div class="menu3">
@@ -470,7 +470,7 @@
                             <img class="img-fluid" src="/imgs/menu02-03.png"
                                  onmouseover="this.src='/imgs/menu02-03_hover.png';"
                                  onmouseout="this.src='/imgs/menu02-03.png';"
-                                 alt="修平 高教深耕計畫 計畫主軸">
+                                 alt="中山醫學大學 USR計畫 計畫主軸">
                         </a>
                     </div>
                     <div class="menu4">
@@ -478,7 +478,7 @@
                             <img class="img-fluid" src="/imgs/menu02-04.png"
                                  onmouseover="this.src='/imgs/menu02-04_hover.png';"
                                  onmouseout="this.src='/imgs/menu02-04.png';"
-                                 alt="修平 高教深耕計畫 計畫管考">
+                                 alt="中山醫學大學 USR計畫 計畫管考">
                         </a>
                     </div>
                     <div class="menu5">
@@ -486,7 +486,7 @@
                             <img class="img-fluid" src="/imgs/menu02-05.png"
                                  onmouseover="this.src='/imgs/menu02-05_hover.png';"
                                  onmouseout="this.src='/imgs/menu02-05.png';"
-                                 alt="修平 高教深耕計畫 團隊介紹">
+                                 alt="中山醫學大學 USR計畫 團隊介紹">
                         </a>
                     </div>
                     <div class="menu6">
@@ -494,7 +494,7 @@
                             <img class="img-fluid" src="/imgs/menu02-06.png"
                                  onmouseover="this.src='/imgs/menu02-06_hover.png';"
                                  onmouseout="this.src='/imgs/menu02-06.png';"
-                                 alt="修平 高教深耕計畫 相關法規">
+                                 alt="中山醫學大學 USR計畫 相關法規">
                         </a>
                     </div>
                 </div>
@@ -541,7 +541,7 @@
         <p>網站瀏覽人數：<span>{{$countNumbers}}</span></p>
         <p>地址：412-80台中市大里區工業路11號&nbsp;&nbsp;統一編號：52006700</p>
         <p>電話：+886-4-2496-1100．FAX：+886-4-2496-1187</p>
-        <p>網站維護：修平高等教育深耕計畫人員</p>
+        <p>網站維護：中山醫學大學高等教育深耕計畫人員</p>
         <p>Copyright © 2018, Hsiuping University of Science and Technology - All rights reserved</p>
     </div>
 

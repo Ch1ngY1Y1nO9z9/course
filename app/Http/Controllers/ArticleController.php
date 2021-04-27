@@ -559,7 +559,7 @@ class ArticleController extends Controller
     }
     #endregion
 
-    #region 高教深耕計畫
+    #region USR計畫
     public function plan_page_index($id){
         if($id > 0 && $id <6){
             $page = PlanPage::find($id);
@@ -672,7 +672,7 @@ class ArticleController extends Controller
         $value-> save();
     }
 
-    //高教深耕計畫-上傳檔案
+    //USR計畫-上傳檔案
     public function plan_upload_file($file,$id){
         $allowed_extensions = ["png", "jpg", "gif", "PNG", "JPG", "GIF","doc","docx","xls"."xlsx","pdf",'DOC',"DOCX","XLS","XLSX","PDF"];
         if ($file->getClientOriginalExtension() &&

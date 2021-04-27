@@ -223,7 +223,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
         Route::post('/delete/{id}', 'ImageNewsController@important_delete');
     });
 
-    //高教深耕計畫
+    //USR計畫
     Route::group(['prefix' => 'plan_page'],function (){
         Route::get('/{id}','ArticleController@plan_page_index');
         Route::get('/edit/{id}','ArticleController@plan_page_edit');

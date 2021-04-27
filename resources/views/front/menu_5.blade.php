@@ -26,9 +26,9 @@
                     <td>
                         @foreach($list->download_files as $file)
                             @if($file->ext == 'doc' ||$file->ext == 'docx')
-                                <a href="{{$file->url}}" download="{{$file->old_filename}}"><img class="img-fluid" src="/imgs/word-01.png" alt="修平 高教深耕計畫 相關法律"></a>
+                                <a href="{{$file->url}}" download="{{$file->old_filename}}"><img class="img-fluid" src="/imgs/word-01.png" alt="中山醫學大學 USR計畫 相關法律"></a>
                             @elseif($file->ext == 'pdf')
-                                <a href="{{$file->url}}" download="{{$file->old_filename}}"><img class="img-fluid" src="/imgs/pdf-01.png" alt="修平 高教深耕計畫 相關法律"></a>
+                                <a href="{{$file->url}}" download="{{$file->old_filename}}"><img class="img-fluid" src="/imgs/pdf-01.png" alt="中山醫學大學 USR計畫 相關法律"></a>
                             @else
                                 <a href="{{$file->url}}">{{$file->old_filename}}</a>
                             @endif

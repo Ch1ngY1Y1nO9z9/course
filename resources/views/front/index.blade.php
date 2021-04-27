@@ -92,7 +92,7 @@
 @section('content')
     <div class="sen1">
         <div class="sen1_top" title="師生榮譽榜">
-            <img height="63" src="/imgs/panel_honors_title.png" alt="修平 高教深耕 師生榮譽榜 標題">
+            <img height="63" src="/imgs/panel_honors_title.png" alt="中山醫學大學 USR 師生榮譽榜 標題">
         </div>
         <div class="sen1_bottom">
             <ul>
@@ -112,12 +112,12 @@
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" title="最新消息">
                     <a class="active" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="true">
-                        <img class="img-fluid" src="/imgs/panel_news_title.png" alt="修平 高教深耕 最新消息 標題">
+                        <img class="img-fluid" src="/imgs/panel_news_title.png" alt="中山醫學大學 USR 最新消息 標題">
                     </a>
                 </li>
                 <li class="nav-item" title="計畫成果">
                     <a id="plan-tab" data-toggle="tab" href="#plan" role="tab" aria-controls="plan" aria-selected="false">
-                        <img class="img-fluid" src="/imgs/panel_plan_title.png" alt="修平 高教深耕 計畫成果 標題">
+                        <img class="img-fluid" src="/imgs/panel_plan_title.png" alt="中山醫學大學 USR 計畫成果 標題">
                     </a>
                 </li>
             </ul>
@@ -162,7 +162,7 @@
         <div class="col-sm-12 col-md-6">
             <div class="sen4">
                 <div class="sen4_top" style="position: relative">
-                    <img class="img-fluid" src="/imgs/panel_video_title2.png" alt="修平 高教深耕 影音集錦 標題">
+                    <img class="img-fluid" src="/imgs/panel_video_title2.png" alt="中山醫學大學 USR 影音集錦 標題">
                     <a style="position: absolute;right: 20px;top: 20px;font-size: 16px;color: white;letter-spacing: 1px;" href="https://hesphust.hust.edu.tw/video">MORE</a>
                 </div>
 
@@ -180,7 +180,7 @@
         <div class="col-sm-12 col-md-6">
             <div class="sen3">
                 <div class="sen3_top">
-                    <img class="img-fluid" src="/imgs/panel_video_title1.png" alt="修平 高教深耕 活動紀錄 標題">
+                    <img class="img-fluid" src="/imgs/panel_video_title1.png" alt="中山醫學大學 USR 活動紀錄 標題">
                 </div>
                 <div class="sen3_bottom" style="height: 300px">
                     <div id="images-banner" class="swiper-container">
