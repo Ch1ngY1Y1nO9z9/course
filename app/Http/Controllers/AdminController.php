@@ -76,4 +76,9 @@ class AdminController extends Controller
 
         return redirect()->back()->with('status', '更新Youtube連結成功！');
     }
+
+    public function dashboard()
+    {
+        return view('admin.dashboard');
+    }
 }

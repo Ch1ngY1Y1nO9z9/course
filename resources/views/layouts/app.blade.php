@@ -234,26 +234,41 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed py-2" href="/admin/">
+                    <a class="nav-link collapsed py-2" href="/admin/dashboard">
                         <i class="fas fa-file-signature"></i>
                         <span>儀表板</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link collapsed py-2" href="/admin/">
+                    <a class="nav-link collapsed py-2" href="/admin/class_announcement">
                         <i class="fas fa-file-signature"></i>
                         <span>課程公告管理</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link py-2 collapsed" href="/admin/">
+                    <a class="nav-link collapsed pt-2 pb-3" href="#" data-toggle="collapse" data-target="#collapse_class">
                         <i class="fas fa-file-signature"></i>
                         <span>課程管理</span>
                     </a>
+                    <div id="collapse_class" class="collapse">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                                <a class="collapse-item" href="/admin/class">
+                                    課程管理
+                                </a>
+
+                                <a class="collapse-item" href="/admin/class_review">
+                                    審核課程
+                                </a>
+
+                                <a class="collapse-item" href="/admin/fail">
+                                    已撤下課程
+                                </a>
+                        </div>
+                    </div>
                 </li>
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed py-2" href="/admin/">
+                    <a class="nav-link collapsed py-2" href="/admin/students">
                         <i class="fas fa-file-signature"></i>
                         <span>學生修課紀錄</span>
                     </a>
@@ -290,7 +305,7 @@
     
                     <!-- Nav Item - Pages Collapse Menu -->
                     <li class="nav-item">
-                        <a class="nav-link py-2 pt-3 collapsed" href="/admin/">
+                        <a class="nav-link py-2 pt-3 collapsed" href="/admin/dashboard">
                             <i class="fas fa-file-signature"></i>
                             <span>儀表板</span>
                         </a>
@@ -335,7 +350,7 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link py-2 pt-3 collapsed" href="/admin/">
+                    <a class="nav-link py-2 pt-3 collapsed" href="/admin/dashboard">
                         <i class="fas fa-file-signature"></i>
                         <span>儀表板</span>
                     </a>

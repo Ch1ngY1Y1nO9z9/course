@@ -78,6 +78,8 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     $this->get('/reset_password', 'AdminController@get_reset_password');
     $this->post('/reset_password', 'AdminController@reset_password');
 
+    // dashboard
+    $this->get('/dashboard', 'AdminController@dashboard');
 
 });
 
@@ -87,6 +89,8 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     $this->get('/reset_password', 'AdminController@get_reset_password');
     $this->post('/reset_password', 'AdminController@reset_password');
 
+    // dashboard
+    $this->get('/dashboard', 'AdminController@dashboard');
 });
 
 
@@ -95,6 +99,33 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     //reset password
     $this->get('/reset_password', 'AdminController@get_reset_password');
     $this->post('/reset_password', 'AdminController@reset_password');
+
+    // dashboard
+    $this->get('/dashboard', 'AdminController@dashboard');
+
+    // class_announcement
+    Route::get('/class_announcement', 'ClassAnnouncementController@index');
+    Route::get('/class_announcement/create', 'ClassAnnouncementController@create');
+    Route::get('/class_announcement/edit/{id}', 'ClassAnnouncementController@edit');
+
+    // class
+    Route::get('/class', 'ClassController@index');
+    Route::get('/class/create', 'ClassController@create');
+    Route::get('/class/check/{id}', 'ClassController@check');
+    Route::get('/class/edit/{id}', 'ClassController@edit');
+    // class_review
+    Route::get('/class_review', 'ClassController@review');
+    Route::get('/class_review/check/{id}', 'ClassController@review_check');
+    Route::get('/class_review/pass/{id}', 'ClassController@review_pass');
+
+    // fail
+    Route::get('/fail', 'ClassController@fail');
+    Route::get('/fail/check/{id}', 'ClassController@fail_check');
+
+    // students
+    Route::get('/students', 'StudentsController@index');
+    Route::get('/students/detail/{id}', 'StudentsController@detail');
+    Route::get('/students/detail/{id}/class_detail/{class}', 'StudentsController@class_detail');
 
     //upload image
     Route::post('/img/post','AdminController@image_post');

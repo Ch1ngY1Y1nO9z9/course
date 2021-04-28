@@ -9,37 +9,44 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">USR計畫 - 相關法規管理</h3>
+                        <h3 class="card-title">課程公告管理</h3>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/plan_article/create">新增檔案</a>
+                        <a class="btn btn-success" href="/admin/class_announcement/create">新增公告</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
                                 <th>文章標題</th>
-                                <th>檔案</th>
+                                <th>建立日期</th>
+                                <th>最後更新日期</th>
                                 <th>功能</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($lists as $list)
+
                                 <tr>
-                                    <td>{{$list->title}}</td>
                                     <td>
-                                        @foreach($list->download_files as $file)
-                                                <a class="btn btn-default btn-xs" href="{{$file->url}}" download="{{$file->old_filename}}">{{$file->old_filename}}</a>
-                                        @endforeach
+                                        110學年度私立醫學校院聯合招考轉學生招生簡章公告
+                                    </td>
+                                    <td>
+                                        2021-04-28
+                                    </td>
+                                    <td>
+                                        2021-04-29
                                     </td>
                                     <td width="170">
-                                        <a class="btn btn-sm btn-success" href="/admin/plan_article/edit/{{$list->id}}">編輯</a>
-                                        <button class="btn btn-sm btn-danger" data-listid="{{$list->id}}">刪除</button>
-                                        <form class="delete-form" action="/admin/plan_article/delete/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                        <button class="btn btn-sm btn-primary" data-listid="">置頂</button>
+                                        <form class="to_top-form" action="" method="POST" style="display: none;" data-listid="">
+                                            {{ csrf_field() }}
+                                        </form>
+                                        <a class="btn btn-sm btn-success" href="/admin/class_announcement/edit/1">編輯</a>
+                                        <button class="btn btn-sm btn-danger" data-listid="1">刪除</button>
+                                        <form class="delete-form" action="/admin/class_announcement/delete/1" method="POST" style="display: none;" data-listid="1">
                                             {{ csrf_field() }}
                                         </form>
                                     </td>
                                 </tr>
-                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -57,7 +64,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[2,'desc']],
+                "order": [[3,'desc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",
@@ -84,17 +91,17 @@
 
         $('.btn-danger').click(function(){
             var listid = $(this).data("listid");
-            if (confirm('確認是否刪除此文章？')){
+            if (confirm('確認是否刪除此公告？')){
                 event.preventDefault();
-                $('.delete-form[data-listid="' + listid + '"]').submit();
+                // $('.delete-form[data-listid="' + listid + '"]').submit();
             }
         });
 
         $('.btn-primary').click(function(){
             var listid = $(this).data("listid");
-            if (confirm('確認是否變更置頂此文章？')){
+            if (confirm('確認是否變更置頂此公告？')){
                 event.preventDefault();
-                $('.to_top-form[data-listid="' + listid + '"]').submit();
+                // $('.to_top-form[data-listid="' + listid + '"]').submit();
             }
         });
     </script>
