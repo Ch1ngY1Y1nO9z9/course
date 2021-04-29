@@ -9,17 +9,19 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">學生修課紀錄</h3>
+                        <h3 class="card-title">已撤下課程</h3>
                     </div>
                     <div class="card-body">
-
-                        <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>姓名(學號)</th>
-                                <th>總學分</th>
+                                <th>課程類別</th>
+                                <th>課程名稱</th>
+                                <th>課程日期</th>
                                 <th>總時數</th>
+                                <th>可報名/已報名</th>
+                                <th>報名期限</th>
+                                <th>審核狀態</th>
                                 <th>功能</th>
                             </tr>
                             </thead>
@@ -27,20 +29,30 @@
 
                                 <tr>
                                     <td>
-                                        王某某
+                                        授課
                                     </td>
                                     <td>
-                                        180
+                                        微積分
                                     </td>
                                     <td>
-                                        2000
+                                        2021-07-24 08:00<br>
+                                        2021-07-29 12:00
+                                    </td>
+                                    <td>
+                                        18
+                                    </td>
+                                    <td>
+                                        20 / 20
+                                    </td>
+                                    <td>
+                                        2021-06-24 08:00<br>
+                                        2021-06-29 17:00
+                                    </td>
+                                    <td>
+                                        審核不通過
                                     </td>
                                     <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/students/detail/1312312">檢視</a>
-                                        {{-- <button class="btn btn-sm btn-danger" data-listid="1">刪除</button>
-                                        <form class="delete-form" action="/admin/class/delete/1" method="POST" style="display: none;" data-listid="1">
-                                            {{ csrf_field() }}
-                                        </form> --}}
+                                        <a class="btn btn-sm btn-primary" href="/admin/teacher/fail/check/1">檢視</a>
                                     </td>
                                 </tr>
                             </tbody>

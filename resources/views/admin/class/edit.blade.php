@@ -45,7 +45,7 @@
                                         <option selected>授課</option>
                                         <option>講座</option>
                                         <option>工作坊</option>
-                                        <option>時做活動</option>
+                                        <option>實作活動</option>
                                       </select>
                                 </div>
                             </div>

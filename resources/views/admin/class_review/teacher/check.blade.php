@@ -10,7 +10,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">課程管理 - 檢視</h3>
+                        <h3 class="card-title">審核課程 - 檢視</h3>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
@@ -20,7 +20,9 @@
                                 </a>
                             </div>
                         </div>
+                        
                         <hr>
+
                         <div class="form-group row">
                             <label for="slider_a_href" class="col-sm-2 control-label">課程名稱</label>
                             <div class="col-sm-10">

@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">審核課程</h3>
+                        <h3 class="card-title">修課紀錄</h3>
                     </div>
                     <div class="card-body">
                         <table id="table" class="table table-bordered table-striped table-hover">
@@ -19,9 +19,8 @@
                                 <th>課程名稱</th>
                                 <th>課程日期</th>
                                 <th>總時數</th>
-                                <th>可報名/已報名</th>
-                                <th>報名期限</th>
-                                <th>審核狀態</th>
+                                <th>缺課次數</th>
+                                <th>成績</th>
                                 <th>功能</th>
                             </tr>
                             </thead>
@@ -32,35 +31,23 @@
                                         授課
                                     </td>
                                     <td>
-                                        普通生物學實驗
+                                        應用物理學
                                     </td>
                                     <td>
-                                        2021-06-24 08:00<br>
-                                        2021-06-29 12:00
+                                        2021-05-24 08:00<br>
+                                        2021-05-29 12:00
                                     </td>
                                     <td>
                                         18
                                     </td>
                                     <td>
-                                        20 / 20
+                                        20 / 3
                                     </td>
                                     <td>
-                                        2021-05-24 08:00<br>
-                                        2021-05-29 17:00
+                                        60
                                     </td>
-                                    <td>
-                                        待審核
-                                    </td>
-                                    <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/class_review/check/1">檢視</a>
-                                        <button class="btn btn-sm btn-success" data-listid="1">通過</button>
-                                        <form class="pass-form" action="/admin/class_review/pass/1" method="POST" style="display: none;" data-listid="1">
-                                            {{ csrf_field() }}
-                                        </form>
-                                        <button class="btn btn-sm btn-danger" data-listid="1">不通過</button>
-                                        <form class="delete-form" action="/admin/class_review/delete/1" method="POST" style="display: none;" data-listid="1">
-                                            {{ csrf_field() }}
-                                        </form>
+                                    <td width="200">
+                                        <a class="btn btn-sm btn-primary" href="/admin/student/course_records/check/1">檢視</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -107,20 +94,10 @@
 
         $('.btn-danger').click(function(){
             var listid = $(this).data("listid");
-            if (confirm('確認不通過此課程？')){
+            if (confirm('確認取消報名？')){
                 event.preventDefault();
                 // $('.delete-form[data-listid="' + listid + '"]').submit();
             }
         });
-
-        $('.btn-success').click(function(){
-            var listid = $(this).data("listid");
-            if (confirm('確認通過此課程？')){
-                event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
-            }
-        });
-
-
     </script>
 @endsection

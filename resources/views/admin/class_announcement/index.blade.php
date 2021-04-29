@@ -17,9 +17,11 @@
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>文章標題</th>
-                                <th>建立日期</th>
-                                <th>最後更新日期</th>
+                                <th>類別</th>
+                                <th>標題</th>
+                                <th>開始日期</th>
+                                <th>結束日期</th>
+                                <th>更新日期</th>
                                 <th>功能</th>
                             </tr>
                             </thead>
@@ -27,10 +29,16 @@
 
                                 <tr>
                                     <td>
+                                        招生公告
+                                    </td>
+                                    <td>
                                         110學年度私立醫學校院聯合招考轉學生招生簡章公告
                                     </td>
                                     <td>
                                         2021-04-28
+                                    </td>
+                                    <td>
+                                        2021-05-29
                                     </td>
                                     <td>
                                         2021-04-29

@@ -268,27 +268,10 @@
                 </li>
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed py-2" href="/admin/students">
+                    <a class="nav-link collapsed py-2" href="/admin/course">
                         <i class="fas fa-file-signature"></i>
                         <span>學生修課紀錄</span>
                     </a>
-                </li>
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed pt-2 pb-3" href="#" data-toggle="collapse" data-target="#collapse_6">
-                        <i class="fas fa-user-tie"></i>
-                        <span>帳號管理</span>
-                    </a>
-                    <div id="collapse_6" class="collapse">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="/">
-                                教師帳號管理
-                            </a>
-                            <a class="collapse-item" href="/">
-                                學生帳號管理
-                            </a>
-                        </div>
-                    </div>
                 </li>
             @endif
 
@@ -311,31 +294,26 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-2 collapsed" href="/admin/">
+                        <a class="nav-link collapsed pt-2 pb-3" href="#" data-toggle="collapse" data-target="#collapse_class">
                             <i class="fas fa-file-signature"></i>
                             <span>課程管理</span>
                         </a>
-                    </li>
-                    <!-- Nav Item - Pages Collapse Menu -->
-                        <li class="nav-item">
-                            <a class="nav-link py-2 pb-3 collapsed" href="#" data-toggle="collapse" data-target="#collapse_8">
-                                <i class="fas fa-user-tie"></i>
-                                <span>個人資料管理</span>
-                            </a>
-                            <div id="collapse_8" class="collapse">
-                                <div class="bg-white py-2 collapse-inner rounded">
-                                        <a class="collapse-item"
-                                           href="/">
-                                           個人資料編輯
-                                        </a>
+                        <div id="collapse_class" class="collapse">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                    <a class="collapse-item" href="/admin/teacher/class">
+                                        課程管理
+                                    </a>
     
-                                        <a class="collapse-item"
-                                           href="/">
-                                           修改密碼
-                                        </a>
-                                </div>
+                                    <a class="collapse-item" href="/admin/teacher/class_review">
+                                        審核課程
+                                    </a>
+    
+                                    <a class="collapse-item" href="/admin/teacher/fail">
+                                        已撤下課程
+                                    </a>
                             </div>
-                        </li>
+                        </div>
+                    </li>
                 @endif
 
             {{-- 學生端 --}}
@@ -356,7 +334,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link py-2 collapsed" href="/admin/">
+                    <a class="nav-link py-2 collapsed" href="/admin/student/class_announcement">
                         <i class="fas fa-file-signature"></i>
                         <span>課程公告</span>
                     </a>
@@ -369,7 +347,7 @@
                     <div id="collapse_10" class="collapse">
                         <div class="bg-white py-2 collapse-inner rounded">
                                 <a class="collapse-item"
-                                    href="/">
+                                    href="/admin/student/course">
                                     課程列表
                                 </a>
                         </div>
@@ -377,44 +355,10 @@
                 </li>
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link py-2 collapsed" href="#" data-toggle="collapse" data-target="#collapse_11">
-                        <i class="fas fa-user-tie"></i>
+                    <a class="nav-link py-2 pt-3 collapsed" href="/admin/student/course_records">
+                        <i class="fas fa-file-signature"></i>
                         <span>修課紀錄</span>
                     </a>
-                    <div id="collapse_11" class="collapse">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item"
-                                    href="/">
-                                    修課紀錄
-                                </a>
-
-                                <a class="collapse-item"
-                                    href="/">
-                                    線上簽到
-                                </a>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link py-2 pb-3 collapsed" href="#" data-toggle="collapse" data-target="#collapse_12">
-                        <i class="fas fa-user-tie"></i>
-                        <span>個人資料管理</span>
-                    </a>
-                    <div id="collapse_12" class="collapse">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item"
-                                    href="/">
-                                    個人資料編輯
-                                </a>
-
-                                <a class="collapse-item"
-                                    href="/">
-                                    修改密碼
-                                </a>
-                        </div>
-                    </div>
                 </li>
             @endif
 

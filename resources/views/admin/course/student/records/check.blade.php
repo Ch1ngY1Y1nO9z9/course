@@ -10,7 +10,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">課程管理 - 檢視</h3>
+                        <h3 class="card-title">修課紀錄 - 檢視</h3>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
@@ -24,21 +24,14 @@
                         <div class="form-group row">
                             <label for="slider_a_href" class="col-sm-2 control-label">課程名稱</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="slider_a_href" name="slider_a_href" value="普通生物學實驗" readonly>
+                                <input type="text" class="form-control" id="slider_a_href" name="slider_a_href" value="應用物理學" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="slider_a_href" class="col-sm-2 control-label">課程英文名稱</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="slider_a_href" name="slider_a_href" value="General Biology Laboratory" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="slider_a_href" class="col-sm-2 control-label">經費來源</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="slider_a_href" name="slider_a_href" readonly>
+                                <input type="text" class="form-control" id="slider_a_href" name="slider_a_href" value="Applied Physics" readonly>
                             </div>
                         </div>
 
@@ -86,32 +79,14 @@
                         <div class="form-group row">
                             <label for="slider_a_href" class="col-sm-2 control-label">課程開始日期</label>
                             <div class="col-sm-10">
-                                <input type="datetime-local" class="form-control" id="slider_a_href" name="slider_a_href" value="2021-06-24T08:00" readonly>
+                                <input type="datetime-local" class="form-control" id="slider_a_href" name="slider_a_href" value="2021-05-24T08:00" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="slider_a_href" class="col-sm-2 control-label">課程結束日期</label>
                             <div class="col-sm-10">
-                                <input type="datetime-local" class="form-control" id="slider_a_href" name="slider_a_href" value="2021-06-29T12:00" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="slider_a_href" class="col-sm-2 control-label">是否提供報名?</label>
-                            <div class="col-sm-10">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked disabled>
-                                    <label class="form-check-label" for="exampleRadios1">
-                                        是
-                                    </label>
-                                    </div>
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" disabled>
-                                    <label class="form-check-label" for="exampleRadios2">
-                                        否
-                                    </label>
-                                    </div>
+                                <input type="datetime-local" class="form-control" id="slider_a_href" name="slider_a_href" value="2021-05-29T12:00" readonly>
                             </div>
                         </div>
                         
@@ -125,14 +100,14 @@
                         <div class="form-group row">
                             <label for="slider_a_href" class="col-sm-2 control-label">報名開始日期</label>
                             <div class="col-sm-10">
-                                <input type="datetime-local" class="form-control" id="slider_a_href" name="slider_a_href" value="2021-05-24T08:00" readonly>
+                                <input type="datetime-local" class="form-control" id="slider_a_href" name="slider_a_href" value="2021-04-24T08:00" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="slider_a_href" class="col-sm-2 control-label">報名結束日期</label>
                             <div class="col-sm-10">
-                                <input type="datetime-local" class="form-control" id="slider_a_href" name="slider_a_href" value="2021-05-29T17:00" readonly>
+                                <input type="datetime-local" class="form-control" id="slider_a_href" name="slider_a_href" value="2021-04-29T17:00" readonly>
                             </div>
                         </div>
 
@@ -193,13 +168,6 @@
                             <label for="upload_file" class="col-sm-2 control-label">附件</label>
                             <div class="col-sm-10">
                                 <input type="file" class="form-control" id="upload_file" name="upload_file" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="slider_a_href" class="col-sm-2 control-label">備註</label>
-                            <div class="col-sm-10">
-                                <textarea id="main_content" name="main_content" class="form-control" rows="6" placeholder="供審核人員查看, 其他人無法看見" readonly></textarea>
                             </div>
                         </div>
                     </div>

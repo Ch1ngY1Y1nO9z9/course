@@ -11,8 +11,13 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">課程管理 - 檢視</h3>
+                        
                     </div>
                     <div class="card-body">
+                        <a class="btn btn-primary" href="/admin/teacher/class/check/1/students">查看選課名單</a>
+                        <a class="btn btn-success" href="/admin/teacher/class/check/1/rollCall">線上點名</a>
+                        <a class="btn btn-info" href="/admin/teacher/class/check/1/rollCall_records">查看點名紀錄</a>
+                        <hr>
                             <div class="form-group row">
                                 <label for="slider_a_href" class="col-sm-2 control-label">課程名稱</label>
                                 <div class="col-sm-10">
@@ -42,7 +47,7 @@
                                         <option selected>授課</option>
                                         <option>講座</option>
                                         <option>工作坊</option>
-                                        <option>時做活動</option>
+                                        <option>實作活動</option>
                                       </select>
                                 </div>
                             </div>
@@ -199,7 +204,7 @@
 
                             <div class="form-group row">
                                 <div class="col-sm-12 text-center">
-                                    <a href="javascript:history.back()">
+                                    <a href="/admin/class">
                                         <button type="submit" class="btn btn-success">返回</button>
                                     </a>
                                 </div>

@@ -17,6 +17,20 @@
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
                             <div class="form-group row">
+                                <label for="slider_a_href" class="col-sm-2 control-label">課程類別</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="exampleFormControlSelect2">
+                                        <option hidden>-</option>
+                                        <option selected>系統公告</option>
+                                        <option>調課公告</option>
+                                        <option>業務公告</option>
+                                        <option>招生公告</option>
+                                        <option>活動公告</option>
+                                      </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="slider_a_href" class="col-sm-2 control-label">標題</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="slider_a_href" name="slider_a_href">
@@ -29,6 +43,27 @@
                                     <textarea class="summernote" id="main_content" name="main_content">
 
                                     </textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="slider_a_href" class="col-sm-2 control-label">地點</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="slider_a_href" name="slider_a_href">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="slider_a_href" class="col-sm-2 control-label">開始日期</label>
+                                <div class="col-sm-10">
+                                    <input type="date" class="form-control" id="slider_a_href" name="slider_a_href">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="slider_a_href" class="col-sm-2 control-label">結束日期</label>
+                                <div class="col-sm-10">
+                                    <input type="date" class="form-control" id="slider_a_href" name="slider_a_href">
                                 </div>
                             </div>
 

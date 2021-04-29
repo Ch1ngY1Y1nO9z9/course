@@ -9,19 +9,18 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">審核課程</h3>
+                        <h3 class="card-title">王某某 - 修課紀錄</h3>
                     </div>
                     <div class="card-body">
+                        <a class="btn btn-success" href="javascript:history.back()">返回上頁</a>
+                        <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>課程類別</th>
                                 <th>課程名稱</th>
                                 <th>課程日期</th>
-                                <th>總時數</th>
-                                <th>可報名/已報名</th>
-                                <th>報名期限</th>
-                                <th>審核狀態</th>
+                                <th>學分</th>
+                                <th>時數</th>
                                 <th>功能</th>
                             </tr>
                             </thead>
@@ -29,38 +28,24 @@
 
                                 <tr>
                                     <td>
-                                        授課
+                                        應用物理學
                                     </td>
                                     <td>
-                                        普通生物學實驗
+                                        2021-05-24 08:00<br>
+                                        2021-05-29 12:00
                                     </td>
                                     <td>
-                                        2021-06-24 08:00<br>
-                                        2021-06-29 12:00
+                                        2
                                     </td>
                                     <td>
                                         18
                                     </td>
-                                    <td>
-                                        20 / 20
-                                    </td>
-                                    <td>
-                                        2021-05-24 08:00<br>
-                                        2021-05-29 17:00
-                                    </td>
-                                    <td>
-                                        待審核
-                                    </td>
                                     <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/class_review/check/1">檢視</a>
-                                        <button class="btn btn-sm btn-success" data-listid="1">通過</button>
-                                        <form class="pass-form" action="/admin/class_review/pass/1" method="POST" style="display: none;" data-listid="1">
+                                        <a class="btn btn-sm btn-primary" href="/admin/course/detail/1/class_detail/1">檢視</a>
+                                        {{-- <button class="btn btn-sm btn-danger" data-listid="1">刪除</button>
+                                        <form class="delete-form" action="/admin/class/delete/1" method="POST" style="display: none;" data-listid="1">
                                             {{ csrf_field() }}
-                                        </form>
-                                        <button class="btn btn-sm btn-danger" data-listid="1">不通過</button>
-                                        <form class="delete-form" action="/admin/class_review/delete/1" method="POST" style="display: none;" data-listid="1">
-                                            {{ csrf_field() }}
-                                        </form>
+                                        </form> --}}
                                     </td>
                                 </tr>
                             </tbody>
@@ -104,23 +89,6 @@
                 }
             });
         } );
-
-        $('.btn-danger').click(function(){
-            var listid = $(this).data("listid");
-            if (confirm('確認不通過此課程？')){
-                event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
-            }
-        });
-
-        $('.btn-success').click(function(){
-            var listid = $(this).data("listid");
-            if (confirm('確認通過此課程？')){
-                event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
-            }
-        });
-
 
     </script>
 @endsection

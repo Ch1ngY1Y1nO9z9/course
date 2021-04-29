@@ -12,8 +12,6 @@
                         <h3 class="card-title">已撤下課程</h3>
                     </div>
                     <div class="card-body">
-
-                        <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>

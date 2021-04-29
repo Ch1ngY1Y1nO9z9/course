@@ -5,51 +5,41 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ClassController extends Controller
+class TeacherClassController extends Controller
 {
     public function index()
     {
-        if(Auth::user()->role === 'admin'){
-            return view('admin.class.index');
-        }else{
+        if(Auth::user()->role === 'student'){
             return redirect('/admin/dashboard');
+        }else{
+            return view('admin.class.teacher.index');
         }
     }
 
     public function create()
     {
-        if(Auth::user()->role === 'admin'){
-            return view('admin.class.create');
-        }else{
+        if(Auth::user()->role === 'student'){
             return redirect('/admin/dashboard');
+        }else{
+            return view('admin.class.teacher.create');
         }
     }
 
     public function check($id)
     {
-        if(Auth::user()->role === 'admin'){
-            return view('admin.class.check');
-        }else{
+        if(Auth::user()->role === 'student'){
             return redirect('/admin/dashboard');
+        }else{
+            return view('admin.class.teacher.check');
         }
     }
 
-    public function edit($id)
-    {
-        if(Auth::user()->role === 'admin'){
-            return view('admin.class.edit');
-        }else{
-            return redirect('/admin/dashboard');
-        }
-    }
-
-    
     public function check_students($id)
     {
         if(Auth::user()->role === 'student'){
             return redirect('/admin/dashboard');
         }else{
-            return view('admin.class.check_students');
+            return view('admin.class.teacher.check_students');
         }
     }
 
@@ -58,7 +48,7 @@ class ClassController extends Controller
         if(Auth::user()->role === 'student'){
             return redirect('/admin/dashboard');
         }else{
-            return view('admin.class.roll_call');
+            return view('admin.class.teacher.roll_call');
         }
     }
 
@@ -67,7 +57,7 @@ class ClassController extends Controller
         if(Auth::user()->role === 'student'){
             return redirect('/admin/dashboard');
         }else{
-            return view('admin.class.roll_call_records');
+            return view('admin.class.teacher.roll_call_records');
         }
     }
 
@@ -76,45 +66,55 @@ class ClassController extends Controller
         if(Auth::user()->role === 'student'){
             return redirect('/admin/dashboard');
         }else{
-            return view('admin.class.roll_call_records_check');
+            return view('admin.class.teacher.roll_call_records_check');
         }
     }
 
     public function review()
     {
-        if(Auth::user()->role === 'admin'){
-            return view('admin.class_review.index');
-        }else{
+        if(Auth::user()->role === 'student'){
             return redirect('/admin/dashboard');
+        }else{
+            return view('admin.class_review.teacher.index');
         }
     }
-
+    
     public function review_check($id)
     {
-        if(Auth::user()->role === 'admin'){
-            return view('admin.class_review.check');
-        }else{
+        if(Auth::user()->role === 'student'){
             return redirect('/admin/dashboard');
+        }else{
+            return view('admin.class_review.teacher.check');
         }
     }
 
-    
+    public function review_edit($id)
+    {
+        if(Auth::user()->role === 'student'){
+            return redirect('/admin/dashboard');
+        }else{
+            return view('admin.class_review.teacher.edit');
+        }
+    }
+
     public function fail()
     {
-        if(Auth::user()->role === 'admin'){
-            return view('admin.class_fail.index');
-        }else{
+        if(Auth::user()->role === 'student'){
             return redirect('/admin/dashboard');
+        }else{
+            return view('admin.class_fail.teacher.index');
         }
     }
 
     public function fail_check($id)
     {
-        if(Auth::user()->role === 'admin'){
-            return view('admin.class_fail.check');
-        }else{
+        if(Auth::user()->role === 'student'){
             return redirect('/admin/dashboard');
+        }else{
+            return view('admin.class_fail.teacher.check');
         }
     }
+
+
 
 }

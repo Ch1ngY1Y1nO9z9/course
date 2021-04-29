@@ -113,6 +113,11 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     Route::get('/class/create', 'ClassController@create');
     Route::get('/class/check/{id}', 'ClassController@check');
     Route::get('/class/edit/{id}', 'ClassController@edit');
+    Route::get('/class/check/{id}/students', 'ClassController@check_students');
+    Route::get('/class/check/{id}/rollCall', 'ClassController@rollCall');
+    Route::get('/class/check/{id}/rollCall_records', 'ClassController@rollCall_records');
+    Route::get('/class/check/{id}/rollCall_records/check', 'ClassController@rollCall_records_check');
+
     // class_review
     Route::get('/class_review', 'ClassController@review');
     Route::get('/class_review/check/{id}', 'ClassController@review_check');
@@ -122,10 +127,41 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     Route::get('/fail', 'ClassController@fail');
     Route::get('/fail/check/{id}', 'ClassController@fail_check');
 
-    // students
-    Route::get('/students', 'StudentsController@index');
-    Route::get('/students/detail/{id}', 'StudentsController@detail');
-    Route::get('/students/detail/{id}/class_detail/{class}', 'StudentsController@class_detail');
+    // course
+    Route::get('/course', 'CourseClassController@index');
+    Route::get('/course/detail/{id}', 'CourseClassController@detail');
+    Route::get('/course/detail/{id}/class_detail/{class}', 'CourseClassController@class_detail');
+
+    // teacher_class
+    Route::get('/teacher/class', 'TeacherClassController@index');
+    Route::get('/teacher/class/create', 'TeacherClassController@create');
+    Route::get('/teacher/class/check/{id}', 'TeacherClassController@check');
+    Route::get('/teacher/class/check/{id}/students', 'TeacherClassController@check_students');
+    Route::get('/teacher/class/check/{id}/rollCall', 'TeacherClassController@rollCall');
+    Route::get('/teacher/class/check/{id}/rollCall_records', 'TeacherClassController@rollCall_records');
+    Route::get('/teacher/class/check/{id}/rollCall_records/check', 'TeacherClassController@rollCall_records_check');
+    // Route::get('/teacher/class/edit/{id}', 'TeacherClassController@edit');
+
+    // teacher_class_review
+    Route::get('/teacher/class_review', 'TeacherClassController@review');
+    Route::get('/teacher/class_review/check/{id}', 'TeacherClassController@review_check');
+    Route::get('/teacher/class_review/edit/{id}', 'TeacherClassController@review_edit');
+
+    // teacher_class_fail
+    Route::get('/teacher/fail', 'TeacherClassController@fail');
+    Route::get('/teacher/fail/check/{id}', 'TeacherClassController@fail_check');
+
+    // student_class_announcement
+    Route::get('/student/class_announcement', 'ClassAnnouncementController@student_index');
+    Route::get('/student/class_announcement/check/{id}', 'ClassAnnouncementController@student_check');
+
+    // student_course
+    Route::get('/student/course', 'CourseClassController@student_index');
+    Route::get('/student/course/check/{id}', 'CourseClassController@student_check');
+
+    // student_course_records
+    Route::get('/student/course_records', 'CourseClassController@records_index');
+    Route::get('/student/course_records/check/{id}', 'CourseClassController@records_check');
 
     //upload image
     Route::post('/img/post','AdminController@image_post');
