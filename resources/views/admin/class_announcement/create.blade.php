@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('css')
-    <link href="/css/summernote.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 @endsection
 
@@ -84,7 +84,7 @@
 @endsection
 
 @section('js')
-    <script src="/js/summernote.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script src="/js/summernote-zh-TW.js"></script>
     <script>
         $.ajaxSetup({

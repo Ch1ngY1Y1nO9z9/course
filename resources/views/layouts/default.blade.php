@@ -282,7 +282,7 @@
         </ul>
         <div class="logo">
             <a href="/">
-                <img class="img-fluid" src="" alt="中山醫學大學科技大學 高等教育深耕計畫">
+                <img class="img-fluid" src="" alt="中山醫學大學科技大學 USR計畫">
             </a>
         </div>
     </div>
@@ -291,7 +291,7 @@
 <nav id="mobile-nav" class="navbar navbar-expand-xl navbar-light" style="background-color: #fff">
     <div class="container">
         <a class="navbar-brand" href="/" style="max-width: calc(100% - 80px);">
-            <img class="img-fluid" src="/imgs/logo.gif" alt="中山醫學大學科技大學 高等教育深耕計畫">
+            <img class="img-fluid" src="/imgs/logo.gif" alt="中山醫學大學科技大學 USR計畫">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -541,7 +541,7 @@
         <p>網站瀏覽人數：<span>{{$countNumbers}}</span></p>
         <p>地址：412-80台中市大里區工業路11號&nbsp;&nbsp;統一編號：52006700</p>
         <p>電話：+886-4-2496-1100．FAX：+886-4-2496-1187</p>
-        <p>網站維護：中山醫學大學高等教育深耕計畫人員</p>
+        <p>網站維護：中山醫學大學USR計畫人員</p>
         <p>Copyright © 2018, Hsiuping University of Science and Technology - All rights reserved</p>
     </div>
 
