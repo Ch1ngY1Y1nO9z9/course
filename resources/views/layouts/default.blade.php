@@ -271,7 +271,7 @@
                 <a href="/">回到首頁</a>
             </li>
             <li>
-                <a href="http://www.hust.edu.tw/">中山醫學大學首頁</a>
+                <a href="/">中山醫學大學首頁</a>
             </li>
             <li>
                 <a href="/site_maps">網站地圖</a>
@@ -282,7 +282,7 @@
         </ul>
         <div class="logo">
             <a href="/">
-                <img class="img-fluid" src="/imgs/LOGO-HUST.gif" alt="中山醫學大學科技大學 高等教育深耕計畫">
+                <img class="img-fluid" src="" alt="中山醫學大學科技大學 高等教育深耕計畫">
             </a>
         </div>
     </div>
