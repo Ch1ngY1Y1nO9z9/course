@@ -413,7 +413,7 @@
                         @endif
                      </a>
                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                         @csrf
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                      </form>
                     </ul>
 
@@ -464,7 +464,7 @@
                                 <i class="fa fa-sign-out-alt" style="margin-right: 5px;"></i>登出
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             </form>
                         </div>
                     </li>
