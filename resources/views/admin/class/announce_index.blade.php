@@ -9,52 +9,67 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">已撤下課程</h3>
+                        <h3 class="card-title">{{$class->class_cn}} - 課程公告</h3>
                     </div>
                     <div class="card-body">
+                        <a class="btn btn-success" href="/admin/class/announce/{{$class->id}}/create">新增公告</a>
+                        <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>課程類別</th>
-                                <th>課程名稱</th>
-                                <th>課程日期</th>
-                                <th>總時數</th>
-                                <th>可報名/已報名</th>
-                                <th>報名期限</th>
-                                <th>審核狀態</th>
+                                <th>標題</th>
+                                <th>內容</th>
+                                <th>上架時間</th>
+                                <th>下架時間</th>
                                 <th>功能</th>
                             </tr>
                             </thead>
                             <tbody>
-
                                 <tr>
                                     <td>
-                                        授課
+                                        [重要通知] 課程改為線上教學
                                     </td>
                                     <td>
-                                        微積分
+                                        因應疫情緣故, 目前此堂課程將改為線上教學, google會議的網址為....
                                     </td>
                                     <td>
-                                        2021-07-24 08:00<br>
-                                        2021-07-29 12:00
+                                        2021/06/14 10:00 am
                                     </td>
                                     <td>
-                                        18
+                                        2021/07/14 00:00 am
                                     </td>
-                                    <td>
-                                        20 / 20
-                                    </td>
-                                    <td>
-                                        2021-06-24 08:00<br>
-                                        2021-06-29 17:00
-                                    </td>
-                                    <td>
-                                        審核不通過
-                                    </td>
-                                    <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/teacher/fail/check/1">檢視</a>
+                                    <td width="150">
+                                        <a class="btn btn-sm btn-success mt-1" href="/admin/class/announce/1/edit">編輯</a>
+                                        <button class="btn btn-sm btn-danger mt-1" data-listid="1">撤下</button>
+                                        <form class="delete-form" action="/admin/class/announce/1/delete" method="POST" style="display: none;" data-listid="1">
+                                            {{ csrf_field() }}
+                                        </form>
                                     </td>
                                 </tr>
+                                @foreach($items as $item)
+                                <tr>
+                                    <td>
+                                        {{$item->title}}
+                                    </td>
+                                    <td>
+                                        {{$item->content}}
+                                    </td>
+                                    <td>
+                                        {{$item->start_date}}
+                                    </td>
+                                    <td>
+                                        {{$item->end_date}}
+                                    </td>
+                                    <td width="150">
+                                        <a class="btn btn-sm btn-primary mt-1" href="/admin/class/check/{{$item->id}}">檢視</a>
+                                        <a class="btn btn-sm btn-success mt-1" href="/admin/class/edit/{{$item->id}}">編輯</a>
+                                        <button class="btn btn-sm btn-danger mt-1" data-listid="{{$item->id}}">撤下</button>
+                                        <form class="delete-form" action="/admin/class/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -72,7 +87,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[3,'desc']],
+                "order": [[2,'asc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",
@@ -101,18 +116,17 @@
             var listid = $(this).data("listid");
             if (confirm('確認是否撤下此課程？')){
                 event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
+                $('.delete-form[data-listid="' + listid + '"]').submit();
             }
         });
 
-        $('.btn-success').click(function(){
+        $('.btn-warning').click(function(){
             var listid = $(this).data("listid");
-            if (confirm('確認是否通過此課程？')){
+            if (confirm('確認是否複製此課程？')){
                 event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
+                $('.copy-form[data-listid="' + listid + '"]').submit();
             }
         });
-
 
     </script>
 @endsection

@@ -81,32 +81,39 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     // dashboard
     $this->get('/dashboard', 'AdminController@dashboard');
 
+    // course
+    Route::get('/course', 'CourseClassController@index');
+    Route::get('/course/detail/{id}', 'CourseClassController@detail');
+    Route::get('/course/detail/{id}/class_detail/{class}', 'CourseClassController@class_detail');
+
+    // student_course
+    Route::get('/student/course', 'CourseClassController@student_index');
+    Route::get('/student/course/check/{id}', 'CourseClassController@student_check');
+
+    // student_course_records
+    Route::get('/student/course_records', 'CourseClassController@records_index');
+    Route::get('/student/course_records/check/{id}', 'CourseClassController@records_check');
+    
+    // student_class_announcement
+    Route::get('/student/class_announcement', 'ClassAnnouncementController@student_index');
+    Route::get('/student/class_announcement/check/{id}', 'ClassAnnouncementController@student_check');
+
 });
 
-// 教師
-Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
+// 管理員&教師
+Route::group(['prefix' => 'admin','middleware' => 'role'], function () {
     //reset password
     $this->get('/reset_password', 'AdminController@get_reset_password');
     $this->post('/reset_password', 'AdminController@reset_password');
-
-    // dashboard
-    $this->get('/dashboard', 'AdminController@dashboard');
-});
-
-
-// 管理員
-Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
-    //reset password
-    $this->get('/reset_password', 'AdminController@get_reset_password');
-    $this->post('/reset_password', 'AdminController@reset_password');
-
-    // dashboard
-    $this->get('/dashboard', 'AdminController@dashboard');
 
     // class_announcement
     Route::get('/class_announcement', 'ClassAnnouncementController@index');
     Route::get('/class_announcement/create', 'ClassAnnouncementController@create');
     Route::get('/class_announcement/edit/{id}', 'ClassAnnouncementController@edit');
+    Route::post('/class_announcement/store', 'ClassAnnouncementController@store');
+    Route::post('/class_announcement/update/{id}', 'ClassAnnouncementController@update');
+    Route::post('/class_announcement/delete/{id}', 'ClassAnnouncementController@delete');
+    Route::post('/class_announcement/totop/{id}', 'ClassAnnouncementController@totop');
 
     // class
     Route::get('/class', 'ClassController@index');
@@ -117,20 +124,30 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     Route::get('/class/check/{id}/rollCall', 'ClassController@rollCall');
     Route::get('/class/check/{id}/rollCall_records', 'ClassController@rollCall_records');
     Route::get('/class/check/{id}/rollCall_records/check', 'ClassController@rollCall_records_check');
+    Route::get('/class/announce/{id}', 'ClassController@announce');
+    Route::get('/class/announce/{id}/create', 'ClassController@announce_create');
+    Route::get('/class/announce/{id}/edit', 'ClassController@announce_edit');
+    Route::get('/class/assessment/{id}', 'ClassController@assessment');
+    Route::get('/class/check/QRCode', 'ClassController@class_QRCode');
+
+    
+    
+    Route::post('class/store', 'ClassController@store');
+    Route::post('class/update/{id}', 'ClassController@update');
+    Route::post('class/delete/{id}', 'ClassController@delete');
+    Route::post('class/copy/{id}', 'ClassController@copy');
+    Route::post('class/announce/store/{id}', 'ClassController@announce_store');
+    Route::post('/class/check/{id}/QRCode_generate', 'ClassController@QRCode_generate');
 
     // class_review
     Route::get('/class_review', 'ClassController@review');
     Route::get('/class_review/check/{id}', 'ClassController@review_check');
-    Route::get('/class_review/pass/{id}', 'ClassController@review_pass');
+    Route::post('/class_review/{id}/{result}', 'ClassController@review_result');
 
     // fail
     Route::get('/fail', 'ClassController@fail');
     Route::get('/fail/check/{id}', 'ClassController@fail_check');
-
-    // course
-    Route::get('/course', 'CourseClassController@index');
-    Route::get('/course/detail/{id}', 'CourseClassController@detail');
-    Route::get('/course/detail/{id}/class_detail/{class}', 'CourseClassController@class_detail');
+    Route::post('fail/delete/{id}', 'ClassController@delete_class');
 
     // teacher_class
     Route::get('/teacher/class', 'TeacherClassController@index');
@@ -143,25 +160,16 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     // Route::get('/teacher/class/edit/{id}', 'TeacherClassController@edit');
 
     // teacher_class_review
-    Route::get('/teacher/class_review', 'TeacherClassController@review');
-    Route::get('/teacher/class_review/check/{id}', 'TeacherClassController@review_check');
-    Route::get('/teacher/class_review/edit/{id}', 'TeacherClassController@review_edit');
+    // Route::get('/teacher/class_review', 'TeacherClassController@review');
+    // Route::get('/teacher/class_review/check/{id}', 'TeacherClassController@review_check');
+    // Route::get('/teacher/class_review/edit/{id}', 'TeacherClassController@review_edit');
 
     // teacher_class_fail
     Route::get('/teacher/fail', 'TeacherClassController@fail');
     Route::get('/teacher/fail/check/{id}', 'TeacherClassController@fail_check');
 
-    // student_class_announcement
-    Route::get('/student/class_announcement', 'ClassAnnouncementController@student_index');
-    Route::get('/student/class_announcement/check/{id}', 'ClassAnnouncementController@student_check');
-
-    // student_course
-    Route::get('/student/course', 'CourseClassController@student_index');
-    Route::get('/student/course/check/{id}', 'CourseClassController@student_check');
-
-    // student_course_records
-    Route::get('/student/course_records', 'CourseClassController@records_index');
-    Route::get('/student/course_records/check/{id}', 'CourseClassController@records_check');
+    // class_assessment
+    Route::get('/class/assessment/{id}', 'ClassController@assessment');
 
     //upload image
     Route::post('/img/post','AdminController@image_post');

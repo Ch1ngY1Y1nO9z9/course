@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">已撤下課程</h3>
+                        <h3 class="card-title">{{Auth::user()->name}} - 已撤下課程</h3>
                     </div>
                     <div class="card-body">
                         <table id="table" class="table table-bordered table-striped table-hover">
@@ -26,35 +26,49 @@
                             </tr>
                             </thead>
                             <tbody>
-
-                                <tr>
-                                    <td>
-                                        授課
-                                    </td>
-                                    <td>
-                                        微積分
-                                    </td>
-                                    <td>
-                                        2021-07-24 08:00<br>
-                                        2021-07-29 12:00
-                                    </td>
-                                    <td>
-                                        18
-                                    </td>
-                                    <td>
-                                        20 / 20
-                                    </td>
-                                    <td>
-                                        2021-06-24 08:00<br>
-                                        2021-06-29 17:00
-                                    </td>
-                                    <td>
-                                        審核不通過
-                                    </td>
-                                    <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/fail/check/1">檢視</a>
-                                    </td>
-                                </tr>
+                                @foreach($items as $item)
+                                    <tr>
+                                        <td>
+                                            {{$item->class_type}}
+                                        </td>
+                                        <td>
+                                            {{$item->class_cn}}
+                                        </td>
+                                        <td>
+                                            {{$item->class_start}}<br>
+                                            {{$item->class_end}}
+                                        </td>
+                                        <td>
+                                            {{$item->total_hours}}
+                                        </td>
+                                        <td>
+                                            <?php
+                                                $sign_up = count(APP\Courses::where('id',$item->id)->get());    
+                                            ?>
+                                            {{$sign_up}} / {{$item->number}}
+                                        </td>
+                                        <td>
+                                            {{$item->sign_up_start_date}}<br>
+                                            {{$item->sign_up_end_date}}
+                                        </td>
+                                        <td>
+                                            {{$item->status}}
+                                        </td>
+                                        <td width="170">
+                                            <a class="btn btn-sm btn-primary" href="/admin/fail/check/{{$item->id}}">檢視</a>
+                                            <button class="btn btn-sm btn-warning text-dark" data-listid="{{$item->id}}">複製此課程內容</button>
+                                            <form class="copy-form" action="/admin/class/copy/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                                {{ csrf_field() }}
+                                            </form>
+                                            @if(Auth::user()->role == 'admin')
+                                                <button class="btn btn-sm btn-danger mt-1" data-listid="{{$item->id}}">刪除課程</button>
+                                                <form class="delete-form" action="/admin/fail/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -99,20 +113,25 @@
 
         $('.btn-danger').click(function(){
             var listid = $(this).data("listid");
-            if (confirm('確認是否撤下此課程？')){
+            if (confirm('確認是否刪除此課程？')){
                 event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
+                $('.delete-form[data-listid="' + listid + '"]').submit();
             }
         });
 
-        $('.btn-success').click(function(){
+        $('.btn-warning').click(function(){
             var listid = $(this).data("listid");
-            if (confirm('確認是否通過此課程？')){
+            if (confirm('確認是否複製此課程？')){
                 event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
+                $('.copy-form[data-listid="' + listid + '"]').submit();
             }
         });
-
 
     </script>
+
+    @if(Session::has('copy_success'))
+        <script>
+            alert('複製完成!記得需重新上傳附件檔案後按更新送出審核!')
+        </script>
+    @endif
 @endsection

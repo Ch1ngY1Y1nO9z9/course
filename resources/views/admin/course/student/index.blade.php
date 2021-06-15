@@ -25,63 +25,51 @@
                             </tr>
                             </thead>
                             <tbody>
-
+                                @foreach($items as $item)
                                 <tr>
                                     <td>
-                                        授課
+                                        {{$item->class_type}}
                                     </td>
                                     <td>
-                                        應用物理學
+                                        {{$item->class_cn}}
                                     </td>
                                     <td>
-                                        2021-05-24 08:00<br>
-                                        2021-05-29 12:00
+                                        <?php
+                                            $start = date("Y-m-d h:i a", strtotime($item->class_start));
+                                            $end = date("Y-m-d h:i a", strtotime($item->class_end));
+                                        ?>
+                                        {{$start}}<br>
+                                        {{$end}}
                                     </td>
                                     <td>
-                                        18
+                                        {{$item->total_hours}}
                                     </td>
                                     <td>
-                                        20 / 20
+                                        <?php
+                                            $sign_up = count(APP\Courses::where('id',$item->id)->get());    
+                                        ?>
+                                        {{$item->number}} / {{$sign_up}}
                                     </td>
                                     <td>
-                                        2021-04-24 08:00<br>
-                                        2021-04-29 17:00
+                                        <?php
+                                            $sign_up_start = date("Y-m-d h:i a", strtotime($item->class_start));
+                                            $sign_up_end = date("Y-m-d h:i a", strtotime($item->class_end));
+                                        ?>
+                                        {{$sign_up_start}}<br>
+                                        {{$sign_up_end}}
                                     </td>
                                     <td width="200">
-                                        <a class="btn btn-sm btn-primary" href="/admin/student/course/check/1">檢視</a>
-                                        <a class="btn btn-sm btn-success" href="/admin/class/edit/1">報名</a>
-                                        <button class="btn btn-sm btn-danger" data-listid="1">取消報名</button>
-                                        <form class="delete-form" action="/admin/class_review/delete/1" method="POST" style="display: none;" data-listid="1">
-                                            {{ csrf_field() }}
-                                        </form>
+                                        <a class="btn btn-sm btn-primary" href="/admin/student/course/check/{{$item->id}}">檢視</a>
+                                        @if(strtotime($date) > strtotime($item->class_start) && strtotime($date) < strtotime($item->sign_up_end_date))
+                                            <a class="btn btn-sm btn-success" href="/admin/class/edit/{{$item->id}}">報名</a>
+                                            <button class="btn btn-sm btn-danger" data-listid="{{$item->id}}">取消報名</button>
+                                            <form class="delete-form" action="/admin/class_review/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        @endif  
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <td>
-                                        授課
-                                    </td>
-                                    <td>
-                                        普通生物學實驗
-                                    </td>
-                                    <td>
-                                        2021-06-24 08:00<br>
-                                        2021-06-29 12:00
-                                    </td>
-                                    <td>
-                                        18
-                                    </td>
-                                    <td>
-                                        未開放報名
-                                    </td>
-                                    <td>
-                                        2021-05-24 08:00<br>
-                                        2021-05-29 17:00
-                                    </td>
-                                    <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/student/course/check/1">檢視</a>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -99,7 +87,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[3,'desc']],
+                "order": [[2,'asc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",

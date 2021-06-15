@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">審核課程</h3>
+                        <h3 class="card-title">{{Auth::user()->name}} - 審核課程</h3>
                     </div>
                     <div class="card-body">
                         <table id="table" class="table table-bordered table-striped table-hover">
@@ -26,43 +26,47 @@
                             </tr>
                             </thead>
                             <tbody>
-
-                                <tr>
-                                    <td>
-                                        授課
-                                    </td>
-                                    <td>
-                                        普通生物學實驗
-                                    </td>
-                                    <td>
-                                        2021-06-24 08:00<br>
-                                        2021-06-29 12:00
-                                    </td>
-                                    <td>
-                                        18
-                                    </td>
-                                    <td>
-                                        20 / 20
-                                    </td>
-                                    <td>
-                                        2021-05-24 08:00<br>
-                                        2021-05-29 17:00
-                                    </td>
-                                    <td>
-                                        待審核
-                                    </td>
-                                    <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/class_review/check/1">檢視</a>
-                                        <button class="btn btn-sm btn-success" data-listid="1">通過</button>
-                                        <form class="pass-form" action="/admin/class_review/pass/1" method="POST" style="display: none;" data-listid="1">
-                                            {{ csrf_field() }}
-                                        </form>
-                                        <button class="btn btn-sm btn-danger" data-listid="1">不通過</button>
-                                        <form class="delete-form" action="/admin/class_review/delete/1" method="POST" style="display: none;" data-listid="1">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </td>
-                                </tr>
+                                @foreach($items as $item)
+                                    <tr>
+                                        <td>
+                                            {{$item->class_type}}
+                                        </td>
+                                        <td>
+                                            {{$item->class_cn}}
+                                        </td>
+                                        <td>
+                                            {{$item->class_start}}<br>
+                                            {{$item->class_end}}
+                                        </td>
+                                        <td>
+                                            {{$item->total_hours}}
+                                        </td>
+                                        <td>
+                                            <?php
+                                                $sign_up = count(APP\Courses::where('id',$item->id)->get());    
+                                            ?>
+                                            {{$sign_up}} / {{$item->number}}
+                                        </td>
+                                        <td>
+                                            {{$item->sign_up_start_date}}<br>
+                                            {{$item->sign_up_end_date}}
+                                        </td>
+                                        <td>
+                                            {{$item->status}}
+                                        </td>
+                                        <td width="170">
+                                            <a class="btn btn-sm btn-primary" href="/admin/class_review/check/{{$item->id}}">檢視</a>
+                                            <button class="btn btn-sm btn-success" data-listid="{{$item->id}}">通過</button>
+                                            <form class="pass-form" action="/admin/class_review/{{$item->id}}/pass" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                                {{ csrf_field() }}
+                                            </form>
+                                            <button class="btn btn-sm btn-danger" data-listid="{{$item->id}}">不通過</button>
+                                            <form class="delete-form" action="/admin/class_review/{{$item->id}}/fail" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -109,7 +113,7 @@
             var listid = $(this).data("listid");
             if (confirm('確認不通過此課程？')){
                 event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
+                $('.delete-form[data-listid="' + listid + '"]').submit();
             }
         });
 
@@ -117,7 +121,7 @@
             var listid = $(this).data("listid");
             if (confirm('確認通過此課程？')){
                 event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
+                $('.pass-form[data-listid="' + listid + '"]').submit();
             }
         });
 

@@ -24,27 +24,29 @@
                             </tr>
                             </thead>
                             <tbody>
-
+                                @foreach($items as $item)
                                 <tr>
                                     <td>
-                                       招生公告
+                                        {{$item->type}}
                                     </td>
                                     <td>
-                                        110學年度私立醫學校院聯合招考轉學生招生簡章公告
+                                        {{$item->title}}
                                     </td>
                                     <td>
-                                        2021-04-28
+                                        {{$item->start_date}}
                                     </td>
                                     <td>
-                                        2021-05-29
+                                        {{$item->end_date}}
                                     </td>
                                     <td>
-                                        2021-04-29
+                                        <?php $updated_at = date("Y-m-d", strtotime($item->updated_at)); ?>
+                                        {{$updated_at}}
                                     </td>
                                     <td width="100">
-                                        <a class="btn btn-sm btn-primary" href="/admin/student/class_announcement/check/1">檢視</a>
+                                        <a class="btn btn-sm btn-primary" href="/admin/student/class_announcement/check/{{$item->id}}">檢視</a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -62,7 +64,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[3,'desc']],
+                "order": [[2,'desc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",

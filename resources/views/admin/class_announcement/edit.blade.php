@@ -13,58 +13,56 @@
                         <h3 class="card-title">課程公告 - 編輯</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="/admin/class_announcement/update/1">
+                        <form class="form-horizontal" method="post" action="/admin/class_announcement/update/{{$item->id}}">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-                            
                             <div class="form-group row">
-                                <label for="slider_a_href" class="col-sm-2 control-label">課程類別</label>
+                                <label for="type" class="col-sm-2 control-label">公告類別</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" id="exampleFormControlSelect2">
-                                        <option hidden>-</option>
-                                        <option >系統公告</option>
-                                        <option>調課公告</option>
-                                        <option>業務公告</option>
-                                        <option selected>招生公告</option>
-                                        <option>活動公告</option>
+                                    <select class="form-control" id="type" name="type">
+                                        <option @if($item->type == '系列公告') selected @endif>系統公告</option>
+                                        <option @if($item->type == '調課公告') selected @endif>調課公告</option>
+                                        <option @if($item->type == '業務公告') selected @endif>業務公告</option>
+                                        <option @if($item->type == '招生公告') selected @endif>招生公告</option>
+                                        <option @if($item->type == '活動公告') selected @endif>活動公告</option>
                                       </select>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="slider_a_href" class="col-sm-2 control-label">標題</label>
+                                <label for="title" class="col-sm-2 control-label">標題</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="slider_a_href" name="slider_a_href" value="110學年度私立醫學校院聯合招考轉學生招生簡章公告">
+                                    <input type="text" class="form-control" id="title" name="title" value="{{$item->title}}" required>
                                 </div>
                             </div>
                             
                             <div class="form-group row">
-                                <label for="slider_a_href" class="col-sm-2 control-label">內文</label>
+                                <label for="content" class="col-sm-2 control-label">內文</label>
                                 <div class="col-sm-10">
-                                    <textarea class="summernote" id="main_content" name="main_content">
-
+                                    <textarea class="summernote" id="content" name="content" required>
+                                        {!! $item->content !!}
                                     </textarea>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="slider_a_href" class="col-sm-2 control-label">地點</label>
+                                <label for="location" class="col-sm-2 control-label">地點</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="slider_a_href" name="slider_a_href" value="行政大樓">
+                                    <input type="text" class="form-control" id="location" name="location" value="{{$item->location}}">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="slider_a_href" class="col-sm-2 control-label">開始日期</label>
+                                <label for="start_date" class="col-sm-2 control-label">開始日期</label>
                                 <div class="col-sm-10">
-                                    <input type="date" class="form-control" id="slider_a_href" name="slider_a_href" value="2021-04-28">
+                                    <input type="date" class="form-control" id="start_date" name="start_date" value="{{$item->start_date}}" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="slider_a_href" class="col-sm-2 control-label">結束日期</label>
+                                <label for="end_date" class="col-sm-2 control-label">結束日期</label>
                                 <div class="col-sm-10">
-                                    <input type="date" class="form-control" id="slider_a_href" name="slider_a_href" value="2021-05-29">
+                                    <input type="date" class="form-control" id="end_date" name="end_date" value="{{$item->end_date}}" required>
                                 </div>
                             </div>
 

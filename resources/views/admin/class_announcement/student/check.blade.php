@@ -18,50 +18,51 @@
                         </a>
                         <hr>
                         <div class="form-group row">
-                            <label for="slider_a_href" class="col-sm-2 control-label">類別</label>
+                            <label class="col-sm-2 control-label">類別</label>
                             <div class="col-sm-10">
-                                招生公告
+                                {{$item->type}}
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="slider_a_href" class="col-sm-2 control-label">標題</label>
+                            <label class="col-sm-2 control-label">標題</label>
                             <div class="col-sm-10">
-                                110學年度私立醫學校院聯合招考轉學生招生簡章公告
-                            </div>
-                        </div>
-                        
-                        <div class="form-group row">
-                            <label for="slider_a_href" class="col-sm-2 control-label">內文</label>
-                            <div class="col-sm-10">
-
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="slider_a_href" class="col-sm-2 control-label">地點</label>
-                            <div class="col-sm-10">
-                                行政大樓
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="slider_a_href" class="col-sm-2 control-label">開始日期</label>
-                            <div class="col-sm-10">
-                                2021-04-28
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="slider_a_href" class="col-sm-2 control-label">結束日期</label>
-                            <div class="col-sm-10">
-                                2021-05-29
+                                {{$item->title}}
                             </div>
                         </div>
                         
                         <div class="form-group row">
-                            <label for="slider_a_href" class="col-sm-2 control-label">更新日期</label>
+                            <label class="col-sm-2 control-label">內文</label>
                             <div class="col-sm-10">
-                                2021-04-29
+                                {!! $item->content !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">地點</label>
+                            <div class="col-sm-10">
+                                {{$item->location}}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">開始日期</label>
+                            <div class="col-sm-10">
+                                {{$item->start_date}}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">結束日期</label>
+                            <div class="col-sm-10">
+                                {{$item->end_date}}
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">更新日期</label>
+                            <div class="col-sm-10">
+                                <?php $updated_at = date("Y-m-d", strtotime($item->updated_at)); ?>
+                                {{$updated_at}}
                             </div>
                         </div>
                     </div>

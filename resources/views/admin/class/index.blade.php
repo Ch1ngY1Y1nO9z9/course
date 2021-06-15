@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">課程管理</h3>
+                        <h3 class="card-title">{{Auth::user()->name}} - 課程管理</h3>
                     </div>
                     <div class="card-body">
                         <a class="btn btn-success" href="/admin/class/create">新增課程</a>
@@ -28,40 +28,49 @@
                             </tr>
                             </thead>
                             <tbody>
-
+                                @foreach($items as $item)
                                 <tr>
                                     <td>
-                                        授課
+                                        {{$item->class_type}}
                                     </td>
                                     <td>
-                                        應用物理學
+                                        {{$item->class_cn}}
                                     </td>
                                     <td>
-                                        2021-05-24 08:00<br>
-                                        2021-05-29 12:00
+                                        {{$item->class_start}}<br>
+                                        {{$item->class_end}}
                                     </td>
                                     <td>
-                                        18
+                                        {{$item->total_hours}}
                                     </td>
                                     <td>
-                                        20 / 20
+                                        <?php
+                                            $sign_up = count(APP\Courses::where('id',$item->id)->get());    
+                                        ?>
+                                        {{$sign_up}} / {{$item->number}}
                                     </td>
                                     <td>
-                                        2021-04-24 08:00<br>
-                                        2021-04-29 17:00
+                                        {{$item->sign_up_start_date}}<br>
+                                        {{$item->sign_up_end_date}}
                                     </td>
                                     <td>
-                                        審核通過
+                                        {{$item->status}}
                                     </td>
-                                    <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/class/check/1">檢視</a>
-                                        <a class="btn btn-sm btn-success" href="/admin/class/edit/1">編輯</a>
-                                        <button class="btn btn-sm btn-danger" data-listid="1">撤下</button>
-                                        <form class="delete-form" action="/admin/class/delete/1" method="POST" style="display: none;" data-listid="1">
+                                    <td width="150">
+                                        <a class="btn btn-sm btn-primary mt-1" href="/admin/class/check/{{$item->id}}">檢視</a>
+                                        <a class="btn btn-sm btn-success mt-1" href="/admin/class/edit/{{$item->id}}">編輯</a>
+                                        <button class="btn btn-sm btn-danger mt-1" data-listid="{{$item->id}}">撤下</button>
+                                        <form class="delete-form" action="/admin/class/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                            {{ csrf_field() }}
+                                        </form>
+                                        <a class="btn btn-sm btn-secondary mt-1" href="/admin/class/assessment/{{$item->id}}">期末評量</a>
+                                        <button class="btn btn-sm btn-warning mt-1 text-dark" data-listid="{{$item->id}}">複製</button>
+                                        <form class="copy-form" action="/admin/class/copy/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -79,7 +88,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[3,'desc']],
+                "order": [[2,'asc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",
@@ -106,11 +115,25 @@
 
         $('.btn-danger').click(function(){
             var listid = $(this).data("listid");
-            if (confirm('確認是否刪除此課程？')){
+            if (confirm('確認是否撤下此課程？')){
                 event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
+                $('.delete-form[data-listid="' + listid + '"]').submit();
+            }
+        });
+
+        $('.btn-warning').click(function(){
+            var listid = $(this).data("listid");
+            if (confirm('確認是否複製此課程？')){
+                event.preventDefault();
+                $('.copy-form[data-listid="' + listid + '"]').submit();
             }
         });
 
     </script>
+
+    @if(Session::has('copy_success'))
+        <script>
+            alert('複製完成!記得需重新上傳附件檔案後按更新送出審核!')
+        </script>
+    @endif
 @endsection

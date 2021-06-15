@@ -9,19 +9,17 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">李某某 - 審核課程</h3>
+                        <h3 class="card-title">{{Auth::user()->name}} - 課程管理</h3>
                     </div>
                     <div class="card-body">
+                        <a class="btn btn-success" href="/admin/class">返回課程管理</a>
+                        <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>課程類別</th>
                                 <th>課程名稱</th>
-                                <th>課程日期</th>
-                                <th>總時數</th>
-                                <th>可報名/已報名</th>
-                                <th>報名期限</th>
-                                <th>審核狀態</th>
+                                <th>QR Code</th>
+                                <th>開放時間</th>
                                 <th>功能</th>
                             </tr>
                             </thead>
@@ -29,31 +27,20 @@
 
                                 <tr>
                                     <td>
-                                        授課
+                                        {{$class->class_cn}}
                                     </td>
                                     <td>
-                                        普通生物學實驗
+                                        <img src="/{{$qrcode->qrcode_path}}" alt="">
                                     </td>
                                     <td>
-                                        2021-06-24 08:00<br>
-                                        2021-06-29 12:00
+                                        {{$qrcode->time}} 分
                                     </td>
-                                    <td>
-                                        18
-                                    </td>
-                                    <td>
-                                        20 / 20
-                                    </td>
-                                    <td>
-                                        2021-05-24 08:00<br>
-                                        2021-05-29 17:00
-                                    </td>
-                                    <td>
-                                        待審核
-                                    </td>
-                                    <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/teacher/class_review/check/1">檢視</a>
-                                        <a class="btn btn-sm btn-success" href="/admin/teacher/class_review/edit/1">編輯</a>
+                                    <td width="150">
+                                        {{-- <a class="btn btn-sm btn-success mt-1" href="/admin/class/edit/1">編輯</a> --}}
+                                        <button class="btn btn-sm btn-danger mt-1" data-listid="1">取消</button>
+                                        <form class="delete-form" action="/admin/class/delete/1" method="POST" style="display: none;" data-listid="1">
+                                            {{ csrf_field() }}
+                                        </form>
                                     </td>
                                 </tr>
                             </tbody>
@@ -73,7 +60,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[3,'desc']],
+                "order": [[2,'asc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",
@@ -97,6 +84,15 @@
                 }
             });
         } );
+
+        $('.btn-danger').click(function(){
+            var listid = $(this).data("listid");
+            if (confirm('確認是否提前取消點名？')){
+                event.preventDefault();
+                $('.delete-form[data-listid="' + listid + '"]').submit();
+            }
+        });
+
 
     </script>
 @endsection

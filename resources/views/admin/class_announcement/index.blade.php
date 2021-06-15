@@ -26,35 +26,44 @@
                             </tr>
                             </thead>
                             <tbody>
-
+                                @foreach($items as $item)
                                 <tr>
                                     <td>
-                                        招生公告
+                                        {{$item->type}}
                                     </td>
                                     <td>
-                                        110學年度私立醫學校院聯合招考轉學生招生簡章公告
+                                        {{$item->title}}
                                     </td>
                                     <td>
-                                        2021-04-28
+                                        {{$item->start_date}}
                                     </td>
                                     <td>
-                                        2021-05-29
+                                        {{$item->end_date}}
                                     </td>
                                     <td>
-                                        2021-04-29
+                                        <?php $updated_at = date("Y-m-d h:i a", strtotime($item->updated_at)); ?>
+                                        {{$updated_at}}
                                     </td>
                                     <td width="170">
-                                        <button class="btn btn-sm btn-primary" data-listid="">置頂</button>
-                                        <form class="to_top-form" action="" method="POST" style="display: none;" data-listid="">
-                                            {{ csrf_field() }}
-                                        </form>
-                                        <a class="btn btn-sm btn-success" href="/admin/class_announcement/edit/1">編輯</a>
-                                        <button class="btn btn-sm btn-danger" data-listid="1">刪除</button>
-                                        <form class="delete-form" action="/admin/class_announcement/delete/1" method="POST" style="display: none;" data-listid="1">
+                                        @if($item->sort == 0)
+                                            <button class="btn btn-sm btn-primary" data-listid="{{$item->id}}">置頂</button>
+                                            <form class="to_top-form" action="/admin/class_announcement/totop/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        @else
+                                            <button class="btn btn-sm btn-primary" data-listid="{{$item->id}}">取消置頂</button>
+                                            <form class="to_top-form" action="/admin/class_announcement/totop/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        @endif
+                                        <a class="btn btn-sm btn-success" href="/admin/class_announcement/edit/{{$item->id}}">編輯</a>
+                                        <button class="btn btn-sm btn-danger" data-listid="{{$item->id}}">刪除</button>
+                                        <form class="delete-form" action="/admin/class_announcement/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -72,7 +81,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[3,'desc']],
+                "order": [[2,'desc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",
@@ -101,7 +110,7 @@
             var listid = $(this).data("listid");
             if (confirm('確認是否刪除此公告？')){
                 event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
+                $('.delete-form[data-listid="' + listid + '"]').submit();
             }
         });
 
@@ -109,8 +118,26 @@
             var listid = $(this).data("listid");
             if (confirm('確認是否變更置頂此公告？')){
                 event.preventDefault();
-                // $('.to_top-form[data-listid="' + listid + '"]').submit();
+                $('.to_top-form[data-listid="' + listid + '"]').submit();
             }
         });
     </script>
+
+    @if(Session::has('success1'))
+        <script>
+            alert('取消成功!')
+        </script>
+    @endif
+
+    @if(Session::has('success2'))
+        <script>
+            alert('置頂成功!')
+        </script>
+    @endif
+
+    @if(Session::has('update'))
+        <script>
+            alert('編輯成功!')
+        </script>
+    @endif
 @endsection

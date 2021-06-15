@@ -304,9 +304,9 @@
                                         課程管理
                                     </a>
     
-                                    <a class="collapse-item" href="/admin/teacher/class_review">
+                                    {{-- <a class="collapse-item" href="/admin/teacher/class_review">
                                         審核課程
-                                    </a>
+                                    </a> --}}
     
                                     <a class="collapse-item" href="/admin/teacher/fail">
                                         已撤下課程

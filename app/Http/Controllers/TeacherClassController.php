@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Courses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -9,112 +10,54 @@ class TeacherClassController extends Controller
 {
     public function index()
     {
-        if(Auth::user()->role === 'student'){
-            return redirect('/admin/dashboard');
-        }else{
-            return view('admin.class.teacher.index');
-        }
-    }
+        $user_id = Auth::user()->id;
+        $items = Courses::where('user_id',$user_id)->where('status','!=','已撤下')->where('status','!=','審核未通過')->orderBy('id','desc')->get();
 
-    public function create()
-    {
-        if(Auth::user()->role === 'student'){
-            return redirect('/admin/dashboard');
-        }else{
-            return view('admin.class.teacher.create');
-        }
-    }
-
-    public function check($id)
-    {
-        if(Auth::user()->role === 'student'){
-            return redirect('/admin/dashboard');
-        }else{
-            return view('admin.class.teacher.check');
-        }
-    }
-
-    public function check_students($id)
-    {
-        if(Auth::user()->role === 'student'){
-            return redirect('/admin/dashboard');
-        }else{
-            return view('admin.class.teacher.check_students');
-        }
-    }
-
-    public function rollCall($id)
-    {
-        if(Auth::user()->role === 'student'){
-            return redirect('/admin/dashboard');
-        }else{
-            return view('admin.class.teacher.roll_call');
-        }
-    }
-
-    public function rollCall_records($id)
-    {
-        if(Auth::user()->role === 'student'){
-            return redirect('/admin/dashboard');
-        }else{
-            return view('admin.class.teacher.roll_call_records');
-        }
-    }
-
-    public function rollCall_records_check($id)
-    {
-        if(Auth::user()->role === 'student'){
-            return redirect('/admin/dashboard');
-        }else{
-            return view('admin.class.teacher.roll_call_records_check');
-        }
-    }
-
-    public function review()
-    {
-        if(Auth::user()->role === 'student'){
-            return redirect('/admin/dashboard');
-        }else{
-            return view('admin.class_review.teacher.index');
-        }
-    }
-    
-    public function review_check($id)
-    {
-        if(Auth::user()->role === 'student'){
-            return redirect('/admin/dashboard');
-        }else{
-            return view('admin.class_review.teacher.check');
-        }
-    }
-
-    public function review_edit($id)
-    {
-        if(Auth::user()->role === 'student'){
-            return redirect('/admin/dashboard');
-        }else{
-            return view('admin.class_review.teacher.edit');
-        }
+        return view('admin.class.index',compact('items'));
     }
 
     public function fail()
     {
-        if(Auth::user()->role === 'student'){
-            return redirect('/admin/dashboard');
-        }else{
-            return view('admin.class_fail.teacher.index');
-        }
+        $user_id = Auth::user()->id;
+        $items = Courses::where('user_id',$user_id)->where('status','!=','已撤下')->where('status','!=','未送出')->where('status','!=','審核未通過')->orderBy('id','desc')->get();
+
+        return view('admin.class_fail.index',compact('items'));
+
     }
 
     public function fail_check($id)
     {
-        if(Auth::user()->role === 'student'){
-            return redirect('/admin/dashboard');
-        }else{
-            return view('admin.class_fail.teacher.check');
-        }
+
+        return view('admin.class_fail.check');
+
     }
 
+    public function check_students($id)
+    {
 
+        return view('admin.class.teacher.check_students');
+
+    }
+
+    public function rollCall($id)
+    {
+
+        return view('admin.class.teacher.roll_call');
+
+    }
+
+    public function rollCall_records($id)
+    {
+
+        return view('admin.class.teacher.roll_call_records');
+
+    }
+
+    public function rollCall_records_check($id)
+    {
+
+        return view('admin.class.teacher.roll_call_records_check');
+
+    }
 
 }

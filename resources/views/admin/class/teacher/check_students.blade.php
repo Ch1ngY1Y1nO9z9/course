@@ -21,7 +21,6 @@
                             <tr>
                                 <th>學生姓名</th>
                                 <th>學號</th>
-                                <th>功能</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -33,9 +32,6 @@
                                     <td>
                                         123456789
                                     </td>
-                                    <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/teacher/class/check/1">期末評分</a>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -43,9 +39,6 @@
                                     </td>
                                     <td>
                                         123456790
-                                    </td>
-                                    <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/teacher/class/check/1">期末評分</a>
                                     </td>
                                 </tr>
                             </tbody>
