@@ -128,7 +128,7 @@ Route::group(['prefix' => 'admin','middleware' => 'role'], function () {
     Route::get('/class/announce/{id}/create', 'ClassController@announce_create');
     Route::get('/class/announce/{id}/edit', 'ClassController@announce_edit');
     Route::get('/class/assessment/{id}', 'ClassController@assessment');
-    Route::get('/class/check/QRCode', 'ClassController@class_QRCode');
+    Route::get('/class/roll_call_online', 'ClassController@roll_call_online');
 
     
     

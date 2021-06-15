@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">{{Auth::user()->name}} - 課程管理</h3>
+                        <h3 class="card-title">{{Auth::user()->name}} - QR碼點名</h3>
                     </div>
                     <div class="card-body">
                         <a class="btn btn-success" href="/admin/class">返回課程管理</a>
@@ -24,19 +24,17 @@
                             </tr>
                             </thead>
                             <tbody>
-
                                 <tr>
                                     <td>
                                         {{$class->class_cn}}
                                     </td>
                                     <td>
-                                        <img src="/{{$qrcode->qrcode_path}}" alt="">
+                                        <img src="{{$qrcode->qrcode_path}}" alt="">
                                     </td>
                                     <td>
                                         {{$qrcode->time}} 分
                                     </td>
                                     <td width="150">
-                                        {{-- <a class="btn btn-sm btn-success mt-1" href="/admin/class/edit/1">編輯</a> --}}
                                         <button class="btn btn-sm btn-danger mt-1" data-listid="1">取消</button>
                                         <form class="delete-form" action="/admin/class/delete/1" method="POST" style="display: none;" data-listid="1">
                                             {{ csrf_field() }}

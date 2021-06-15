@@ -174,23 +174,23 @@ class ClassController extends Controller
     public function QRCode_generate(Request $request,$id)
     {
         $class = Courses::find($id);
-        $file_name = QrCode::format('png')->size(100)->generate('Hello,World!',public_path('/qrcodes/'.$class->class_en.'_'.$request->time.'.png'));
+        $file_name = 'qrcodes/'.$class->class_en.'_'.$request->time.'.png';
+        QrCode::format('png')->size(150)->generate('Hello,World!',public_path($file_name));
 
         $new_record = RollCallQR::create($request->all());
-        $new_record->qrcode_path = $file_name;
+        $new_record->qrcode_path = '/'.$file_name;
         $new_record->save();
 
-        return redirect('/admin/class/check/QRCode')->with('qrcode_id', $new_record->id);
+        return redirect('/admin/class/roll_call_online')->with('qrcode_id', $new_record->id);
     }
 
-    public function class_QRCode()
+    public function roll_call_online()
     {
         $id = Session::get('qrcode_id');
-        Session::push('qrcode_id',$id);
         $qrcode = RollCallQR::find($id);
         $class = Courses::find($qrcode->class_id);
-
-        return view('admin.class.generate',compact('class','qrcode'));
+        
+        return view('admin.class.generate',compact('qrcode','class','id'));
     }
 
 
