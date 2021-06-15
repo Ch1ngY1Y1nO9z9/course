@@ -101,7 +101,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
 });
 
 // 管理員&教師
-Route::group(['prefix' => 'admin','middleware' => 'role'], function () {
+Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     //reset password
     $this->get('/reset_password', 'AdminController@get_reset_password');
     $this->post('/reset_password', 'AdminController@reset_password');
