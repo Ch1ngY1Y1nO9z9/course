@@ -1,0 +1,149 @@
+section#main-section {
+    padding-top: 40px;
+    padding-bottom: 200px;
+    background-size: cover;
+    background-position: 0% 100%;
+    background-image: url("/imgs/background/bg-01.jpg");
+}
+
+section#banner {
+    .swiper-container.bannerSwiper {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 45px;
+
+        .swiper-slide {
+            width: 75%;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+
+            @media screen and (max-width: 1200px) {
+                width: 100%;
+            }
+
+            img {
+                display: block;
+                border-radius: 10px;
+                width: 100%;
+            }
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            border-radius: unset;
+            background: unset;
+            background-color: black;
+        }
+    }
+}
+
+section#about{
+    padding-top: 60px;
+    
+    .container{
+        .row{
+            background-color: white;
+            margin-left: -5%;
+            width: 110%;
+            padding:30px 5%;
+            border-radius: 30px;
+        }
+    }
+}
+
+
+section#news-section{
+    padding-top: 140px;
+    padding-bottom: 140px;
+    background-image: url('/imgs/background/bg-02.jpg');
+
+    .news-nav{
+        display: flex;
+        align-items: flex-end;
+    }
+}
+
+section#schedule-section{
+    padding-top: 140px;
+    padding-bottom: 140px;
+    min-height: 100vh;
+    background-image: url('/imgs/background/bg-03.jpg');
+
+    .schedule-nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}
+
+section#video-section{
+    padding-top: 140px;
+    padding-bottom: 140px;
+    overflow: hidden;
+
+    .video-nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .swiper-container.videoSwiper {
+        width: 100vw;
+        height: 100%;
+        padding-bottom: 45px;
+
+        .swiper-slide {
+            width: 100vw;
+            max-width: 560px;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+
+            img {
+                display: block;
+                border-radius: 10px;
+                width: 100%;
+            }
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            border-radius: unset;
+            background: unset;
+            background-color: black;
+        }
+    }
+}
+
+section#download-section{
+    padding-top: 140px;
+    padding-bottom: 140px;
+    background-image: url('/imgs/background/bg-04.jpg');
+
+    .download-nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}
+
+
+
+section#links-section{
+    padding: 30px 0;
+    background-color: #6ecb32;
+
+    .swiper-container{
+        width: 100%;
+        height: 100%;
+        padding: 0 60px 0 60px;
+
+        .swiper-slide{
+            width: 33%;
+
+            img{
+                height: 50px;
+                width: auto;
+            }
+        }
+    }
+}
