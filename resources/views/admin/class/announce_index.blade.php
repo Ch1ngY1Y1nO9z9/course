@@ -12,6 +12,9 @@
                         <h3 class="card-title">{{$class->class_cn}} - 課程公告</h3>
                     </div>
                     <div class="card-body">
+                        <a href="javascript:history.back()">
+                            <button type="submit" class="btn btn-success">返回</button>
+                        </a>
                         <a class="btn btn-success" href="/admin/class/announce/{{$class->id}}/create">新增公告</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
@@ -19,33 +22,14 @@
                             <tr>
                                 <th>標題</th>
                                 <th>內容</th>
+                                <th>附件</th>
                                 <th>上架時間</th>
                                 <th>下架時間</th>
+                                <th>狀態</th>                                
                                 <th>功能</th>
                             </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        [重要通知] 課程改為線上教學
-                                    </td>
-                                    <td>
-                                        因應疫情緣故, 目前此堂課程將改為線上教學, google會議的網址為....
-                                    </td>
-                                    <td>
-                                        2021/06/14 10:00 am
-                                    </td>
-                                    <td>
-                                        2021/07/14 00:00 am
-                                    </td>
-                                    <td width="150">
-                                        <a class="btn btn-sm btn-success mt-1" href="/admin/class/announce/1/edit">編輯</a>
-                                        <button class="btn btn-sm btn-danger mt-1" data-listid="1">撤下</button>
-                                        <form class="delete-form" action="/admin/class/announce/1/delete" method="POST" style="display: none;" data-listid="1">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </td>
-                                </tr>
                                 @foreach($items as $item)
                                 <tr>
                                     <td>
@@ -55,16 +39,29 @@
                                         {{$item->content}}
                                     </td>
                                     <td>
-                                        {{$item->start_date}}
+                                        @if($item->file)
+                                        <a href="{{$item->title}}" download>附件下載</a>
+                                        @else
+                                        -
+                                        @endif
                                     </td>
                                     <td>
-                                        {{$item->end_date}}
+                                        {{$item->getDate($item->start_date)}}
+                                    </td>
+                                    <td>
+                                        {{$item->getDate($item->end_date)}}
+                                    </td>
+                                    <td>
+                                        @if($item->pushed == 0)
+                                            未上架
+                                        @else
+                                            已上架
+                                        @endif
                                     </td>
                                     <td width="150">
-                                        <a class="btn btn-sm btn-primary mt-1" href="/admin/class/check/{{$item->id}}">檢視</a>
-                                        <a class="btn btn-sm btn-success mt-1" href="/admin/class/edit/{{$item->id}}">編輯</a>
+                                        {{-- <a class="btn btn-sm btn-success mt-1" href="/admin/class/announce/1/edit">編輯</a> --}}
                                         <button class="btn btn-sm btn-danger mt-1" data-listid="{{$item->id}}">撤下</button>
-                                        <form class="delete-form" action="/admin/class/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                        <form class="delete-form" action="/admin/class/announce/1/delete" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                     </td>
@@ -114,17 +111,9 @@
 
         $('.btn-danger').click(function(){
             var listid = $(this).data("listid");
-            if (confirm('確認是否撤下此課程？')){
+            if (confirm('確認是否撤下此公告？')){
                 event.preventDefault();
                 $('.delete-form[data-listid="' + listid + '"]').submit();
-            }
-        });
-
-        $('.btn-warning').click(function(){
-            var listid = $(this).data("listid");
-            if (confirm('確認是否複製此課程？')){
-                event.preventDefault();
-                $('.copy-form[data-listid="' + listid + '"]').submit();
             }
         });
 

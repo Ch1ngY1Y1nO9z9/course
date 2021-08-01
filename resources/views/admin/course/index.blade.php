@@ -22,25 +22,26 @@
                             </tr>
                             </thead>
                             <tbody>
-
+                                @foreach($items as $item)
                                 <tr>
                                     <td>
-                                        王某某
+                                        {{$item->student_name}}
                                     </td>
                                     <td>
-                                        180
+                                        {{$item->GetAllStudentTime($item->student_id)}}
                                     </td>
                                     <td>
-                                        2000
+                                        {{$item->GetAllStudentScore($item->student_id)}}
                                     </td>
                                     <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/course/detail/1312312">檢視</a>
+                                        <a class="btn btn-sm btn-primary" href="/admin/course/detail/{{$item->course_id}}">檢視</a>
                                         {{-- <button class="btn btn-sm btn-danger" data-listid="1">刪除</button>
                                         <form class="delete-form" action="/admin/class/delete/1" method="POST" style="display: none;" data-listid="1">
                                             {{ csrf_field() }}
                                         </form> --}}
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

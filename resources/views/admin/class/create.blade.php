@@ -10,53 +10,35 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">課程管理 - 新增</h3>
+                        <h3 class="card-title">單元管理 - 新增</h3>
                     </div>
                     <div class="card-body">
+                        <a href="javascript:history.back()">
+                            <button type="submit" class="btn btn-success">返回</button>
+                        </a>
+                        <hr>
                         <form class="form-horizontal" method="POST" action="/admin/class/store" enctype="multipart/form-data">
 
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
 
-                            <div class="form-group row">
-                                <label for="class_cn" class="col-sm-2 control-label">課程名稱</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="class_cn" name="class_cn" required>
-                                </div>
-                            </div>
+
 
                             <div class="form-group row">
-                                <label for="class_en" class="col-sm-2 control-label">課程英文名稱</label>
+                                <label for="tutorial_id" class="col-sm-2 control-label">課程主軸</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="class_en" name="class_en" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="budget" class="col-sm-2 control-label">經費來源</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="budget" name="budget">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="class_type" class="col-sm-2 control-label">課程類別</label>
-                                <div class="col-sm-10">
-                                    <select class="form-control" id="class_type" name="class_type" required>
-                                        <option selected hidden>-</option>
-                                        <option>授課</option>
-                                        <option>講座</option>
-                                        <option>工作坊</option>
-                                        <option>實作活動</option>
-                                        <option>其他</option>
+                                    <select class="form-control" id="tutorial_id" name="tutorial_id" required>
+                                        @foreach($tutorials as $tutorial)
+                                        <option value="{{$tutorial->id}}">{{$tutorial->tutorial_name_cn}}</option>
+                                        @endforeach
                                       </select>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="organizer" class="col-sm-2 control-label">舉辦單位</label>
+                                <label for="class_name" class="col-sm-2 control-label">單元名稱</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="organizer" name="organizer">
+                                    <input type="text" class="form-control" id="class_name" name="class_name" required>
                                 </div>
                             </div>
 
@@ -145,13 +127,6 @@
                                 <label for="total_hours" class="col-sm-2 control-label">總時數</label>
                                 <div class="col-sm-10">
                                     <input type="number" class="form-control" id="total_hours" name="total_hours" value="0.0" min="0" step="0.5">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="credit" class="col-sm-2 control-label">學分數</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="credit" name="credit" max="2" min="0" value="0.0" step="0.5">
                                 </div>
                             </div>
 

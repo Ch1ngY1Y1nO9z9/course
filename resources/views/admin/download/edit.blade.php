@@ -20,14 +20,9 @@
                                 <label for="article_type" class="col-sm-1 control-label">企劃別</label>
                                 <div class="col-sm-5">
                                     <select id="plan_type" class="form-control" name="plan_type">
-                                        <option value="重要訊息" @if($list->plan_type == "重要訊息") selected @endif>重要訊息</option>
-                                        <option value="分項計畫A" @if($list->plan_type == "分項計畫A") selected @endif>分項計畫A</option>
-                                        <option value="分項計畫B" @if($list->plan_type == "分項計畫B") selected @endif>分項計畫B</option>
-                                        <option value="分項計畫C" @if($list->plan_type == "分項計畫C") selected @endif>分項計畫C</option>
-                                        <option value="分項計畫D" @if($list->plan_type == "分項計畫D") selected @endif>分項計畫D</option>
-                                        <option value="分項計畫E" @if($list->plan_type == "分項計畫E") selected @endif>分項計畫E</option>
-                                        <option value="分項計畫F" @if($list->plan_type == "分項計畫F") selected @endif>分項計畫F</option>
-                                        <option value="其他" @if($list->plan_type == "其他") selected @endif>其他</option>
+                                        <option value="辦公室辦法" @if($list->plan_type == "辦公室辦法") selected @endif>辦公室辦法</option>
+                                        <option value="委員會辦法" @if($list->plan_type == "委員會辦法") selected @endif>委員會辦法</option>
+                                        <option value="相關表單" @if($list->plan_type == "相關表單") selected @endif>相關表單</option>
                                     </select>
                                 </div>
                                 <label for="date" class="col-sm-1 control-label">日期</label>

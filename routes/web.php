@@ -13,6 +13,8 @@
 
 //前端
 
+Route::get('/testmail','CourseClassController@testqueue');
+
 Route::get('/','FrontController@index');
 Route::get('/news','FrontController@article_view')->name('front_news');
 Route::get('/plan_results','FrontController@article_view')->name('front_plan_results');
@@ -84,7 +86,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     // course
     Route::get('/course', 'CourseClassController@index');
     Route::get('/course/detail/{id}', 'CourseClassController@detail');
-    Route::get('/course/detail/{id}/class_detail/{class}', 'CourseClassController@class_detail');
+    Route::get('/course/class_detail/{class_id}', 'CourseClassController@class_detail');
 
     // student_course
     Route::get('/student/course', 'CourseClassController@student_index');
@@ -93,11 +95,15 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     // student_course_records
     Route::get('/student/course_records', 'CourseClassController@records_index');
     Route::get('/student/course_records/check/{id}', 'CourseClassController@records_check');
+    Route::get('/student/course_records/announce/{id}', 'CourseClassController@announce');
+    Route::get('/student/course_records/announce/{id}/check', 'CourseClassController@announce_check');
     
-    // student_class_announcement
-    Route::get('/student/class_announcement', 'ClassAnnouncementController@student_index');
-    Route::get('/student/class_announcement/check/{id}', 'ClassAnnouncementController@student_check');
+    // // student_class_announcement
+    // Route::get('/student/class_announcement', 'ClassAnnouncementController@student_index');
+    // Route::get('/student/class_announcement/check/{id}', 'ClassAnnouncementController@student_check');
 
+    Route::get('/qrcode/rollcall/{id}','ClassController@student_roll_call');
+    
 });
 
 // 管理員&教師
@@ -106,14 +112,22 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     $this->get('/reset_password', 'AdminController@get_reset_password');
     $this->post('/reset_password', 'AdminController@reset_password');
 
-    // class_announcement
-    Route::get('/class_announcement', 'ClassAnnouncementController@index');
-    Route::get('/class_announcement/create', 'ClassAnnouncementController@create');
-    Route::get('/class_announcement/edit/{id}', 'ClassAnnouncementController@edit');
-    Route::post('/class_announcement/store', 'ClassAnnouncementController@store');
-    Route::post('/class_announcement/update/{id}', 'ClassAnnouncementController@update');
-    Route::post('/class_announcement/delete/{id}', 'ClassAnnouncementController@delete');
-    Route::post('/class_announcement/totop/{id}', 'ClassAnnouncementController@totop');
+    // // class_announcement
+    // Route::get('/class_announcement', 'ClassAnnouncementController@index');
+    // Route::get('/class_announcement/create', 'ClassAnnouncementController@create');
+    // Route::get('/class_announcement/edit/{id}', 'ClassAnnouncementController@edit');
+    // Route::post('/class_announcement/store', 'ClassAnnouncementController@store');
+    // Route::post('/class_announcement/update/{id}', 'ClassAnnouncementController@update');
+    // Route::post('/class_announcement/delete/{id}', 'ClassAnnouncementController@delete');
+    // Route::post('/class_announcement/totop/{id}', 'ClassAnnouncementController@totop');
+
+    // tutorial
+    Route::get('/tutorial','TutorialController@index');
+    Route::get('/tutorial/create','TutorialController@create');
+    Route::get('/tutorial/edit/{id}','TutorialController@edit');
+    Route::post('/tutorial/store','TutorialController@store');
+    Route::post('/tutorial/update/{id}','TutorialController@update');
+    Route::post('/tutorial/delete/{id}','TutorialController@delete');
 
     // class
     Route::get('/class', 'ClassController@index');
@@ -129,16 +143,18 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     Route::get('/class/announce/{id}/edit', 'ClassController@announce_edit');
     Route::get('/class/assessment/{id}', 'ClassController@assessment');
     Route::get('/class/roll_call_online', 'ClassController@roll_call_online');
-
-    
     
     Route::post('class/store', 'ClassController@store');
     Route::post('class/update/{id}', 'ClassController@update');
     Route::post('class/delete/{id}', 'ClassController@delete');
     Route::post('class/copy/{id}', 'ClassController@copy');
-    Route::post('class/announce/store/{id}', 'ClassController@announce_store');
+    Route::post('class/announce/store', 'ClassController@announce_store');
     Route::post('/class/check/{id}/QRCode_generate', 'ClassController@QRCode_generate');
-
+    
+    // 報名
+    Route::get('class/signup/{id}', 'ClassController@sign_up');
+    Route::post('class/signup/delete/{id}', 'ClassController@remove_sign_up');
+        
     // class_review
     Route::get('/class_review', 'ClassController@review');
     Route::get('/class_review/check/{id}', 'ClassController@review_check');
@@ -157,6 +173,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     Route::get('/teacher/class/check/{id}/rollCall', 'TeacherClassController@rollCall');
     Route::get('/teacher/class/check/{id}/rollCall_records', 'TeacherClassController@rollCall_records');
     Route::get('/teacher/class/check/{id}/rollCall_records/check', 'TeacherClassController@rollCall_records_check');
+    
     // Route::get('/teacher/class/edit/{id}', 'TeacherClassController@edit');
 
     // teacher_class_review

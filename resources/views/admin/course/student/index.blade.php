@@ -28,44 +28,39 @@
                                 @foreach($items as $item)
                                 <tr>
                                     <td>
-                                        {{$item->class_type}}
+                                        {{$item->tutorial->tutorials_type}}
                                     </td>
                                     <td>
-                                        {{$item->class_cn}}
+                                        {{$item->tutorial->tutorial_name_cn}}<br>
+                                        {{$item->class_name}}
                                     </td>
                                     <td>
-                                        <?php
-                                            $start = date("Y-m-d h:i a", strtotime($item->class_start));
-                                            $end = date("Y-m-d h:i a", strtotime($item->class_end));
-                                        ?>
-                                        {{$start}}<br>
-                                        {{$end}}
+                                        {{$item->getDate($item->class_start)}}<br>
+                                        {{$item->getDate($item->class_end)}}
                                     </td>
                                     <td>
                                         {{$item->total_hours}}
                                     </td>
                                     <td>
-                                        <?php
-                                            $sign_up = count(APP\Courses::where('id',$item->id)->get());    
-                                        ?>
-                                        {{$item->number}} / {{$sign_up}}
+                                        {{$item->number}} / {{count($item->signupList)}}
                                     </td>
                                     <td>
-                                        <?php
-                                            $sign_up_start = date("Y-m-d h:i a", strtotime($item->class_start));
-                                            $sign_up_end = date("Y-m-d h:i a", strtotime($item->class_end));
-                                        ?>
-                                        {{$sign_up_start}}<br>
-                                        {{$sign_up_end}}
+                                        {{$item->getDate($item->sign_up_start_date)}}<br>
+                                        {{$item->getDate($item->sign_up_end_date)}}
                                     </td>
                                     <td width="200">
                                         <a class="btn btn-sm btn-primary" href="/admin/student/course/check/{{$item->id}}">檢視</a>
-                                        @if(strtotime($date) > strtotime($item->class_start) && strtotime($date) < strtotime($item->sign_up_end_date))
-                                            <a class="btn btn-sm btn-success" href="/admin/class/edit/{{$item->id}}">報名</a>
-                                            <button class="btn btn-sm btn-danger" data-listid="{{$item->id}}">取消報名</button>
-                                            <form class="delete-form" action="/admin/class_review/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
-                                                {{ csrf_field() }}
-                                            </form>
+                                        @if( $date > strtotime($item->sign_up_start_date) && $date < strtotime($item->sign_up_end_date))
+                                            @if(!$item->querySignup(Auth::user()->id))
+                                                <a class="btn btn-sm btn-success" href="/admin/class/signup/{{$item->id}}">報名</a>
+                                            @else
+                                            @if($item->CheckTime($item->id))
+                                                <button class="btn btn-sm btn-danger" data-listid="{{$item->id}}">取消報名</button>
+                                            @endif
+                                                <form class="delete-form" action="/admin/class/signup/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            @endif
                                         @endif  
                                     </td>
                                 </tr>
@@ -116,8 +111,24 @@
             var listid = $(this).data("listid");
             if (confirm('確認取消報名？')){
                 event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
+                $('.delete-form[data-listid="' + listid + '"]').submit();
             }
         });
     </script>
+
+    @if(Session::has('signup_success'))
+    <script>
+        alert('報名成功!');
+    </script>
+    @elseif(Session::has('signup_full'))
+    <script>
+        alert('名額已滿!')
+    </script>
+    @endif
+    
+    @if(Session::has('delete_success'))
+    <script>
+        alert('取消成功!');
+    </script>
+    @endif
 @endsection

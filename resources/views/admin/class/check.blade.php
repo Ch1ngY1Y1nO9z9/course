@@ -10,54 +10,45 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">課程管理 - 檢視</h3>
+                        <h3 class="card-title">{{$feature_name}} - 檢視</h3>
                     </div>
                     <div class="card-body">
-                        @if($item->status == '已通過')
+                        
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <a class="btn btn-warning text-dark" href="/admin/class/announce/{{$item->id}}">課程公告</a>
+                                <a href="javascript:history.back()">
+                                    <button type="submit" class="btn btn-success">返回</button>
+                                </a>
+                                <hr>
+                            </div>
+
+                            @if($item->status != '未送出'&& $item->status != '待審核' && $item->status != '已撤下' && $item->status != '審核未通過')
+                            <div class="col-sm-12">
+                                @if($item->checkClassStatus())
+                                    <a class="btn btn-warning text-dark" href="/admin/class/announce/{{$item->id}}">課程公告</a>
+                                    <a class="btn btn-success" href="/admin/class/check/{{$item->id}}/rollCall">線上點名</a>
+                                @endif
                                 <a class="btn btn-primary" href="/admin/class/check/{{$item->id}}/students">查看選課名單</a>
-                                <a class="btn btn-success" href="/admin/class/check/{{$item->id}}/rollCall">線上點名</a>
                                 <a class="btn btn-info" href="/admin/class/check/{{$item->id}}/rollCall_records">查看點名紀錄</a>
                             </div>
+                            <hr>
+                            @endif
                         </div>
-                        <hr>
-                        @endif
+                        
+                        
                         <div class="form-group row">
-                            <label class="col-sm-2 control-label">課程名稱</label>
+                            <label for="tutorial_id" class="col-sm-2 control-label">課程主軸</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" value="{{$item->class_cn}}" readonly>
+                                <select class="form-control" id="tutorial_id" name="tutorial_id" disabled>
+                                    <option>{{$item->tutorial->tutorial_name_cn}}</option>
+                                  </select>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 control-label">課程英文名稱</label>
+                            <label for="class_name" class="col-sm-2 control-label">單元名稱</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" value="{{$item->class_en}}" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label">經費來源</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" value="{{$item->budget}}" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label">課程類別</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" id="exampleFormControlSelect2" readonly>
-                                    <option>{{$item->class_type}}</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label">舉辦單位</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" value="{{$item->organizer}}" readonly>
+                                <input type="text" class="form-control" id="class_name" name="class_name" value="{{$item->class_name}}" readonly>
                             </div>
                         </div>
 
@@ -150,13 +141,6 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 control-label">學分數</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" value="{{$item->credit}}" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label class="col-sm-2 control-label">內容</label>
                             <div class="col-sm-10">
                                 <textarea class="summernote1" readonly>
@@ -198,9 +182,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">備註</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" rows="6" placeholder="供審核人員查看, 其他人無法看見" readonly>
-                                    {{$item->remarks}}
-                                </textarea>
+                                <textarea class="form-control" rows="6" placeholder="供審核人員查看, 其他人無法看見" readonly>{{$item->remarks}}</textarea>
                             </div>
                         </div>
                     </div>

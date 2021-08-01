@@ -115,9 +115,9 @@
                         <img class="img-fluid" src="/imgs/panel_news_title.png" alt="中山醫學大學 USR 最新消息 標題">
                     </a>
                 </li>
-                <li class="nav-item" title="計畫成果">
+                <li class="nav-item" title="成果專區">
                     <a id="plan-tab" data-toggle="tab" href="#plan" role="tab" aria-controls="plan" aria-selected="false">
-                        <img class="img-fluid" src="/imgs/panel_plan_title.png" alt="中山醫學大學 USR 計畫成果 標題">
+                        <img class="img-fluid" src="/imgs/panel_plan_title.png" alt="中山醫學大學 USR 成果專區 標題">
                     </a>
                 </li>
             </ul>

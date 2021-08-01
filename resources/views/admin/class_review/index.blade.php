@@ -42,10 +42,7 @@
                                             {{$item->total_hours}}
                                         </td>
                                         <td>
-                                            <?php
-                                                $sign_up = count(APP\Courses::where('id',$item->id)->get());    
-                                            ?>
-                                            {{$sign_up}} / {{$item->number}}
+                                            {{$item->number}} / {{$item->checkSignUp($item->id)}}
                                         </td>
                                         <td>
                                             {{$item->sign_up_start_date}}<br>

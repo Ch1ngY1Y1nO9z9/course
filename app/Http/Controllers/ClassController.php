@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\SignUp;
 use App\Courses;
+use App\Tutorials;
+use App\RollCallQR;
 use App\ClassAnnounces;
+use App\RollCallRecords;
 use Illuminate\Http\Request;
 use App\Mail\NewCourseToAdmin;
-use App\RollCallQR;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
@@ -17,15 +20,19 @@ class ClassController extends Controller
 {
     public function index()
     {
-        $items = Courses::where('status','!=','已撤下')->where('status','!=','審核未通過')->orderBy('id','desc')->get();
-        return view('admin.class.index',compact('items'));
+        $feature_name = '單元管理';
+        $items = Courses::whereIn('status', ['待審核','已通過','已開課','已結束','未送出'])
+                        ->orderBy('id','desc')
+                        ->get();
+
+        return view('admin.class.index',compact('items','feature_name'));
     }
 
     public function create()
     {
-        return view('admin.class.create');
+        $tutorials = Tutorials::getAll()->get();
+        return view('admin.class.create', compact('tutorials'));
     }
-
 
     public function store(Request $request)
     {
@@ -46,17 +53,19 @@ class ClassController extends Controller
             return redirect('/admin/teacher/class');
     }
 
-
     public function check($id)
     {
+        $feature_name = '單元管理';
         $item = Courses::find($id);
-        return view('admin.class.check',compact('item'));
+        return view('admin.class.check',compact('item','feature_name'));
     }
 
     public function edit($id)
     {
+        $feature_name = '單元管理';
         $item = Courses::find($id);
-        return view('admin.class.edit',compact('item'));
+        $tutorials = Tutorials::getAll()->get();
+        return view('admin.class.edit',compact('item','tutorials','feature_name'));
     }
 
     public function update(Request $request,$id)
@@ -71,7 +80,7 @@ class ClassController extends Controller
 
         if($item->status == '未送出')
             $item->status = '待審核';
-            Mail::to('admin@gmail.com')->send(new NewCourseToAdmin());
+            Mail::to('admin@gmail.com')->queue(new NewCourseToAdmin());
 
         $item->save();
 
@@ -113,7 +122,7 @@ class ClassController extends Controller
     public function announce($id)
     {
         $class = Courses::find($id);
-        $items = ClassAnnounces::all();
+        $items = ClassAnnounces::getAllAnnounce($id)->get();
         return view('admin.class.announce_index',compact('items','class'));
     }
 
@@ -122,9 +131,34 @@ class ClassController extends Controller
         return view('admin.class.announce_create',compact('id'));
     }
 
-    public function announce_edit($id)
+    // public function announce_edit($id)
+    // {
+    //     return view('admin.class.announce_edit',compact('id'));
+    // }
+
+    public function announce_store(Request $request)
     {
-        return view('admin.class.announce_edit',compact('id'));
+        $new_record = ClassAnnounces::create($request->all());
+
+        if($request->hasFile('files')){
+            $new_record->fill(['files' => $this->upload_file($request->file('files'))]);
+        }
+
+        $new_record->save();
+        
+        // 儲存後 抓取已報名學生的名單 透過關聯找出他們的信箱進行寄信(先寫foreach 之後改queue)
+        
+
+        return redirect()->back()->with('success','公告新增成功');
+    }
+    
+    public function announce_delete($id)
+    {
+        $item = ClassAnnounces::find($id);
+        $item->soft_delete = 1;
+        $item->save();
+
+        return redirect()->back();
     }
 
     public function assessment($id)
@@ -158,12 +192,11 @@ class ClassController extends Controller
     //     return view('admin.class.check',compact('item'));
     // }
 
-
-
-    
     public function check_students($id)
     {
-        return view('admin.class.check_students');
+        $course = Courses::find($id);
+        $items = SignUp::where('course_id',$id)->get();
+        return view('admin.class.check_students',compact('course','items'));
     }
 
     public function rollCall($id)
@@ -173,9 +206,17 @@ class ClassController extends Controller
 
     public function QRCode_generate(Request $request,$id)
     {
+        $rollcall_record = RollCallRecords::create([
+            'course_id'=> $id,
+            'students_id'=> '[]',
+            'date'=> date("Y-m-d h:i", time()),
+        ]);
+
         $class = Courses::find($id);
+
         $file_name = 'qrcodes/'.$class->class_en.'_'.$request->time.'.png';
-        QrCode::format('png')->size(150)->generate('Hello,World!',public_path($file_name));
+
+        QrCode::format('png')->size(150)->generate('127.0.0.1:8000/admin/qrcode/rollcall/'.$rollcall_record->id,public_path($file_name));
 
         $new_record = RollCallQR::create($request->all());
         $new_record->qrcode_path = '/'.$file_name;
@@ -193,7 +234,6 @@ class ClassController extends Controller
         return view('admin.class.generate',compact('qrcode','class','id'));
     }
 
-
     public function rollCall_records($id)
     {
         return view('admin.class.roll_call_records');
@@ -204,16 +244,51 @@ class ClassController extends Controller
         return view('admin.class.roll_call_records_check');
     }
 
+    public function student_roll_call($id)
+    {
+        // 透過QRcode附在網址上的ID找到當前開放點名的紀錄X
+        // 再檢測透過網址進來的使用者是否有報名此課程(沒報名則導向至其他頁)X
+        // 驗證此使用者是否重複點名(有重複點名則導向至其他頁)
+        // 完成點名(導向至其他頁)X
+        $user = Auth::user();
+        $roll_call_record = RollCallRecords::find($id);
+        $list = SignUp::GetStudentList($roll_call_record->course_id);
+
+        // 檢查是否有報名
+        if(!in_array($list,$user->id)){
+            return redirect('')->with('status_msg', '您並未報名此課程!');
+        }
+
+        // 檢查是否有重複點名
+        if(!in_array($roll_call_record->students_id, $user->id)){
+            array_push($roll_call_record,$user->id);
+
+            return redirect('')->with('status_msg','您已成功點名!');
+        }elseif(in_array($roll_call_record->students_id, $user->id)){
+            return redirect('')->with('status_msg','您已重複點名!');
+        }
+
+    }
+
+    public function qrcode_status()
+    {
+        return view('admin.course.student.qr_code.signup_status');
+    }
+
     public function review()
     {
-        $items = Courses::where('status','待審核')->orderBy('id','desc')->get();
-        return view('admin.class_review.index',compact('items'));
+        $feature_name = '單元審核';
+        $items = Courses::whereIn('status', ['待審核','未送出'])
+                        ->orderBy('id','desc')
+                        ->get();
+        return view('admin.class.index',compact('items','feature_name'));
     }
 
     public function review_check($id)
     {
+        $feature_name = '單元審核';
         $item = Courses::find($id);
-        return view('admin.class_review.check',compact('item'));
+        return view('admin.class.check',compact('item','feature_name'));
     }
 
     public function review_result($id,$resule)
@@ -223,7 +298,7 @@ class ClassController extends Controller
 
         $item = Courses::find($id);
         if($resule == 'pass'){
-            $item->status = '已通過';
+            $item->status = '已通過';            
         }elseif($resule == 'fail'){
             $item->status = '審核未通過';
         }
@@ -234,14 +309,19 @@ class ClassController extends Controller
 
     public function fail()
     {
-        $items = Courses::where('status','!=','已通過')->where('status','!=','未送出')->where('status','!=','待審核')->orderBy('id','desc')->get();
-        return view('admin.class_fail.index',compact('items'));
+        $feature_name = '已撤下單元';
+        $items = Courses::whereIn('status', ['已撤下','審核未通過'])
+                        ->orderBy('id','desc')
+                        ->get();
+
+        return view('admin.class.index',compact('items','feature_name'));
     }
 
     public function fail_check($id)
     {
+        $feature_name = '已撤下單元';
         $item = Courses::find($id);
-        return view('admin.class_fail.check',compact('item'));
+        return view('admin.class.check',compact('item','feature_name'));
     }
 
     public function delete_class($id)
@@ -255,6 +335,37 @@ class ClassController extends Controller
         $items->delete();
 
         return redirect()->back();
+    }
+
+    public function sign_up($id)
+    {
+        // 報名前先注意是否額滿 若額滿則回full
+        $signup_number = count(SignUp::where('course_id',$id)->get());
+        $course = Courses::find($id);
+
+        if($signup_number >= $course->number) {
+            return redirect()->back()->with('signup_full','');
+        }
+
+        // 沒額滿開始建立報名
+
+        $user = Auth::user();
+        SignUp::create([
+            'course_id'=> $id,
+            'student_id'=> $user->id,
+            'student_name'=> $user->name
+        ]);
+
+        return redirect()->back()->with('signup_success');
+    }
+
+    public function remove_sign_up($id)
+    {
+        $user = Auth::user()->id;
+        $record = Signup::where('course_id',$id)->where('student_id',$user)->first();
+        $record->delete();
+
+        return redirect()->back()->with('delete_success','');
     }
 
     //上傳檔案
@@ -275,4 +386,5 @@ class ClassController extends Controller
     public function delete_file($path){
         File::delete(public_path().$path);
     }
+    
 }

@@ -20,14 +20,9 @@
                                 <label for="article_type" class="col-sm-2 control-label">企劃別</label>
                                 <div class="col-sm-10">
                                     <select id="plan_type" class="form-control" name="plan_type">
-                                        <option value="重要訊息">重要訊息</option>
-                                        <option value="分項計畫A">分項計畫A</option>
-                                        <option value="分項計畫B">分項計畫B</option>
-                                        <option value="分項計畫C">分項計畫C</option>
-                                        <option value="分項計畫D">分項計畫D</option>
-                                        <option value="分項計畫E">分項計畫E</option>
-                                        <option value="分項計畫F">分項計畫F</option>
-                                        <option value="其他">其他</option>
+                                        <option value="辦公室辦法">辦公室辦法</option>
+                                        <option value="委員會辦法">委員會辦法</option>
+                                        <option value="相關表單">相關表單</option>
                                     </select>
                                 </div>
                             </div>

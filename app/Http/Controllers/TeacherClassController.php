@@ -10,16 +10,20 @@ class TeacherClassController extends Controller
 {
     public function index()
     {
-        $user_id = Auth::user()->id;
-        $items = Courses::where('user_id',$user_id)->where('status','!=','已撤下')->where('status','!=','審核未通過')->orderBy('id','desc')->get();
+        $feature_name = '單元管理';
+        $items = Courses::Passed()
+                        ->orderBy('id','desc')
+                        ->get();
 
-        return view('admin.class.index',compact('items'));
+
+        return view('admin.class.index',compact('items','feature_name'));
     }
 
     public function fail()
     {
-        $user_id = Auth::user()->id;
-        $items = Courses::where('user_id',$user_id)->where('status','!=','已撤下')->where('status','!=','未送出')->where('status','!=','審核未通過')->orderBy('id','desc')->get();
+        $items = Courses::Failed()
+                        ->orderBy('id','desc')
+                        ->get();
 
         return view('admin.class_fail.index',compact('items'));
 

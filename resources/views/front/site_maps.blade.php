@@ -100,10 +100,10 @@
                         <a href="/news" title="最新消息">1. 最新消息</a>
                     </li>
                     <li>
-                        <a href="/plan_results" title="計畫成果">2. 計畫成果</a>
+                        <a href="/plan_results" title="成果專區">2. 成果專區</a>
                     </li>
                     <li>
-                        <a href="/video" title="影音專區">3. 影音專區</a>
+                        <a href="/video" title="媒體頻道">3. 媒體頻道</a>
                     </li>
                     <li>
                         <a href="/activity_calendar" title="活動行事曆">4. 活動行事曆</a>

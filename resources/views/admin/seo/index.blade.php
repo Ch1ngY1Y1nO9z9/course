@@ -100,7 +100,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">SEO管理 - 計畫成果</h3>
+                    <h3 class="card-title">SEO管理 - 成果專區</h3>
                 </div>
                 <div class="card-body">
                     <form action="/admin/seo/update/plan_results" method="post">
@@ -133,7 +133,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">SEO管理 - 影音專區</h3>
+                    <h3 class="card-title">SEO管理 - 媒體頻道</h3>
                 </div>
                 <div class="card-body">
                     <form action="/admin/seo/update/video" method="post">

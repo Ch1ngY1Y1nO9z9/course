@@ -9,11 +9,32 @@ class ClassAnnounces extends Model
     protected $table = 'class_announces';
 
     protected $fillable = [
-        'title', 'content', 'files', 'start_date', 'end_date', 'class_id'
+        'title', 'content', 'files', 'start_date', 'end_date', 'class_id', 'soft_delete'
     ];
 
     public function announces()
     {
-        return $this->belongsTo('App\ClassAnnounce','class_id');
+        return $this->belongsTo('App\Courses','class_id');
+    }
+
+    // 轉換上下架時間
+    public function getDate($value)
+    {
+        return date("Y-m-d h:i a", strtotime($value));
+    }
+
+    // 查看課程公告(學生端)
+    public function scopeGetPushedAnnounce($query, $class_id)
+    {
+        return $this->where('class_id', $class_id)
+                    ->where('soft_delete', 0)
+                    ->where('pushed', 1);
+    }
+
+    // 查看課程公告(Admin端)
+    public function scopeGetAllAnnounce($query, $class_id)
+    {
+        return $this->where('class_id', $class_id)
+                    ->where('soft_delete', 0);
     }
 }

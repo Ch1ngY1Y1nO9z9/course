@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">影音專區管理 － 編輯文章</h3>
+                        <h3 class="card-title">媒體頻道管理 － 編輯文章</h3>
                     </div>
                     <div class="card-body">
                         <form class="form-horizontal" method="post" action="/admin/video/update/{{$list->id}}">
@@ -18,14 +18,11 @@
                                 <label for="plan_type" class="col-sm-2 control-label">企劃別</label>
                                 <div class="col-sm-10">
                                     <select id="plan_type" class="form-control" name="plan_type">
-                                        <option value="重要訊息" @if($list->plan_type == "重要訊息") selected @endif>重要訊息</option>
-                                        <option value="分項計畫A" @if($list->plan_type == "分項計畫A") selected @endif>分項計畫A</option>
-                                        <option value="分項計畫B" @if($list->plan_type == "分項計畫B") selected @endif>分項計畫B</option>
-                                        <option value="分項計畫C" @if($list->plan_type == "分項計畫C") selected @endif>分項計畫C</option>
-                                        <option value="分項計畫D" @if($list->plan_type == "分項計畫D") selected @endif>分項計畫D</option>
-                                        <option value="分項計畫E" @if($list->plan_type == "分項計畫E") selected @endif>分項計畫E</option>
-                                        <option value="分項計畫F" @if($list->plan_type == "分項計畫F") selected @endif>分項計畫F</option>
-                                        <option value="其他" @if($list->plan_type == "其他") selected @endif>其他</option>
+                                        <option value="課程公告" @if($list->plan_type == "課程公告") selected @endif>課程公告</option>
+                                        <option value="校內活動" @if($list->plan_type == "校內活動") selected @endif>校內活動</option>
+                                        <option value="場域活動" @if($list->plan_type == "場域活動") selected @endif>場域活動</option>
+                                        <option value="其他公告" @if($list->plan_type == "其他公告") selected @endif>其他公告</option>
+                                        <option value="資訊轉知" @if($list->plan_type == "資訊轉知") selected @endif>資訊轉知</option>
                                     </select>
                                 </div>
                             </div>

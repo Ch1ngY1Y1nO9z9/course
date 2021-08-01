@@ -42,10 +42,7 @@
                                             {{$item->total_hours}}
                                         </td>
                                         <td>
-                                            <?php
-                                                $sign_up = count(APP\Courses::where('id',$item->id)->get());    
-                                            ?>
-                                            {{$sign_up}} / {{$item->number}}
+                                            {{$item->number}} / {{$item->checkSignUp($item->id)}}
                                         </td>
                                         <td>
                                             {{$item->sign_up_start_date}}<br>
@@ -56,7 +53,7 @@
                                         </td>
                                         <td width="170">
                                             <a class="btn btn-sm btn-primary" href="/admin/fail/check/{{$item->id}}">檢視</a>
-                                            <button class="btn btn-sm btn-warning text-dark" data-listid="{{$item->id}}">複製此課程內容</button>
+                                            <button class="btn btn-sm btn-warning text-dark" data-listid="{{$item->id}}">複製課程</button>
                                             <form class="copy-form" action="/admin/class/copy/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                                 {{ csrf_field() }}
                                             </form>

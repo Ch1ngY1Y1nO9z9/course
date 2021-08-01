@@ -9,11 +9,20 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
+                    @if(Session::has('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{Session::get('success')}}
+                        </div>
+                    @endif
                     <div class="card-header">
                         <h3 class="card-title">公告</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="POST" action="/admin/class/announce/1/update" enctype="multipart/form-data">
+                        <a href="/admin/class/announce/{{$id}}">
+                            <button type="submit" class="btn btn-success">返回</button>
+                        </a>
+                        <hr>
+                        <form class="form-horizontal" method="POST" action="/admin/class/announce/store" enctype="multipart/form-data">
 
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <input type="hidden" name="class_id" value="{{$id}}">

@@ -11,6 +11,7 @@
     <div class="row">
 
         @if(Auth::check() && Auth::user()->role === 'admin')
+
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
@@ -19,7 +20,7 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 已開課課程
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">120</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$info['totalClass']}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-book-reader fa-2x text-gray-300"></i>
@@ -37,7 +38,7 @@
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 已報名學生人次
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">2500</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$info['totalStudents']}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-address-book fa-2x text-gray-300"></i>
@@ -57,7 +58,7 @@
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">240</div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$info['totalScore']}}</div>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +78,7 @@
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                 學生已修課學分總時數
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">20000</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$info['totalTime']}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user-clock fa-2x text-gray-300"></i>
@@ -97,7 +98,7 @@
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                 目前開課中課程
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$info['runningClass']}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user-clock fa-2x text-gray-300"></i>
@@ -114,7 +115,7 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 已開課課程
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$info['totalClass']}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-book-reader fa-2x text-gray-300"></i>
@@ -132,7 +133,7 @@
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 已報名學生人次
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">60</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$info['totalStudents']}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-address-book fa-2x text-gray-300"></i>
@@ -144,6 +145,7 @@
         @endif
 
         @if(Auth::check() && Auth::user()->role === 'student')
+
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
@@ -152,7 +154,7 @@
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 目前修課中課程
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$info['startingClass']}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-address-book fa-2x text-gray-300"></i>
@@ -169,7 +171,7 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 已修課程
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">8</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$info['totalStudentClass']}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-book-reader fa-2x text-gray-300"></i>
@@ -189,7 +191,7 @@
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">20</div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$info['totalScore']}}</div>
                                 </div>
                             </div>
                         </div>
@@ -209,7 +211,7 @@
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                 已修課學分總時數
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">200</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$info['totalTime']}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user-clock fa-2x text-gray-300"></i>
@@ -217,6 +219,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="col-12">
+            {{$warning}}
         </div>
         @endif
     </div>

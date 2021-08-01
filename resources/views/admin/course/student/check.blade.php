@@ -21,40 +21,19 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label">課程名稱</label>
+                        {{-- <div class="form-group row">
+                            <label for="tutorial_id" class="col-sm-2 control-label">課程主軸</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" value="{{$item->class_cn}}" readonly>
+                                <select class="form-control" id="tutorial_id" name="tutorial_id" disabled>
+                                    <option>{{$item->tutorial->tutorial_name_cn}}</option>
+                                  </select>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row">
-                            <label class="col-sm-2 control-label">課程英文名稱</label>
+                            <label for="class_name" class="col-sm-2 control-label">單元名稱</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" value="{{$item->class_en}}" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label">經費來源</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" value="{{$item->budget}}" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label">課程類別</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" id="exampleFormControlSelect2" readonly>
-                                    <option>{{$item->class_type}}</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label">舉辦單位</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" value="{{$item->organizer}}" readonly>
+                                <input type="text" class="form-control" id="class_name" name="class_name" value="{{$item->tutorial->tutorial_name_cn}} {{$item->class_name}}" readonly>
                             </div>
                         </div>
 
@@ -92,24 +71,6 @@
                                 <input type="datetime-local" class="form-control"  value="{{$item->class_end}}" readonly>
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label">是否提供報名?</label>
-                            <div class="col-sm-10">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" @if($item->open == 1) checked @endif disabled>
-                                    <label class="form-check-label">
-                                        是
-                                    </label>
-                                    </div>
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="radio" @if($item->open == 0) checked @endif disabled>
-                                    <label class="form-check-label">
-                                        否
-                                    </label>
-                                    </div>
-                            </div>
-                        </div>
                         
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">報名人數</label>
@@ -118,7 +79,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-sm-2 control-label">報名開始日期</label>
                             <div class="col-sm-10">
                                 <input type="datetime-local" class="form-control" value="{{$item->sign_up_start_date}}" readonly>
@@ -130,7 +91,7 @@
                             <div class="col-sm-10">
                                 <input type="datetime-local" class="form-control" value="{{$item->sign_up_end_date}}" readonly>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">授課地點</label>
@@ -143,13 +104,6 @@
                             <label class="col-sm-2 control-label">總時數</label>
                             <div class="col-sm-10">
                                 <input type="number" class="form-control" value="{{$item->total_hours}}" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label">學分數</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" value="{{$item->credit}}" readonly>
                             </div>
                         </div>
 

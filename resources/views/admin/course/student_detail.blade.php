@@ -28,20 +28,20 @@
 
                                 <tr>
                                     <td>
-                                        應用物理學
+                                        {{$item->class_cn}}
                                     </td>
                                     <td>
-                                        2021-05-24 08:00<br>
-                                        2021-05-29 12:00
+                                        {{$item->getDate($item->class_start)}}<br>
+                                        {{$item->getDate($item->class_end)}}
                                     </td>
                                     <td>
-                                        2
+                                        {{floor($item->total_hours/18)}}
                                     </td>
                                     <td>
-                                        18
+                                        {{$item->total_hours}}
                                     </td>
                                     <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/course/detail/1/class_detail/1">檢視</a>
+                                        <a class="btn btn-sm btn-primary" href="/admin/course/class_detail/1">檢視</a>
                                         {{-- <button class="btn btn-sm btn-danger" data-listid="1">刪除</button>
                                         <form class="delete-form" action="/admin/class/delete/1" method="POST" style="display: none;" data-listid="1">
                                             {{ csrf_field() }}

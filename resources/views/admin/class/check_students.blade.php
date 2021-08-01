@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">李某某 - 應用物理學</h3>
+                        <h3 class="card-title">{{$course->teacher_name}} - {{$course->class_cn}}</h3>
                     </div>
                     <div class="card-body">
                         <a href="javascript:history.back()">
@@ -24,23 +24,16 @@
                             </tr>
                             </thead>
                             <tbody>
-
+                                @foreach($items as $item)
                                 <tr>
                                     <td>
-                                        黃某某
+                                        {{$item->student_name}}
                                     </td>
                                     <td>
-                                        123456789
+                                        {{$item->student_id}}
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        林某某
-                                    </td>
-                                    <td>
-                                        123456790
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

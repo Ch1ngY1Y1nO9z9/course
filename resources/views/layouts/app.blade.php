@@ -178,7 +178,7 @@
                     <li class="nav-item">
                         <a class="nav-link collapsed py-2" href="/admin/result">
                             <i class="fas fa-file-signature"></i>
-                            <span>計畫成果內容管理</span>
+                            <span>成果專區內容管理</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -190,7 +190,7 @@
                     <li class="nav-item">
                         <a class="nav-link collapsed py-2" href="/admin/video">
                             <i class="fas fa-file-signature"></i>
-                            <span>影音專區內容管理</span>
+                            <span>媒體頻道內容管理</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -239,12 +239,18 @@
                         <span>儀表板</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link collapsed py-2" href="/admin/class_announcement">
                         <i class="fas fa-file-signature"></i>
                         <span>課程公告管理</span>
                     </a>
-                </li>
+                </li> --}}
+                {{-- <li class="nav-item">
+                    <a class="nav-link collapsed py-2" href="/admin/tutorial">
+                        <i class="fas fa-file-signature"></i>
+                        <span>課程主軸管理</span>
+                    </a>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link collapsed pt-2 pb-3" href="#" data-toggle="collapse" data-target="#collapse_class">
                         <i class="fas fa-file-signature"></i>
@@ -252,16 +258,21 @@
                     </a>
                     <div id="collapse_class" class="collapse">
                         <div class="bg-white py-2 collapse-inner rounded">
+
+                                <a class="collapse-item" href="/admin/tutorial">
+                                    課程主軸管理
+                                </a>
+
                                 <a class="collapse-item" href="/admin/class">
-                                    課程管理
+                                    單元管理
                                 </a>
 
                                 <a class="collapse-item" href="/admin/class_review">
-                                    審核課程
+                                    審核單元
                                 </a>
 
                                 <a class="collapse-item" href="/admin/fail">
-                                    已撤下課程
+                                    已撤下的單元
                                 </a>
                         </div>
                     </div>
@@ -333,12 +344,12 @@
                         <span>儀表板</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link py-2 collapsed" href="/admin/student/class_announcement">
                         <i class="fas fa-file-signature"></i>
                         <span>課程公告</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link py-2 collapsed" href="#" data-toggle="collapse" data-target="#collapse_10">
                         <i class="fas fa-users"></i>

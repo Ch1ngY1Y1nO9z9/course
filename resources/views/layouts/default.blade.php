@@ -304,10 +304,10 @@
                     <a class="nav-link" href="/news">最新消息</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/plan_results">計畫成果</a>
+                    <a class="nav-link" href="/plan_results">成果專區</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/video">影音專區</a>
+                    <a class="nav-link" href="/video">媒體頻道</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/activity_calendar">活動行事曆</a>
@@ -347,13 +347,13 @@
             </a>
         </li>
         <li>
-            <a href="/plan_results" title="計畫成果">
+            <a href="/plan_results" title="成果專區">
                 <div class="li2">
                     <img class="img-fluid" src="/imgs/nav_plan_results.png"
                          onmouseover="this.src='/imgs/nav_plan_results_hover.png';"
                          onmouseout="this.src='/imgs/nav_plan_results.png';"
-                         alt="中山醫學大學 USR 計畫成果">
-                    <p>計畫成果</p>
+                         alt="中山醫學大學 USR 成果專區">
+                    <p>成果專區</p>
                 </div>
             </a>
         </li>
@@ -363,8 +363,8 @@
                     <img class="img-fluid" src="/imgs/nav_video.png"
                          onmouseover="this.src='/imgs/nav_video_hover.png';"
                          onmouseout="this.src='/imgs/nav_video.png';"
-                         alt="中山醫學大學 USR 影音專區">
-                    <p>影音專區</p>
+                         alt="中山醫學大學 USR 媒體頻道">
+                    <p>媒體頻道</p>
                 </div>
             </a>
         </li>

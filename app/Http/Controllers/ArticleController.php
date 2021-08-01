@@ -68,7 +68,7 @@ class ArticleController extends Controller
     }
     #endregion
 
-    #region 計畫成果
+    #region 成果專區
     public function result_index()
     {
         $lists =  Article::where('type',2)->get();
@@ -182,7 +182,7 @@ class ArticleController extends Controller
     }
     #endregion
 
-    #region 影音專區
+    #region 媒體頻道
     public function video_index()
     {
         $lists =  Article::where('type',4)->get();

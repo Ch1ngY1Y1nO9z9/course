@@ -2,38 +2,49 @@
 
 namespace App\Http\Controllers;
 
+use App\SignUp;
 use App\Courses;
+use App\ClassAnnounces;
 use Illuminate\Http\Request;
+use App\Jobs\CheckAnnounceStatus;
 use Illuminate\Support\Facades\Auth;
 
 class CourseClassController extends Controller
 {
+    public function testqueue()
+    {
+        dispatch(new CheckAnnounceStatus());
+    }
+
     public function index()
     {
+        $items = SignUp::getRecords();
 
-        return view('admin.course.index');
+        return view('admin.course.index',compact('items'));
 
     }
 
     public function detail($id)
     {
+        $item = Courses::find($id);
 
-        return view('admin.course.student_detail');
+        return view('admin.course.student_detail', compact('item'));
 
     }
     
-    public function class_detail($id,$class_id)
+    public function class_detail($class_id)
     {
-
-        return view('admin.course.class_detail');
+        $item = Courses::find($class_id);
+        return view('admin.course.class_detail', compact('item'));
 
     }
 
     public function student_index()
     {
-        $items = Courses::where('status','!=','已撤下')->where('status','!=','審核未通過')->get();
-        $date = date('m/d/Y h:i:s a', time());
-        return view('admin.course.student.index',compact('items','date'));
+        $user = Auth::user();
+        $items = Courses::StudentSignUp()->get();
+        $date = strtotime(date('m/d/Y h:i:s a', time()));
+        return view('admin.course.student.index',compact('items','date','user'));
     }
 
     public function student_check($id)
@@ -44,11 +55,32 @@ class CourseClassController extends Controller
 
     public function records_index()
     {
-        return view('admin.course.student.records.index');
+        $user = Auth::user();
+        $items = SignUp::where('student_id',$user->id)
+                        ->orderby('created_at','desc')
+                        ->get();
+
+        return view('admin.course.student.records.index',compact('items'));
     }
 
     public function records_check($id)
     {
-        return view('admin.course.student.records.check');
+        $item = Courses::find($id);
+        return view('admin.course.student.check',compact('item'));
+    }
+
+    public function announce($id)
+    {
+        $items = ClassAnnounces::getPushedAnnounce($id)
+                                ->get();
+
+        return view('admin.course.student.records.announce', compact('items'));
+    }
+
+    public function announce_check($id)
+    {
+        $item = ClassAnnounces::find($id);
+
+        return view('admin.course.student.records.announce_check', compact('item'));
     }
 }
