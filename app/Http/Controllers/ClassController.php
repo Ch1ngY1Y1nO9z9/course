@@ -206,33 +206,18 @@ class ClassController extends Controller
 
     public function QRCode_generate(Request $request,$id)
     {
-        $rollcall_record = RollCallRecords::create([
+        RollCallRecords::create([
             'course_id'=> $id,
             'students_id'=> '[]',
             'date'=> date("Y-m-d h:i", time()),
         ]);
 
-        $class = Courses::find($id);
-
-        // 檔案路徑
-        $file_name = 'qrcodes/'.$class->tutorial->tutorial_name_en.'_'.$request->time.'.png';
-
-        // 建立伺服器路徑
-        // $directory = str_replace( 'public' , $file_name , $_SERVER['DOCUMENT_ROOT']);
-
-    
-        // 產生QRcode(本地端用)
-        // QrCode::format('png')->size(150)->generate('127.0.0.1:8000/admin/qrcode/rollcall/'.$rollcall_record->id,public_path($file_name));
-
-        // 產生QRcode(伺服端用)
-        QrCode::format('png')->size(150)->generate('https://course.surai.xyz/admin/qrcode/rollcall/'.$rollcall_record->id, public_path($file_name));
-
         // 建立QRcode資料
         $new_record = RollCallQR::create($request->all());
-        $new_record->qrcode_path = '/'.$file_name;
+        $new_record->qrcode_path = $id;
         $new_record->save();
 
-        return redirect('/admin/class/roll_call_online')->with('qrcode_id', $new_record->id);
+        return redirect('/admin/class/roll_call_online')->with('qrcode_id', $id);
     }
 
     public function roll_call_online()

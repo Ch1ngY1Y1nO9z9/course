@@ -26,9 +26,10 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        {{$class->class_cn}}
+                                        {{$class->tutorial->tutorial_name_cn}}
                                     </td>
                                     <td>
+                                        {!! QrCode::format('png')->size(150)->generate('https://course.surai.xyz/admin/qrcode/rollcall/'.$rollcall_record->id) !!}
                                         <img src="{{$qrcode->qrcode_path}}" alt="">
                                     </td>
                                     <td>
