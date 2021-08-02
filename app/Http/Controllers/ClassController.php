@@ -216,7 +216,7 @@ class ClassController extends Controller
         $new_record = RollCallQR::create($request->all());
         $new_record->save();
 
-        return redirect('/admin/class/roll_call_online/'.$roll_call->id);
+        return redirect('/admin/class/roll_call_online/'.$new_record->id);
     }
 
     public function roll_call_online($id)
