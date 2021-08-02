@@ -246,6 +246,7 @@ class ClassController extends Controller
         // 完成點名(導向至其他頁)X
         $user = Auth::user();
         $roll_call_record = RollCallRecords::find($id);
+        dd($id);
         $list = SignUp::CheckStudentList($roll_call_record->course_id);
 
         // 檢查是否有報名
