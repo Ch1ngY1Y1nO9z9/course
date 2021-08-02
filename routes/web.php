@@ -103,7 +103,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     // Route::get('/student/class_announcement/check/{id}', 'ClassAnnouncementController@student_check');
 
     Route::get('/qrcode/rollcall/{id}','ClassController@student_roll_call');
-    Route::get('/qrcode/rollcall/status','ClassController@student_roll_call_status');   
+    Route::get('/qrcode/rollcall_status','ClassController@student_roll_call_status');   
 });
 
 // 管理員&教師
