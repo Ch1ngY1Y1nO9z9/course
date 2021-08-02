@@ -134,7 +134,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 control-label">總時數</label>
+                            <label class="col-sm-2 control-label">時數</label>
                             <div class="col-sm-10">
                                 <input type="number" class="form-control" value="{{$item->total_hours}}" readonly>
                             </div>

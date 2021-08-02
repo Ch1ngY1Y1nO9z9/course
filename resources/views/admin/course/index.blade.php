@@ -17,7 +17,7 @@
                             <tr>
                                 <th>姓名(學號)</th>
                                 <th>總學分</th>
-                                <th>總時數</th>
+                                <th>時數</th>
                                 <th>功能</th>
                             </tr>
                             </thead>

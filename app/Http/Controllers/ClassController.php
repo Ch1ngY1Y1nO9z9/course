@@ -220,7 +220,7 @@ class ClassController extends Controller
         // QrCode::format('png')->size(150)->generate('127.0.0.1:8000/admin/qrcode/rollcall/'.$rollcall_record->id,public_path($file_name));
 
         // 測試站路徑
-        QrCode::format('png')->size(150)->generate('https://course.surai.xyz/admin/qrcode/rollcall/'.$rollcall_record->id,public_path($file_name));
+        QrCode::format('png')->size(150)->generate('https://course.surai.xyz/admin/qrcode/rollcall/'.$rollcall_record->id,'/'.$file_name);
 
         $new_record = RollCallQR::create($request->all());
         $new_record->qrcode_path = '/'.$file_name;

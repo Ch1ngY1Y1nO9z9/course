@@ -120,7 +120,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="total_hours" class="col-sm-2 control-label">總時數</label>
+                                <label for="total_hours" class="col-sm-2 control-label">時數</label>
                                 <div class="col-sm-10">
                                     <input type="number" class="form-control" id="total_hours" name="total_hours"  value="{{$item->total_hours}}" min="0" step="0.5">
                                 </div>

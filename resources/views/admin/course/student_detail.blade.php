@@ -19,7 +19,6 @@
                             <tr>
                                 <th>課程名稱</th>
                                 <th>課程日期</th>
-                                <th>學分</th>
                                 <th>時數</th>
                                 <th>功能</th>
                             </tr>
@@ -28,14 +27,12 @@
 
                                 <tr>
                                     <td>
-                                        {{$item->class_cn}}
+                                        {{$item->tutorial->tutorial_name_cn}}<br>
+                                        {{$item->class_name}}
                                     </td>
                                     <td>
                                         {{$item->getDate($item->class_start)}}<br>
                                         {{$item->getDate($item->class_end)}}
-                                    </td>
-                                    <td>
-                                        {{floor($item->total_hours/18)}}
                                     </td>
                                     <td>
                                         {{$item->total_hours}}
