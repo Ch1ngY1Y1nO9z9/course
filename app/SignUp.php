@@ -57,18 +57,18 @@ class SignUp extends Model
         return $totalTime;
     }
 
-    // 取得該課程學生名單(點名用)
-    // public function scopeGetStudentList($query,$course_id)
-    // {
-    //     $students = $this->where('course_id',$course_id)->get();
-    //     $list = [];
+    // 取得該課程學生名單(確認報名用)
+    public function scopeCheckStudentList($query,$course_id)
+    {
+        $students = $this->where('course_id',$course_id)->get();
+        $list = [];
 
-    //     foreach($students as $student){
-    //         array_push($list, $student->student_id);
-    //     }
+        foreach($students as $student){
+            array_push($list, $student->student_id);
+        }
 
-    //     return $list;
-    // }
+        return $list;
+    }
 
     public function scopeGetStudentList($query,$course_id)
     {
