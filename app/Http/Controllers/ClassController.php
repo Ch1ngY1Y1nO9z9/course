@@ -246,9 +246,6 @@ class ClassController extends Controller
         // 完成點名(導向至其他頁)X
         $user = Auth::user();
         $roll_call_record = RollCallRecords::find($id);
-        
-        $list_ary = json_decode($roll_call_record->students_id);
-        dd(gettype($list_ary));
         $list = SignUp::CheckStudentList($roll_call_record->course_id);
 
         // 檢查是否有報名
@@ -257,12 +254,14 @@ class ClassController extends Controller
         }
 
         // 檢查是否有重複點名
-        if(!in_array($user->id, $list_ary)){
-            array_push($user->id,$list_ary);
+        if(!in_array($user->id, json_decode($roll_call_record->students_id))){
+
+            $new_list = array_push($user->id,json_decode($roll_call_record->students_id));
+            $roll_call_record->students_id = json_encode($new_list);
             $roll_call_record->save();
 
             return redirect('/admin/qrcode/rollcall/status')->with('status_msg','您已成功點名!');
-        }elseif(in_array($user->id, $list_ary)){
+        }elseif(in_array($user->id, json_decode($roll_call_record->students_id))){
             return redirect('/admin/qrcode/rollcall/status')->with('status_msg','您已重複點名!');
         }
 
