@@ -63,7 +63,7 @@ body {
 
 #main-nav .navbar-brand img {
   height: 38px;
-  margin: 20px 0 20px 12px;
+  margin: 10px 0 10px 12px;
 }
 
 @media (max-width: 768px) {
@@ -148,7 +148,7 @@ body {
 }
 
 #main {
-  min-height: calc(100vh - 102px);
+  min-height: calc(100vh - 82px);
 }
 
 @media (max-width: 768px) {
