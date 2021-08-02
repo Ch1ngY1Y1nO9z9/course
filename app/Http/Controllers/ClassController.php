@@ -216,11 +216,13 @@ class ClassController extends Controller
 
         $file_name = 'qrcodes/'.$class->tutorial->tutorial_name_en.'_'.$request->time.'.png';
 
+        $directory = preg_replace ( 'public' , $file_name , $_SERVER['DOCUMENT_ROOT'] , $limit = -1 , $count );
+
         // 本地端測試路徑
         // QrCode::format('png')->size(150)->generate('127.0.0.1:8000/admin/qrcode/rollcall/'.$rollcall_record->id,public_path($file_name));
 
         // 測試站路徑
-        QrCode::format('png')->size(150)->generate('https://course.surai.xyz/admin/qrcode/rollcall/'.$rollcall_record->id,$_SERVER['DOCUMENT_ROOT'].$file_name);
+        QrCode::format('png')->size(150)->generate('https://course.surai.xyz/admin/qrcode/rollcall/'.$rollcall_record->id, $directory);
 
         $new_record = RollCallQR::create($request->all());
         $new_record->qrcode_path = '/'.$file_name;
