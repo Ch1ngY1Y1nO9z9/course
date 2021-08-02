@@ -251,17 +251,17 @@ class ClassController extends Controller
 
         // 檢查是否有報名
         if(!in_array($user->id,$list)){
-            return redirect('/qrcode/rollcall/status')->with('status_msg', '您並未報名此課程!');
+            return redirect('/admin/qrcode/rollcall/status')->with('status_msg', '您並未報名此課程!');
         }
 
         // 檢查是否有重複點名
         if(!in_array($user->id, $list_ary)){
             array_push($user->id,$list_ary);
             $roll_call_record->save();
-            
-            return redirect('/qrcode/rollcall/status')->with('status_msg','您已成功點名!');
+
+            return redirect('/admin/qrcode/rollcall/status')->with('status_msg','您已成功點名!');
         }elseif(in_array($user->id, $list_ary)){
-            return redirect('/qrcode/rollcall/status')->with('status_msg','您已重複點名!');
+            return redirect('/admin/qrcode/rollcall/status')->with('status_msg','您已重複點名!');
         }
 
     }
