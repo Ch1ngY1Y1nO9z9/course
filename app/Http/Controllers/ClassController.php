@@ -246,7 +246,6 @@ class ClassController extends Controller
         // 完成點名(導向至其他頁)X
         $user = Auth::user();
         $roll_call_record = RollCallRecords::find($id);
-        dd($roll_call_record);
         $list = SignUp::CheckStudentList($roll_call_record->course_id);
 
         // 檢查是否有報名
@@ -271,7 +270,7 @@ class ClassController extends Controller
     public function student_roll_call_status()
     {
         if(Session::get('status_msg'))
-            return view();
+            return view('admin.course.student.qr_code.signup_status');
         else
             return redirect('/admin/dashboard');
     }
