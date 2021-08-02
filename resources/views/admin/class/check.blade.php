@@ -29,7 +29,7 @@
                                     <a class="btn btn-success" href="/admin/class/check/{{$item->id}}/rollCall">線上點名</a>
                                 @endif
                                 <a class="btn btn-primary" href="/admin/class/check/{{$item->id}}/students">查看選課名單</a>
-                                <a class="btn btn-info" href="/admin/class/check/{{$item->id}}/rollCall_records">查看點名紀錄</a>
+                                <a class="btn btn-info" href="/admin/class/roll_call_online/{{$item->id}}">查看點名紀錄</a>
                             </div>
                             <hr>
                             @endif

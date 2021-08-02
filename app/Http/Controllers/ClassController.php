@@ -210,21 +210,19 @@ class ClassController extends Controller
             'course_id'=> $id,
             'students_id'=> '[]',
             'date'=> date("Y-m-d h:i", time()),
+            'time'=> $request->time,
         ]);
 
-        // 建立QRcode資料
-        $new_record = RollCallQR::create($request->all());
-        $new_record->save();
-
-        return redirect('/admin/class/roll_call_online/'.$new_record->id);
+        return redirect('/admin/class/roll_call_online/'.$id);
     }
 
     public function roll_call_online($id)
     {
-        $qrcode = RollCallQR::find($id);
-        $class = Courses::find($qrcode->class_id);
+        $date = strtotime(date('m/d/Y h:i:s a', time()));
+
+        $records = RollCallRecords::where('course_id',$id)->get();
         
-        return view('admin.class.generate',compact('qrcode','class','id'));
+        return view('admin.class.generate',compact('records','id'));
     }
 
     public function rollCall_records($id)
@@ -234,7 +232,10 @@ class ClassController extends Controller
 
     public function rollCall_records_check($id)
     {
-        return view('admin.class.roll_call_records_check');
+        $record = RollCallRecords::find($id);
+        $items = SignUp::GetStudentList($record->course_id)->get();
+
+        return view('admin.class.roll_call_records_check',compact('items','record'));
     }
 
     public function student_roll_call($id)

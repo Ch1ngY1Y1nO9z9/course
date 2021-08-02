@@ -9,38 +9,42 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">{{Auth::user()->name}} - QR碼點名</h3>
+                        <h3 class="card-title">{{Auth::user()->name}} - 點名紀錄</h3>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/class">返回課程管理</a>
+                        <a class="btn btn-success" href="/admin/class/check/{{$id}}">返回</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>課程名稱</th>
+                                <th>日期</th>
                                 <th>QR Code</th>
                                 <th>開放時間</th>
                                 <th>功能</th>
                             </tr>
                             </thead>
                             <tbody>
+                                @foreach($records as $record)
                                 <tr>
                                     <td>
-                                        {{$class->class_name}}
+                                        {{$record->date}}分
                                     </td>
                                     <td>
-                                        {!! QrCode::size(150)->generate('https://course.surai.xyz/admin/qrcode/rollcall/'.$class->id) !!}
+                                        {!! QrCode::size(150)->generate('https://course.surai.xyz/admin/qrcode/rollcall/'.$record->class->id) !!}
                                     </td>
                                     <td>
-                                        {{$qrcode->time}} 分
+                                        {{$record->time}} 分
                                     </td>
                                     <td width="150">
-                                        <button class="btn btn-sm btn-danger mt-1" data-listid="1">取消</button>
-                                        <form class="delete-form" action="/admin/class/delete/1" method="POST" style="display: none;" data-listid="1">
+                                        <a class="btn btn-sm btn-primary" href="/admin/class/check/{{$record->id}}/rollCall_records/check">檢視</a>
+                                        <a class="btn btn-sm btn-success" href="/admin/class/check/{{$record->id}}/rollCall_records/check">編輯</a>
+                                        {{-- <button class="btn btn-sm btn-danger" data-listid="{{$record->id}}">取消</button>
+                                        <form class="delete-form" action="/admin/class/delete/{{$record->id}}" method="POST" style="display: none;" data-listid="{{$record->id}}">
                                             {{ csrf_field() }}
-                                        </form>
+                                        </form> --}}
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -85,7 +89,7 @@
 
         $('.btn-danger').click(function(){
             var listid = $(this).data("listid");
-            if (confirm('確認是否提前取消點名？')){
+            if (confirm('確認是否刪除點名紀錄？')){
                 event.preventDefault();
                 $('.delete-form[data-listid="' + listid + '"]').submit();
             }

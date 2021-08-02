@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\SignUp;
 use App\Courses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
