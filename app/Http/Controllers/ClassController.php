@@ -216,8 +216,9 @@ class ClassController extends Controller
 
         $file_name = 'qrcodes/'.$class->tutorial->tutorial_name_en.'_'.$request->time.'.png';
 
-        $directory = preg_replace ( 'public' , $file_name , $_SERVER['DOCUMENT_ROOT'] , $limit = -1 , $count );
+        $directory = str_replace( 'public' , $file_name , $_SERVER['DOCUMENT_ROOT']);
 
+    
         // 本地端測試路徑
         // QrCode::format('png')->size(150)->generate('127.0.0.1:8000/admin/qrcode/rollcall/'.$rollcall_record->id,public_path($file_name));
 
