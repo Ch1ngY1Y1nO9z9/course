@@ -214,17 +214,20 @@ class ClassController extends Controller
 
         $class = Courses::find($id);
 
+        // 檔案路徑
         $file_name = 'qrcodes/'.$class->tutorial->tutorial_name_en.'_'.$request->time.'.png';
 
-        $directory = str_replace( 'public' , $file_name , $_SERVER['DOCUMENT_ROOT']);
+        // 建立伺服器路徑
+        // $directory = str_replace( 'public' , $file_name , $_SERVER['DOCUMENT_ROOT']);
 
     
-        // 本地端測試路徑
+        // 產生QRcode(本地端用)
         // QrCode::format('png')->size(150)->generate('127.0.0.1:8000/admin/qrcode/rollcall/'.$rollcall_record->id,public_path($file_name));
 
-        // 測試站路徑
-        QrCode::format('png')->size(150)->generate('https://course.surai.xyz/admin/qrcode/rollcall/'.$rollcall_record->id, $directory);
+        // 產生QRcode(伺服端用)
+        QrCode::format('png')->size(150)->generate('https://course.surai.xyz/admin/qrcode/rollcall/'.$rollcall_record->id, public_path($file_name));
 
+        // 建立QRcode資料
         $new_record = RollCallQR::create($request->all());
         $new_record->qrcode_path = '/'.$file_name;
         $new_record->save();
