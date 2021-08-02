@@ -214,15 +214,13 @@ class ClassController extends Controller
 
         // 建立QRcode資料
         $new_record = RollCallQR::create($request->all());
-        $new_record->qrcode_path = $id;
         $new_record->save();
 
-        return redirect('/admin/class/roll_call_online')->with('qrcode_id', $id);
+        return redirect('/admin/class/roll_call_online/'.$id);
     }
 
-    public function roll_call_online()
+    public function roll_call_online($id)
     {
-        $id = Session::get('qrcode_id');
         $qrcode = RollCallQR::find($id);
         $class = Courses::find($qrcode->class_id);
         
