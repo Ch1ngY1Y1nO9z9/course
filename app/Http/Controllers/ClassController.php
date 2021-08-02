@@ -206,7 +206,7 @@ class ClassController extends Controller
 
     public function QRCode_generate(Request $request,$id)
     {
-        RollCallRecords::create([
+        $roll_call = RollCallRecords::create([
             'course_id'=> $id,
             'students_id'=> '[]',
             'date'=> date("Y-m-d h:i", time()),
@@ -216,7 +216,7 @@ class ClassController extends Controller
         $new_record = RollCallQR::create($request->all());
         $new_record->save();
 
-        return redirect('/admin/class/roll_call_online/'.$id);
+        return redirect('/admin/class/roll_call_online/'.$roll_call->id);
     }
 
     public function roll_call_online($id)
