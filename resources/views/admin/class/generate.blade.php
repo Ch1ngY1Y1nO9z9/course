@@ -30,7 +30,7 @@
                                         {{$record->date}}分
                                     </td>
                                     <td>
-                                        {!! QrCode::size(150)->generate('https://course.surai.xyz/admin/qrcode/rollcall/'.$record->class->id) !!}
+                                        {!! QrCode::size(150)->generate('https://course.surai.xyz/admin/qrcode/rollcall/'.$record->id) !!}
                                     </td>
                                     <td>
                                         {{$record->time}} 分
