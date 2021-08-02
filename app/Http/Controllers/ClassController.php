@@ -248,7 +248,7 @@ class ClassController extends Controller
         $roll_call_record = RollCallRecords::find($id);
         
         $list_ary = json_decode($roll_call_record->students_id);
-        dd(gettype($roll_call_record->students_id));
+        dd(gettype($list_ary));
         $list = SignUp::CheckStudentList($roll_call_record->course_id);
 
         // 檢查是否有報名
