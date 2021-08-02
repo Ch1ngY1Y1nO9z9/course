@@ -214,7 +214,7 @@ class ClassController extends Controller
 
         $class = Courses::find($id);
 
-        $file_name = 'qrcodes/'.$class->class_en.'_'.$request->time.'.png';
+        $file_name = 'qrcodes/'.$class->tutorial->tutorial_name_en.'_'.$request->time.'.png';
 
         // 本地端測試路徑
         // QrCode::format('png')->size(150)->generate('127.0.0.1:8000/admin/qrcode/rollcall/'.$rollcall_record->id,public_path($file_name));
