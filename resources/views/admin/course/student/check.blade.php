@@ -142,7 +142,11 @@
                             <div class="form-group row">
                                 <label for="upload_file" class="col-sm-2 control-label">附件</label>
                                 <div class="col-sm-10">
-                                    <a target="_blank" href="{{$item->files}}" download>檔案下載連結</a>
+                                    @if($item->files)
+                                        <a target="_blank" href="{{$item->files}}" download>檔案下載連結</a>
+                                    @else
+                                        -
+                                    @endif
                                 </div>
                             </div>
                         @endif

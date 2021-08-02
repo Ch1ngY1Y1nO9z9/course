@@ -172,11 +172,11 @@ class Courses extends Model
                     ->whereIn('status', ['已撤下','審核未通過']);
     }
 
-    // 類型: 待審核 已通過 已開課 已結束
+    // 類型: 待審核 已通過 已開課 已結束 未送出
     public function scopePassed($query)
     {
         return $this->where('user_id', $this->getUser()->id)
-                    ->whereIn('status', ['待審核','已通過','已開課','已結束']);
+                    ->whereIn('status', ['未送出','待審核','已通過','已開課','已結束']);
     }
 
     // 類型: 待審核 未送出
