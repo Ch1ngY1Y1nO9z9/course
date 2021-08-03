@@ -256,7 +256,7 @@ class ClassController extends Controller
         // 檢查是否有重複點名
         if(!in_array($user_id, json_decode($roll_call_record->students_id))){
             $list = json_decode($roll_call_record->students_id);
-            array_push($user_id,$list);
+            array_push($list,$user_id);
             $roll_call_record->students_id = json_encode($list);
             $roll_call_record->save();
 
