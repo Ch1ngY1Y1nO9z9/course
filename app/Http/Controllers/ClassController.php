@@ -244,24 +244,24 @@ class ClassController extends Controller
         // 再檢測透過網址進來的使用者是否有報名此課程(沒報名則導向至其他頁)X
         // 驗證此使用者是否重複點名(有重複點名則導向至其他頁)
         // 完成點名(導向至其他頁)X
-        $user = Auth::user();
+        $user_id = Auth::user()->id;
         $roll_call_record = RollCallRecords::find($id);
         $list = SignUp::CheckStudentList($roll_call_record->course_id);
 
         // 檢查是否有報名
-        if(!in_array($user->id,$list)){
+        if(!in_array($user_id,$list)){
             return redirect('/admin/qrcode/rollcall_status')->with('status_msg', '您並未報名此課程!');
         }
 
         // 檢查是否有重複點名
-        if(!in_array($user->id, json_decode($roll_call_record->students_id))){
+        if(!in_array($user_id, json_decode($roll_call_record->students_id))){
             $list = json_decode($roll_call_record->students_id);
-            array_push($user->id,$list);
+            array_push($user_id,$list);
             $roll_call_record->students_id = json_encode($list);
             $roll_call_record->save();
 
             return redirect('/admin/qrcode/rollcall_status')->with('status_msg','您已成功點名!');
-        }elseif(in_array($user->id, json_decode($roll_call_record->students_id))){
+        }elseif(in_array($user_id, json_decode($roll_call_record->students_id))){
             return redirect('/admin/qrcode/rollcall_status')->with('status_msg','您已重複點名!');
         }
 
