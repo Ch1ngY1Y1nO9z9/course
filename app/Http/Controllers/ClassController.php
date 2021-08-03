@@ -255,9 +255,9 @@ class ClassController extends Controller
 
         // 檢查是否有重複點名
         if(!in_array($user->id, json_decode($roll_call_record->students_id))){
-
-            $new_list = array_push($user->id,json_decode($roll_call_record->students_id));
-            $roll_call_record->students_id = json_encode($new_list);
+            $list = json_decode($roll_call_record->students_id);
+            array_push($user->id,$list);
+            $roll_call_record->students_id = json_encode($list);
             $roll_call_record->save();
 
             return redirect('/admin/qrcode/rollcall_status')->with('status_msg','您已成功點名!');
