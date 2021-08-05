@@ -5,215 +5,406 @@
 @section('description',$seo->description)
 
 @section('css')
-    <style>
-        .sen1 {
-            margin-bottom: 30px;
-        }
-
-        .sen2 {
-            margin-bottom: 50px;
-        }
-
-        .sen1_top {
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        .sen2_top ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .sen2_top li {
-            display: inline-block;
-            width: 200px;
-            max-width: calc(50% - 10px);
-        }
-
-        .sen1_bottom,
-        .sen2_bottom {
-            width: 100%;
-        }
-
-        .sen1_bottom ul,
-        .sen2_bottom ul {
-            padding-left: 13px;
-            list-style: none;
-            margin-top: 10px;
-        }
-
-        .sen1_bottom ul li,
-        .sen2_bottom ul li {
-            border-bottom: solid 1px gray;
-            padding: 3px 0;
-        }
-
-        .sen1_bottom ul li a,
-        .sen2_bottom ul li a{
-            color: rgba(0, 0, 0, 0.71);
-
-        }
-
-        .sen1_bottom ul li::before,.sen2_bottom ul li::before {
-            content: "•";
-            color: #ebaa2c;
-            display: inline-block;
-            width: 1em;
-        }
-
-        .sen3_top,
-        .sen4_top {
-            width: 100%;
-            max-width: 100%;
-
-        }
-
-        .sen3_bottom,
-        .sen4_bottom {
-            padding:10px 15px;
-            height: 100%;
-            width: 100%;
-            background-color: #EEEEEE;
-            margin-bottom: 30px;
-        }
-
-        .sen4_bottom iframe{
-            width: 100%;
-        }
-
-        .images-banner-bg-div{
-            height: 280px;
-            width: 100%;
-            background-size: cover;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/index.css">
 @endsection
 
 @section('content')
-    <div class="sen1">
-        <div class="sen1_top" title="師生榮譽榜">
-            <img height="63" src="/imgs/panel_honors_title.png" alt="中山醫學大學 USR 師生榮譽榜 標題">
+<section id="main-section">
+    <section id="banner">
+        <div class="swiper-container bannerSwiper">
+            <div class="swiper-wrapper">
+                @foreach($banners as $banner)
+                    <div class="swiper-slide">
+                        <a href="{{$banner->slider_a_href}}"><img class="img-fluid" src="{{$banner->slider_url}}" alt="{{$banner->slider_alt}}"></a>
+                    </div>
+                @endforeach
+
+                <div class="swiper-slide">
+                    <img src="/imgs/banner/01.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="/imgs/banner/02.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="/imgs/banner/03.png" alt="">
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
-        <div class="sen1_bottom">
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="title">
+                        <h3>About Us</h3>
+                        <h2>關於我們</h2>
+                    </div>
+                    <div class="context-left">
+                        <p>
+                            台灣已進入高齡社會， 伴隨高齡人口增加， 其在社區中的食衣住行育樂等需求， 也都一一浮現。 長者如何在社區中健康老化？ 活得幸福又快樂？ 因此，
+                            具有厚實人文社會關懷底蘊的東海大學， 以建置「開放式養生村」為願景， 連結與整合校內外資源， 創設五大支持系統與樂齡學院， 師生共同進入社區，
+                            提升社區長者生心社層面的整體福祉， 環境更友善， 打造３６０度的環繞幸福！
+                        </p>
+                    </div>
+                    <a href="" class="btn btn-sm btn-dark btn-more">更多資訊</a>
+                </div>
+                <div class="col-md-6">
+                    <div class="title">
+                        <h3>Goal</h3>
+                        <h2>USR理念</h2>
+                    </div>
+                    <div class="context-right">
+                        <span class="badge badge1">關懷</span>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus totam a voluptates
+                            impedit cum qu
+                        </p>
+                        <span class="badge badge2">石岡</span>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus totam a voluptates
+                            impedit cum qu
+                        </p>
+                        <span class="badge badge3">中山</span>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus totam a voluptates
+                            impedit cum qu
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</section>
+
+<section id="news-section">
+    <div class="container">
+        <div class="news-nav">
+            <div class="left-nav">
+                <div class="title">
+                    <h3>About Us</h3>
+                    <h2>關於我們</h2>
+                </div>
+                <nav>
+                    <a class="btn btn-sm btn-dark" href="">全部</a>
+                    <a class="btn btn-sm btn-secondary" href="">課程公告</a>
+                    <a class="btn btn-sm btn-secondary" href="">校內活動</a>
+                    <a class="btn btn-sm btn-secondary" href="">場域活動</a>
+                    <a class="btn btn-sm btn-secondary" href="">其他公告</a>
+                    <a class="btn btn-sm btn-secondary" href="">資訊轉知</a>
+                </nav>
+            </div>
+            <div class="more">
+                <a class="btn btn-link" href="/news">
+                    全部消息
+                    <img src="/imgs/icons/more.png" alt="more">
+                </a>
+            </div>
+        </div>
+        <div class="new-content">
             <ul>
-                @foreach($honors as $honor)
-                    <li><a href="/honors/{{$honor->id}}">{{$honor->title}}
-                            <span class="float-right">【{{$honor->date}}】</span>
-                            <div style="clear: both;"></div>
-                        </a>
+                @foreach($news as $new)
+                    <li>
+                        <div class="dateTypeLabel">
+                            <span class="date">{{$new->date}}</span><span class="type">校內活動</span>
+                        </div>
+                        <a href="/news/{{$new->id}}" class="title">{{$new->title}}</a>
                     </li>
                 @endforeach
             </ul>
         </div>
-        <span style="margin-top: -15px;margin-right: 10px" class="float-right"><a style="color: rgba(0, 0, 0, 0.71)" href="/honors">more</a></span>
     </div>
-    <div class="sen2">
-        <div class="sen2_top">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" title="最新消息">
-                    <a class="active" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="true">
-                        <img class="img-fluid" src="/imgs/panel_news_title.png" alt="中山醫學大學 USR 最新消息 標題">
-                    </a>
+</section>
+
+<section id="schedule-section">
+    <div class="container">
+        <div class="schedule-nav">
+            <div class="title">
+                <h3>USR Schedule</h3>
+                <h2>USR行事曆</h2>
+            </div>
+            <nav>
+                <a class="btn btn-primary" href="">課程公告</a>
+                <a class="btn btn-dark" href="">校內活動</a>
+                <a class="btn btn-dark" href="">校外活動</a>
+            </nav>
+        </div>
+        <div class="schedule-content">
+
+        </div>
+    </div>
+</section>
+
+<section id="video-section">
+    <div class="container">
+        <div class="video-nav">
+            <div class="title">
+                <h3>Video</h3>
+                <h2>影音中心</h2>
+            </div>
+            <div class="more">
+                <a class="btn btn-link" href="#">
+                    所有影音
+                    <img src="/imgs/icons/more.png" alt="more">
+                </a>
+            </div>
+        </div>
+        <div class="video-content">
+            <div class="swiper-container videoSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="">
+                            <div class="video-slide">
+                                <img class="video-img" src="/imgs/video/v-1.jpg" alt="">
+                                <div class="video-play">
+                                    <img src="/imgs/icons/video-play.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dateTypeLabel">
+                            <span class="date">2021/06/12</span><span class="type">校內活動</span>
+                        </div>
+                        <div class="title">
+                            <a href="">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sit!
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="">
+                            <div class="video-slide">
+                                <img class="video-img" src="/imgs/video/v-2.jpg" alt="">
+                                <div class="video-play">
+                                    <img src="/imgs/icons/video-play.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dateTypeLabel">
+                            <span class="date">2021/06/12</span><span class="type">校內活動</span>
+                        </div>
+                        <div class="title">
+                            <a href="">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sit!
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="">
+                            <div class="video-slide">
+                                <img class="video-img" src="/imgs/video/v-3.jpg" alt="">
+                                <div class="video-play">
+                                    <img src="/imgs/icons/video-play.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dateTypeLabel">
+                            <span class="date">2021/06/12</span><span class="type">校內活動</span>
+                        </div>
+                        <div class="title">
+                            <a href="" >
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sit!
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="">
+                            <div class="video-slide">
+                                <img class="video-img" src="/imgs/video/v-1.jpg" alt="">
+                                <div class="video-play">
+                                    <img src="/imgs/icons/video-play.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dateTypeLabel">
+                            <span class="date">2021/06/12</span><span class="type">校內活動</span>
+                        </div>
+                        <div class="title">
+                            <a href="">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sit!
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="">
+                            <div class="video-slide">
+                                <img class="video-img" src="/imgs/video/v-2.jpg" alt="">
+                                <div class="video-play">
+                                    <img src="/imgs/icons/video-play.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dateTypeLabel">
+                            <span class="date">2021/06/12</span><span class="type">校內活動</span>
+                        </div>
+                        <div class="title">
+                            <a href="">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sit!
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="">
+                            <div class="video-slide">
+                                <img class="video-img" src="/imgs/video/v-3.jpg" alt="">
+                                <div class="video-play">
+                                    <img src="/imgs/icons/video-play.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dateTypeLabel">
+                            <span class="date">2021/06/12</span><span class="type">校內活動</span>
+                        </div>
+                        <div class="title">
+                            <a href="" >
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sit!
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="swiper-button-next">
+                <img width="50" src="/imgs/icons/right-pagination.png" alt="next">
+            </div>
+            <div class="swiper-button-prev">
+                <img width="50" src="/imgs/icons/left-pagination.png" alt="prev">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="download-section">
+    <div class="container">
+        <div class="download-nav">
+            <div class="title">
+                <h3>Download</h3>
+                <h2>檔案中心</h2>
+            </div>
+
+            <div class="more">
+                <a class="btn btn-link" href="">
+                    所有檔案
+                    <img src="/imgs/icons/more.png" alt="more">
+                </a>
+            </div>
+        </div>
+        <div class="download-content">
+            <ul>
+                <li>
+                    <div class="dateTypeLabel">
+                        <span class="date">2021/06/12</span>
+                    </div>
+                    <a href="" class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
+                        sit!</a>
+                    <span class="download">
+                        <a href="#" target="_blank">
+                            <img src="/imgs/icons/download.png" alt="download">
+                        </a>
+                    </span>
                 </li>
-                <li class="nav-item" title="成果專區">
-                    <a id="plan-tab" data-toggle="tab" href="#plan" role="tab" aria-controls="plan" aria-selected="false">
-                        <img class="img-fluid" src="/imgs/panel_plan_title.png" alt="中山醫學大學 USR 成果專區 標題">
-                    </a>
+                <li>
+                    <div class="dateTypeLabel">
+                        <span class="date">2021/06/12</span>
+                    </div>
+                    <a href="" class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
+                        sit!</a>
+                    <span class="download">
+                        <a href="#" target="_blank">
+                            <img src="/imgs/icons/download.png" alt="download">
+                        </a>
+                    </span>
+                </li>
+                <li>
+                    <div class="dateTypeLabel">
+                        <span class="date">2021/06/12</span>
+                    </div>
+                    <a href="" class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
+                        sit!</a>
+                    <span class="download">
+                        <a href="#" target="_blank">
+                            <img src="/imgs/icons/download.png" alt="download">
+                        </a>
+                    </span>
                 </li>
             </ul>
         </div>
-
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="news" role="tabpanel" aria-labelledby="news-tab">
-                <div class="sen2_bottom">
-                    <ul>
-                        @foreach($news as $new)
-                            <li>
-                                <a href="/news/{{$new->id}}">{{$new->title}}
-                                    <span class="float-right">【{{$new->date}}】</span>
-                                    <div style="clear: both;"></div>
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-                <span style="margin-top: -15px;margin-right: 10px" class="float-right"><a style="color: rgba(0, 0, 0, 0.71)" href="/news">more</a></span>
-            </div>
-            <div class="tab-pane fade" id="plan" role="tabpanel" aria-labelledby="plan-tab">
-                <div class="sen2_bottom">
-                    <ul>
-                        @foreach($results as $result)
-                            <li>
-                                <a href="/plan_results/{{$result->id}}">{{$result->title}}</a>
-                                <span class="float-right">【{{$result->date}}】</span>
-                                <div style="clear: both;"></div>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-                <span style="margin-top: -15px;margin-right: 10px" class="float-right"><a style="color: rgba(0, 0, 0, 0.71)" href="/plan_results">more</a></span>
-
-            </div>
-        </div>
-
     </div>
+</section>
 
-    <div class="row">
-        <div class="col-sm-12 col-md-6">
-            <div class="sen4">
-                <div class="sen4_top" style="position: relative">
-                    <img class="img-fluid" src="/imgs/panel_video_title2.png" alt="中山醫學大學 USR 影音集錦 標題">
-                    <a style="position: absolute;right: 20px;top: 20px;font-size: 16px;color: white;letter-spacing: 1px;" href="https://hesphust.hust.edu.tw/video">MORE</a>
+<section id="links-section">
+    <div class="container">
+        <div class="swiper-container links-Swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a class="title" href="">
+                        <img src="/imgs/links-2.png" alt="">
+                        <p>
+                            《宜居石岡，永續健康》粉專
+                        </p>
+                    </a>
                 </div>
-
-
-                <?php
-                parse_str( parse_url( $youtube_url->title, PHP_URL_QUERY ), $my_array_of_vars );
-                ?>
-                <div class="sen4_bottom" style="height: 300px">
-                    <iframe height="280" src="https://www.youtube.com/embed/{{$my_array_of_vars['v']}}" frameborder="0" allow="autoplay; encrypted-media"
-                            allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-12 col-md-6">
-            <div class="sen3">
-                <div class="sen3_top">
-                    <img class="img-fluid" src="/imgs/panel_video_title1.png" alt="中山醫學大學 USR 活動紀錄 標題">
-                </div>
-                <div class="sen3_bottom" style="height: 300px">
-                    <div id="images-banner" class="swiper-container">
-                        <div class="swiper-wrapper">
-                            @foreach($imgnews_index as $imgnew)
-                                <div class="swiper-slide">
-                                    <a style="width: 100%" href="{{$imgnew->link}}">
-                                        <div class="images-banner-bg-div" style="background-image: url('{{$imgnew->image_url}}')">
-                                        </div>
-                                    </a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
+                <div class="swiper-slide">
+                    <a class="title" href="">
+                        <img src="/imgs/links-1.png" alt="">
+                        <p>
+                            大學社會責任推動中心
+                        </p>
+                    </a>
+                    
                 </div>
             </div>
+            <div class="swiper-button-next">
+                <img width="15" src="/imgs/icons/right-pagination-white.png" alt="next">
+            </div>
+            <div class="swiper-button-prev">
+                <img width="15" src="/imgs/icons/left-pagination-white.png" alt="next">
+            </div>
         </div>
-
     </div>
+</section>
 @endsection
 
 @section('js')
-    <script>
-        var swiper = new Swiper('#images-banner', {
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-            }
-        });
-    </script>
+<script>
+    var swiper = new Swiper(".bannerSwiper", {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 40,
+        loop: true,
+        grabCursor: true,
+        pagination: {
+            el: ".bannerSwiper .swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+
+    var swiper = new Swiper(".videoSwiper", {
+        slidesPerView: 'auto',
+        spaceBetween: 40,
+        loop: true,
+        navigation: {
+            nextEl: ".video-content .swiper-button-next",
+            prevEl: ".video-content .swiper-button-prev",
+        },
+    });
+
+    var swiper = new Swiper(".links-Swiper", {
+        slidesPerView: 'auto',
+        spaceBetween: 40,
+        grabCursor: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
 @endsection
