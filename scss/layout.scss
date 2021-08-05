@@ -19,7 +19,7 @@ body {
 }
 
 // .navbar-expand-custom
-@media (min-width: 1500px) {
+@media (min-width: 1430px) {
     .navbar-expand-custom {
         flex-direction: row;
         flex-wrap: nowrap;
@@ -90,6 +90,10 @@ body {
                 .nav-link {
                     color: white;
                     font-size: 1.2rem;
+
+                    @media (max-width: 1450px) {
+                        font-size: 1.1rem;
+                    }
 
                     &:hover {
                         color: #fff981;

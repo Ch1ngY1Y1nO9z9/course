@@ -1,11 +1,11 @@
 @charset "UTF-8";
 html,
 body {
-  font-family: Arial, "微軟正黑體", "Microsoft JhengHei", "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "標楷體", DFKai-SB, sans-serif;
+  font-family: Arial, "微軟正黑體", "Microsoft JhengHei", "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "標楷體", DFKai-SB, sans-serif;
   font-size: 15px;
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1430px) {
   .navbar-expand-custom {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -106,6 +106,12 @@ body {
 #main-nav #navbarNavDropdown .navbar-nav .nav-item .nav-link {
   color: white;
   font-size: 1.2rem;
+}
+
+@media (max-width: 1450px) {
+  #main-nav #navbarNavDropdown .navbar-nav .nav-item .nav-link {
+    font-size: 1.1rem;
+  }
 }
 
 #main-nav #navbarNavDropdown .navbar-nav .nav-item .nav-link:hover {
