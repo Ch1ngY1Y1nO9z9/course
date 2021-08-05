@@ -240,10 +240,6 @@ class ClassController extends Controller
 
     public function student_roll_call($id)
     {
-        // 透過QRcode附在網址上的ID找到當前開放點名的紀錄X
-        // 再檢測透過網址進來的使用者是否有報名此課程(沒報名則導向至其他頁)X
-        // 驗證此使用者是否重複點名(有重複點名則導向至其他頁)
-        // 完成點名(導向至其他頁)X
         $user_id = Auth::user()->id;
         $roll_call_record = RollCallRecords::find($id);
         $list = SignUp::CheckStudentList($roll_call_record->course_id);

@@ -13,7 +13,7 @@ class CourseClassController extends Controller
 {
     public function testqueue()
     {
-        dispatch(new CheckAnnounceStatus());
+
     }
 
     public function index()
