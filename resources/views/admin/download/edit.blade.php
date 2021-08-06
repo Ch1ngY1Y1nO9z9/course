@@ -17,7 +17,7 @@
                         <form class="form-horizontal" method="post" action="/admin/download/update/{{$list->id}}" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
-                                <label for="article_type" class="col-sm-1 control-label">企劃別</label>
+                                <label for="article_type" class="col-sm-1 control-label">類別</label>
                                 <div class="col-sm-5">
                                     <select id="plan_type" class="form-control" name="plan_type">
                                         <option value="辦公室辦法" @if($list->plan_type == "辦公室辦法") selected @endif>辦公室辦法</option>

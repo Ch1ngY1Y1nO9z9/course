@@ -20,7 +20,7 @@
                             <thead>
                             <tr>
                                 <th>文章標題</th>
-                                <th>企劃別</th>
+                                <th>類別</th>
                                 <th>日期</th>
                                 <th>功能</th>
                             </tr>

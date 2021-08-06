@@ -11,72 +11,56 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">特色亮點成果管理 － 編輯文章</h3>
+                        <h3 class="card-title">友站連結管理 － 編輯</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="/admin/highlight/update/{{$list->id}}" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="post" action="/admin/links/update/{{$list->id}}" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
-                                <label for="article_type" class="col-sm-2 control-label">類別</label>
+                                <label for="sort" class="col-sm-2 control-label">權重</label>
                                 <div class="col-sm-10">
-                                    <select id="plan_type" class="form-control" name="plan_type">
-                                        <option value="課程公告" @if($list->plan_type == "課程公告") selected @endif>課程公告</option>
-                                        <option value="校內活動" @if($list->plan_type == "校內活動") selected @endif>校內活動</option>
-                                        <option value="場域活動" @if($list->plan_type == "場域活動") selected @endif>場域活動</option>
-                                        <option value="其他公告" @if($list->plan_type == "其他公告") selected @endif>其他公告</option>
-                                        <option value="資訊轉知" @if($list->plan_type == "資訊轉知") selected @endif>資訊轉知</option>
-                                    </select>
+                                    <input type="number" class="form-control" id="sort" name="sort" step="1" min="1" value="{{$list->sort}}">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="date" class="col-sm-2 control-label">日期</label>
+                                <label for="links_a_href" class="col-sm-2 control-label">超連結</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="date" name="date" data-toggle="datepicker" value="{{$list->date}}" >
+                                    <input type="text" class="form-control" id="links_a_href" name="links_a_href" value="{{$list->links_a_href}}">
+                                </div>
+                            </div>
+
+
+                            <hr>
+
+                            <div class="form-group row">
+                                <label for="links_alt" class="col-sm-2 control-label">圖片替代文字(alt)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="links_alt" name="links_alt" value="{{$list->links_alt}}">
                                 </div>
                             </div>
 
                             <hr>
 
                             <div class="form-group row">
-                                <label for="title" class="col-sm-2 control-label">文章標題</label>
+                                <label class="col-sm-2 control-label">目前圖片</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="title" name="title" value="{{$list->title}}" >
+                                    <img width="50px" src="{{$list->links_url}}" alt="{{$list->links_alt}}"/>
                                 </div>
                             </div>
 
                             <hr>
 
                             <div class="form-group row">
-                                <label for="content" class="col-sm-2 control-label">內文</label>
+                                <label for="upload_file" class="col-sm-2 control-label">上傳圖片</label>
                                 <div class="col-sm-10">
-                                    <textarea class="summernote" id="main_content" name="main_content">{{$list->content}}</textarea>
+                                    <input type="file" class="form-control" id="upload_file" name="upload_file">
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="del_files" class="col-sm-2 control-label">刪除檔案</label>
-                                <div class="clearfix"></div>
-                                <div class="col-sm-1"></div>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        @foreach($files as $file)
-                                            <div class="col-sm-3 mb-3">
-                                                <input type="checkbox" name="del_files[]" value="{{$file->id}}">
-                                                <a href="{{$file->url}}" download="{{$file->old_filename}}">{{$file->old_filename}}</a>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="upload_files" class="col-sm-2 control-label">上傳檔案</label>
-                                <div class="col-sm-10">
-                                    <input type="file" class="form-control" id="upload_files" name="upload_files[]" multiple>
-                                </div>
-                            </div>
+
+                            <span class="text-danger">＊建議尺寸大小為寬 50px,高 50px</span>
 
                             <hr>
-
                             <div class="form-group row">
                                 <div class="col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">送出</button>

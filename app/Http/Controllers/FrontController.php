@@ -7,6 +7,7 @@ use App\ImageNews;
 use App\PlanArticle;
 use App\PlanPage;
 use App\Seo;
+use App\Links;
 use App\Slider;
 use App\WebCount;
 use Illuminate\Http\Request;
@@ -28,30 +29,45 @@ class FrontController extends Controller
     //首頁
     public function index()
     {
-
-        $user_ip = $this->getUserIP();
-        $value = Session::get('userIp');
-        if($value==null){
-            WebCount::create(['ip'=>$user_ip]);
-            session(['userIp' => '$user_ip']);
-        }
-
-        $youtube_url = Seo::where('page','youtube_video')->first();
+        $this->addWebCount();
 
         $seo=Seo::where('page','index')->first();
-        $news=Article::where('type',1)->OrderBy('date','desc')->take(7)->get();
-        $results=Article::where('type',2)->OrderBy('date','desc')->take(7)->get();
-        $honors=Article::where('type',3)->OrderBy('date','desc')->take(7)->get();
+        $news=Article::where('type',1)->OrderBy('date','desc')->take(5)->get();
         $banners=Slider::OrderBy('sort','desc')->get();
 
-        $imgnews =  ImageNews::where('type',2)->OrderBy('sort','desc')->get();
-        foreach ($imgnews as $list){
-            $list -> image_url = json_decode($list -> image_url,true);
+        $links = Links::OrderBy('sort','desc')->get();
+
+        return view($this->index,compact('seo','news','banners','links'));
+    }
+
+    public function plan_cp(Request $request)
+    {
+        $this->addWebCount();
+
+        $route_name = Route::currentRouteName();
+        switch ($route_name){
+            case 'plan_vision':
+                $PlanPageID = 1;
+                break;
+            case 'organization':
+                $PlanPageID = 2;
+                break;
+            case 'usr_committee':
+                $PlanPageID = 3;
+                break;
+            case 'office_member':
+                $PlanPageID = 4;
+                break;
+            case 'results_report':
+                $PlanPageID = 5;
+                break;
+            case 'shi_gang':
+                $PlanPageID = 6;
+                break;
         }
 
-        $imgnews_index=ImageNews::where('type', 1)->OrderBy('sort','desc')->get();
-
-        return view($this->index,compact('seo','news','results','honors','banners','imgnews','imgnews_index','youtube_url'));
+        $page = PlanPage::find($PlanPageID);
+        return view('front._cp',compact('page'));
     }
 
     //article view
@@ -181,7 +197,7 @@ class FrontController extends Controller
 
         $articles =  $q->orderBy('top','desc')->orderBy('date','desc')->paginate(15);
 
-        return view('front.article_view',compact('seo','articles','banners','imgnews','route_name'));
+        return view('front.article_view',compact('seo','articles','route_name'));
     }
 
     //article detail
@@ -205,7 +221,7 @@ class FrontController extends Controller
             $list -> image_url = json_decode($list -> image_url,true);
         }
 
-        return view('front.article_detail',compact('seo','articles','banners','imgnews','route_name','article'));
+        return view('front.article_detail',compact('seo','route_name','article'));
     }
 
     //活動行事曆
@@ -227,7 +243,8 @@ class FrontController extends Controller
         return view($this->activity_calendar,compact('seo','banners','imgnews'));
     }
 
-    public function plan_architecture()
+    
+    function addWebCount()
     {
         $user_ip = $this->getUserIP();
         $value = Session::get('userIp');
@@ -235,138 +252,8 @@ class FrontController extends Controller
             WebCount::create(['ip'=>$user_ip]);
             session(['userIp' => '$user_ip']);
         }
-
-        $banners=Slider::OrderBy('sort','desc')->get();
-        $imgnews=ImageNews::where('type', 2)->OrderBy('sort','desc')->get();
-        foreach ($imgnews as $list){
-            $list -> image_url = json_decode($list -> image_url,true);
-        }
-
-        $page = PlanPage::find(1);
-
-        return view('front.menu_1',compact('banners','imgnews','page'));
     }
-
-    public function plan_spindle()
-    {
-        $user_ip = $this->getUserIP();
-        $value = Session::get('userIp');
-        if($value==null){
-            WebCount::create(['ip'=>$user_ip]);
-            session(['userIp' => '$user_ip']);
-        }
-
-        $banners=Slider::OrderBy('sort','desc')->get();
-        $imgnews=ImageNews::where('type', 2)->OrderBy('sort','desc')->get();
-        foreach ($imgnews as $list){
-            $list -> image_url = json_decode($list -> image_url,true);
-        }
-
-        $page = PlanPage::find(2);
-
-        return view('front.menu_2',compact('banners','imgnews','page'));
-    }
-
-    public function plan_test()
-    {
-        $user_ip = $this->getUserIP();
-        $value = Session::get('userIp');
-        if($value==null){
-            WebCount::create(['ip'=>$user_ip]);
-            session(['userIp' => '$user_ip']);
-        }
-
-        $banners=Slider::OrderBy('sort','desc')->get();
-        $imgnews=ImageNews::where('type', 2)->OrderBy('sort','desc')->get();
-        foreach ($imgnews as $list){
-            $list -> image_url = json_decode($list -> image_url,true);
-        }
-
-        $page = PlanPage::find(3);
-
-        return view('front.menu_3',compact('banners','imgnews','page'));
-    }
-
-    public function team_introduction()
-    {
-        $user_ip = $this->getUserIP();
-        $value = Session::get('userIp');
-        if($value==null){
-            WebCount::create(['ip'=>$user_ip]);
-            session(['userIp' => '$user_ip']);
-        }
-
-        $banners=Slider::OrderBy('sort','desc')->get();
-        $imgnews=ImageNews::where('type', 2)->OrderBy('sort','desc')->get();
-        foreach ($imgnews as $list){
-            $list -> image_url = json_decode($list -> image_url,true);
-        }
-
-        $page = PlanPage::find(4);
-
-        return view('front.menu_4',compact('banners','imgnews','page'));
-    }
-
-    public function related_legislation()
-    {
-        $user_ip = $this->getUserIP();
-        $value = Session::get('userIp');
-        if($value==null){
-            WebCount::create(['ip'=>$user_ip]);
-            session(['userIp' => '$user_ip']);
-        }
-
-        $banners=Slider::OrderBy('sort','desc')->get();
-        $imgnews=ImageNews::where('type', 2)->OrderBy('sort','desc')->get();
-        foreach ($imgnews as $list){
-            $list -> image_url = json_decode($list -> image_url,true);
-        }
-
-        $lists = PlanArticle::with(['download_files' => function ($q) {
-            $q->orderBy('ext', 'asc');
-        }])->get();
-
-
-        return view('front.menu_5',compact('banners','imgnews','lists'));
-    }
-
-    public function others_link()
-    {
-        $user_ip = $this->getUserIP();
-        $value = Session::get('userIp');
-        if($value==null){
-            WebCount::create(['ip'=>$user_ip]);
-            session(['userIp' => '$user_ip']);
-        }
-
-        $banners=Slider::OrderBy('sort','desc')->get();
-        $imgnews=ImageNews::where('type', 2)->OrderBy('sort','desc')->get();
-        foreach ($imgnews as $list){
-            $list -> image_url = json_decode($list -> image_url,true);
-        }
-
-        $page = PlanPage::find(5);
-
-        return view('front.others_link',compact('banners','imgnews','page'));
-    }
-
-    public function site_maps()
-    {
-        $user_ip = $this->getUserIP();
-        $value = Session::get('userIp');
-        if($value==null){
-            WebCount::create(['ip'=>$user_ip]);
-            session(['userIp' => '$user_ip']);
-        }
-
-        $banners=Slider::OrderBy('sort','desc')->get();
-        $imgnews=ImageNews::where('type', 2)->OrderBy('sort','desc')->get();
-        foreach ($imgnews as $list){
-            $list -> image_url = json_decode($list -> image_url,true);
-        }
-
-        return view('front.site_maps',compact('banners','imgnews'));
-    }
+    
 
     function getUserIP()
     {

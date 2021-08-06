@@ -118,54 +118,58 @@
                         </a>
                         <div id="collapse_1" class="collapse">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                    <a class="collapse-item" href="/admin/banner">
-                                        首頁輪播圖
-                                    </a>
+                                <a class="collapse-item" href="/admin/banner">
+                                    首頁輪播圖
+                                </a>
 
-                                    <a class="collapse-item" href="/admin/important">
-                                        重要公告
-                                    </a>
-
-                                    <a class="collapse-item" href="/admin/activity">
-                                        活動紀錄
-                                    </a>
-
-                                    <a class="collapse-item" href="/admin/youtube_video">
-                                        影音錦囊
-                                    </a>
-
-                                    <a class="collapse-item" href="/admin/plan_page/5">
-                                        其他相關連結
-                                    </a>
+                                <a class="collapse-item" href="/admin/about">
+                                    關於我們
+                                </a>
+                                <a class="collapse-item" href="/admin/links">
+                                    友站連結
+                                </a>
                             </div>
                         </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapse_2">
                             <i class="fas fa-file-signature"></i>
-                            <span>計畫內容管理</span>
+                            <span>USR辦公室內容管理</span>
                         </a>
                         <div id="collapse_2" class="collapse">
                             <div class="bg-white py-2 collapse-inner rounded">
                                     <a class="collapse-item" href="/admin/plan_page/1">
-                                        計畫架構
+                                        目標願景
                                     </a>
 
                                     <a class="collapse-item" href="/admin/plan_page/2">
-                                        計畫主軸
+                                        組織架構
                                     </a>
 
                                     <a class="collapse-item" href="/admin/plan_page/3">
-                                        計畫管考
+                                        USR委員會
                                     </a>
 
                                     <a class="collapse-item" href="/admin/plan_page/4">
-                                        團隊介紹
+                                        辦公室成員
                                     </a>
 
-                                    <a class="collapse-item" href="/admin/plan_page_related_legislation">
-                                        相關法規
+                                    <a class="collapse-item" href="/admin/plan_page/5">
+                                        成果報告
                                     </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapse_plan_location">
+                            <i class="fas fa-file-signature"></i>
+                            <span>場域介紹管理</span>
+                        </a>
+                        <div id="collapse_plan_location" class="collapse">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <a class="collapse-item" href="/admin/plan_location/1">
+                                    石崗
+                                </a>
                             </div>
                         </div>
                     </li>
@@ -176,17 +180,18 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link collapsed py-2" href="#">
+                            <i class="fas fa-file-signature"></i>
+                            <span>課程專區內容管理</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link collapsed py-2" href="/admin/result">
                             <i class="fas fa-file-signature"></i>
                             <span>成果專區內容管理</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link collapsed py-2" href="/admin/honor">
-                            <i class="fas fa-file-signature"></i>
-                            <span>師生榮譽榜單內容管理</span>
-                        </a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link collapsed py-2" href="/admin/video">
                             <i class="fas fa-file-signature"></i>
@@ -198,27 +203,6 @@
                             <i class="fas fa-file-signature"></i>
                             <span>下載專區內容管理</span>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link collapsed pt-2 pb-3" href="#" data-toggle="collapse" data-target="#collapse_3">
-                            <i class="fas fa-file-signature"></i>
-                            <span>宣傳專區</span>
-                        </a>
-                        <div id="collapse_3" class="collapse">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                    <a class="collapse-item" href="/admin/highlight">
-                                        特色亮點成果
-                                    </a>
-
-                                    <a class="collapse-item" href="/admin/promote">
-                                        宣傳品
-                                    </a>
-
-                                    <a class="collapse-item" href="/admin/other">
-                                        其他
-                                    </a>
-                            </div>
-                        </div>
                     </li>
                 @endif
     

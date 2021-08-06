@@ -50,7 +50,7 @@
                             提升社區長者生心社層面的整體福祉， 環境更友善， 打造３６０度的環繞幸福！
                         </p>
                     </div>
-                    <a href="" class="btn btn-sm btn-dark btn-more">更多資訊</a>
+                    <a href="/about" class="btn btn-sm btn-dark btn-more">更多資訊</a>
                 </div>
                 <div class="col-md-6">
                     <div class="title">
@@ -87,8 +87,8 @@
         <div class="news-nav">
             <div class="left-nav">
                 <div class="title">
-                    <h3>About Us</h3>
-                    <h2>關於我們</h2>
+                    <h3>News</h3>
+                    <h2>最新消息</h2>
                 </div>
                 <nav>
                     <a class="btn btn-sm btn-dark" href="">全部</a>
@@ -131,7 +131,7 @@
             <nav>
                 <a class="btn btn-primary" href="">課程公告</a>
                 <a class="btn btn-dark" href="">校內活動</a>
-                <a class="btn btn-dark" href="">校外活動</a>
+                <a class="btn btn-dark" href="">場域活動</a>
             </nav>
         </div>
         <div class="schedule-content">
@@ -148,7 +148,7 @@
                 <h2>影音中心</h2>
             </div>
             <div class="more">
-                <a class="btn btn-link" href="#">
+                <a class="btn btn-link" href="/video">
                     所有影音
                     <img src="/imgs/icons/more.png" alt="more">
                 </a>
@@ -287,7 +287,7 @@
             </div>
 
             <div class="more">
-                <a class="btn btn-link" href="">
+                <a class="btn btn-link" href="/download">
                     所有檔案
                     <img src="/imgs/icons/more.png" alt="more">
                 </a>
@@ -340,23 +340,16 @@
     <div class="container">
         <div class="swiper-container links-Swiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <a class="title" href="">
-                        <img src="/imgs/links-2.png" alt="">
-                        <p>
-                            《宜居石岡，永續健康》粉專
-                        </p>
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a class="title" href="">
-                        <img src="/imgs/links-1.png" alt="">
-                        <p>
-                            大學社會責任推動中心
-                        </p>
-                    </a>
-                    
-                </div>
+                @foreach($links as $link)
+                    <div class="swiper-slide">
+                        <a class="title" href="{{$link->links_a_href}}">
+                            <img src="{{$link->links_url}}" alt="{{$link->links_alt}}">
+                            <p>
+                                {{$link->links_alt}}
+                            </p>
+                        </a>
+                    </div>
+                @endforeach
             </div>
             <div class="swiper-button-next">
                 <img width="15" src="/imgs/icons/right-pagination-white.png" alt="next">

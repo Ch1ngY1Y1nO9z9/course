@@ -16,6 +16,16 @@
 Route::get('/testmail','CourseClassController@testqueue');
 
 Route::get('/','FrontController@index');
+
+Route::get('/plan_vision','FrontController@plan_cp')->name('plan_vision');
+Route::get('/organization','FrontController@plan_cp')->name('organization');
+Route::get('/usr_committee','FrontController@plan_cp')->name('usr_committee');
+Route::get('/office_member','FrontController@plan_cp')->name('office_member');
+Route::get('/results_report','FrontController@plan_cp')->name('results_report');
+
+Route::get('/shi-gang','FrontController@plan_cp')->name('shi_gang');
+
+
 Route::get('/news','FrontController@article_view')->name('front_news');
 Route::get('/plan_results','FrontController@article_view')->name('front_plan_results');
 Route::get('/video','FrontController@article_view')->name('front_video');
@@ -34,11 +44,7 @@ Route::get('/highlight/{id}','FrontController@article_detail')->name('front_high
 Route::get('/promote/{id}','FrontController@article_detail')->name('front_promote_detail');
 Route::get('/other/{id}','FrontController@article_detail')->name('front_other_detail');
 
-Route::get('/plan_architecture','FrontController@plan_architecture');
-Route::get('/plan_spindle','FrontController@plan_spindle');
-Route::get('/plan_test','FrontController@plan_test');
-Route::get('/team_introduction','FrontController@team_introduction');
-Route::get('/related_legislation','FrontController@related_legislation');
+
 
 Route::get('/others_link','FrontController@others_link');
 Route::get('/site_maps','FrontController@site_maps');
@@ -194,9 +200,23 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     //index
     Route::get('/','AdminController@index');
 
+    //about
+    Route::get('/about','AdminController@about');
+    Route::get('/about','AdminController@about_update');
+
+    //有站連結
+    Route::group(['prefix' => 'links'], function () {
+        Route::get('/', 'LinksController@index');
+        Route::get('/create', 'LinksController@create');
+        Route::post('/store', 'LinksController@store');
+        Route::get('/edit/{id}', 'LinksController@edit');
+        Route::post('/update/{id}', 'LinksController@update');
+        Route::post('/delete/{id}', 'LinksController@delete');
+    });
+
     //youtube_video
-    Route::get('/youtube_video','AdminController@youtube_video');
-    Route::post('/youtube_video','AdminController@youtube_video_update');
+//    Route::get('/youtube_video','AdminController@youtube_video');
+//    Route::post('/youtube_video','AdminController@youtube_video_update');
 
     //seo
     Route::get('seo','SeoController@index');

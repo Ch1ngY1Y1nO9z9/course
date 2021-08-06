@@ -14,17 +14,15 @@
                         <h3 class="card-title">成果專區管理 － 新增文章</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="/admin/result/store">
+                        <form class="form-horizontal" method="post" action="/admin/result/store" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
-                                <label for="plan_type" class="col-sm-2 control-label">企劃別</label>
+                                <label for="plan_type" class="col-sm-2 control-label">類別</label>
                                 <div class="col-sm-10">
                                     <select id="plan_type" class="form-control" name="plan_type">
-                                        <option value="課程公告">課程公告</option>
-                                        <option value="校內活動">校內活動</option>
-                                        <option value="場域活動">場域活動</option>
-                                        <option value="其他公告">其他公告</option>
-                                        <option value="資訊轉知">資訊轉知</option>
+                                        <option value="教師成長">教師成長</option>
+                                        <option value="場域學習">場域學習</option>
+                                        <option value="成果亮點">成果亮點</option>
                                     </select>
                                 </div>
                             </div>
@@ -42,6 +40,13 @@
                                 <label for="title" class="col-sm-2 control-label">文章標題</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="title" name="title">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="upload_files" class="col-sm-2 control-label">上傳封面圖片</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" id="upload_files" name="upload_files">
                                 </div>
                             </div>
 

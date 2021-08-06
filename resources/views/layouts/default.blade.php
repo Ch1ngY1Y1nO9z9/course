@@ -56,11 +56,11 @@
                         USR辦公室
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-                        <a class="dropdown-item" href="#">目標願景</a>
-                        <a class="dropdown-item" href="#">組織架構</a>
-                        <a class="dropdown-item" href="#">USR委員會</a>
-                        <a class="dropdown-item" href="#">辦公室成員</a>
-                        <a class="dropdown-item" href="#">成果報告</a>
+                        <a class="dropdown-item" href="/plan_vision">目標願景</a>
+                        <a class="dropdown-item" href="/organization">組織架構</a>
+                        <a class="dropdown-item" href="/usr_committee">USR委員會</a>
+                        <a class="dropdown-item" href="/office_member">辦公室成員</a>
+                        <a class="dropdown-item" href="/results_report">成果報告</a>
                     </div>
                 </li>
 
@@ -70,27 +70,27 @@
                         場域介紹
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                        <a class="dropdown-item" href="#">石岡</a>
+                        <a class="dropdown-item" href="shi-gang">石岡</a>
                     </div>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">最新消息</a>
+                    <a class="nav-link" href="/news">最新消息</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">課程專區</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">成果專區</a>
+                    <a class="nav-link" href="/plan_results">成果專區</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">媒體頻道</a>
+                    <a class="nav-link" href="/video">媒體頻道</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">微學分專區</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">下載專區</a>
+                    <a class="nav-link" href="/downloads">下載專區</a>
                 </li>
             </ul>
         </div>

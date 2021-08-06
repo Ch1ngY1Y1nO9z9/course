@@ -11,41 +11,32 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">特色亮點成果管理</h3>
+                        <h3 class="card-title">友站連結管理</h3>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/highlight/create">新增文章</a>
+                        <a class="btn btn-success" href="/admin/links/create">新增</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>文章標題</th>
-                                <th>類別</th>
-                                <th>日期</th>
+                                <th>圖片</th>
+                                <th>超連結</th>
+                                <th>圖片替代文字(alt)</th>
+                                <th>權重</th>
                                 <th>功能</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($lists as $list)
                                 <tr>
-                                    <td>{{$list->title}}</td>
-                                    <td>{{$list->plan_type}}</td>
-                                    <td>{{$list->date}}</td>
-                                    <td width="170">
-                                        @if($list->top == 0)
-                                            <button class="btn btn-sm btn-primary" data-listid="{{$list->id}}">置頂</button>
-                                            <form class="to_top-form" action="/admin/top/top/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
-                                                {{ csrf_field() }}
-                                            </form>
-                                        @else
-                                            <button class="btn btn-sm btn-primary" data-listid="{{$list->id}}">取消置頂</button>
-                                            <form class="to_top-form" action="/admin/top/normal/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
-                                                {{ csrf_field() }}
-                                            </form>
-                                        @endif
-                                        <a class="btn btn-sm btn-success" href="/admin/highlight/edit/{{$list->id}}">編輯</a>
+                                    <td><img class="img-responsive" width="50px" src="{!! $list->links_url!!}"></td>
+                                    <td>{{$list->links_a_href}}</td>
+                                    <td>{{$list->links_alt}}</td>
+                                    <td>{{$list->sort}}</td>
+                                    <td width="97">
+                                        <a class="btn btn-sm btn-success" href="/admin/links/edit/{{$list->id}}">編輯</a>
                                         <button class="btn btn-sm btn-danger" data-listid="{{$list->id}}">刪除</button>
-                                        <form class="delete-form" action="/admin/highlight/delete/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                        <form class="delete-form" action="/admin/links/delete/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                     </td>
@@ -68,7 +59,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[2,'asc']],
+                "order": [[3,'desc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",
@@ -95,17 +86,9 @@
 
         $('.btn-danger').click(function(){
             var listid = $(this).data("listid");
-            if (confirm('確認是否刪除此文章？')){
+            if (confirm('確認是否刪除此圖片？')){
                 event.preventDefault();
                 $('.delete-form[data-listid="' + listid + '"]').submit();
-            }
-        });
-
-        $('.btn-primary').click(function(){
-            var listid = $(this).data("listid");
-            if (confirm('確認是否變更置頂此文章？')){
-                event.preventDefault();
-                $('.to_top-form[data-listid="' + listid + '"]').submit();
             }
         });
     </script>

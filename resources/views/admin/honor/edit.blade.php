@@ -17,7 +17,7 @@
                         <form class="form-horizontal" method="post" action="/admin/honor/update/{{$list->id}}">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
-                                {{--<label for="plan_type" class="col-sm-1 control-label">企劃別</label>--}}
+                                {{--<label for="plan_type" class="col-sm-1 control-label">類別</label>--}}
                                 {{--<div class="col-sm-5">--}}
                                     {{--<select id="plan_type" class="form-control" name="plan_type">--}}
                                         {{--<option value="重要訊息" @if($list->plan_type == "重要訊息") selected @endif>重要訊息</option>--}}

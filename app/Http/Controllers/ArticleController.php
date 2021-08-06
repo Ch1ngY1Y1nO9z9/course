@@ -89,6 +89,12 @@ class ArticleController extends Controller
         $new_list -> content = $request-> main_content;
         $new_list -> date = $request-> date;
         $new_list -> save();
+
+        if( $request->hasFile('upload_files')){
+            $files = $request->file('upload_files');
+            $this->upload_file($files,$new_list->id);
+        }
+
         return redirect('/admin/result')->with('message','新增成功!');
     }
 
@@ -96,7 +102,8 @@ class ArticleController extends Controller
     {
         $list = Article::find($id);
         if($list->type == 2){
-            return view('admin.result.edit',compact('list'));
+            $files = DownloadFile::where('article_id',$id) -> get();
+            return view('admin.result.edit',compact('list','files'));
         }else {
             return redirect('/admin/result')->with('message', '無此文章!');
         }
@@ -111,6 +118,17 @@ class ArticleController extends Controller
             $list -> content = $request-> main_content;
             $list -> date = $request-> date;
             $list -> save();
+
+            $files = DownloadFile::where('article_id',$id) -> get();
+            foreach ($files as $del_file){
+                $this->delete_file($del_file->id);
+            }
+
+            if( $request->hasFile('upload_files')){
+                $files = $request->file('upload_files');
+                $this->upload_file($files,$list->id);
+            }
+
             return redirect('/admin/result')->with('message','修改成功!');
         }else{
             return redirect('/admin/result')->with('message', '無此文章!');
@@ -203,6 +221,12 @@ class ArticleController extends Controller
         $new_list -> content = $request-> main_content;
         $new_list -> date = $request-> date;
         $new_list -> save();
+
+        if( $request->hasFile('upload_files')){
+            $files = $request->file('upload_files');
+            $this->upload_file($files,$new_list->id);
+        }
+
         return redirect('/admin/video')->with('message','新增成功!');
     }
 
@@ -210,7 +234,8 @@ class ArticleController extends Controller
     {
         $list = Article::find($id);
         if($list->type == 4){
-            return view('admin.video.edit',compact('list'));
+            $files = DownloadFile::where('article_id',$id) -> get();
+            return view('admin.video.edit',compact('list','files'));
         }else {
             return redirect('/admin/video')->with('message', '無此文章!');
         }
@@ -225,6 +250,17 @@ class ArticleController extends Controller
             $list -> content = $request-> main_content;
             $list -> date = $request-> date;
             $list -> save();
+
+            $files = DownloadFile::where('article_id',$id) -> get();
+            foreach ($files as $del_file){
+                $this->delete_file($del_file->id);
+            }
+
+            if( $request->hasFile('upload_files')){
+                $files = $request->file('upload_files');
+                $this->upload_file($files,$list->id);
+            }
+
             return redirect('/admin/video')->with('message','修改成功!');
         }else{
             return redirect('/admin/video')->with('message', '無此文章!');

@@ -14,20 +14,15 @@
                         <h3 class="card-title">成果專區管理 － 編輯文章</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="/admin/result/update/{{$list->id}}">
+                        <form class="form-horizontal" method="post" action="/admin/result/update/{{$list->id}}" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
-                                <label for="plan_type" class="col-sm-2 control-label">企劃別</label>
+                                <label for="plan_type" class="col-sm-2 control-label">類別</label>
                                 <div class="col-sm-10">
                                     <select id="plan_type" class="form-control" name="plan_type">
-                                        <option value="重要訊息" @if($list->plan_type == "重要訊息") selected @endif>重要訊息</option>
-                                        <option value="分項計畫A" @if($list->plan_type == "分項計畫A") selected @endif>分項計畫A</option>
-                                        <option value="分項計畫B" @if($list->plan_type == "分項計畫B") selected @endif>分項計畫B</option>
-                                        <option value="分項計畫C" @if($list->plan_type == "分項計畫C") selected @endif>分項計畫C</option>
-                                        <option value="分項計畫D" @if($list->plan_type == "分項計畫D") selected @endif>分項計畫D</option>
-                                        <option value="分項計畫E" @if($list->plan_type == "分項計畫E") selected @endif>分項計畫E</option>
-                                        <option value="分項計畫F" @if($list->plan_type == "分項計畫F") selected @endif>分項計畫F</option>
-                                        <option value="其他" @if($list->plan_type == "其他") selected @endif>其他</option>
+                                        <option value="教師成長">教師成長</option>
+                                        <option value="場域學習">場域學習</option>
+                                        <option value="成果亮點">成果亮點</option>
                                     </select>
                                 </div>
                             </div>
@@ -45,6 +40,22 @@
                                 <label for="title" class="col-sm-2 control-label">文章標題</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="title" name="title" value="{{$list->title}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="upload_files" class="col-sm-2 control-label">現有圖片</label>
+                                <div class="col-sm-4">
+                                    @foreach($files as $file)
+                                        <img src="{{$file->url}}" alt="" class="img-fluid">
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="upload_files" class="col-sm-2 control-label">上傳封面照片</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" id="upload_files" name="upload_files">
                                 </div>
                             </div>
 

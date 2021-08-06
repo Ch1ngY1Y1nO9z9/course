@@ -17,7 +17,7 @@
                         <form class="form-horizontal" method="post" action="/admin/other/store" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
-                                <label for="article_type" class="col-sm-2 control-label">企劃別</label>
+                                <label for="article_type" class="col-sm-2 control-label">類別</label>
                                 <div class="col-sm-10">
                                     <select id="plan_type" class="form-control" name="plan_type">
                                         <option value="課程公告">課程公告</option>
