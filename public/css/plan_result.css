@@ -1,0 +1,100 @@
+.swiper-container.videoSwiper {
+  position: relative;
+}
+
+.swiper-container.videoSwiper .swiper-button-prev:after,
+.swiper-container.videoSwiper .swiper-container-rtl .swiper-button-next:after,
+.swiper-container.videoSwiper .swiper-button-next:after,
+.swiper-container.videoSwiper .swiper-container-rtl .swiper-button-prev:after {
+  content: "";
+}
+
+.swiper-container.videoSwiper::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  background-color: #fff7d8;
+  left: -20px;
+  bottom: 110px;
+  z-index: -1;
+}
+
+.swiper-container.videoSwiper .swiper-button-next,
+.swiper-container.videoSwiper .swiper-button-prev {
+  width: auto;
+  height: auto;
+}
+
+.swiper-container.videoSwiper .swiper-slide .title {
+  font-size: 16px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.swiper-container.videoSwiper .swiper-slide .title a {
+  color: #333333;
+}
+
+.swiper-container.videoSwiper .swiper-slide .title a:hover {
+  color: #1751a3;
+  text-decoration: none;
+}
+
+.swiper-container.videoSwiper .swiper-slide .video-slide {
+  background-color: rgba(0, 0, 0, 0.15);
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  position: relative;
+}
+
+.swiper-container.videoSwiper .swiper-slide .video-slide img.video-img {
+  -webkit-transform: translateY(calc((200px - 100%) * 0.5));
+          transform: translateY(calc((200px - 100%) * 0.5));
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-container.videoSwiper .swiper-slide .video-slide .video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.swiper-container.videoSwiper .swiper-slide .video-slide .dateTypeLabel {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.swiper-container.videoSwiper .swiper-slide .video-slide .dateTypeLabel .type {
+  background-color: #ba2828;
+  padding: 0.15rem 0.4rem;
+  margin-left: 20px;
+  color: white;
+}
+
+.swiper-container.videoSwiper .swiper-slide .video-slide .title {
+  font-size: 20px;
+  color: #333333;
+}
+
+.swiper-container.videoSwiper .swiper-slide .video-slide .title:hover {
+  color: #1751a3;
+  text-decoration: none;
+}
+
+.swiper-container.videoSwiper .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: unset;
+  background: unset;
+  background-color: black;
+}
+/*# sourceMappingURL=plan_result.css.map */

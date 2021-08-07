@@ -597,7 +597,7 @@ class ArticleController extends Controller
 
     #region USR計畫
     public function plan_page_index($id){
-        if($id > 0 && $id <6){
+        if($id > 0 && $id <7){
             $page = PlanPage::find($id);
             return view('admin.plan_page.index',compact('page'));
         }else{

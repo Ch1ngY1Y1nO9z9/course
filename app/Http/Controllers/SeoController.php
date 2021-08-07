@@ -36,6 +36,20 @@ class SeoController extends Controller
 
         $seo->save();
 
-        return redirect('/admin/seo');
+        if($page != "about" && $page != "about_2"){
+            return redirect('/admin/seo');
+        }else{
+            return redirect('/admin/about');
+        }
+        
+    }
+
+    public function about()
+    {
+        $seo_all=Seo::all();
+        $about = $seo_all->where('page','about')->first();
+        $about_2 = $seo_all->where('page','about_2')->first();
+
+        return view('admin.seo.about',compact('about','about_2'));
     }
 }

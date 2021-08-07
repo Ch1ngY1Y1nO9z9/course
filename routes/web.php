@@ -23,32 +23,22 @@ Route::get('/usr_committee','FrontController@plan_cp')->name('usr_committee');
 Route::get('/office_member','FrontController@plan_cp')->name('office_member');
 Route::get('/results_report','FrontController@plan_cp')->name('results_report');
 
-Route::get('/shi-gang','FrontController@plan_cp')->name('shi_gang');
+Route::get('/plan_location','FrontController@plan_cp')->name('shi_gang');
 
-
+//最新消息
 Route::get('/news','FrontController@article_view')->name('front_news');
+
+//成果專區
 Route::get('/plan_results','FrontController@article_view')->name('front_plan_results');
+
+//媒體頻道
 Route::get('/video','FrontController@article_view')->name('front_video');
-Route::get('/honors','FrontController@article_view')->name('front_honors');
+
+//下載專區
 Route::get('/downloads','FrontController@article_view')->name('front_downloads');
-Route::get('/highlight','FrontController@article_view')->name('front_highlight');
-Route::get('/promote','FrontController@article_view')->name('front_promote');
-Route::get('/other','FrontController@article_view')->name('front_other');
 
 Route::get('/news/{id}','FrontController@article_detail')->name('front_news_detail');
 Route::get('/plan_results/{id}','FrontController@article_detail')->name('front_plan_results_detail');
-Route::get('/video/{id}','FrontController@article_detail')->name('front_video_detail');
-Route::get('/honors/{id}','FrontController@article_detail')->name('front_honors_detail');
-Route::get('/downloads/{id}','FrontController@article_detail')->name('front_downloads_detail');
-Route::get('/highlight/{id}','FrontController@article_detail')->name('front_highlight_detail');
-Route::get('/promote/{id}','FrontController@article_detail')->name('front_promote_detail');
-Route::get('/other/{id}','FrontController@article_detail')->name('front_other_detail');
-
-
-
-Route::get('/others_link','FrontController@others_link');
-Route::get('/site_maps','FrontController@site_maps');
-
 
 Route::get('/activity_calendar','FrontController@activity_calendar');
 Route::get('/calendar_api',function (){
@@ -221,6 +211,10 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     //seo
     Route::get('seo','SeoController@index');
     Route::post('seo/update/{page}','SeoController@update');
+
+    //seo
+    Route::get('about','SeoController@about');
+    Route::post('about/update/{page}','SeoController@update_about');
 
     //news
     Route::group(['prefix' => 'news'], function () {

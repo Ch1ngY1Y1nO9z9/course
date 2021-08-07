@@ -6,16 +6,6 @@
 
 @section('css')
     <style>
-        #search-box{
-            margin: 30px 0;
-            width: calc(100%);
-            border: 1px solid #eee;
-            border-left-width: .25rem;
-            border-radius: .25rem;
-            border-left-color: #65B9B4;
-            box-shadow: 0 2px 3px rgba(0,0,0,.16);
-        }
-
         .summer-note-content{
             margin-top:30px;
         }
@@ -27,7 +17,19 @@
 @endsection
 
 @section('content')
-    <div class="summer-note-content">
+    <nav class="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                <li class="breadcrumb-item active" aria-current="page"></li>
+              </ol>
+        </div>
+    </nav>
+    
+    <div class="summer-note-content container">
+        <h3>
+            {!! $article->title !!}
+        </h3>
         {!! $article->content !!}
     </div>
     @if($route_name=='front_downloads_detail'|| $route_name == 'front_highlight_detail' || $route_name == 'front_promote_detail' || $route_name == 'front_other_detail')

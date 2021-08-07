@@ -10,7 +10,11 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">USR計畫-{{$page->name}}-管理</h3>
+                        @if($page->id >5)
+                            <h3 class="card-title">USR計畫-場域介紹-{{$page->name}}-管理</h3>
+                        @else
+                            <h3 class="card-title">USR計畫-{{$page->name}}-管理</h3>
+                        @endif
                     </div>
                     <div class="card-body">
                         <form class="form-horizontal" method="post" action="/admin/plan_page/update/{{$page->id}}">

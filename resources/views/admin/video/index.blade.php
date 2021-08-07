@@ -20,6 +20,7 @@
                             <thead>
                             <tr>
                                 <th>標題</th>
+                                <th>類別</th>
                                 <th>日期</th>
                                 <th>功能</th>
                             </tr>
@@ -28,6 +29,7 @@
                             @foreach($lists as $list)
                                 <tr>
                                     <td>{{$list->title}}</td>
+                                    <td>{{$list->plan_type}}</td>
                                     <td>{{$list->date}}</td>
                                     <td width="170">
                                         @if($list->top == 0)

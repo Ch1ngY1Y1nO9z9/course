@@ -16,6 +16,19 @@
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
                             <div class="form-group row">
+                                <label for="plan_type" class="col-sm-2 control-label">類別</label>
+                                <div class="col-sm-10">
+                                    <select id="plan_type" class="form-control" name="plan_type">
+                                    <option value="課程公告" @if($list->plan_type == "課程公告") selected @endif>課程公告</option>
+                                        <option value="校內活動" @if($list->plan_type == "校內活動") selected @endif>校內活動</option>
+                                        <option value="場域活動" @if($list->plan_type == "場域活動") selected @endif>場域活動</option>
+                                        <option value="其他公告" @if($list->plan_type == "其他公告") selected @endif>其他公告</option>
+                                        <option value="資訊轉知" @if($list->plan_type == "資訊轉知") selected @endif>資訊轉知</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="date" class="col-sm-2 control-label">日期</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="date" name="date" data-toggle="datepicker" value="{{$list->date}}">

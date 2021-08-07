@@ -611,7 +611,8 @@ section#video-section .swiper-container.videoSwiper .swiper-slide .title a:hover
 }
 
 section#video-section .swiper-container.videoSwiper .swiper-slide .video-slide {
-  max-height: 300px;
+  background-color: #ccc;
+  height: 300px;
   overflow: hidden;
   border-radius: 10px;
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;

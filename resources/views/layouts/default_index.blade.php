@@ -34,12 +34,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-    <link rel="stylesheet" href="/css/layout.css">
-    <style>
-        body{
-            background:url("/imgs/pattern.png");
-        }
-    </style>
+    <link rel="stylesheet" href="/css/layout_index.css">
     @yield('css')
 </head>
 
@@ -101,68 +96,9 @@
         </div>
     </nav>
 
-    <section id="main-section">
-        <section id="banner">
-            <div class="swiper-container bannerSwiper">
-                <div class="swiper-wrapper">
-                    @foreach($banners as $banner)
-                        <div class="swiper-slide">
-                            <a href="{{$banner->slider_a_href}}"><img class="img-fluid" src="{{$banner->slider_url}}" alt="{{$banner->slider_alt}}"></a>
-                        </div>
-                    @endforeach
-
-                    <div class="swiper-slide">
-                        <img src="/imgs/banner/01.png" alt="">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="/imgs/banner/02.png" alt="">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="/imgs/banner/03.png" alt="">
-                    </div>
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </section>
-    </section>
-    
     <div id="main">
         @yield('content')
     </div>
-
-    <section id="links-section">
-        <div class="container">
-            <div class="swiper-container links-Swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <a class="title" href="">
-                            <img src="/imgs/links-2.png" alt="">
-                            <p>
-                                《宜居石岡，永續健康》粉專
-                            </p>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a class="title" href="">
-                            <img src="/imgs/links-1.png" alt="">
-                            <p>
-                                大學社會責任推動中心
-                            </p>
-                        </a>
-
-                    </div>
-                </div>
-                <div class="swiper-button-next">
-                    <img width="15" src="/imgs/icons/right-pagination-white.png" alt="next">
-                </div>
-                <div class="swiper-button-prev">
-                    <img width="15" src="/imgs/icons/left-pagination-white.png" alt="next">
-                </div>
-            </div>
-        </div>
-    </section>
 
     <footer id="main-footer">
         <div class="container" id="main-footer-container">
@@ -268,34 +204,9 @@
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <script>
-        var swiper = new Swiper(".bannerSwiper", {
-            slidesPerView: 'auto',
-            centeredSlides: true,
-            spaceBetween: 40,
-            loop: true,
-            grabCursor: true,
-            pagination: {
-                el: ".bannerSwiper .swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
 
-        var swiper = new Swiper(".links-Swiper", {
-            slidesPerView: 'auto',
-            spaceBetween: 40,
-            grabCursor: true,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-    </script>
     @yield('js')
+
 </body>
 
 </html>

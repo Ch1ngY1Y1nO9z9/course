@@ -1,0 +1,82 @@
+.video-content{
+    .dateTypeLabel {
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 8px;
+    
+        .type {
+            background-color: #ba2828;
+            padding: 0.15rem 0.4rem;
+            margin-left: 20px;
+            color: white;
+        }
+    
+        &::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 2px;
+            transform: translateY(5px);
+            background-color: #808080;
+        }
+    }
+    
+    .title {
+        font-size: 16px;
+        font-weight: bold;
+    
+        a {
+            color: #333333;
+            &:hover {
+                color: #1751a3;
+                text-decoration: none;
+            }
+        }
+    }
+    
+    .video-slide {
+        height: 200px;
+        overflow: hidden;
+        border-radius: 10px;
+        background-color: #ccc;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        position: relative;
+    
+        img.video-img {
+            transform: translateY(calc((200px - 100%) * 0.5));
+            width: 100%;
+            height: auto;
+        }
+    
+        .video-play{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    
+        .dateTypeLabel {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+    
+            .type {
+                background-color: #ba2828;
+                padding: 0.15rem 0.4rem;
+                margin-left: 20px;
+                color: white;
+            }
+        }
+    
+        .title {
+            font-size: 20px;
+            color: #333333;
+    
+            &:hover {
+                color: #1751a3;
+                text-decoration: none;
+            }
+        }
+    }
+}

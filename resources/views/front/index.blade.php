@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.default_index')
 
 @section('title',$seo->title)
 @section('keywords',$seo->keywords)
@@ -18,16 +18,6 @@
                         <a href="{{$banner->slider_a_href}}"><img class="img-fluid" src="{{$banner->slider_url}}" alt="{{$banner->slider_alt}}"></a>
                     </div>
                 @endforeach
-
-                <div class="swiper-slide">
-                    <img src="/imgs/banner/01.png" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="/imgs/banner/02.png" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="/imgs/banner/03.png" alt="">
-                </div>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -45,12 +35,10 @@
                     </div>
                     <div class="context-left">
                         <p>
-                            台灣已進入高齡社會， 伴隨高齡人口增加， 其在社區中的食衣住行育樂等需求， 也都一一浮現。 長者如何在社區中健康老化？ 活得幸福又快樂？ 因此，
-                            具有厚實人文社會關懷底蘊的東海大學， 以建置「開放式養生村」為願景， 連結與整合校內外資源， 創設五大支持系統與樂齡學院， 師生共同進入社區，
-                            提升社區長者生心社層面的整體福祉， 環境更友善， 打造３６０度的環繞幸福！
+                        {{$about->description}}
                         </p>
                     </div>
-                    <a href="/about" class="btn btn-sm btn-dark btn-more">更多資訊</a>
+                    <a href="/plan_vision" class="btn btn-sm btn-dark btn-more">更多資訊</a>
                 </div>
                 <div class="col-md-6">
                     <div class="title">
@@ -58,25 +46,10 @@
                         <h2>USR理念</h2>
                     </div>
                     <div class="context-right">
-                        <span class="badge badge1">關懷</span>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus totam a voluptates
-                            impedit cum qu
-                        </p>
-                        <span class="badge badge2">石岡</span>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus totam a voluptates
-                            impedit cum qu
-                        </p>
-                        <span class="badge badge3">中山</span>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus totam a voluptates
-                            impedit cum qu
-                        </p>
+                        {!!$about_2->description!!}
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -157,115 +130,31 @@
         <div class="video-content">
             <div class="swiper-container videoSwiper">
                 <div class="swiper-wrapper">
+                    @foreach($videos as $video)
                     <div class="swiper-slide">
-                        <a href="">
+                        <a href="{{$video->content}}" target="_blank">
                             <div class="video-slide">
-                                <img class="video-img" src="/imgs/video/v-1.jpg" alt="">
+                                @foreach($video->download_files as $file)
+                                    @if ($loop->first)
+                                        <img class="video-img" src="{{$file->url}}" alt="">
+                                    @endif
+                                @endforeach
                                 <div class="video-play">
                                     <img src="/imgs/icons/video-play.png" alt="">
                                 </div>
                             </div>
                         </a>
                         <div class="dateTypeLabel">
-                            <span class="date">2021/06/12</span><span class="type">校內活動</span>
+                            <span class="date">{{$video->date}}</span>
+                            <span class="type">{{$video->plan_type}}</span>
                         </div>
                         <div class="title">
-                            <a href="">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sit!
+                            <a href="{{$video->content}}" target="_blank">
+                                {{$video->title}}
                             </a>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <a href="">
-                            <div class="video-slide">
-                                <img class="video-img" src="/imgs/video/v-2.jpg" alt="">
-                                <div class="video-play">
-                                    <img src="/imgs/icons/video-play.png" alt="">
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dateTypeLabel">
-                            <span class="date">2021/06/12</span><span class="type">校內活動</span>
-                        </div>
-                        <div class="title">
-                            <a href="">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sit!
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="">
-                            <div class="video-slide">
-                                <img class="video-img" src="/imgs/video/v-3.jpg" alt="">
-                                <div class="video-play">
-                                    <img src="/imgs/icons/video-play.png" alt="">
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dateTypeLabel">
-                            <span class="date">2021/06/12</span><span class="type">校內活動</span>
-                        </div>
-                        <div class="title">
-                            <a href="" >
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sit!
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="">
-                            <div class="video-slide">
-                                <img class="video-img" src="/imgs/video/v-1.jpg" alt="">
-                                <div class="video-play">
-                                    <img src="/imgs/icons/video-play.png" alt="">
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dateTypeLabel">
-                            <span class="date">2021/06/12</span><span class="type">校內活動</span>
-                        </div>
-                        <div class="title">
-                            <a href="">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sit!
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="">
-                            <div class="video-slide">
-                                <img class="video-img" src="/imgs/video/v-2.jpg" alt="">
-                                <div class="video-play">
-                                    <img src="/imgs/icons/video-play.png" alt="">
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dateTypeLabel">
-                            <span class="date">2021/06/12</span><span class="type">校內活動</span>
-                        </div>
-                        <div class="title">
-                            <a href="">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sit!
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="">
-                            <div class="video-slide">
-                                <img class="video-img" src="/imgs/video/v-3.jpg" alt="">
-                                <div class="video-play">
-                                    <img src="/imgs/icons/video-play.png" alt="">
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dateTypeLabel">
-                            <span class="date">2021/06/12</span><span class="type">校內活動</span>
-                        </div>
-                        <div class="title">
-                            <a href="" >
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sit!
-                            </a>
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
             </div>
             <div class="swiper-button-next">
@@ -287,7 +176,7 @@
             </div>
 
             <div class="more">
-                <a class="btn btn-link" href="/download">
+                <a class="btn btn-link" href="/downloads">
                     所有檔案
                     <img src="/imgs/icons/more.png" alt="more">
                 </a>
@@ -295,42 +184,31 @@
         </div>
         <div class="download-content">
             <ul>
+                @foreach($downloads as $download)
                 <li>
                     <div class="dateTypeLabel">
-                        <span class="date">2021/06/12</span>
+                        <span class="date">{{$download->date}}</span>
                     </div>
-                    <a href="" class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-                        sit!</a>
+                    <span class="title">{{$download->title}}</span>
                     <span class="download">
-                        <a href="#" target="_blank">
-                            <img src="/imgs/icons/download.png" alt="download">
-                        </a>
+                        @if(count($download->download_files)>0)
+                            @foreach($download->download_files as $file)
+                                <a style="margin-right: 5px" href="{{$file->url}}" download="{{$file->old_filename}}">
+                                    @if($file->ext == 'docx' || $file->ext == 'doc' ||$file->ext == 'odt')
+                                        <img class="img-fluid" width="40" src="/imgs/word-01.png" alt="中山醫學大學 USR計畫 下載icon">
+                                    @elseif($file->ext == 'pdf')
+                                        <img class="img-fluid" width="40" src="/imgs/pdf-01.png" alt="中山醫學大學 USR計畫 下載icon">
+                                    @elseif($file->ext == 'jpg')
+                                        <img class="img-fluid" width="40" src="/imgs/icon-jpg.png" alt="中山醫學大學 USR計畫 下載icon">
+                                    @else
+                                        <img class="img-fluid" width="40" src="/imgs/icon-download.png" alt="中山醫學大學 USR計畫 下載icon">
+                                    @endif
+                                </a>
+                            @endforeach
+                        @endif
                     </span>
                 </li>
-                <li>
-                    <div class="dateTypeLabel">
-                        <span class="date">2021/06/12</span>
-                    </div>
-                    <a href="" class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-                        sit!</a>
-                    <span class="download">
-                        <a href="#" target="_blank">
-                            <img src="/imgs/icons/download.png" alt="download">
-                        </a>
-                    </span>
-                </li>
-                <li>
-                    <div class="dateTypeLabel">
-                        <span class="date">2021/06/12</span>
-                    </div>
-                    <a href="" class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-                        sit!</a>
-                    <span class="download">
-                        <a href="#" target="_blank">
-                            <img src="/imgs/icons/download.png" alt="download">
-                        </a>
-                    </span>
-                </li>
+                @endforeach
             </ul>
         </div>
     </div>

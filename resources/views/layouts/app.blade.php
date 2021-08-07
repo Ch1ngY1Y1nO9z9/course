@@ -167,7 +167,7 @@
                         </a>
                         <div id="collapse_plan_location" class="collapse">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="/admin/plan_location/1">
+                                <a class="collapse-item" href="/admin/plan_page/6">
                                     石崗
                                 </a>
                             </div>

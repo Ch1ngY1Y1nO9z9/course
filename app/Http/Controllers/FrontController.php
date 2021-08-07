@@ -31,17 +31,27 @@ class FrontController extends Controller
     {
         $this->addWebCount();
 
-        $seo=Seo::where('page','index')->first();
-        $news=Article::where('type',1)->OrderBy('date','desc')->take(5)->get();
-        $banners=Slider::OrderBy('sort','desc')->get();
+        $seo = Seo::where('page','index')->first();
 
+        $seo_all=Seo::all();
+        $about = $seo_all->where('page','about')->first();
+        $about_2 = $seo_all->where('page','about_2')->first();
+        $banners = Slider::OrderBy('sort','desc')->get();
         $links = Links::OrderBy('sort','desc')->get();
 
-        return view($this->index,compact('seo','news','banners','links'));
+        $news = Article::where('type',1)->OrderBy('date','desc')->take(5)->get();
+        $downloads = Article::where('type',5)->OrderBy('date','desc')->take(3)->with('download_files')->get();
+        $videos = Article::where('type',4)->OrderBy('date','desc')->take(6)->with('download_files')->get();
+
+        return view($this->index,compact('seo','about','about_2','news','banners','downloads','links','videos'));
     }
 
     public function plan_cp(Request $request)
     {
+        $seo = Seo::where('page','index')->first();
+        $banners = Slider::OrderBy('sort','desc')->get();
+        $links = Links::OrderBy('sort','desc')->get();
+
         $this->addWebCount();
 
         $route_name = Route::currentRouteName();
@@ -67,7 +77,7 @@ class FrontController extends Controller
         }
 
         $page = PlanPage::find($PlanPageID);
-        return view('front._cp',compact('page'));
+        return view('front._cp',compact('page','seo','banners','links'));
     }
 
     //article view
@@ -82,47 +92,33 @@ class FrontController extends Controller
 
         $route_name = Route::currentRouteName();
 
+        $seo=Seo::where('page','news')->first();
+        $banners = Slider::OrderBy('sort','desc')->get();
+        $links = Links::OrderBy('sort','desc')->get();
+
+        $viewName = "";
+
         switch ($route_name){
             case 'front_news':
                 $article_type = 1;
+                $viewName = "front.news";
                 break;
 
             case 'front_plan_results':
                 $article_type = 2;
+                $viewName = "front.plan_results";
                 break;
 
             case 'front_video':
                 $article_type = 4;
-                break;
-
-            case 'front_honors':
-                $article_type = 3;
+                $viewName = "front.video";
                 break;
 
             case 'front_downloads':
                 $article_type = 5;
+                $viewName = "front.downloads";
                 break;
 
-            case 'front_highlight':
-                $article_type = 6;
-                break;
-
-            case 'front_other':
-                $article_type = 7;
-                break;
-
-            case 'front_promote':
-                $article_type = 8;
-                break;
-        }
-
-
-
-        $seo=Seo::where('page','news')->first();
-        $banners=Slider::OrderBy('sort','desc')->get();
-        $imgnews=ImageNews::where('type', 2)->OrderBy('sort','desc')->get();
-        foreach ($imgnews as $list){
-            $list -> image_url = json_decode($list -> image_url,true);
         }
 
         $q = Article::where('type',$article_type);
@@ -140,9 +136,9 @@ class FrontController extends Controller
                 $q->whereYear('date', '=', $years+1911);
             }
 
-            if ($request->has('plans') && $request->plans!=null)
+            if ($request->has('type') && $request->type!=null)
             {
-                $q->where('plan_type', $request->get('plans'));
+                $q->where('plan_type', $request->get('type'));
             }
 
             if ($request->has('key_words') && $request->key_words!=null)
@@ -173,9 +169,9 @@ class FrontController extends Controller
                     });
                 }
 
-                if ($request->has('plans') && $request->plans!=null)
+                if ($request->has('type') && $request->type!=null)
                 {
-                    $q->orwhere('plan_type', $request->get('plans'));
+                    $q->orwhere('plan_type', $request->get('type'));
                 }
 
                 if ($request->has('key_words') && $request->key_words!=null)
@@ -195,9 +191,9 @@ class FrontController extends Controller
             });
         }
 
-        $articles =  $q->orderBy('top','desc')->orderBy('date','desc')->paginate(15);
+        $articles =  $q->orderBy('top','desc')->orderBy('date','desc')->paginate(6);
 
-        return view('front.article_view',compact('seo','articles','route_name'));
+        return view($viewName ,compact('seo','banners','links','articles','route_name'));
     }
 
     //article detail
@@ -215,13 +211,10 @@ class FrontController extends Controller
         $article = Article::find($id);
 
         $seo=Seo::where('page','news')->first();
-        $banners=Slider::OrderBy('sort','desc')->get();
-        $imgnews=ImageNews::where('type', 2)->OrderBy('sort','desc')->get();
-        foreach ($imgnews as $list){
-            $list -> image_url = json_decode($list -> image_url,true);
-        }
+        $banners = Slider::OrderBy('sort','desc')->get();
+        $links = Links::OrderBy('sort','desc')->get();
 
-        return view('front.article_detail',compact('seo','route_name','article'));
+        return view('front.article_detail',compact('seo','banners','links','route_name','article'));
     }
 
     //活動行事曆
@@ -235,12 +228,10 @@ class FrontController extends Controller
         }
 
         $seo=Seo::where('page','activity_calendar')->first();
-        $banners=Slider::OrderBy('sort','desc')->get();
-        $imgnews=ImageNews::where('type', 2)->OrderBy('sort','desc')->get();
-        foreach ($imgnews as $list){
-            $list -> image_url = json_decode($list -> image_url,true);
-        }
-        return view($this->activity_calendar,compact('seo','banners','imgnews'));
+        $banners = Slider::OrderBy('sort','desc')->get();
+        $links = Links::OrderBy('sort','desc')->get();
+        
+        return view($this->activity_calendar,compact('seo','banners','links'));
     }
 
     

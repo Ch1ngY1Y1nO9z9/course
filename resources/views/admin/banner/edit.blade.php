@@ -58,7 +58,7 @@
                                 </div>
                             </div>
 
-                            <span class="text-danger">＊建議尺寸大小為寬 1330px,高 300px</span>
+                            <span class="text-danger">＊建議尺寸大小為寬 1080px,高 335px</span>
 
                             <hr>
                             <div class="form-group row">
