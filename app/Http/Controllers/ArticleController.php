@@ -31,15 +31,28 @@ class ArticleController extends Controller
         $new_list -> title = $request->title;
         $new_list -> content = $request-> main_content;
         $new_list -> date = $request-> date;
+
+        if( $request->hasFile('upload_files')){
+            $files = $request->file('upload_files');
+            foreach ($files as $file){
+                $this->upload_file($file,$new_list->id);
+            }
+        }
+
         $new_list -> save();
+
+
+
         return redirect('/admin/news')->with('message','新增成功!');
     }
 
     public function news_edit($id)
     {
         $list = Article::find($id);
+        $files = DownloadFile::where('article_id',$id) -> get();
+
         if($list->type == 1){
-            return view('admin.news.edit',compact('list'));
+            return view('admin.news.edit',compact('list','files'));
         }else {
             return redirect('/admin/news')->with('message', '無此文章!');
         }
@@ -53,7 +66,22 @@ class ArticleController extends Controller
             $list -> title = $request->title;
             $list -> content = $request-> main_content;
             $list -> date = $request-> date;
+
+            if($request->del_files != null){
+                $del_files = $request->del_files;
+                foreach ($del_files as $del_file){
+                    $this->delete_file($del_file);
+                }
+            }
+            if( $request->hasFile('upload_files')){
+                $files = $request->file('upload_files');
+                foreach ($files as $file){
+                    $this->upload_file($file,$list->id);
+                }
+            }
+
             $list -> save();
+
             return redirect('/admin/news')->with('message','修改成功!');
         }else{
             return redirect('/admin/news')->with('message', '無此文章!');
@@ -92,7 +120,9 @@ class ArticleController extends Controller
 
         if( $request->hasFile('upload_files')){
             $files = $request->file('upload_files');
-            $this->upload_file($files,$new_list->id);
+            foreach ($files as $file){
+                $this->upload_file($file,$new_list->id);
+            }
         }
 
         return redirect('/admin/result')->with('message','新增成功!');
@@ -119,14 +149,17 @@ class ArticleController extends Controller
             $list -> date = $request-> date;
             $list -> save();
 
-            $files = DownloadFile::where('article_id',$id) -> get();
-            foreach ($files as $del_file){
-                $this->delete_file($del_file->id);
+            if($request->del_files != null){
+                $del_files = $request->del_files;
+                foreach ($del_files as $del_file){
+                    $this->delete_file($del_file);
+                }
             }
-
             if( $request->hasFile('upload_files')){
                 $files = $request->file('upload_files');
-                $this->upload_file($files,$list->id);
+                foreach ($files as $file){
+                    $this->upload_file($file,$list->id);
+                }
             }
 
             return redirect('/admin/result')->with('message','修改成功!');

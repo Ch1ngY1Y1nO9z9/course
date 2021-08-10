@@ -43,12 +43,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="upload_files" class="col-sm-2 control-label">上傳封面圖片</label>
-                                <div class="col-sm-10">
-                                    <input type="file" class="form-control" id="upload_files" name="upload_files">
-                                </div>
-                            </div>
+                            
 
                             <hr>
 
@@ -56,6 +51,13 @@
                                 <label for="content" class="col-sm-2 control-label">內文</label>
                                 <div class="col-sm-10">
                                     <textarea class="summernote" id="main_content" name="main_content"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="upload_files" class="col-sm-2 control-label">上傳照片組</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" id="upload_files" accept=".jpg,.jpeg,.png" multiple name="upload_files[]">
                                 </div>
                             </div>
 

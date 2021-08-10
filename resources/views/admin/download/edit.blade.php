@@ -50,15 +50,15 @@
                             </div>
                             <div class="form-group row">
                                 <label for="del_files" class="col-sm-1 control-label">刪除檔案</label>
-                                <div class="clearfix"></div>
-                                <div class="col-sm-1"></div>
                                 <div class="col-sm-11">
+                                <div class="row">
                                     @foreach($files as $file)
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-auto">
                                             <input type="checkbox" name="del_files[]" value="{{$file->id}}">
                                             <a href="{{$file->url}}" download="{{$file->old_filename}}">{{$file->old_filename}}</a>
                                         </div>
                                     @endforeach
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">

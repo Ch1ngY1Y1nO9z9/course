@@ -123,7 +123,7 @@ class FrontController extends Controller
 
         $q = Article::where('type',$article_type);
 
-        if($article_type==5){
+        if($article_type==5 || $article_type==1){
             $q->with('download_files');
         }
 
