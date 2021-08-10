@@ -5,6 +5,7 @@
 @section('description',$seo->description)
 
 @section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
     <link rel="stylesheet" href="/css/index.css">
 @endsection
 
@@ -64,12 +65,12 @@
                     <h2>最新消息</h2>
                 </div>
                 <nav>
-                    <a class="btn btn-sm btn-dark" href="">全部</a>
-                    <a class="btn btn-sm btn-secondary" href="">課程公告</a>
-                    <a class="btn btn-sm btn-secondary" href="">校內活動</a>
-                    <a class="btn btn-sm btn-secondary" href="">場域活動</a>
-                    <a class="btn btn-sm btn-secondary" href="">其他公告</a>
-                    <a class="btn btn-sm btn-secondary" href="">資訊轉知</a>
+                    <a class="btn btn-sm btn-dark" href="#news-all">全部</a>
+                    <a class="btn btn-sm btn-secondary" href="#news-type1">課程公告</a>
+                    <a class="btn btn-sm btn-secondary" href="#news-type2">校內活動</a>
+                    <a class="btn btn-sm btn-secondary" href="#news-type3">場域活動</a>
+                    <a class="btn btn-sm btn-secondary" href="#news-type4">其他公告</a>
+                    <a class="btn btn-sm btn-secondary" href="#news-type5">資訊轉知</a>
                 </nav>
             </div>
             <div class="more">
@@ -79,12 +80,77 @@
                 </a>
             </div>
         </div>
-        <div class="new-content">
+        <div class="new-content active" id="news-all">
             <ul>
                 @foreach($news as $new)
                     <li>
                         <div class="dateTypeLabel">
-                            <span class="date">{{$new->date}}</span><span class="type">校內活動</span>
+                            <span class="date">{{$new->date}}</span><span class="type">{{$new->plan_type}}</span>
+                        </div>
+                        <a href="/news/{{$new->id}}" class="title">{{$new->title}}</a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+
+        <div class="new-content" id="news-type1">
+            <ul>
+                @foreach($news_type_1 as $new)
+                    <li>
+                        <div class="dateTypeLabel">
+                            <span class="date">{{$new->date}}</span><span class="type">{{$new->plan_type}}</span>
+                        </div>
+                        <a href="/news/{{$new->id}}" class="title">{{$new->title}}</a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+
+        <div class="new-content" id="news-type2">
+            <ul>
+                @foreach($news_type_2 as $new)
+                    <li>
+                        <div class="dateTypeLabel">
+                            <span class="date">{{$new->date}}</span><span class="type">{{$new->plan_type}}</span>
+                        </div>
+                        <a href="/news/{{$new->id}}" class="title">{{$new->title}}</a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+
+        <div class="new-content" id="news-type3">
+            <ul>
+                @foreach($news_type_3 as $new)
+                    <li>
+                        <div class="dateTypeLabel">
+                            <span class="date">{{$new->date}}</span><span class="type">{{$new->plan_type}}</span>
+                        </div>
+                        <a href="/news/{{$new->id}}" class="title">{{$new->title}}</a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+
+        <div class="new-content" id="news-type4">
+            <ul>
+                @foreach($news_type_4 as $new)
+                    <li>
+                        <div class="dateTypeLabel">
+                            <span class="date">{{$new->date}}</span><span class="type">{{$new->plan_type}}</span>
+                        </div>
+                        <a href="/news/{{$new->id}}" class="title">{{$new->title}}</a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+
+        <div class="new-content" id="news-type5">
+            <ul>
+                @foreach($news_type_5 as $new)
+                    <li>
+                        <div class="dateTypeLabel">
+                            <span class="date">{{$new->date}}</span><span class="type">{{$new->plan_type}}</span>
                         </div>
                         <a href="/news/{{$new->id}}" class="title">{{$new->title}}</a>
                     </li>
@@ -102,13 +168,34 @@
                 <h2>USR行事曆</h2>
             </div>
             <nav>
-                <a class="btn btn-primary" href="">課程公告</a>
-                <a class="btn btn-dark" href="">校內活動</a>
-                <a class="btn btn-dark" href="">場域活動</a>
+                <a class="btn btn-primary" href="#calendar">課程公告</a>
+                <a class="btn btn-dark" href="#calendar2">校內活動</a>
+                <a class="btn btn-dark" href="#calendar3">場域活動</a>
             </nav>
         </div>
         <div class="schedule-content">
+            <div id='calendar' class="mt-5 schedule-calendar active"></div>
+            <div id='calendar2' class="mt-5 schedule-calendar"></div>
+            <div id='calendar3' class="mt-5 schedule-calendar"></div>
 
+            <div id="calendar_modal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -241,7 +328,94 @@
 @endsection
 
 @section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/locale/zh-tw.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
 <script>
+    $(function() {
+        $(".news-nav nav a").click(function(){
+            event.preventDefault();
+            $(".news-nav nav a").removeClass('btn-dark').addClass('btn-secondary');
+            $(this).removeClass('btn-secondary').addClass('btn-dark');
+            var newNavValue = $(this).attr('href');
+            $('.new-content').removeClass('active');
+            $(newNavValue).addClass('active');
+        })
+
+        $("#schedule-section nav a").click(function(){
+            event.preventDefault();
+            $("#schedule-section nav a").removeClass('btn-primary').addClass('btn-dark');
+            $(this).removeClass('btn-dark').addClass('btn-primary');
+
+            var newNavValue = $(this).attr('href');
+            $('.schedule-calendar').removeClass('active');
+            $(newNavValue).addClass('active');
+        })
+
+
+        // page is now ready, initialize the calendar...
+
+        $('#calendar').fullCalendar({
+            themeSystem: 'bootstrap4',
+            header: {
+                left: 'prev,next ',
+                center: 'title',
+                right: 'today'
+            },
+            events: '/calendar_api',
+            eventClick: function(event) {
+                if (event.id) {
+                    $('.modal-body').html('<i class="fas fa-spinner fa-spin"></i>');
+                    $('.modal-title').html(event.title);
+                    $('#calendar_modal').modal('toggle');
+                    $('.modal-body').load('/calendar_detail_api/'+event.id);
+                    return false;
+                }
+            }
+        })
+
+        $('#calendar2').fullCalendar({
+            themeSystem: 'bootstrap4',
+            header: {
+                left: 'prev,next ',
+                center: 'title',
+                right: 'today'
+            },
+            events: '/calendar_api2',
+            eventClick: function(event) {
+                if (event.id) {
+                    $('.modal-body').html('<i class="fas fa-spinner fa-spin"></i>');
+                    $('.modal-title').html(event.title);
+                    $('#calendar_modal').modal('toggle');
+                    $('.modal-body').load('/calendar_detail_api/'+event.id);
+                    return false;
+                }
+            }
+        })
+
+        $('#calendar3').fullCalendar({
+            themeSystem: 'bootstrap4',
+            header: {
+                left: 'prev,next ',
+                center: 'title',
+                right: 'today'
+            },
+            events: '/calendar_api3',
+            eventClick: function(event) {
+                if (event.id) {
+                    $('.modal-body').html('<i class="fas fa-spinner fa-spin"></i>');
+                    $('.modal-title').html(event.title);
+                    $('#calendar_modal').modal('toggle');
+                    $('.modal-body').load('/calendar_detail_api/'+event.id);
+                    return false;
+                }
+            }
+        })
+
+    });
+
+    
+    
     var swiper = new Swiper(".bannerSwiper", {
         slidesPerView: 'auto',
         centeredSlides: true,

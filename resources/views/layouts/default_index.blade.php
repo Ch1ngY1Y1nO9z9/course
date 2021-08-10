@@ -32,7 +32,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <link rel="stylesheet" href="/css/layout_index.css">
     @yield('css')
@@ -122,34 +123,34 @@
                     <div class="footer-links">
                         <nav class="nav flex-column">
                             <a class="nav-link title" href="#">USR辦公室</a>
-                            <a class="nav-link" href="#">目標願景</a>
-                            <a class="nav-link" href="#">組織架構</a>
-                            <a class="nav-link" href="#">USR委員會</a>
-                            <a class="nav-link" href="#">辦公室成員</a>
-                            <a class="nav-link" href="#">成果報告</a>
+                            <a class="nav-link" href="/plan_vision">目標願景</a>
+                            <a class="nav-link" href="/organization">組織架構</a>
+                            <a class="nav-link" href="/usr_committee">USR委員會</a>
+                            <a class="nav-link" href="/office_member">辦公室成員</a>
+                            <a class="nav-link" href="/results_report">成果報告</a>
                         </nav>
                         <nav class="nav flex-column">
                             <a class="nav-link title" href="#">場域介紹</a>
-                            <a class="nav-link" href="#">石岡</a>
+                            <a class="nav-link" href="/plan_location">石岡</a>
                         </nav>
                         <nav class="nav flex-column">
                             <a class="nav-link title" href="#">最新消息</a>
-                            <a class="nav-link" href="#">消息列表</a>
+                            <a class="nav-link" href="/news">消息列表</a>
                         </nav>
                         <nav class="nav flex-column">
                             <a class="nav-link title" href="#">課程專區</a>
                         </nav>
                         <nav class="nav flex-column">
-                            <a class="nav-link title" href="#">成果專區</a>
+                            <a class="nav-link title" href="/plan_results">成果專區</a>
                         </nav>
                         <nav class="nav flex-column">
-                            <a class="nav-link title" href="#">媒體頻道</a>
+                            <a class="nav-link title" href="/video">媒體頻道</a>
                         </nav>
                         <nav class="nav flex-column">
                             <a class="nav-link title" href="#">微學分專區</a>
                         </nav>
                         <nav class="nav flex-column">
-                            <a class="nav-link title" href="#">下載專區</a>
+                            <a class="nav-link title" href="/downloads">下載專區</a>
                         </nav>
                     </div>
                 </div>
@@ -176,13 +177,7 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="social-links">
-                                <a href="">
-                                    <img src="/imgs/icons/youtube.svg" alt="youtubeLogo">
-                                </a>
-                                <a href="">
-                                    <img src="/imgs/icons/instagram.svg" alt="instagramLogo">
-                                </a>
-                                <a href="">
+                                <a href="https://www.facebook.com/csmu.usr">
                                     <img src="/imgs/icons/facebook.svg" alt="facebookLogo">
                                 </a>
                             </div>

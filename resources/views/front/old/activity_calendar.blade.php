@@ -54,9 +54,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
     <script>
         $(function() {
-
             // page is now ready, initialize the calendar...
-
             $('#calendar').fullCalendar({
                 themeSystem: 'bootstrap4',
                 header: {
