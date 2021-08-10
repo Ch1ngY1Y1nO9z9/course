@@ -39,7 +39,7 @@
                                             {{$item->getCoursesDetail->getDate($item->getCoursesDetail->class_end)}}
                                         </td>
                                         <td>
-                                            {{$item->getCoursesDetail->class_cn}}
+                                            {{$item->getCoursesDetail->tutorial->tutorial_name_cn}}
                                         </td>
                                         <td>
                                             {{$item->getCoursesDetail->number}} / {{count($item->getCoursesDetail->signupList)}}

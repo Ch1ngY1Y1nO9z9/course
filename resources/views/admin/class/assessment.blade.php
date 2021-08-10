@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">{{$class->class_cn}} - 期末評量</h3>
+                        <h3 class="card-title">{{$class->tutorial->tutorial_name_cn}} - 期末評量</h3>
                     </div>
                     <div class="card-body">
                         <form class="form-horizontal" method="post" action="/admin/assessment/store">

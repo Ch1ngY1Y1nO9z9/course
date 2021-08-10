@@ -32,7 +32,7 @@
                                             {{$item->class_type}}
                                         </td>
                                         <td>
-                                            {{$item->class_cn}}
+                                            {{$item->tutorial->tutorial_name_cn}}
                                         </td>
                                         <td>
                                             {{$item->class_start}}<br>

@@ -24,14 +24,14 @@
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">課程名稱</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" value="{{$item->class_cn}}" readonly>
+                                <input type="text" class="form-control" value="{{$item->tutorial->tutorial_name_cn}}" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">課程英文名稱</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" value="{{$item->class_en}}" readonly>
+                                <input type="text" class="form-control" value="{{$item->tutorial->tutorial_name_en}}" readonly>
                             </div>
                         </div>
 

@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">{{$course->teacher_name}} - {{$course->class_cn}}</h3>
+                        <h3 class="card-title">{{$course->teacher_name}} - {{$course->tutorial->tutorial_name_cn}}</h3>
                     </div>
                     <div class="card-body">
                         <a href="javascript:history.back()">
