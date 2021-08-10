@@ -417,7 +417,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div id="content">
+                <div id="content" class="pb-3">
                     @yield('content')
                 </div>
 
@@ -429,7 +429,7 @@
     </div>
     <!-- End of Page Wrapper -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="topbar">
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="topbar">
         <div class="container">
             <button type="button" id="sidebarCollapse" class="btn btn-info">
                 <i class="fas fa-align-left"></i>
@@ -448,11 +448,7 @@
                             {{Auth::user()->name}}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <!-- <a href="#" class="dropdown-item"><i class="fa fa-user"
-                                    style="margin-right: 7px;"></i>Profile</a>
-                            <a href="#" class="dropdown-item"><i class="fa fa-cog"
-                                    style="margin-right: 5px;"></i>Settings</a>
-                            <div class="dropdown-divider"></div> -->
+                            
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -466,7 +462,7 @@
                 </ul>
             @endif
         </div>
-    </nav>
+    </nav> -->
 </div>
 
 <!-- Scripts -->

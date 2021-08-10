@@ -4,7 +4,7 @@ section#main-section {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 100%;
-  background-image: url("/imgs/background/bg-01.jpg");
+  background-image: url("/imgs/background/bg-01-1.jpg");
 }
 
 @media screen and (max-width: 480px) {
@@ -188,6 +188,7 @@ section#news-section {
   padding-top: 140px;
   padding-bottom: 140px;
   background-image: url("/imgs/background/bg-02.jpg");
+  background-size: contain;
 }
 
 @media screen and (max-width: 480px) {
@@ -304,6 +305,14 @@ section#news-section .news-nav .more .btn-link {
   color: #808080;
 }
 
+section#news-section .new-content {
+  display: none;
+}
+
+section#news-section .new-content.active {
+  display: block;
+}
+
 section#news-section .new-content ul {
   margin: 0;
   padding: 0;
@@ -358,6 +367,14 @@ section#schedule-section {
     padding-top: 30px;
     padding-bottom: 30px;
   }
+}
+
+section#schedule-section .schedule-calendar {
+  display: none;
+}
+
+section#schedule-section .schedule-calendar.active {
+  display: block;
 }
 
 section#schedule-section .schedule-nav {

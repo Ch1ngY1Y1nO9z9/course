@@ -4,7 +4,7 @@ section#main-section {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 100%;
-    background-image: url("/imgs/background/bg-01.jpg");
+    background-image: url("/imgs/background/bg-01-1.jpg");
 
     @media screen and (max-width:480px) {
         padding-top: 0;
@@ -178,6 +178,7 @@ section#news-section {
     padding-top: 140px;
     padding-bottom: 140px;
     background-image: url("/imgs/background/bg-02.jpg");
+    background-size: contain;
 
     @media screen and (max-width:480px) {
         padding-top: 30px;
@@ -267,6 +268,12 @@ section#news-section {
     }
 
     .new-content {
+        display: none;
+
+        &.active{
+            display: block;
+        }
+
         ul {
             margin: 0;
             padding: 0;
@@ -318,6 +325,13 @@ section#schedule-section {
     @media screen and (max-width:480px) {
         padding-top: 30px;
         padding-bottom: 30px;
+    }
+
+    .schedule-calendar{
+        display: none;
+        &.active{
+            display: block;
+        }
     }
 
     .schedule-nav {

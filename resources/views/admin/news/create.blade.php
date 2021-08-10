@@ -14,7 +14,7 @@
                         <h3 class="card-title">最新消息管理 － 新增文章</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="/admin/news/store">
+                        <form class="form-horizontal" method="post" action="/admin/news/store" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
                                 <label for="plan_type" class="col-sm-2 control-label">類別</label>
@@ -49,6 +49,13 @@
                                 <label for="content" class="col-sm-2 control-label">內文</label>
                                 <div class="col-sm-10">
                                     <textarea class="summernote" id="main_content" name="main_content"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="upload_files" class="col-sm-2 control-label">上傳照片組</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" id="upload_files" name="upload_files[]" accept=".jpg,.jpeg,.png" multiple>
                                 </div>
                             </div>
 

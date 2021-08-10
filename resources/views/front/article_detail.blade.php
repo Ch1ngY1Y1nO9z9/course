@@ -5,6 +5,7 @@
 @section('description',$seo->description)
 
 @section('css')
+    <link rel="stylesheet" href="/css/plan_result.css">
     <style>
         .summer-note-content{
             margin-top:30px;
@@ -32,6 +33,29 @@
         </h3>
         {!! $article->content !!}
     </div>
+
+    @if($route_name=='front_news_detail' || $route_name =='front_plan_results_detail')
+    <div class="container">
+        <div class="swiper-container videoSwiper">
+            <div class="swiper-wrapper">
+                @foreach($article->download_files as $file)
+                    <div class="swiper-slide">
+                        <div class="video-slide">
+                            <img class="video-img" src="{{$file->url}}" alt="">
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="swiper-button-next">
+                <img width="50" src="/imgs/icons/right-pagination.png" alt="next">
+            </div>
+            <div class="swiper-button-prev">
+                <img width="50" src="/imgs/icons/left-pagination.png" alt="prev">
+            </div>
+        </div>
+    </div>
+    @endif
+
     @if($route_name=='front_downloads_detail'|| $route_name == 'front_highlight_detail' || $route_name == 'front_promote_detail' || $route_name == 'front_other_detail')
         @if(count($article->download_files)>0)
             <div id="search-box" class="card">
@@ -57,5 +81,14 @@
 @section('js')
     <script>
         $("table").wrap( "<div class='table-responsive'></div>" ).addClass('table');
+
+        var swiper = new Swiper(".videoSwiper", {
+            slidesPerView: 3,
+            spaceBetween: 40,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
     </script>
 @endsection

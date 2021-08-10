@@ -43,28 +43,33 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="upload_files" class="col-sm-2 control-label">現有圖片</label>
-                                <div class="col-sm-4">
-                                    @foreach($files as $file)
-                                        <img src="{{$file->url}}" alt="" class="img-fluid">
-                                    @endforeach
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="upload_files" class="col-sm-2 control-label">上傳封面照片</label>
-                                <div class="col-sm-10">
-                                    <input type="file" class="form-control" id="upload_files" name="upload_files">
-                                </div>
-                            </div>
-
                             <hr>
 
                             <div class="form-group row">
                                 <label for="content" class="col-sm-2 control-label">內文</label>
                                 <div class="col-sm-10">
                                     <textarea class="summernote" id="main_content" name="main_content">{{$list->content}}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="del_files" class="col-sm-2 control-label">刪除檔案</label>
+                                <div class="col-sm-10">
+                                <div class="row">
+                                    @foreach($files as $file)
+                                        <div class="col-sm-auto">
+                                            <input type="checkbox" name="del_files[]" value="{{$file->id}}">
+                                            <a href="{{$file->url}}" download="{{$file->old_filename}}">{{$file->old_filename}}</a>
+                                        </div>
+                                    @endforeach
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="upload_files" class="col-sm-2 control-label">上傳照片組</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" id="upload_files" accept=".jpg,.jpeg,.png" multiple name="upload_files[]">
                                 </div>
                             </div>
 

@@ -68,7 +68,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[2,'asc']],
+                "order": [[2,'desc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",
