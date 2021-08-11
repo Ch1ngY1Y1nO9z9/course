@@ -37,18 +37,18 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-sm-2 control-label">經費來源</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" value="{{$item->budget}}" readonly>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">課程類別</label>
                             <div class="col-sm-10">
                                 <select class="form-control" id="exampleFormControlSelect2" readonly>
-                                    <option>{{$item->class_type}}</option>
+                                    <option>{{$item->tutorial->tutorials_type}}</option>
                                 </select>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">舉辦單位</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" value="{{$item->organizer}}" readonly>
+                                <input type="text" class="form-control" value="{{$item->tutorial->organizer}}" readonly>
                             </div>
                         </div>
 
