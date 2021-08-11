@@ -284,12 +284,12 @@ class ArticleController extends Controller
             $list -> date = $request-> date;
             $list -> save();
 
-            $files = DownloadFile::where('article_id',$id) -> get();
-            foreach ($files as $del_file){
-                $this->delete_file($del_file->id);
-            }
-
             if( $request->hasFile('upload_files')){
+                $files = DownloadFile::where('article_id',$id) -> get();
+                foreach ($files as $del_file){
+                    $this->delete_file($del_file->id);
+                }
+
                 $files = $request->file('upload_files');
                 $this->upload_file($files,$list->id);
             }
