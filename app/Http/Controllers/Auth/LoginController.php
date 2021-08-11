@@ -87,6 +87,9 @@ class LoginController extends Controller
             if($roleCheck == 't'){
                 $user->role = 'teacher';
                 $user->save();
+            }else{
+                $user->role = 'student';
+                $user->save();
             }
 
             Auth::guard()->login($user);
