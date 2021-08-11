@@ -39,7 +39,7 @@
                                         {{$item->content}}
                                     </td>
                                     <td>
-                                        @if($item->file)
+                                        @if($item->files)
                                         <a href="{{$item->title}}" download>附件下載</a>
                                         @else
                                         -
@@ -49,7 +49,11 @@
                                         {{$item->getDate($item->start_date)}}
                                     </td>
                                     <td>
+                                        @if($item->end_date)
                                         {{$item->getDate($item->end_date)}}
+                                        @else
+                                        -
+                                        @endif
                                     </td>
                                     <td>
                                         @if($item->pushed == 0)

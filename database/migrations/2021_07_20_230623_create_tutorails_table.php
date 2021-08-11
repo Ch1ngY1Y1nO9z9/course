@@ -15,9 +15,13 @@ class CreateTutorailsTable extends Migration
     {
         Schema::create('tutorials', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tutorial_name');
-            $table->integer('sort')->default(0);
-            $table->integer('soft_delete')->default(0);
+            $table->string('tutorial_name_cn')->nullable();
+            $table->string('tutorial_name_en')->nullable();
+            $table->string('tutorials_type')->nullable();
+            $table->string('budget')->nullable();
+            $table->string('organizer')->nullable();
+            $table->integer('sort')->default(0)->nullable();
+            $table->integer('soft_delete')->default(0)->nullable();
             $table->timestamps();
         });
     }

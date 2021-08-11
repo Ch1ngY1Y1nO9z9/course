@@ -177,4 +177,10 @@
             alert('複製完成!記得需重新上傳附件檔案後按更新送出審核!')
         </script>
     @endif
+
+    @if(Session::has('passed'))
+    <script>
+        alert('期末課程評分已完成!')
+    </script>
+@endif
 @endsection

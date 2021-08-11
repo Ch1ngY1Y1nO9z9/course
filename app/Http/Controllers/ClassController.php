@@ -167,30 +167,25 @@ class ClassController extends Controller
         return view('admin.class.assessment',compact('class'));
     }
 
-    // public function assessment_store(Request $request,$id)
-    // {
-    //     // 數字藏在hidden input中送進來 建立一筆學生姓名+學生ID+是否通過 外鍵為課程ID
-    //     if($id != $request->class_id)
-    //         return redirect()->back();
-        
-    //     $new_record = ClassAnnounces::create($request->all());
+    public function assessment_store(Request $request,$id)
+    {
+        // 送入通過的學號陣列 用has_key去尋找該學號是否在通過的學號陣列中 有就改尚未評分變成通過 沒有則改成未通過
+        $passed_array = $request->assessment;
 
-    //     if($request->hasFile('files')){
-    //         $new_record->fill(['files' => $this->upload_file($request->file('files'))]);
-    //     }
+        $student_list = Courses::find($id)->signupList;
 
-    //     $new_record->save();
+        foreach($student_list as $student){
+            if(in_array($student->student_id, $passed_array)){
+                $student->pass = '通過';
+                $student->save();
+            }else if(!in_array($student->student_id, $passed_array)){
+                $student->pass = '未通過';
+                $student->save();
+            }
+        }
 
-    //     $role = Auth::user()->role;
-
-    //     if($role == 'admin')
-    //         return redirect('/admin/class');
-    //     elseif($role == 'teacher')
-    //         Mail::to('admin@gmail.com')->send(new NewCourseToAdmin());
-    //         return redirect('/admin/teacher/class');
-        
-    //     return view('admin.class.check',compact('item'));
-    // }
+        return redirect('/admin/class')->with('passed','期末課程評分已完成!');
+    }
 
     public function check_students($id)
     {
@@ -238,9 +233,42 @@ class ClassController extends Controller
         return view('admin.class.roll_call_records_check',compact('items','record'));
     }
 
+    public function rollCall_records_edit($id)
+    {
+        $record = RollCallRecords::find($id);
+        $items = SignUp::GetStudentList($record->course_id)->get();
+
+        return view('admin.class.roll_call_records_edit',compact('items','record'));
+    }
+
+    public function rollCall_records_update(Request $request,$id)
+    {
+        // 取得點名中的資料
+        $record = RollCallRecords::find($id);
+
+        // 取得學生清單
+        $list = SignUp::CheckStudentList($record->course_id);
+        
+        // 送入的有到學生名單
+        $roll_call_array = $request->roll_call;
+
+        // 用foreach去把學生清單的每筆資料和剛送入的學生名單陣列做比較 若此筆資料有出現則將取得的點名資料push當前的學號
+        foreach($list as $student){
+            if(in_array($student,$roll_call_array)){
+                $record_list = json_decode($record->students_id);
+                array_push($record_list,$student);
+                $record->students_id = json_encode($record_list);
+                $record->save();
+
+            }
+        }
+
+        return redirect('/admin/class/roll_call_online/'.$record->course_id)->with('success','編輯成功!');
+    }
+
     public function student_roll_call($id)
     {
-        $user_id = Auth::user()->id;
+        $user_id = Auth::user()->account_id;
         $roll_call_record = RollCallRecords::find($id);
         $list = SignUp::CheckStudentList($roll_call_record->course_id);
 
@@ -353,7 +381,7 @@ class ClassController extends Controller
         $user = Auth::user();
         SignUp::create([
             'course_id'=> $id,
-            'student_id'=> $user->id,
+            'student_id'=> $user->account_id,
             'student_name'=> $user->name
         ]);
 
@@ -362,7 +390,7 @@ class ClassController extends Controller
 
     public function remove_sign_up($id)
     {
-        $user = Auth::user()->id;
+        $user = Auth::user()->account_id;
         $record = Signup::where('course_id',$id)->where('student_id',$user)->first();
         $record->delete();
 

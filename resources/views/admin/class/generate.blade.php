@@ -37,7 +37,7 @@
                                     </td>
                                     <td width="150">
                                         <a class="btn btn-sm btn-primary" href="/admin/class/check/{{$record->id}}/rollCall_records/check">檢視</a>
-                                        <a class="btn btn-sm btn-success" href="/admin/class/check/{{$record->id}}/rollCall_records/check">編輯</a>
+                                        <a class="btn btn-sm btn-success" href="/admin/class/check/{{$record->id}}/rollCall_records/edit">編輯</a>
                                         {{-- <button class="btn btn-sm btn-danger" data-listid="{{$record->id}}">取消</button>
                                         <form class="delete-form" action="/admin/class/delete/{{$record->id}}" method="POST" style="display: none;" data-listid="{{$record->id}}">
                                             {{ csrf_field() }}
@@ -97,4 +97,10 @@
 
 
     </script>
+
+    @if(Session::has('success'))
+    <script>
+        alert('點名編輯成功!')
+    </script>
+    @endif
 @endsection

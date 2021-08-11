@@ -15,11 +15,8 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('class_cn')->nullable();
-            $table->string('class_en')->nullable();
-            $table->string('budget')->nullable();
-            $table->string('class_type')->nullable();
-            $table->string('organizer')->nullable();
+            $table->string('tutorial_id')->nullable();
+            $table->string('class_name')->nullable();
             $table->string('teacher_name')->nullable();
             $table->string('degree')->nullable();
             $table->string('experience')->nullable();
@@ -38,8 +35,8 @@ class CreateCoursesTable extends Migration
             $table->longText('extend')->nullable();
             $table->string('files')->nullable();
             $table->string('remarks')->nullable();
-            $table->string('status')->default('待審核');
-            $table->integer('user_id')->default(1);
+            $table->string('status')->default('待審核')->nullable();
+            $table->integer('user_id')->default(1)->nullable();
             $table->timestamps();
         });
     }

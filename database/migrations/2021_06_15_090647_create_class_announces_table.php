@@ -21,6 +21,8 @@ class CreateClassAnnouncesTable extends Migration
             $table->string('files')->nullable();
             $table->string('start_date')->nullable();
             $table->string('end_date')->nullable();
+            $table->integer('soft_delete')->default('0')->nullable();
+            $table->integer('pushed')->default('0')->nullable();
             $table->timestamps();
         });
     }

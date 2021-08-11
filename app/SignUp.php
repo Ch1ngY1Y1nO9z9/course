@@ -26,13 +26,13 @@ class SignUp extends Model
     // 取得該學生所有已報名課程(學生端用)
     public function scopeGetTotalStudentClass($query)
     {
-        return $this->where('student_id',Auth::user()->id)->get();
+        return $this->where('student_id',Auth::user()->account_id)->get();
     }
 
     // 取得該學生正在上的課程(學生端用)
     public function scopeGetStartingClass($query)
     {   
-        $classes = $this->where('student_id',Auth::user()->id)->get();
+        $classes = $this->where('student_id',Auth::user()->account_id)->get();
         $list = 0;
 
         foreach($classes as $class){
@@ -47,7 +47,7 @@ class SignUp extends Model
     // 取得該學生修課總時數(學生端用)
     public function scopeGetStudentTime($query)
     {   
-        $classes = $this->where('student_id',Auth::user()->id)->where('pass','通過')->get();
+        $classes = $this->where('student_id',Auth::user()->account_id)->where('pass','通過')->get();
         $totalTime = 0;
 
         foreach($classes as $class){
@@ -78,7 +78,7 @@ class SignUp extends Model
     // 取得該學生修課總學分(學生端用)
     public function scopeGetStudentScore($query)
     {   
-        return $this->getStudentTime() / 18;
+        return floor($this->getStudentTime() / 18);
     }
 
     // 取得所有學生名單(Admin端用)

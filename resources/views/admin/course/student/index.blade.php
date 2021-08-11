@@ -51,7 +51,7 @@
                                     <td width="200">
                                         <a class="btn btn-sm btn-primary" href="/admin/student/course/check/{{$item->id}}">檢視</a>
                                         @if( $date > strtotime($item->sign_up_start_date) && $date < strtotime($item->sign_up_end_date))
-                                            @if(!$item->querySignup(Auth::user()->id))
+                                            @if(!$item->querySignup(Auth::user()->account_id))
                                                 <a class="btn btn-sm btn-success" href="/admin/class/signup/{{$item->id}}">報名</a>
                                             @else
                                             @if($item->CheckTime($item->id))

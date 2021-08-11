@@ -31,9 +31,39 @@
                         </div> --}}
 
                         <div class="form-group row">
-                            <label for="class_name" class="col-sm-2 control-label">單元名稱</label>
+                            <label class="col-sm-2 control-label">課程名稱</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="class_name" name="class_name" value="{{$item->tutorial->tutorial_name_cn}} {{$item->class_name}}" readonly>
+                                <input type="text" class="form-control" value="{{$item->tutorial->tutorial_name_cn}}" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">課程英文名稱</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" value="{{$item->tutorial->tutorial_name_en}}" readonly>
+                            </div>
+                        </div>
+
+                        {{-- <div class="form-group row">
+                            <label class="col-sm-2 control-label">經費來源</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" value="{{$item->budget}}" readonly>
+                            </div>
+                        </div> --}}
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">課程類別</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="exampleFormControlSelect2" disabled>
+                                    <option>{{$item->tutorial->tutorials_type}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">舉辦單位</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" value="{{$item->tutorial->organizer}}" readonly>
                             </div>
                         </div>
 

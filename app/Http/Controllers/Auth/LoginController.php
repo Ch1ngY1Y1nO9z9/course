@@ -70,7 +70,9 @@ class LoginController extends Controller
 
             if($user->name){
                 Auth::guard()->login($user);
-                return redirect('/admin');
+
+                return $this->authenticated($request, $this->guard()->user())
+                ?: redirect()->intended($this->redirectPath());
             }
 
             // 以上都沒被執行代表沒有帳號 以下建立帳號並登入
@@ -93,7 +95,9 @@ class LoginController extends Controller
             }
 
             Auth::guard()->login($user);
-            return redirect('/admin');
+            
+            return $this->authenticated($request, $this->guard()->user())
+                    ?: redirect()->intended($this->redirectPath());
         }
     }
 

@@ -56,7 +56,7 @@ class CourseClassController extends Controller
     public function records_index()
     {
         $user = Auth::user();
-        $items = SignUp::where('student_id',$user->id)
+        $items = SignUp::where('student_id',$user->account_id)
                         ->orderby('created_at','desc')
                         ->get();
 

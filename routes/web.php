@@ -144,10 +144,12 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     Route::get('/class/check/{id}/rollCall', 'ClassController@rollCall');
     Route::get('/class/check/{id}/rollCall_records', 'ClassController@rollCall_records');
     Route::get('/class/check/{id}/rollCall_records/check', 'ClassController@rollCall_records_check');
+    Route::get('/class/check/{id}/rollCall_records/edit', 'ClassController@rollCall_records_edit');
     Route::get('/class/announce/{id}', 'ClassController@announce');
     Route::get('/class/announce/{id}/create', 'ClassController@announce_create');
     Route::get('/class/announce/{id}/edit', 'ClassController@announce_edit');
     Route::get('/class/assessment/{id}', 'ClassController@assessment');
+    Route::post('/class/assessment/{id}/store', 'ClassController@assessment_store');
     Route::get('/class/roll_call_online/{id}', 'ClassController@roll_call_online');
     
     Route::post('class/store', 'ClassController@store');
@@ -156,6 +158,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     Route::post('class/copy/{id}', 'ClassController@copy');
     Route::post('class/announce/store', 'ClassController@announce_store');
     Route::post('/class/check/{id}/QRCode_generate', 'ClassController@QRCode_generate');
+    Route::post('/class/check/{id}/rollCall_records/update', 'ClassController@rollCall_records_update');
     
     // 報名
     Route::get('class/signup/{id}', 'ClassController@sign_up');
@@ -179,6 +182,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     Route::get('/teacher/class/check/{id}/rollCall', 'TeacherClassController@rollCall');
     Route::get('/teacher/class/check/{id}/rollCall_records', 'TeacherClassController@rollCall_records');
     Route::get('/teacher/class/check/{id}/rollCall_records/check', 'TeacherClassController@rollCall_records_check');
+    
     
     // Route::get('/teacher/class/edit/{id}', 'TeacherClassController@edit');
 

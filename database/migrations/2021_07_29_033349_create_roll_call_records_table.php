@@ -18,6 +18,7 @@ class CreateRollCallRecordsTable extends Migration
             $table->string('course_id');
             $table->string('students_id');
             $table->string('date');   
+            $table->integer('time')->default('0')->nullable();
             $table->timestamps();
         });
     }

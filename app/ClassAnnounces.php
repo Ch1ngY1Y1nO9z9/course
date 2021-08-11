@@ -9,7 +9,7 @@ class ClassAnnounces extends Model
     protected $table = 'class_announces';
 
     protected $fillable = [
-        'title', 'content', 'files', 'start_date', 'end_date', 'class_id', 'soft_delete'
+        'title', 'content', 'files', 'start_date', 'end_date', 'class_id', 'soft_delete','pushed'
     ];
 
     public function announces()

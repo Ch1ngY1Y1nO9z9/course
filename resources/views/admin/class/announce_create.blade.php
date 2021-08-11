@@ -60,7 +60,7 @@
                             <div class="form-group row">
                                 <label for="end_date" class="col-sm-2 control-label">下架日期</label>
                                 <div class="col-sm-10">
-                                    <input type="datetime-local" class="form-control" id="end_date" name="end_date" required>
+                                    <input type="datetime-local" class="form-control" id="end_date" name="end_date">
                                 </div>
                             </div>
 

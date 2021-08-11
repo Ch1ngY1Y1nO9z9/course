@@ -130,9 +130,9 @@ class Courses extends Model
     }
 
     // 判斷學生是否報名(true/false)
-    public function querySignup($user_id)
+    public function querySignup($account_id)
     {
-        return $this->signupList->where('student_id',$user_id)->count() > 0;
+        return $this->signupList->where('student_id',$account_id)->count() > 0;
     }
 
     // 轉換開課或報名時間
