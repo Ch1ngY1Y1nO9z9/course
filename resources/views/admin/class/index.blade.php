@@ -60,7 +60,9 @@
                                         @endif
 
                                         @if($feature_name != '單元審核')
+                                            @if(Auth::user()->role == 'admin')
                                             <a class="btn btn-sm btn-success mt-1" href="/admin/class/edit/{{$item->id}}">編輯</a>
+                                            @endif
 
                                             @if($item->status != '已撤下' && $item->status != '審核未通過')
                                                 <button class="btn btn-sm btn-danger mt-1 del" data-listid="{{$item->id}}">撤下</button>
