@@ -56,12 +56,12 @@
                                     </td>
                                     <td width="150">
                                         @if($item->status != '未送出')
-                                        <a class="btn btn-sm btn-primary mt-1" href="/admin/class/check/{{$item->id}}">檢視</a>
+                                            <a class="btn btn-sm btn-primary mt-1" href="/admin/class/check/{{$item->id}}">檢視</a>
                                         @endif
 
                                         @if($feature_name != '單元審核')
-                                            @if(Auth::user()->role == 'admin')
-                                            <a class="btn btn-sm btn-success mt-1" href="/admin/class/edit/{{$item->id}}">編輯</a>
+                                            @if(Auth::user()->role == 'admin' && $item->status != '已通過')
+                                                <a class="btn btn-sm btn-success mt-1" href="/admin/class/edit/{{$item->id}}">編輯</a>
                                             @endif
 
                                             @if($item->status != '已撤下' && $item->status != '審核未通過')
