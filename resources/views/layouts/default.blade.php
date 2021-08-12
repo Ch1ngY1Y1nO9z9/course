@@ -23,6 +23,12 @@
     <meta property="og:description"   content="@yield('og_description','')" />
     <meta property="og:image"         content="@yield('og_image', '')" />
 
+    <link rel="shortcut icon" href="/imgs/msys_1026_3326442_12910.png" type="image/x-icon">
+    <link rel="icon" href="/imgs/msys_1026_3326442_12910.png" type="image/x-icon">
+    <link rel="bookmark" href="/imgs/msys_1026_3326442_12910.png" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="/imgs/msys_1026_3326442_12910.png">
+
+
     <!-- csrf-token meta -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
