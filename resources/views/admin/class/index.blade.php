@@ -60,7 +60,7 @@
                                         @endif
 
                                         @if($feature_name != '單元審核')
-                                            @if(Auth::user()->role == 'admin' && $item->status != '已通過')
+                                            @if(Auth::user()->role == 'admin' || $item->status != '已通過')
                                                 <a class="btn btn-sm btn-success mt-1" href="/admin/class/edit/{{$item->id}}">編輯</a>
                                             @endif
 
