@@ -38,8 +38,8 @@
                                         {{$item->class_name}}
                                     </td>
                                     <td>
-                                        {{$item->class_start}}<br>
-                                        {{$item->class_end}}
+                                        {{date("Y-m-d H:i", strtotime($item->class_start))}}<br>
+                                        {{date("Y-m-d H:i", strtotime($item->class_end))}}
                                     </td>
                                     <td>
                                         {{$item->total_hours}}
@@ -48,8 +48,8 @@
                                         {{$item->number}} / {{$item->checkSignUp($item->id)}}
                                     </td>
                                     <td>
-                                        {{$item->sign_up_start_date}}<br>
-                                        {{$item->sign_up_end_date}}
+                                        {{date("Y-m-d H:i", strtotime($item->sign_up_start_date))}}<br>
+                                        {{date("Y-m-d H:i", strtotime($item->sign_up_end_date))}}
                                     </td>
                                     <td>
                                         {{$item->status}}
