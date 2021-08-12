@@ -184,7 +184,11 @@ class ClassController extends Controller
             }
         }
 
-        return redirect('/admin/class')->with('passed','期末課程評分已完成!');
+        if(Auth::user()->role == 'admin')
+            return redirect('/admin/class')->with('passed','期末課程評分已完成!');
+        elseif(Auth::user()->role == 'teacher')
+            return redirect('/admin/teacher/class')->with('passed','期末課程評分已完成!');
+
     }
 
     public function check_students($id)
