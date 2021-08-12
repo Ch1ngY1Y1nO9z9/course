@@ -138,7 +138,7 @@ class Courses extends Model
     // 轉換開課或報名時間
     public function getDate($value)
     {
-        return date("Y-m-d h:i a", strtotime($value));
+        return date("Y-m-d H:i", strtotime($value));
     }
 
     // 確認報名時間(學生查詢修課紀錄用)

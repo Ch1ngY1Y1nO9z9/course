@@ -20,7 +20,7 @@ class ClassAnnounces extends Model
     // 轉換上下架時間
     public function getDate($value)
     {
-        return date("Y-m-d h:i a", strtotime($value));
+        return date("Y-m-d H:i", strtotime($value));
     }
 
     // 查看課程公告(學生端)
