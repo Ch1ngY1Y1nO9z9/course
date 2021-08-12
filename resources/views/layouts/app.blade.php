@@ -7,6 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="shortcut icon" href="/imgs/msys_1026_3326442_12910.png" type="image/x-icon">
+    <link rel="icon" href="/imgs/msys_1026_3326442_12910.png" type="image/x-icon">
+    <link rel="bookmark" href="/imgs/msys_1026_3326442_12910.png" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="/imgs/msys_1026_3326442_12910.png">
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
