@@ -26,9 +26,11 @@
                             <div class="col-sm-12">
                                 @if($item->checkClassStatus())
                                     <a class="btn btn-warning text-dark" href="/admin/class/announce/{{$item->id}}">課程公告</a>
-                                    <a class="btn btn-success" href="/admin/class/check/{{$item->id}}/rollCall">線上點名</a>
                                 @endif
                                 <a class="btn btn-primary" href="/admin/class/check/{{$item->id}}/students">查看選課名單</a>
+                                @if($item->checkClassStatus())
+                                <a class="btn btn-success" href="/admin/class/check/{{$item->id}}/rollCall">線上點名</a>
+                                @endif
                                 <a class="btn btn-info" href="/admin/class/roll_call_online/{{$item->id}}">查看點名紀錄</a>
                             </div>
                             <hr>
