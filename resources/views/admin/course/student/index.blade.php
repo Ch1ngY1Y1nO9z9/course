@@ -15,7 +15,7 @@
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>課程類別</th>
+                                <th>單元類別</th>
                                 <th>課程名稱</th>
                                 <th>課程日期</th>
                                 <th>時數</th>
@@ -42,7 +42,11 @@
                                         {{$item->total_hours}}
                                     </td>
                                     <td>
+                                        @if($item->open == 1)
                                         {{$item->number}} / {{count($item->signupList)}}
+                                        @elseif($item->open == 0)
+                                        不開放報名
+                                        @endif
                                     </td>
                                     <td>
                                         {{$item->getDate($item->sign_up_start_date)}}<br>
@@ -51,10 +55,10 @@
                                     <td width="200">
                                         <a class="btn btn-sm btn-primary" href="/admin/student/course/check/{{$item->id}}">檢視</a>
                                         @if( $date > strtotime($item->sign_up_start_date) && $date < strtotime($item->sign_up_end_date))
-                                            @if(!$item->querySignup(Auth::user()->account_id))
+                                            @if(!$item->querySignup(Auth::user()->account_id) && $item->open == 1)
                                                 <a class="btn btn-sm btn-success" href="/admin/class/signup/{{$item->id}}">報名</a>
                                             @else
-                                            @if($item->CheckTime($item->id))
+                                            @if($item->CheckTime($item->id) && $item->open == 1)
                                                 <button class="btn btn-sm btn-danger" data-listid="{{$item->id}}">取消報名</button>
                                             @endif
                                                 <form class="delete-form" action="/admin/class/signup/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">

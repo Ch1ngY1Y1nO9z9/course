@@ -34,7 +34,7 @@
                             </div>
 
                             {{-- <div class="form-group row">
-                                <label for="tutorials_type" class="col-sm-2 control-label">課程類別</label>
+                                <label for="tutorials_type" class="col-sm-2 control-label">單元類別</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" id="tutorials_type" name="tutorials_type" required>
                                         <option selected hidden>-</option>

@@ -32,7 +32,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="class_type" class="col-sm-2 control-label">課程類別</label>
+                                <label for="class_type" class="col-sm-2 control-label">單元類別</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" id="class_type" name="class_type" required>
                                         <option @if($item->class_type == '授課') selected @endif>授課</option>

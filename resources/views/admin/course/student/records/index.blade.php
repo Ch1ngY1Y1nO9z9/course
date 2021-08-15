@@ -15,7 +15,7 @@
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>課程類別</th>
+                                <th>單元類別</th>
                                 <th>課程名稱</th>
                                 <th>課程日期</th>
                                 <th>時數</th>
