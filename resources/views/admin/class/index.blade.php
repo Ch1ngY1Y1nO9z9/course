@@ -31,7 +31,7 @@
                                 @foreach($items as $item)
                                 <tr>
                                     <td>
-                                        {{$item->tutorial->tutorials_type}}
+                                        {{$item->class_type}}
                                     </td>
                                     <td>
                                         {{$item->tutorial->tutorial_name_cn}}<br>

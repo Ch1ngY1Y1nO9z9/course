@@ -58,8 +58,10 @@
                                     <td>
                                         @if($item->pushed == 0)
                                             未上架
-                                        @else
+                                        @elseif($item->pushed == 1 && $item->soft_delete == 0)
                                             已上架
+                                        @elseif($item->soft_delete == 1)
+                                            已撤下
                                         @endif
                                     </td>
                                     <td width="150">

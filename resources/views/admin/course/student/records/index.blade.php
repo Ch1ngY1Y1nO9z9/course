@@ -28,7 +28,7 @@
                                 @foreach($items as $item)
                                     <tr>
                                         <td>
-                                            {{$item->getCoursesDetail->tutorial->tutorials_type}}
+                                            {{$item->getCoursesDetail->class_type}}
                                         </td>
                                         <td>
                                             {{$item->getCoursesDetail->tutorial->tutorial_name_cn}}<br>

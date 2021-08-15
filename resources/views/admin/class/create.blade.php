@@ -36,6 +36,20 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="class_type" class="col-sm-2 control-label">單元類別</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="class_type" name="class_type" required>
+                                        <option selected hidden>-</option>
+                                        <option>授課</option>
+                                        <option>講座</option>
+                                        <option>工作坊</option>
+                                        <option>實作活動</option>
+                                        <option>其他</option>
+                                      </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="class_name" class="col-sm-2 control-label">單元名稱</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="class_name" name="class_name" required>

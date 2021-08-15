@@ -27,14 +27,12 @@ class ClassAnnounces extends Model
     public function scopeGetPushedAnnounce($query, $class_id)
     {
         return $this->where('class_id', $class_id)
-                    ->where('soft_delete', 0)
-                    ->where('pushed', 1);
+                    ->where('soft_delete', 0);
     }
 
     // 查看課程公告(Admin端)
     public function scopeGetAllAnnounce($query, $class_id)
     {
-        return $this->where('class_id', $class_id)
-                    ->where('soft_delete', 0);
+        return $this->where('class_id', $class_id);
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tutorials extends Model
 {
     protected $fillable = [
-        'tutorial_name_cn', 'tutorial_name_en', 'tutorials_type', 'budget', 'organizer', 'soft_delete'
+        'tutorial_name_cn', 'tutorial_name_en', 'budget', 'organizer', 'soft_delete'
     ];
 
 

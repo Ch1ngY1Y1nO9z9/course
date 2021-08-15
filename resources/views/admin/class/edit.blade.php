@@ -32,6 +32,19 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="class_type" class="col-sm-2 control-label">課程類別</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="class_type" name="class_type" required>
+                                        <option @if($item->class_type == '授課') selected @endif>授課</option>
+                                        <option @if($item->class_type == '講座') selected @endif>講座</option>
+                                        <option @if($item->class_type == '工作坊') selected @endif>工作坊</option>
+                                        <option @if($item->class_type == '實作活動') selected @endif>實作活動</option>
+                                        <option @if($item->class_type == '其他') selected @endif>其他</option>
+                                      </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="class_name" class="col-sm-2 control-label">單元名稱</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="class_name" name="class_name" value="{{$item->class_name}}" required>

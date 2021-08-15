@@ -17,7 +17,6 @@ class CreateTutorailsTable extends Migration
             $table->increments('id');
             $table->string('tutorial_name_cn')->nullable();
             $table->string('tutorial_name_en')->nullable();
-            $table->string('tutorials_type')->nullable();
             $table->string('budget')->nullable();
             $table->string('organizer')->nullable();
             $table->integer('sort')->default(0)->nullable();

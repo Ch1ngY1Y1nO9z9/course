@@ -48,7 +48,7 @@
                             <label class="col-sm-2 control-label">課程類別</label>
                             <div class="col-sm-10">
                                 <select class="form-control" id="exampleFormControlSelect2" disabled>
-                                    <option>{{$item->tutorial->tutorials_type}}</option>
+                                    <option>{{$item->class_type}}</option>
                                 </select>
                             </div>
                         </div>

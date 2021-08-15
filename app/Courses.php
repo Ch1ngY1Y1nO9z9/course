@@ -10,7 +10,7 @@ class Courses extends Model
     protected $table = 'courses';
 
     protected $fillable = [
-        'tutorial_id', 'class_name', 'teacher_name', 'degree', 'experience', 'class_start', 'class_end', 'open', 'number', 'sign_up_start_date', 'sign_up_end_date', 'location', 'total_hours', 'credit', 'content', 'contact', 'phone', 'extend', 'files', 'remarks', 'status','user_id'
+        'tutorial_id', 'class_type', 'class_name', 'teacher_name', 'degree', 'experience', 'class_start', 'class_end', 'open', 'number', 'sign_up_start_date', 'sign_up_end_date', 'location', 'total_hours', 'credit', 'content', 'contact', 'phone', 'extend', 'files', 'remarks', 'status','user_id'
     ];
 
     

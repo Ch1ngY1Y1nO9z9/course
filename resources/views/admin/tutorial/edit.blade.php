@@ -34,7 +34,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label for="tutorials_type" class="col-sm-2 control-label">課程類別</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" id="tutorials_type" name="tutorials_type" required>
@@ -45,7 +45,7 @@
                                         <option @if($item->tutorials_type == '其他') selected @endif>其他</option>
                                       </select>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group row">
                                 <label for="organizer" class="col-sm-2 control-label">主辦單位</label>

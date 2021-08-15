@@ -73,8 +73,9 @@ class CourseClassController extends Controller
     {
         $items = ClassAnnounces::getPushedAnnounce($id)
                                 ->get();
+        $date = strtotime(date('m/d/Y h:i:s a', time()));
 
-        return view('admin.course.student.records.announce', compact('items'));
+        return view('admin.course.student.records.announce', compact('items','date'));
     }
 
     public function announce_check($id)

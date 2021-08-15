@@ -24,7 +24,6 @@
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>課程類別</th>
                                 <th>課程名稱</th>
                                 <th>主辦單位</th>
                                 <th>功能</th>
@@ -33,9 +32,6 @@
                             <tbody>
                                 @foreach($items as $item)
                                 <tr>
-                                    <td>
-                                        {{$item->tutorials_type}}
-                                    </td>
                                     <td>
                                         {{$item->tutorial_name_cn}}
                                     </td>

@@ -27,24 +27,28 @@
                             </thead>
                             <tbody>
                                 @foreach($items as $item)
-                                <tr>
-                                    <td>
-                                        {{$item->title}}
-                                    </td>
-                                    <td>
-                                        {{$item->content}}
-                                    </td>
-                                    <td>
-                                        @if($item->file)
-                                        <a href="{{$item->title}}" download>附件下載</a>
-                                        @else
-                                        -
+                                    @if( $date > strtotime($item->start_date) )
+                                        @if(strtotime($item->end_date) > $date || !$item->end_date)
+                                        <tr>
+                                            <td>
+                                                {{$item->title}}
+                                            </td>
+                                            <td>
+                                                {{$item->content}}
+                                            </td>
+                                            <td>
+                                                @if($item->file)
+                                                <a href="{{$item->title}}" download>附件下載</a>
+                                                @else
+                                                -
+                                                @endif
+                                            </td>
+                                            <td width="150">
+                                                <a class="btn btn-sm btn-primary" href="/admin/student/course_records/announce/{{$item->id}}/check">檢視</a>
+                                            </td>
+                                        </tr>
                                         @endif
-                                    </td>
-                                    <td width="150">
-                                        <a class="btn btn-sm btn-primary" href="/admin/student/course_records/announce/{{$item->id}}/check">檢視</a>
-                                    </td>
-                                </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
