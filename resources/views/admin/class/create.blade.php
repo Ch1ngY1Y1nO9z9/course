@@ -17,12 +17,25 @@
                             <button type="submit" class="btn btn-success">返回</button>
                         </a>
                         <hr>
-                        <form class="form-horizontal" method="POST" action="/admin/class/store" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="POST" action="/micro-course/class/store" enctype="multipart/form-data">
 
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
 
-
+                            <div class="form-group row">
+                                <label for="academic_year" class="col-sm-2 control-label">學年度</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="academic_year" name="academic_year" required>
+                                        @foreach ($academic_years as $key => $year)
+                                            @if($key%2 == 0)
+                                                <option value="{{$year.'-1'}}">{{$year}}上學期</option>
+                                            @else
+                                                <option value="{{$year.'-2'}}">{{$year}}下學期</option>
+                                            @endif
+                                        @endforeach
+                                      </select>
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <label for="tutorial_id" class="col-sm-2 control-label">課程主軸</label>
@@ -252,7 +265,7 @@
                 $.ajax({
                     data: data,
                     type: "POST",
-                    url: "/admin/img/post",
+                    url: "/micro-course/img/post",
                     cache: false,
                     contentType: false,
                     processData: false,

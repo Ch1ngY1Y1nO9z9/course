@@ -43,7 +43,7 @@
                                         {{$updated_at}}
                                     </td>
                                     <td width="100">
-                                        <a class="btn btn-sm btn-primary" href="/admin/student/class_announcement/check/{{$item->id}}">檢視</a>
+                                        <a class="btn btn-sm btn-primary" href="/micro-course/student/class_announcement/check/{{$item->id}}">檢視</a>
                                     </td>
                                 </tr>
                                 @endforeach

@@ -11,7 +11,7 @@
                         <h3 class="card-title">活動圖片管理 － 編輯圖片</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="/admin/activity/update/{{$list->id}}" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="post" action="/micro-course/activity/update/{{$list->id}}" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
                                 <label for="sort" class="col-sm-1 control-label">權重</label>

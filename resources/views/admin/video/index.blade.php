@@ -14,7 +14,7 @@
                         <h3 class="card-title">媒體頻道管理</h3>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/video/create">新增</a>
+                        <a class="btn btn-success" href="/micro-course/video/create">新增</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
@@ -34,18 +34,18 @@
                                     <td width="170">
                                         @if($list->top == 0)
                                             <button class="btn btn-sm btn-primary" data-listid="{{$list->id}}">置頂</button>
-                                            <form class="to_top-form" action="/admin/top/top/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                            <form class="to_top-form" action="/micro-course/top/top/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
                                                 {{ csrf_field() }}
                                             </form>
                                         @else
                                             <button class="btn btn-sm btn-primary" data-listid="{{$list->id}}">取消置頂</button>
-                                            <form class="to_top-form" action="/admin/top/normal/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                            <form class="to_top-form" action="/micro-course/top/normal/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
                                                 {{ csrf_field() }}
                                             </form>
                                         @endif
-                                        <a class="btn btn-sm btn-success" href="/admin/video/edit/{{$list->id}}">編輯</a>
+                                        <a class="btn btn-sm btn-success" href="/micro-course/video/edit/{{$list->id}}">編輯</a>
                                         <button class="btn btn-sm btn-danger" data-listid="{{$list->id}}">刪除</button>
-                                        <form class="delete-form" action="/admin/video/delete/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                        <form class="delete-form" action="/micro-course/video/delete/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                     </td>

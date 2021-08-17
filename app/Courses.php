@@ -10,7 +10,7 @@ class Courses extends Model
     protected $table = 'courses';
 
     protected $fillable = [
-        'tutorial_id', 'class_type', 'class_name', 'teacher_name', 'degree', 'experience', 'class_start', 'class_end', 'open', 'number', 'sign_up_start_date', 'sign_up_end_date', 'location', 'total_hours', 'credit', 'content', 'contact', 'phone', 'extend', 'files', 'remarks', 'status','user_id'
+        'tutorial_id', 'academic_year', 'class_type', 'class_name', 'teacher_name', 'degree', 'experience', 'class_start', 'class_end', 'open', 'number', 'sign_up_start_date', 'sign_up_end_date', 'location', 'total_hours', 'credit', 'content', 'contact', 'phone', 'extend', 'files', 'remarks', 'status','user_id'
     ];
 
     
@@ -32,6 +32,20 @@ class Courses extends Model
     public function tutorial()
     {
         return $this->belongsTo('App\Tutorials','tutorial_id');
+    }
+
+    // 取得學年
+    public function get_academic($year)
+    {
+        $check = explode('-',$year);
+
+        if($check[1] == '1'){
+            $academic = '上學期';
+        }else{
+            $academic = '下學期';
+        }
+
+        return $check[0].$academic;
     }
 
     // 課堂學生名單 
@@ -192,5 +206,5 @@ class Courses extends Model
         return $this->where('user_id', $this->getUser()->id)
                     ->whereIn('status', ['已開課','已結束']);
     }
-    
+
 }

@@ -19,7 +19,7 @@
                     </div>
                     
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/tutorial/create">新增主軸</a>
+                        <a class="btn btn-success" href="/micro-course/tutorial/create">新增主軸</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
@@ -39,9 +39,9 @@
                                         {{$item->organizer}}
                                     </td>
                                     <td width="150">
-                                        <a class="btn btn-sm btn-success mt-1" href="/admin/tutorial/edit/{{$item->id}}">編輯</a>
+                                        <a class="btn btn-sm btn-success mt-1" href="/micro-course/tutorial/edit/{{$item->id}}">編輯</a>
                                         <button class="btn btn-sm btn-danger mt-1" data-listid="{{$item->id}}">撤下</button>
-                                        <form class="delete-form" action="/admin/tutorial/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                        <form class="delete-form" action="/micro-course/tutorial/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                     </td>

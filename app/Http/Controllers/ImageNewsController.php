@@ -27,7 +27,7 @@ class ImageNewsController extends Controller
         $new_list -> sort = $request->sort;
         $new_list -> image_url = $this->upload_file($request-> file('upload_file'),"activity");
         $new_list -> save();
-        return redirect('/admin/activity')->with('message','新增成功!');
+        return redirect('/micro-course/activity')->with('message','新增成功!');
     }
 
     public function activity_edit($id)
@@ -36,7 +36,7 @@ class ImageNewsController extends Controller
         if($list->type == 1){
             return view('admin.activity.edit',compact('list'));
         }else {
-            return redirect('/admin/activity')->with('message', '無此相片!');
+            return redirect('/micro-course/activity')->with('message', '無此相片!');
         }
     }
 
@@ -51,9 +51,9 @@ class ImageNewsController extends Controller
                 $list -> image_url = $this->upload_file($request-> file('upload_file'),"activity");
             }
             $list -> save();
-            return redirect('/admin/activity')->with('message','修改成功!');
+            return redirect('/micro-course/activity')->with('message','修改成功!');
         }else{
-            return redirect('/admin/activity')->with('message', '無此相片!');
+            return redirect('/micro-course/activity')->with('message', '無此相片!');
         }
     }
 
@@ -62,7 +62,7 @@ class ImageNewsController extends Controller
         $list = ImageNews::find($id);
         File::delete(public_path(). $list -> image_url);
         $list -> delete();
-        return redirect('/admin/activity')->with('message','刪除成功!');
+        return redirect('/micro-course/activity')->with('message','刪除成功!');
     }
     #endregion
 
@@ -98,7 +98,7 @@ class ImageNewsController extends Controller
             $new_list -> image_url = json_encode($urls);
         }
         $new_list -> save();
-        return redirect('/admin/important')->with('message','新增成功!');
+        return redirect('/micro-course/important')->with('message','新增成功!');
     }
 
     public function important_edit($id)
@@ -108,7 +108,7 @@ class ImageNewsController extends Controller
             $list-> image_url = json_decode($list-> image_url,true);
             return view('admin.important.edit',compact('list'));
         }else {
-            return redirect('/admin/important')->with('message', '無此文章!');
+            return redirect('/micro-course/important')->with('message', '無此文章!');
         }
     }
 
@@ -148,10 +148,10 @@ class ImageNewsController extends Controller
             }
             $list->image_url = json_encode($urls);
             $list -> save();
-            return redirect('/admin/important')->with('message','修改成功!');
+            return redirect('/micro-course/important')->with('message','修改成功!');
         }
         else{
-            return redirect('/admin/important')->with('message', '無此文章!');
+            return redirect('/micro-course/important')->with('message', '無此文章!');
         }
     }
 
@@ -163,7 +163,7 @@ class ImageNewsController extends Controller
             File::delete(public_path(). $url['url']);
         }
         $list -> delete();
-        return redirect('/admin/important')->with('message','刪除成功!');
+        return redirect('/micro-course/important')->with('message','刪除成功!');
     }
     #endregion
 

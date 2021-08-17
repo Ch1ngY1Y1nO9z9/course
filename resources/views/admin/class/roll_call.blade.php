@@ -9,7 +9,7 @@
                         <h3 class="card-title">線上點名 - QR碼</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="/admin/class/check/{{$id}}/QRCode_generate" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="post" action="/micro-course/class/check/{{$id}}/QRCode_generate" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
                             <input type="hidden" name="class_id" value="{{$id}}">

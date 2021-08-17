@@ -16,7 +16,7 @@
                             <button type="submit" class="btn btn-success">返回</button>
                         </a>
                         <hr>
-                        <form class="form-horizontal" method="POST" action="/admin/class/check/{{$record->id}}/rollCall_records/update" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="POST" action="/micro-course/class/check/{{$record->id}}/rollCall_records/update" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             
                             <table id="table" class="table table-bordered table-striped table-hover">

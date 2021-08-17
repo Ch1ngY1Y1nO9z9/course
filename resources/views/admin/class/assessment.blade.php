@@ -12,7 +12,7 @@
                         <h3 class="card-title">{{$class->tutorial->tutorial_name_cn}} - 期末評量</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="/admin/class/assessment/{{$class->id}}/store">
+                        <form class="form-horizontal" method="post" action="/micro-course/class/assessment/{{$class->id}}/store">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
                             @foreach($class->signupList as $student)

@@ -29,7 +29,7 @@ class ClassAnnouncementController extends Controller
 
         $new_record->save();
 
-        return redirect('/admin/class_announcement');
+        return redirect('/micro-course/class_announcement');
     }
 
     public function edit($id)
@@ -43,7 +43,7 @@ class ClassAnnouncementController extends Controller
         $item = Announcements::find($id);
         $item->update($request->all());
 
-        return redirect('/admin/class_announcement')->with('update','取消成功!');
+        return redirect('/micro-course/class_announcement')->with('update','取消成功!');
     }
 
     public function totop($id)

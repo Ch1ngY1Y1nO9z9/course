@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/reset_password') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/micro-course/reset_password') }}">
                         {{ csrf_field() }}
 
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

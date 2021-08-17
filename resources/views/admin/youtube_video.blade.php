@@ -15,7 +15,7 @@
                         </div>
                     @endif
 
-                    <form class="form-horizontal" method="post" action="/admin/youtube_video">
+                    <form class="form-horizontal" method="post" action="/micro-course/youtube_video">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <div class="form-group row">
                             <label for="plan_type" class="col-sm-2 control-label">Youtube連結</label>

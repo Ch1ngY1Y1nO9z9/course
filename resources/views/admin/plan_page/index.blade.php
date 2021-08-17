@@ -17,7 +17,7 @@
                         @endif
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="/admin/plan_page/update/{{$page->id}}">
+                        <form class="form-horizontal" method="post" action="/micro-course/plan_page/update/{{$page->id}}">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
                         
@@ -87,7 +87,7 @@
                 $.ajax({
                     data: data,
                     type: "POST",
-                    url: "/admin/img/post",
+                    url: "/micro-course/img/post",
                     cache: false,
                     contentType: false,
                     processData: false,

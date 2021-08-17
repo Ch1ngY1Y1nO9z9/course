@@ -18,11 +18,11 @@
                         <h3 class="card-title">公告</h3>
                     </div>
                     <div class="card-body">
-                        <a href="/admin/class/announce/{{$id}}">
+                        <a href="/micro-course/class/announce/{{$id}}">
                             <button type="submit" class="btn btn-success">返回</button>
                         </a>
                         <hr>
-                        <form class="form-horizontal" method="POST" action="/admin/class/announce/store" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="POST" action="/micro-course/class/announce/store" enctype="multipart/form-data">
 
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <input type="hidden" name="class_id" value="{{$id}}">
@@ -126,7 +126,7 @@
             $.ajax({
                 data: data,
                 type: "POST",
-                url: "/admin/img/post",
+                url: "/micro-course/img/post",
                 cache: false,
                 contentType: false,
                 processData: false,

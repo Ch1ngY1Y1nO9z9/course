@@ -23,7 +23,7 @@ class LinksController extends Controller
        $new_list -> sort = $request -> sort;
        $new_list -> links_url = $this->upload_file($request->file("upload_file"));
        $new_list -> save();
-       return redirect('/admin/links')->with('message','新增成功!');
+       return redirect('/micro-course/links')->with('message','新增成功!');
    }
 
    public function edit($id){
@@ -41,14 +41,14 @@ class LinksController extends Controller
            $list->links_url = $this->upload_file($request->file("upload_file"));
        }
        $list -> save();
-       return redirect('/admin/links')->with('message','修改成功!');
+       return redirect('/micro-course/links')->with('message','修改成功!');
    }
 
    public function delete(Request $request,$id){
        $list = Links::find($id);
        File::delete(public_path().$list -> links_url);
        $list -> delete();
-       return redirect('/admin/links')->with('message','刪除成功!');
+       return redirect('/micro-course/links')->with('message','刪除成功!');
    }
 
    //Baner圖片上傳

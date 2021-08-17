@@ -16,7 +16,7 @@
                             <button type="submit" class="btn btn-success">返回</button>
                         </a>
                         <hr>
-                        <form class="form-horizontal" method="POST" action="/admin/tutorial/store" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="POST" action="/micro-course/tutorial/store" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
                             <div class="form-group row">

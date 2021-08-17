@@ -37,9 +37,9 @@ class SeoController extends Controller
         $seo->save();
 
         if($page != "about" && $page != "about_2"){
-            return redirect('/admin/seo');
+            return redirect('/micro-course/seo');
         }else{
-            return redirect('/admin/about');
+            return redirect('/micro-course/about');
         }
         
     }

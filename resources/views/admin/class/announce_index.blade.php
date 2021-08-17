@@ -15,7 +15,7 @@
                         <a href="javascript:history.back()">
                             <button type="submit" class="btn btn-success">返回</button>
                         </a>
-                        <a class="btn btn-success" href="/admin/class/announce/{{$class->id}}/create">新增公告</a>
+                        <a class="btn btn-success" href="/micro-course/class/announce/{{$class->id}}/create">新增公告</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
@@ -65,9 +65,9 @@
                                         @endif
                                     </td>
                                     <td width="150">
-                                        {{-- <a class="btn btn-sm btn-success mt-1" href="/admin/class/announce/1/edit">編輯</a> --}}
+                                        {{-- <a class="btn btn-sm btn-success mt-1" href="/micro-course/class/announce/1/edit">編輯</a> --}}
                                         <button class="btn btn-sm btn-danger mt-1" data-listid="{{$item->id}}">撤下</button>
-                                        <form class="delete-form" action="/admin/class/announce/1/delete" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                        <form class="delete-form" action="/micro-course/class/announce/1/delete" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                     </td>

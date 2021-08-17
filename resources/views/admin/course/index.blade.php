@@ -12,6 +12,8 @@
                         <h3 class="card-title">學生修課紀錄</h3>
                     </div>
                     <div class="card-body">
+                        <a class="btn btn-success" href="/micro-course/course/export">匯出修課紀錄</a>
+                        <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
@@ -34,9 +36,9 @@
                                         {{$item->GetAllStudentScore($item->student_id)}}
                                     </td>
                                     <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/course/detail/{{$item->course_id}}">檢視</a>
+                                        <a class="btn btn-sm btn-primary" href="/micro-course/course/detail/{{$item->course_id}}">檢視</a>
                                         {{-- <button class="btn btn-sm btn-danger" data-listid="1">刪除</button>
-                                        <form class="delete-form" action="/admin/class/delete/1" method="POST" style="display: none;" data-listid="1">
+                                        <form class="delete-form" action="/micro-course/class/delete/1" method="POST" style="display: none;" data-listid="1">
                                             {{ csrf_field() }}
                                         </form> --}}
                                     </td>
@@ -83,23 +85,6 @@
                 }
             });
         } );
-
-        $('.btn-danger').click(function(){
-            var listid = $(this).data("listid");
-            if (confirm('確認是否撤下此課程？')){
-                event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
-            }
-        });
-
-        $('.btn-success').click(function(){
-            var listid = $(this).data("listid");
-            if (confirm('確認是否通過此課程？')){
-                event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
-            }
-        });
-
 
     </script>
 @endsection
