@@ -107,6 +107,13 @@
                     USR
                 </div>
 
+                <li class="nav-item">
+                    <a class="nav-link collapsed py-2" href="/admin/website_style_setting">
+                        <i class="fas fa-file-signature"></i>
+                        <span>網站樣式設定</span>
+                    </a>
+                </li>
+
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
                     <a class="nav-link collapsed py-2" href="/admin/seo">
@@ -136,6 +143,7 @@
                             </div>
                         </div>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapse_2">
                             <i class="fas fa-file-signature"></i>

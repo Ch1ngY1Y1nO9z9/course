@@ -10,6 +10,10 @@
 @endsection
 
 @section('content')
+<?php
+    $default_website_setting=\App\WebsiteStyleSetting::find(1);
+?>
+
 <section id="main-section">
     <section id="banner">
         <div class="swiper-container bannerSwiper">
@@ -301,7 +305,7 @@
     </div>
 </section>
 
-<section id="links-section">
+<section id="links-section" @if($default_website_setting && $default_website_setting->more_navbar_bg_color != null) style="background-color: {{$default_website_setting->more_navbar_bg_color}} !important" @endif>
     <div class="container">
         <div class="swiper-container links-Swiper">
             <div class="swiper-wrapper">

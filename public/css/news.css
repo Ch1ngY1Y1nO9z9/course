@@ -1,7 +1,6 @@
 section#news-section {
     padding-top: 30px;
     padding-bottom: 30px;
-    background-image: url("/imgs/background/bg-03.jpg");
     min-height: calc(100vh - 82px);
   }
   

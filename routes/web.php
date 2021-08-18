@@ -127,6 +127,9 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     // Route::post('/class_announcement/delete/{id}', 'ClassAnnouncementController@delete');
     // Route::post('/class_announcement/totop/{id}', 'ClassAnnouncementController@totop');
 
+    
+
+
     // tutorial
     Route::get('/tutorial','TutorialController@index');
     Route::get('/tutorial/create','TutorialController@create');
@@ -221,6 +224,10 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     //youtube_video
 //    Route::get('/youtube_video','AdminController@youtube_video');
 //    Route::post('/youtube_video','AdminController@youtube_video_update');
+
+    //website_style_setting
+    Route::get('website_style_setting','WebsiteStyleSettingController@index');
+    Route::post('website_style_setting/update','WebsiteStyleSettingController@update');
 
     //seo
     Route::get('seo','SeoController@index');

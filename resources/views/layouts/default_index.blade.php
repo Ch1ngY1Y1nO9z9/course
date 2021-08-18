@@ -5,6 +5,7 @@
 
     <?php
         $default_seo=\App\Seo::where('page','default')->first();
+        $default_website_setting=\App\WebsiteStyleSetting::find(1);
         $countNumbers=\App\WebCount::pluck('ip');
         $countNumbers=count($countNumbers->toArray())+ 5000;
     ?>
@@ -46,7 +47,7 @@
 </head>
 
 <body>
-    <nav id="main-nav" class="navbar navbar-expand-custom  navbar-dark">
+    <nav id="main-nav" class="navbar navbar-expand-custom navbar-dark" @if($default_website_setting && $default_website_setting->main_navbar_bg_color != null) style="background-color: {{$default_website_setting->main_navbar_bg_color}} !important" @endif>
         <a class="navbar-brand" href="/">
             <img src="/imgs/logo.png" alt="中山醫學大學Logo">
             <h1>大學社會責任推動辦公室</h1>
@@ -107,7 +108,7 @@
         @yield('content')
     </div>
 
-    <footer id="main-footer">
+    <footer id="main-footer" @if($default_website_setting && $default_website_setting->footer_bg_color != null) style="background-color: {{$default_website_setting->footer_bg_color}} !important" @endif>
         <div class="container" id="main-footer-container">
             <div class="row">
                 <div class="col-12">

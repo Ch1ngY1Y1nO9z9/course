@@ -1,11 +1,6 @@
 @extends('layouts.default')
 
 @section('css')
-    <style>
-        body{
-            background:url("/imgs/pattern.png");
-        }
-    </style>
 @endsection
 
 @section('content')
