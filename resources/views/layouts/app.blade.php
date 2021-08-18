@@ -90,7 +90,7 @@
         <!-- Sidebar -->
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/micro-course">
                     <div class="sidebar-brand-icon">
                         <i class="fas fa-book"></i>
                     </div> 
@@ -116,7 +116,7 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed py-2" href="/admin/seo">
+                    <a class="nav-link collapsed py-2" href="/micro-course/seo">
                         <i class="fas fa-address-card"></i>
                         <span>SEO設定</span>
                     </a>
@@ -130,14 +130,14 @@
                         </a>
                         <div id="collapse_1" class="collapse">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="/admin/banner">
+                                <a class="collapse-item" href="/micro-course/banner">
                                     首頁輪播圖
                                 </a>
 
-                                <a class="collapse-item" href="/admin/about">
+                                <a class="collapse-item" href="/micro-course/about">
                                     關於我們
                                 </a>
-                                <a class="collapse-item" href="/admin/links">
+                                <a class="collapse-item" href="/micro-course/links">
                                     友站連結
                                 </a>
                             </div>
@@ -151,23 +151,23 @@
                         </a>
                         <div id="collapse_2" class="collapse">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                    <a class="collapse-item" href="/admin/plan_page/1">
+                                    <a class="collapse-item" href="/micro-course/plan_page/1">
                                         目標願景
                                     </a>
 
-                                    <a class="collapse-item" href="/admin/plan_page/2">
+                                    <a class="collapse-item" href="/micro-course/plan_page/2">
                                         組織架構
                                     </a>
 
-                                    <a class="collapse-item" href="/admin/plan_page/3">
+                                    <a class="collapse-item" href="/micro-course/plan_page/3">
                                         USR委員會
                                     </a>
 
-                                    <a class="collapse-item" href="/admin/plan_page/4">
+                                    <a class="collapse-item" href="/micro-course/plan_page/4">
                                         辦公室成員
                                     </a>
 
-                                    <a class="collapse-item" href="/admin/plan_page/5">
+                                    <a class="collapse-item" href="/micro-course/plan_page/5">
                                         成果報告
                                     </a>
                             </div>
@@ -180,14 +180,14 @@
                         </a>
                         <div id="collapse_plan_location" class="collapse">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="/admin/plan_page/6">
+                                <a class="collapse-item" href="/micro-course/plan_page/6">
                                     石崗
                                 </a>
                             </div>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed py-2" href="/admin/news">
+                        <a class="nav-link collapsed py-2" href="/micro-course/news">
                             <i class="fas fa-file-signature"></i>
                             <span>最新消息內容管理</span>
                         </a>
@@ -199,20 +199,20 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed py-2" href="/admin/result">
+                        <a class="nav-link collapsed py-2" href="/micro-course/result">
                             <i class="fas fa-file-signature"></i>
                             <span>成果專區內容管理</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link collapsed py-2" href="/admin/video">
+                        <a class="nav-link collapsed py-2" href="/micro-course/video">
                             <i class="fas fa-file-signature"></i>
                             <span>媒體頻道內容管理</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed py-2" href="/admin/download">
+                        <a class="nav-link collapsed py-2" href="/micro-course/download">
                             <i class="fas fa-file-signature"></i>
                             <span>下載專區內容管理</span>
                         </a>
@@ -231,19 +231,19 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed py-2" href="/admin/dashboard">
+                    <a class="nav-link collapsed py-2" href="/micro-course/dashboard">
                         <i class="fas fa-file-signature"></i>
                         <span>儀表板</span>
                     </a>
                 </li>
                 {{-- <li class="nav-item">
-                    <a class="nav-link collapsed py-2" href="/admin/class_announcement">
+                    <a class="nav-link collapsed py-2" href="/micro-course/class_announcement">
                         <i class="fas fa-file-signature"></i>
                         <span>課程公告管理</span>
                     </a>
                 </li> --}}
                 {{-- <li class="nav-item">
-                    <a class="nav-link collapsed py-2" href="/admin/tutorial">
+                    <a class="nav-link collapsed py-2" href="/micro-course/tutorial">
                         <i class="fas fa-file-signature"></i>
                         <span>課程主軸管理</span>
                     </a>
@@ -256,19 +256,19 @@
                     <div id="collapse_class" class="collapse">
                         <div class="bg-white py-2 collapse-inner rounded">
 
-                                <a class="collapse-item" href="/admin/tutorial">
+                                <a class="collapse-item" href="/micro-course/tutorial">
                                     課程主軸管理
                                 </a>
 
-                                <a class="collapse-item" href="/admin/class">
+                                <a class="collapse-item" href="/micro-course/class">
                                     單元管理
                                 </a>
 
-                                <a class="collapse-item" href="/admin/class_review">
+                                <a class="collapse-item" href="/micro-course/class_review">
                                     審核單元
                                 </a>
 
-                                <a class="collapse-item" href="/admin/fail">
+                                <a class="collapse-item" href="/micro-course/fail">
                                     已撤下的單元
                                 </a>
                         </div>
@@ -276,7 +276,7 @@
                 </li>
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed py-2" href="/admin/course">
+                    <a class="nav-link collapsed py-2" href="/micro-course/course">
                         <i class="fas fa-file-signature"></i>
                         <span>學生修課紀錄</span>
                     </a>
@@ -296,7 +296,7 @@
     
                     <!-- Nav Item - Pages Collapse Menu -->
                     <li class="nav-item">
-                        <a class="nav-link py-2 pt-3 collapsed" href="/admin/dashboard">
+                        <a class="nav-link py-2 pt-3 collapsed" href="/micro-course/dashboard">
                             <i class="fas fa-file-signature"></i>
                             <span>儀表板</span>
                         </a>
@@ -308,15 +308,15 @@
                         </a>
                         <div id="collapse_class" class="collapse">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                    <a class="collapse-item" href="/admin/teacher/class">
+                                    <a class="collapse-item" href="/micro-course/teacher/class">
                                         課程管理
                                     </a>
     
-                                    {{-- <a class="collapse-item" href="/admin/teacher/class_review">
+                                    {{-- <a class="collapse-item" href="/micro-course/teacher/class_review">
                                         審核課程
                                     </a> --}}
     
-                                    <a class="collapse-item" href="/admin/teacher/fail">
+                                    <a class="collapse-item" href="/micro-course/teacher/fail">
                                         已撤下課程
                                     </a>
                             </div>
@@ -336,13 +336,13 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link py-2 pt-3 collapsed" href="/admin/dashboard">
+                    <a class="nav-link py-2 pt-3 collapsed" href="/micro-course/dashboard">
                         <i class="fas fa-file-signature"></i>
                         <span>儀表板</span>
                     </a>
                 </li>
                 {{-- <li class="nav-item">
-                    <a class="nav-link py-2 collapsed" href="/admin/student/class_announcement">
+                    <a class="nav-link py-2 collapsed" href="/micro-course/student/class_announcement">
                         <i class="fas fa-file-signature"></i>
                         <span>課程公告</span>
                     </a>
@@ -355,7 +355,7 @@
                     <div id="collapse_10" class="collapse">
                         <div class="bg-white py-2 collapse-inner rounded">
                                 <a class="collapse-item"
-                                    href="/admin/student/course">
+                                    href="/micro-course/student/course">
                                     課程列表
                                 </a>
                         </div>
@@ -363,7 +363,7 @@
                 </li>
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link py-2 pt-3 collapsed" href="/admin/student/course_records">
+                    <a class="nav-link py-2 pt-3 collapsed" href="/micro-course/student/course_records">
                         <i class="fas fa-file-signature"></i>
                         <span>修課紀錄</span>
                     </a>
