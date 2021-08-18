@@ -108,7 +108,7 @@
                 </div>
 
                 <li class="nav-item">
-                    <a class="nav-link collapsed py-2" href="/admin/website_style_setting">
+                    <a class="nav-link collapsed py-2" href="/micro-course/website_style_setting">
                         <i class="fas fa-file-signature"></i>
                         <span>網站樣式設定</span>
                     </a>
