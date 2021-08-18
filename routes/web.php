@@ -27,18 +27,22 @@ Route::get('/plan_location','FrontController@plan_cp')->name('shi_gang');
 
 //最新消息
 Route::get('/news','FrontController@article_view')->name('front_news');
+Route::get('/news/{id}','FrontController@article_detail')->name('front_news_detail');
 
 //成果專區
 Route::get('/plan_results','FrontController@article_view')->name('front_plan_results');
+Route::get('/plan_results/{id}','FrontController@article_detail')->name('front_plan_results_detail');
 
 //媒體頻道
 Route::get('/video','FrontController@article_view')->name('front_video');
 
+//課程專區
+Route::get('/course','FrontController@article_view')->name('front_course');
+Route::get('/course/{id}','FrontController@article_detail')->name('front_course_detail');
+
 //下載專區
 Route::get('/downloads','FrontController@article_view')->name('front_downloads');
 
-Route::get('/news/{id}','FrontController@article_detail')->name('front_news_detail');
-Route::get('/plan_results/{id}','FrontController@article_detail')->name('front_plan_results_detail');
 
 Route::get('/activity_calendar','FrontController@activity_calendar');
 Route::get('/calendar_api',function (){
@@ -211,7 +215,7 @@ Route::group(['prefix' => 'micro-course','middleware' => 'auth'], function () {
     Route::get('/about','AdminController@about');
     Route::get('/about','AdminController@about_update');
 
-    //有站連結
+    //友站連結
     Route::group(['prefix' => 'links'], function () {
         Route::get('/', 'LinksController@index');
         Route::get('/create', 'LinksController@create');
@@ -275,6 +279,16 @@ Route::group(['prefix' => 'micro-course','middleware' => 'auth'], function () {
         Route::get('/edit/{id}', 'ArticleController@video_edit');
         Route::post('/update/{id}', 'ArticleController@video_update');
         Route::post('/delete/{id}', 'ArticleController@video_delete');
+    });
+
+     //video
+     Route::group(['prefix' => 'article_course'], function () {
+        Route::get('/', 'ArticleController@course_index');
+        Route::get('/create', 'ArticleController@course_create');
+        Route::post('/store', 'ArticleController@course_store');
+        Route::get('/edit/{id}', 'ArticleController@course_edit');
+        Route::post('/update/{id}', 'ArticleController@course_update');
+        Route::post('/delete/{id}', 'ArticleController@course_delete');
     });
 
     //download

@@ -129,6 +129,10 @@ class FrontController extends Controller
                 $viewName = "front.downloads";
                 break;
 
+            case 'front_course':
+                $article_type = 9;
+                $viewName = "front.course";
+                break;
         }
 
         $q = Article::where('type',$article_type);

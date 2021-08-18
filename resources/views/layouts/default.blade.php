@@ -91,7 +91,7 @@
                     <a class="nav-link" href="/news">最新消息</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">課程專區</a>
+                    <a class="nav-link" href="/course">課程專區</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/plan_results">成果專區</a>

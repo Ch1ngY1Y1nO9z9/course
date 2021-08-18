@@ -233,6 +233,81 @@ class ArticleController extends Controller
     }
     #endregion
 
+    #region 課程專區
+    public function course_index()
+    {
+        $lists =  Article::where('type',9)->get();
+        return view('admin.article_course.index',compact('lists'));
+    }
+
+    public function course_create()
+    {
+        return view('admin.article_course.create');
+    }
+
+    public function course_store(Request $request)
+    {
+        $new_list = new Article();
+        $new_list -> type = 9;
+        $new_list -> plan_type = $request->plan_type;
+        $new_list -> title = $request->title;
+        $new_list -> content = $request-> main_content;
+        $new_list -> date = $request-> date;
+        $new_list -> save();
+
+        if( $request->hasFile('upload_files')){
+            $files = $request->file('upload_files');
+            $this->upload_file($files,$new_list->id);
+        }
+
+        return redirect('/micro-course/article_course')->with('message','新增成功!');
+    }
+
+    public function course_edit($id)
+    {
+        $list = Article::find($id);
+        if($list->type == 9){
+            $files = DownloadFile::where('article_id',$id) -> get();
+            return view('admin.article_course.edit',compact('list','files'));
+        }else {
+            return redirect('/micro-course/article_course')->with('message', '無此文章!');
+        }
+    }
+
+    public function course_update(Request $request,$id)
+    {
+        $list = Article::find($id);
+        if($list->type == 9){
+            $list->plan_type = $request->plan_type;
+            $list -> title = $request->title;
+            $list -> content = $request-> main_content;
+            $list -> date = $request-> date;
+            $list -> save();
+
+            if( $request->hasFile('upload_files')){
+                $files = DownloadFile::where('article_id',$id) -> get();
+                foreach ($files as $del_file){
+                    $this->delete_file($del_file->id);
+                }
+
+                $files = $request->file('upload_files');
+                $this->upload_file($files,$list->id);
+            }
+
+            return redirect('/micro-course/article_course')->with('message','修改成功!');
+        }else{
+            return redirect('/micro-course/article_course')->with('message', '無此文章!');
+        }
+    }
+
+    public function course_delete(Request $request,$id)
+    {
+        $list = Article::find($id);
+        $list -> delete();
+        return redirect('/micro-course/article_course')->with('message','刪除成功!');
+    }
+    #endregion
+
     #region 媒體頻道
     public function video_index()
     {

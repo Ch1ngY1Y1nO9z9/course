@@ -193,7 +193,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed py-2" href="#">
+                        <a class="nav-link collapsed py-2" href="/micro-course/article_course">
                             <i class="fas fa-file-signature"></i>
                             <span>課程專區內容管理</span>
                         </a>
