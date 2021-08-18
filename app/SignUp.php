@@ -10,7 +10,7 @@ class SignUp extends Model
     protected $table = "sign_up";
 
     protected $fillable = [
-        'course_id', 'student_name', 'student_id'
+        'course_id', 'student_name', 'student_id', 'academic_year'
     ];
 
     public function getCoursesDetail()

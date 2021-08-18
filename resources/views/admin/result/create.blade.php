@@ -14,7 +14,7 @@
                         <h3 class="card-title">成果專區管理 － 新增文章</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="/admin/result/store" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="post" action="/micro-course/result/store" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
                                 <label for="plan_type" class="col-sm-2 control-label">類別</label>
@@ -124,7 +124,7 @@
                 $.ajax({
                     data: data,
                     type: "POST",
-                    url: "/admin/img/post",
+                    url: "/micro-course/img/post",
                     cache: false,
                     contentType: false,
                     processData: false,

@@ -23,7 +23,7 @@ class BannerController extends Controller
        $new_list -> sort = $request -> sort;
        $new_list -> slider_url = $this->upload_file($request->file("upload_file"));
        $new_list -> save();
-       return redirect('/admin/banner')->with('message','新增成功!');
+       return redirect('/micro-course/banner')->with('message','新增成功!');
    }
 
    public function edit($id){
@@ -41,14 +41,14 @@ class BannerController extends Controller
            $list->slider_url = $this->upload_file($request->file("upload_file"));
        }
        $list -> save();
-       return redirect('/admin/banner')->with('message','修改成功!');
+       return redirect('/micro-course/banner')->with('message','修改成功!');
    }
 
    public function delete(Request $request,$id){
        $list = Slider::find($id);
        File::delete(public_path().$list -> slider_url);
        $list -> delete();
-       return redirect('/admin/banner')->with('message','刪除成功!');
+       return redirect('/micro-course/banner')->with('message','刪除成功!');
    }
 
    //Baner圖片上傳

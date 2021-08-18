@@ -30,8 +30,8 @@
                                         應用物理學 - 4/26 線上點名
                                     </td>
                                     <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/class/check/1/rollCall_records/check">檢視</a>
-                                        <a class="btn btn-sm btn-success" href="/admin/class/check/1/rollCall_records/check">編輯</a>
+                                        <a class="btn btn-sm btn-primary" href="/micro-course/class/check/1/rollCall_records/check">檢視</a>
+                                        <a class="btn btn-sm btn-success" href="/micro-course/class/check/1/rollCall_records/check">編輯</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -39,8 +39,8 @@
                                         應用物理學 - 4/25 線上點名
                                     </td>
                                     <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/class/check/1/rollCall_records/check">檢視</a>
-                                        {{-- <a class="btn btn-sm btn-success" href="/admin/class/edit/1">編輯</a> --}}
+                                        <a class="btn btn-sm btn-primary" href="/micro-course/class/check/1/rollCall_records/check">檢視</a>
+                                        {{-- <a class="btn btn-sm btn-success" href="/micro-course/class/edit/1">編輯</a> --}}
                                     </td>
                                 </tr>
                                 <tr>
@@ -48,8 +48,8 @@
                                         應用物理學 - 4/24 線上點名
                                     </td>
                                     <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/class/check/1/rollCall_records/check">檢視</a>
-                                        {{-- <a class="btn btn-sm btn-success" href="/admin/class/edit/1">編輯</a> --}}
+                                        <a class="btn btn-sm btn-primary" href="/micro-course/class/check/1/rollCall_records/check">檢視</a>
+                                        {{-- <a class="btn btn-sm btn-success" href="/micro-course/class/edit/1">編輯</a> --}}
                                     </td>
                                 </tr>
                             </tbody>

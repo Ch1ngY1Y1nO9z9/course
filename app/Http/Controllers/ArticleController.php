@@ -43,7 +43,7 @@ class ArticleController extends Controller
 
 
 
-        return redirect('/admin/news')->with('message','新增成功!');
+        return redirect('/micro-course/news')->with('message','新增成功!');
     }
 
     public function news_edit($id)
@@ -54,7 +54,7 @@ class ArticleController extends Controller
         if($list->type == 1){
             return view('admin.news.edit',compact('list','files'));
         }else {
-            return redirect('/admin/news')->with('message', '無此文章!');
+            return redirect('/micro-course/news')->with('message', '無此文章!');
         }
     }
 
@@ -82,9 +82,9 @@ class ArticleController extends Controller
 
             $list -> save();
 
-            return redirect('/admin/news')->with('message','修改成功!');
+            return redirect('/micro-course/news')->with('message','修改成功!');
         }else{
-            return redirect('/admin/news')->with('message', '無此文章!');
+            return redirect('/micro-course/news')->with('message', '無此文章!');
         }
     }
 
@@ -92,7 +92,7 @@ class ArticleController extends Controller
     {
         $list = Article::find($id);
         $list -> delete();
-        return redirect('/admin/news')->with('message','刪除成功!');
+        return redirect('/micro-course/news')->with('message','刪除成功!');
     }
     #endregion
 
@@ -125,7 +125,7 @@ class ArticleController extends Controller
             }
         }
 
-        return redirect('/admin/result')->with('message','新增成功!');
+        return redirect('/micro-course/result')->with('message','新增成功!');
     }
 
     public function result_edit($id)
@@ -135,7 +135,7 @@ class ArticleController extends Controller
             $files = DownloadFile::where('article_id',$id) -> get();
             return view('admin.result.edit',compact('list','files'));
         }else {
-            return redirect('/admin/result')->with('message', '無此文章!');
+            return redirect('/micro-course/result')->with('message', '無此文章!');
         }
     }
 
@@ -162,9 +162,9 @@ class ArticleController extends Controller
                 }
             }
 
-            return redirect('/admin/result')->with('message','修改成功!');
+            return redirect('/micro-course/result')->with('message','修改成功!');
         }else{
-            return redirect('/admin/result')->with('message', '無此文章!');
+            return redirect('/micro-course/result')->with('message', '無此文章!');
         }
     }
 
@@ -172,7 +172,7 @@ class ArticleController extends Controller
     {
         $list = Article::find($id);
         $list -> delete();
-        return redirect('/admin/result')->with('message','刪除成功!');
+        return redirect('/micro-course/result')->with('message','刪除成功!');
     }
     #endregion
 
@@ -197,7 +197,7 @@ class ArticleController extends Controller
         $new_list -> content = $request-> main_content;
         $new_list -> date = $request-> date;
         $new_list -> save();
-        return redirect('/admin/honor')->with('message','新增成功!');
+        return redirect('/micro-course/honor')->with('message','新增成功!');
     }
 
     public function honor_edit($id)
@@ -206,7 +206,7 @@ class ArticleController extends Controller
         if($list->type == 3){
             return view('admin.honor.edit',compact('list'));
         }else {
-            return redirect('/admin/honor')->with('message', '無此文章!');
+            return redirect('/micro-course/honor')->with('message', '無此文章!');
         }
     }
 
@@ -219,9 +219,9 @@ class ArticleController extends Controller
             $list -> content = $request-> main_content;
             $list -> date = $request-> date;
             $list -> save();
-            return redirect('/admin/honor')->with('message','修改成功!');
+            return redirect('/micro-course/honor')->with('message','修改成功!');
         }else{
-            return redirect('/admin/honor')->with('message', '無此文章!');
+            return redirect('/micro-course/honor')->with('message', '無此文章!');
         }
     }
 
@@ -229,7 +229,7 @@ class ArticleController extends Controller
     {
         $list = Article::find($id);
         $list -> delete();
-        return redirect('/admin/honor')->with('message','刪除成功!');
+        return redirect('/micro-course/honor')->with('message','刪除成功!');
     }
     #endregion
 
@@ -260,7 +260,7 @@ class ArticleController extends Controller
             $this->upload_file($files,$new_list->id);
         }
 
-        return redirect('/admin/video')->with('message','新增成功!');
+        return redirect('/micro-course/video')->with('message','新增成功!');
     }
 
     public function video_edit($id)
@@ -270,7 +270,7 @@ class ArticleController extends Controller
             $files = DownloadFile::where('article_id',$id) -> get();
             return view('admin.video.edit',compact('list','files'));
         }else {
-            return redirect('/admin/video')->with('message', '無此文章!');
+            return redirect('/micro-course/video')->with('message', '無此文章!');
         }
     }
 
@@ -294,9 +294,9 @@ class ArticleController extends Controller
                 $this->upload_file($files,$list->id);
             }
 
-            return redirect('/admin/video')->with('message','修改成功!');
+            return redirect('/micro-course/video')->with('message','修改成功!');
         }else{
-            return redirect('/admin/video')->with('message', '無此文章!');
+            return redirect('/micro-course/video')->with('message', '無此文章!');
         }
     }
 
@@ -304,7 +304,7 @@ class ArticleController extends Controller
     {
         $list = Article::find($id);
         $list -> delete();
-        return redirect('/admin/video')->with('message','刪除成功!');
+        return redirect('/micro-course/video')->with('message','刪除成功!');
     }
     #endregion
 
@@ -335,7 +335,7 @@ class ArticleController extends Controller
                $this->upload_file($file,$new_list->id);
            }
         }
-        return redirect('/admin/download')->with('message','新增成功!');
+        return redirect('/micro-course/download')->with('message','新增成功!');
     }
 
     public function download_edit($id)
@@ -345,7 +345,7 @@ class ArticleController extends Controller
             $files = DownloadFile::where('article_id',$id) -> get();
             return view('admin.download.edit',compact('list','files'));
         }else {
-            return redirect('/admin/download')->with('message', '無此文章!');
+            return redirect('/micro-course/download')->with('message', '無此文章!');
         }
     }
 
@@ -370,9 +370,9 @@ class ArticleController extends Controller
                     $this->upload_file($file,$list->id);
                 }
             }
-            return redirect('/admin/download')->with('message','修改成功!');
+            return redirect('/micro-course/download')->with('message','修改成功!');
         }else{
-            return redirect('/admin/download')->with('message', '無此文章!');
+            return redirect('/micro-course/download')->with('message', '無此文章!');
         }
     }
 
@@ -384,7 +384,7 @@ class ArticleController extends Controller
             $this->delete_file($file->id);
         }
         $list -> delete();
-        return redirect('/admin/honor')->with('message','刪除成功!');
+        return redirect('/micro-course/honor')->with('message','刪除成功!');
     }
     #endregion
 
@@ -415,7 +415,7 @@ class ArticleController extends Controller
                 $this->upload_file($file,$new_list->id);
             }
         }
-        return redirect('/admin/highlight')->with('message','新增成功!');
+        return redirect('/micro-course/highlight')->with('message','新增成功!');
     }
 
     public function highlight_edit($id)
@@ -425,7 +425,7 @@ class ArticleController extends Controller
             $files = DownloadFile::where('article_id',$id) -> get();
             return view('admin.highlight.edit',compact('list','files'));
         }else {
-            return redirect('/admin/highlight')->with('message', '無此文章!');
+            return redirect('/micro-course/highlight')->with('message', '無此文章!');
         }
     }
 
@@ -450,9 +450,9 @@ class ArticleController extends Controller
                     $this->upload_file($file,$list->id);
                 }
             }
-            return redirect('/admin/highlight')->with('message','修改成功!');
+            return redirect('/micro-course/highlight')->with('message','修改成功!');
         }else{
-            return redirect('/admin/highlight')->with('message', '無此文章!');
+            return redirect('/micro-course/highlight')->with('message', '無此文章!');
         }
     }
 
@@ -464,7 +464,7 @@ class ArticleController extends Controller
             $this->delete_file($file->id);
         }
         $list -> delete();
-        return redirect('/admin/highlight')->with('message','刪除成功!');
+        return redirect('/micro-course/highlight')->with('message','刪除成功!');
     }
     #endregion
 
@@ -495,7 +495,7 @@ class ArticleController extends Controller
                 $this->upload_file($file,$new_list->id);
             }
         }
-        return redirect('/admin/other')->with('message','新增成功!');
+        return redirect('/micro-course/other')->with('message','新增成功!');
     }
 
     public function other_edit($id)
@@ -505,7 +505,7 @@ class ArticleController extends Controller
             $files = DownloadFile::where('article_id',$id) -> get();
             return view('admin.other.edit',compact('list','files'));
         }else {
-            return redirect('/admin/other')->with('message', '無此文章!');
+            return redirect('/micro-course/other')->with('message', '無此文章!');
         }
     }
 
@@ -530,9 +530,9 @@ class ArticleController extends Controller
                     $this->upload_file($file,$list->id);
                 }
             }
-            return redirect('/admin/other')->with('message','修改成功!');
+            return redirect('/micro-course/other')->with('message','修改成功!');
         }else{
-            return redirect('/admin/other')->with('message', '無此文章!');
+            return redirect('/micro-course/other')->with('message', '無此文章!');
         }
     }
 
@@ -544,7 +544,7 @@ class ArticleController extends Controller
             $this->delete_file($file->id);
         }
         $list -> delete();
-        return redirect('/admin/other')->with('message','刪除成功!');
+        return redirect('/micro-course/other')->with('message','刪除成功!');
     }
     #endregion
 
@@ -575,7 +575,7 @@ class ArticleController extends Controller
                 $this->upload_file($file,$new_list->id);
             }
         }
-        return redirect('/admin/promote')->with('message','新增成功!');
+        return redirect('/micro-course/promote')->with('message','新增成功!');
     }
 
     public function promote_edit($id)
@@ -585,7 +585,7 @@ class ArticleController extends Controller
             $files = DownloadFile::where('article_id',$id) -> get();
             return view('admin.promote.edit',compact('list','files'));
         }else {
-            return redirect('/admin/promote')->with('message', '無此文章!');
+            return redirect('/micro-course/promote')->with('message', '無此文章!');
         }
     }
 
@@ -610,9 +610,9 @@ class ArticleController extends Controller
                     $this->upload_file($file,$list->id);
                 }
             }
-            return redirect('/admin/promote')->with('message','修改成功!');
+            return redirect('/micro-course/promote')->with('message','修改成功!');
         }else{
-            return redirect('/admin/promote')->with('message', '無此文章!');
+            return redirect('/micro-course/promote')->with('message', '無此文章!');
         }
     }
 
@@ -624,7 +624,7 @@ class ArticleController extends Controller
             $this->delete_file($file->id);
         }
         $list -> delete();
-        return redirect('/admin/promote')->with('message','刪除成功!');
+        return redirect('/micro-course/promote')->with('message','刪除成功!');
     }
     #endregion
 
@@ -634,7 +634,7 @@ class ArticleController extends Controller
             $page = PlanPage::find($id);
             return view('admin.plan_page.index',compact('page'));
         }else{
-            return redirect('/admin')->with('message', '無此文章!');
+            return redirect('/micro-course')->with('message', '無此文章!');
         }
     }
 
@@ -643,7 +643,7 @@ class ArticleController extends Controller
         $page = PlanPage::find($id);
         return view('admin.plan_page.edit',compact('page'));
         }else{
-            return redirect('/admin')->with('message', '無此文章!');
+            return redirect('/micro-course')->with('message', '無此文章!');
         }
     }
 
@@ -651,7 +651,7 @@ class ArticleController extends Controller
         $list = PlanPage::find($id);
         $list -> content = $request-> main_content;
         $list -> save();
-        return redirect('/admin/plan_page/'.$id)->with('message','修改成功!');
+        return redirect('/micro-course/plan_page/'.$id)->with('message','修改成功!');
     }
 
     public function plan_article_index()
@@ -674,7 +674,7 @@ class ArticleController extends Controller
                 $this->plan_upload_file($file,$new_list->id);
             }
         }
-        return redirect('/admin/plan_page_related_legislation')->with('message','新增成功!');
+        return redirect('/micro-course/plan_page_related_legislation')->with('message','新增成功!');
     }
 
     public function plan_article_edit($id){
@@ -699,7 +699,7 @@ class ArticleController extends Controller
                 $this->plan_upload_file($file,$list->id);
             }
         }
-        return redirect('/admin/plan_page_related_legislation')->with('message','修改成功!');
+        return redirect('/micro-course/plan_page_related_legislation')->with('message','修改成功!');
 
     }
 
@@ -710,7 +710,7 @@ class ArticleController extends Controller
             $this->delete_file($file->id);
         }
         $list -> delete();
-        return redirect('/admin/plan_page_related_legislation')->with('message','刪除成功!');
+        return redirect('/micro-course/plan_page_related_legislation')->with('message','刪除成功!');
     }
     #endregion
 

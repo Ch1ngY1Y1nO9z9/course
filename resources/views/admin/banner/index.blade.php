@@ -14,7 +14,7 @@
                         <h3 class="card-title">Banner管理</h3>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/banner/create">新增圖片</a>
+                        <a class="btn btn-success" href="/micro-course/banner/create">新增圖片</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
@@ -34,9 +34,9 @@
                                     <td>{{$list->slider_alt}}</td>
                                     <td>{{$list->sort}}</td>
                                     <td width="97">
-                                        <a class="btn btn-sm btn-success" href="/admin/banner/edit/{{$list->id}}">編輯</a>
+                                        <a class="btn btn-sm btn-success" href="/micro-course/banner/edit/{{$list->id}}">編輯</a>
                                         <button class="btn btn-sm btn-danger" data-listid="{{$list->id}}">刪除</button>
-                                        <form class="delete-form" action="/admin/banner/delete/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                        <form class="delete-form" action="/micro-course/banner/delete/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                     </td>

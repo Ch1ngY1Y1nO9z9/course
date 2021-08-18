@@ -9,46 +9,42 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">課程公告</h3>
+                        <h3 class="card-title">@if($academic == '-1'){{$year}}學年上學期 @elseif($academic == '-2'){{$year}}學年下學期 @endif- 學生修課紀錄</h3>
                     </div>
                     <div class="card-body">
-                        <a href="javascript:history.back()">
-                            <button type="submit" class="btn btn-success">返回</button>
-                        </a>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <a href="/micro-course/course">
+                                    <button type="submit" class="btn btn-success">返回</button>
+                                </a>
+                            </div>
+                        </div>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>標題</th>
-                                <th>內容</th>
-                                <th>附件</th>
-                                <th>功能</th>
+                                <th>學號</th>
+                                <th>學生姓名</th>
+                                <th>已通過的修課時數</th>
+                                <th>學分數</th>
                             </tr>
                             </thead>
                             <tbody>
                                 @foreach($items as $item)
-                                    @if( $date > strtotime($item->start_date) )
-                                        @if(strtotime($item->end_date) > $date || !$item->end_date)
-                                        <tr>
-                                            <td>
-                                                {{$item->title}}
-                                            </td>
-                                            <td>
-                                                {{$item->content}}
-                                            </td>
-                                            <td>
-                                                @if($item->file)
-                                                <a href="{{$item->title}}" download>附件下載</a>
-                                                @else
-                                                -
-                                                @endif
-                                            </td>
-                                            <td width="150">
-                                                <a class="btn btn-sm btn-primary" href="/micro-course/student/course_records/announce/{{$item->id}}/check">檢視</a>
-                                            </td>
-                                        </tr>
-                                        @endif
-                                    @endif
+                                <tr>
+                                    <td>
+                                        {{$item->student_id}}
+                                    </td>
+                                    <td>
+                                        {{$item->student_name}}
+                                    </td>
+                                    <td>
+                                        {{$item->GetAllStudentTime($item->student_id)}}
+                                    </td>
+                                    <td>
+                                        {{$item->GetAllStudentScore($item->student_id)}}
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -63,11 +59,34 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[2,'asc']],
+                dom: 'Bfrtip',
+                buttons: [{
+                    extend: "excel",
+                    title: '',
+                    className: "btn btn-primary",
+                    titleAttr: 'Export in Excel',
+                    text: '匯出成Excel',
+                    init: function( api, node, config) {
+                    $(node).removeClass('btn-default')
+                    },
+                    exportOptions: {
+                        columns: [ 0, 1, 2, 3],
+                    },
+                    filename: function(){
+                        var a = $('.card-title').text();
+                        var d = new Date().toISOString().substring(0, 6);
+                        return a + d;
+                    }
+                }],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",

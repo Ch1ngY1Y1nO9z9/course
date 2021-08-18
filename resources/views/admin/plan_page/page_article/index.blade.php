@@ -12,7 +12,7 @@
                         <h3 class="card-title">USR計畫 - 相關法規管理</h3>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/plan_article/create">新增檔案</a>
+                        <a class="btn btn-success" href="/micro-course/plan_article/create">新增檔案</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
@@ -32,9 +32,9 @@
                                         @endforeach
                                     </td>
                                     <td width="170">
-                                        <a class="btn btn-sm btn-success" href="/admin/plan_article/edit/{{$list->id}}">編輯</a>
+                                        <a class="btn btn-sm btn-success" href="/micro-course/plan_article/edit/{{$list->id}}">編輯</a>
                                         <button class="btn btn-sm btn-danger" data-listid="{{$list->id}}">刪除</button>
-                                        <form class="delete-form" action="/admin/plan_article/delete/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                        <form class="delete-form" action="/micro-course/plan_article/delete/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                     </td>

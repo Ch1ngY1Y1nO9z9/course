@@ -13,7 +13,7 @@
                         <h3 class="card-title">課程公告 - 編輯</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="/admin/class_announcement/update/{{$item->id}}">
+                        <form class="form-horizontal" method="post" action="/micro-course/class_announcement/update/{{$item->id}}">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
                             <div class="form-group row">
@@ -128,7 +128,7 @@
                 $.ajax({
                     data: data,
                     type: "POST",
-                    url: "/admin/img/post",
+                    url: "/micro-course/img/post",
                     cache: false,
                     contentType: false,
                     processData: false,

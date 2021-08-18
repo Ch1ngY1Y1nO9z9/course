@@ -17,7 +17,7 @@
                             <button type="submit" class="btn btn-success">返回</button>
                         </a>
                         <hr>
-                        <form class="form-horizontal" method="POST" action="/admin/class/update/{{$item->id}}" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="POST" action="/micro-course/class/update/{{$item->id}}" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
                             <div class="form-group row">
@@ -256,7 +256,7 @@
                 $.ajax({
                     data: data,
                     type: "POST",
-                    url: "/admin/img/post",
+                    url: "/micro-course/img/post",
                     cache: false,
                     contentType: false,
                     processData: false,

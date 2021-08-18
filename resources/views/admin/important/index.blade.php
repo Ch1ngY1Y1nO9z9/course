@@ -12,7 +12,7 @@
                         <h3 class="card-title">重要公告管理</h3>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/important/create">新增公告</a>
+                        <a class="btn btn-success" href="/micro-course/important/create">新增公告</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
@@ -34,9 +34,9 @@
                                     <td>{{$list->link}}</td>
                                     <td>{{$list->sort}}</td>
                                     <td width="97">
-                                        <a class="btn btn-sm btn-success" href="/admin/important/edit/{{$list->id}}">編輯</a>
+                                        <a class="btn btn-sm btn-success" href="/micro-course/important/edit/{{$list->id}}">編輯</a>
                                         <button class="btn btn-sm btn-danger" data-listid="{{$list->id}}">刪除</button>
-                                        <form class="delete-form" action="/admin/important/delete/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                        <form class="delete-form" action="/micro-course/important/delete/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                     </td>

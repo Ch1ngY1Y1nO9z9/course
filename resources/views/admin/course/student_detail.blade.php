@@ -38,9 +38,9 @@
                                         {{$item->total_hours}}
                                     </td>
                                     <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/admin/course/class_detail/{{$item->id}}">檢視</a>
+                                        <a class="btn btn-sm btn-primary" href="/micro-course/course/class_detail/{{$item->id}}">檢視</a>
                                         {{-- <button class="btn btn-sm btn-danger" data-listid="1">刪除</button>
-                                        <form class="delete-form" action="/admin/class/delete/1" method="POST" style="display: none;" data-listid="1">
+                                        <form class="delete-form" action="/micro-course/class/delete/1" method="POST" style="display: none;" data-listid="1">
                                             {{ csrf_field() }}
                                         </form> --}}
                                     </td>

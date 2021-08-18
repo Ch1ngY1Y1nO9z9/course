@@ -12,11 +12,12 @@
                         <h3 class="card-title">{{Auth::user()->name}} - {{$feature_name}}</h3>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/class/create">新增課程</a>
+                        <a class="btn btn-success" href="/micro-course/class/create">新增單元</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
+                                <th>學年</th>
                                 <th>單元類別</th>
                                 <th>課程名稱</th>
                                 <th>課程日期</th>
@@ -30,6 +31,9 @@
                             <tbody>
                                 @foreach($items as $item)
                                 <tr>
+                                    <td>
+                                        {{$item->get_academic($item->academic_year)}}
+                                    </td>
                                     <td>
                                         {{$item->class_type}}
                                     </td>
@@ -60,17 +64,17 @@
                                     </td>
                                     <td width="150">
                                         @if($item->status != '未送出')
-                                            <a class="btn btn-sm btn-primary mt-1" href="/admin/class/check/{{$item->id}}">檢視</a>
+                                            <a class="btn btn-sm btn-primary mt-1" href="/micro-course/class/check/{{$item->id}}">檢視</a>
                                         @endif
 
                                         @if($feature_name != '單元審核')
                                             @if(Auth::user()->role == 'admin' || $item->status != '已通過')
-                                                <a class="btn btn-sm btn-success mt-1" href="/admin/class/edit/{{$item->id}}">編輯</a>
+                                                <a class="btn btn-sm btn-success mt-1" href="/micro-course/class/edit/{{$item->id}}">編輯</a>
                                             @endif
 
                                             @if($item->status != '已撤下' && $item->status != '審核未通過')
                                                 <button class="btn btn-sm btn-danger mt-1 del" data-listid="{{$item->id}}">撤下</button>
-                                                <form class="delete-form" action="/admin/class/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                                <form class="delete-form" action="/micro-course/class/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                                     {{ csrf_field() }}
                                                 </form>
                                             @endif
@@ -79,22 +83,22 @@
                                         @if($feature_name == '單元審核')
                                         <br>
                                         <button class="btn btn-sm btn-success pass mt-1" data-listid="{{$item->id}}">通過</button>
-                                        <form class="pass-form" action="/admin/class_review/{{$item->id}}/pass" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                        <form class="pass-form" action="/micro-course/class_review/{{$item->id}}/pass" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                         <button class="btn btn-sm btn-danger fail mt-1" data-listid="{{$item->id}}">不通過</button>
-                                        <form class="delete-form" action="/admin/class_review/{{$item->id}}/fail" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                        <form class="delete-form" action="/micro-course/class_review/{{$item->id}}/fail" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                         @endif
 
                                         @if($item->status != '未送出'&& $item->status != '待審核' && $item->status != '已撤下' && $item->status != '審核未通過')
-                                        <a class="btn btn-sm btn-secondary mt-1" href="/admin/class/assessment/{{$item->id}}">期末評量</a>
+                                        <a class="btn btn-sm btn-secondary mt-1" href="/micro-course/class/assessment/{{$item->id}}">期末評量</a>
                                         @endif
 
                                         @if($feature_name != '單元審核')
                                         <button class="btn btn-sm btn-warning mt-1 text-dark" data-listid="{{$item->id}}">複製</button>
-                                        <form class="copy-form" action="/admin/class/copy/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                        <form class="copy-form" action="/micro-course/class/copy/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                         @endif
@@ -119,7 +123,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[2,'asc']],
+                "order": [[3,'desc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",

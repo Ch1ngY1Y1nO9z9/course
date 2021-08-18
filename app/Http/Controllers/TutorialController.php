@@ -24,7 +24,7 @@ class TutorialController extends Controller
     {
         Tutorials::create($request->all());
 
-        return redirect('/admin/tutorial')->with('success','新增成功!');
+        return redirect('/micro-course/tutorial')->with('success','新增成功!');
     }
 
     public function edit($id)
@@ -40,7 +40,7 @@ class TutorialController extends Controller
 
         $item->save();
 
-        return redirect('/admin/tutorial')->with('success','更新成功!');
+        return redirect('/micro-course/tutorial')->with('success','更新成功!');
     }
 
     public function delete(Request $request,$id)
@@ -49,7 +49,7 @@ class TutorialController extends Controller
         $item->soft_delete = 1;
         $item->save();
 
-        return redirect('/admin/tutorial')->with('success','撤下成功!');
+        return redirect('/micro-course/tutorial')->with('success','撤下成功!');
     }
 
 }

@@ -18,6 +18,7 @@ class CreateSignUpTable extends Migration
             $table->string('course_id');
             $table->string('student_name');
             $table->string('student_id');
+            $table->string('academic_year')->nullable();
             $table->string('pass')->default('尚未評分')->nullable();
             $table->timestamps();
         });

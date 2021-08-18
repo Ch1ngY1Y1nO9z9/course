@@ -25,6 +25,6 @@ class Role
         if($user->role == 'admin' || $user->role == 'teacher')
             return $next($request);
         else
-            return redirect('/admin/dashboard');
+            return redirect('/micro-course/dashboard');
     }
 }

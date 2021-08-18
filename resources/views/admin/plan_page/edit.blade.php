@@ -14,7 +14,7 @@
                         <h3 class="card-title">USR計畫-{{$page->name}}</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="/admin/plan_page/update/{{$page->id}}">
+                        <form class="form-horizontal" method="post" action="/micro-course/plan_page/update/{{$page->id}}">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
                                 <label for="content" class="col-sm-1 control-label">內文</label>
@@ -85,7 +85,7 @@
                 $.ajax({
                     data: data,
                     type: "POST",
-                    url: "/admin/img/post",
+                    url: "/micro-course/img/post",
                     cache: false,
                     contentType: false,
                     processData: false,

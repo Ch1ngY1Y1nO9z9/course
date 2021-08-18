@@ -31,7 +31,9 @@ class ClassController extends Controller
     public function create()
     {
         $tutorials = Tutorials::getAll()->get();
-        return view('admin.class.create', compact('tutorials'));
+        $academic_years = $this->get_academic_year();
+
+        return view('admin.class.create', compact('tutorials','academic_years'));
     }
 
     public function store(Request $request)
@@ -135,6 +137,17 @@ class ClassController extends Controller
     // {
     //     return view('admin.class.announce_edit',compact('id'));
     // }
+
+    public function get_academic_year()
+    {
+        $year = date("Y") - 1911;
+        $current_year = $year - 1;
+        $next_year = $year;
+        $previous_year = $year - 2;
+        $years = [$next_year, $next_year, $current_year, $current_year, $previous_year, $previous_year];
+
+        return $years;
+    }
 
     public function announce_store(Request $request)
     {
@@ -386,7 +399,8 @@ class ClassController extends Controller
         SignUp::create([
             'course_id'=> $id,
             'student_id'=> $user->account_id,
-            'student_name'=> $user->name
+            'student_name'=> $user->name,
+            'academic_year'=> $course->academic_year
         ]);
 
         return redirect()->back()->with('signup_success');

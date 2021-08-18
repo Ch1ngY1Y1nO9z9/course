@@ -95,7 +95,7 @@
                     <a class="nav-link" href="/video">媒體頻道</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">微學分專區</a>
+                    <a class="nav-link" href="/micro-course">微學分專區</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/downloads">下載專區</a>
@@ -154,7 +154,7 @@
                             <a class="nav-link title" href="/video">媒體頻道</a>
                         </nav>
                         <nav class="nav flex-column">
-                            <a class="nav-link title" href="#">微學分專區</a>
+                            <a class="nav-link title" href="/micro-course">微學分專區</a>
                         </nav>
                         <nav class="nav flex-column">
                             <a class="nav-link title" href="/downloads">下載專區</a>

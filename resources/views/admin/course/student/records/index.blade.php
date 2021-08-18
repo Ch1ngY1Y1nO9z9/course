@@ -48,8 +48,8 @@
                                             {{$item->pass}}
                                         </td>
                                         <td width="200">
-                                            <a class="btn btn-sm btn-primary" href="/admin/student/course_records/check/{{$item->course_id}}">檢視</a>
-                                            <a class="btn btn-sm btn-warning text-dark" href="/admin/student/course_records/announce/{{$item->course_id}}">課程公告</a>
+                                            <a class="btn btn-sm btn-primary" href="/micro-course/student/course_records/check/{{$item->course_id}}">檢視</a>
+                                            <a class="btn btn-sm btn-warning text-dark" href="/micro-course/student/course_records/announce/{{$item->course_id}}">課程公告</a>
                                         </td>
                                     </tr>
                                 @endforeach

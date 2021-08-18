@@ -14,7 +14,7 @@
                         <h3 class="card-title">下載專區管理</h3>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/download/create">新增文章</a>
+                        <a class="btn btn-success" href="/micro-course/download/create">新增文章</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
@@ -34,18 +34,18 @@
                                     <td width="170">
                                         @if($list->top == 0)
                                             <button class="btn btn-sm btn-primary" data-listid="{{$list->id}}">置頂</button>
-                                            <form class="to_top-form" action="/admin/top/top/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                            <form class="to_top-form" action="/micro-course/top/top/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
                                                 {{ csrf_field() }}
                                             </form>
                                         @else
                                             <button class="btn btn-sm btn-primary" data-listid="{{$list->id}}">取消置頂</button>
-                                            <form class="to_top-form" action="/admin/top/normal/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                            <form class="to_top-form" action="/micro-course/top/normal/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
                                                 {{ csrf_field() }}
                                             </form>
                                         @endif
-                                        <a class="btn btn-sm btn-success" href="/admin/download/edit/{{$list->id}}">編輯</a>
+                                        <a class="btn btn-sm btn-success" href="/micro-course/download/edit/{{$list->id}}">編輯</a>
                                         <button class="btn btn-sm btn-danger" data-listid="{{$list->id}}">刪除</button>
-                                        <form class="delete-form" action="/admin/download/delete/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                        <form class="delete-form" action="/micro-course/download/delete/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                     </td>

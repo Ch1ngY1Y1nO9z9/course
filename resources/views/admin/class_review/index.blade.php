@@ -56,13 +56,13 @@
                                             {{$item->status}}
                                         </td>
                                         <td width="170">
-                                            <a class="btn btn-sm btn-primary" href="/admin/class_review/check/{{$item->id}}">檢視</a>
+                                            <a class="btn btn-sm btn-primary" href="/micro-course/class_review/check/{{$item->id}}">檢視</a>
                                             <button class="btn btn-sm btn-success" data-listid="{{$item->id}}">通過</button>
-                                            <form class="pass-form" action="/admin/class_review/{{$item->id}}/pass" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                            <form class="pass-form" action="/micro-course/class_review/{{$item->id}}/pass" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                                 {{ csrf_field() }}
                                             </form>
                                             <button class="btn btn-sm btn-danger" data-listid="{{$item->id}}">不通過</button>
-                                            <form class="delete-form" action="/admin/class_review/{{$item->id}}/fail" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                            <form class="delete-form" action="/micro-course/class_review/{{$item->id}}/fail" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                                 {{ csrf_field() }}
                                             </form>
                                         </td>

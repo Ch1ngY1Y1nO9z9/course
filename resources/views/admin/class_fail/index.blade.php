@@ -56,14 +56,14 @@
                                             {{$item->status}}
                                         </td>
                                         <td width="170">
-                                            <a class="btn btn-sm btn-primary" href="/admin/fail/check/{{$item->id}}">檢視</a>
+                                            <a class="btn btn-sm btn-primary" href="/micro-course/fail/check/{{$item->id}}">檢視</a>
                                             <button class="btn btn-sm btn-warning text-dark" data-listid="{{$item->id}}">複製課程</button>
-                                            <form class="copy-form" action="/admin/class/copy/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                            <form class="copy-form" action="/micro-course/class/copy/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                                 {{ csrf_field() }}
                                             </form>
                                             @if(Auth::user()->role == 'admin')
                                                 <button class="btn btn-sm btn-danger mt-1" data-listid="{{$item->id}}">刪除課程</button>
-                                                <form class="delete-form" action="/admin/fail/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                                <form class="delete-form" action="/micro-course/fail/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                                     {{ csrf_field() }}
                                                 </form>
                                             @endif

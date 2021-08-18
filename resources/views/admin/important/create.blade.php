@@ -11,7 +11,7 @@
                         <h3 class="card-title">重要公告管理 － 新增公告</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="/admin/important/store" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="post" action="/micro-course/important/store" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
                                 <label for="sort" class="col-sm-2 control-label">權重</label>

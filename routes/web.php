@@ -81,18 +81,13 @@ $this->post('register', 'Auth\RegisterController@register');
 // $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 // 學生
-Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
+Route::group(['prefix' => 'micro-course','middleware' => 'auth'], function () {
     //reset password
     $this->get('/reset_password', 'AdminController@get_reset_password');
     $this->post('/reset_password', 'AdminController@reset_password');
 
     // dashboard
     $this->get('/dashboard', 'AdminController@dashboard');
-
-    // course
-    Route::get('/course', 'CourseClassController@index');
-    Route::get('/course/detail/{id}', 'CourseClassController@detail');
-    Route::get('/course/class_detail/{class_id}', 'CourseClassController@class_detail');
 
     // student_course
     Route::get('/student/course', 'CourseClassController@student_index');
@@ -113,7 +108,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
 });
 
 // 管理員&教師
-Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
+Route::group(['prefix' => 'micro-course','middleware' => 'auth'], function () {
     //reset password
     $this->get('/reset_password', 'AdminController@get_reset_password');
     $this->post('/reset_password', 'AdminController@reset_password');
@@ -127,8 +122,18 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     // Route::post('/class_announcement/delete/{id}', 'ClassAnnouncementController@delete');
     // Route::post('/class_announcement/totop/{id}', 'ClassAnnouncementController@totop');
 
+<<<<<<< HEAD
     
 
+=======
+    // course_records
+    Route::get('/course', 'CourseClassController@index');
+    Route::get('/course/detail/{id}', 'CourseClassController@detail');
+    Route::get('/course/class_detail/{class_id}', 'CourseClassController@class_detail');
+    Route::get('/course/export', 'CourseClassController@export');
+
+    Route::post('/course/export_query', 'CourseClassController@export_query');
+>>>>>>> 7775003e7ccaaeb97e26940807dc08d89d78115d
 
     // tutorial
     Route::get('/tutorial','TutorialController@index');

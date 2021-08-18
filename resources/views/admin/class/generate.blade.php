@@ -12,7 +12,7 @@
                         <h3 class="card-title">{{Auth::user()->name}} - 點名紀錄</h3>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/class/check/{{$id}}">返回</a>
+                        <a class="btn btn-success" href="/micro-course/class/check/{{$id}}">返回</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
@@ -30,16 +30,16 @@
                                         {{$record->date}}分
                                     </td>
                                     <td>
-                                        {!! QrCode::size(150)->generate('https://course.surai.xyz/admin/qrcode/rollcall/'.$record->id) !!}
+                                        {!! QrCode::size(150)->generate('https://course.surai.xyz/micro-course/qrcode/rollcall/'.$record->id) !!}
                                     </td>
                                     <td>
                                         {{$record->time}} 分
                                     </td>
                                     <td width="150">
-                                        <a class="btn btn-sm btn-primary" href="/admin/class/check/{{$record->id}}/rollCall_records/check">檢視</a>
-                                        <a class="btn btn-sm btn-success" href="/admin/class/check/{{$record->id}}/rollCall_records/edit">編輯</a>
+                                        <a class="btn btn-sm btn-primary" href="/micro-course/class/check/{{$record->id}}/rollCall_records/check">檢視</a>
+                                        <a class="btn btn-sm btn-success" href="/micro-course/class/check/{{$record->id}}/rollCall_records/edit">編輯</a>
                                         {{-- <button class="btn btn-sm btn-danger" data-listid="{{$record->id}}">取消</button>
-                                        <form class="delete-form" action="/admin/class/delete/{{$record->id}}" method="POST" style="display: none;" data-listid="{{$record->id}}">
+                                        <form class="delete-form" action="/micro-course/class/delete/{{$record->id}}" method="POST" style="display: none;" data-listid="{{$record->id}}">
                                             {{ csrf_field() }}
                                         </form> --}}
                                     </td>

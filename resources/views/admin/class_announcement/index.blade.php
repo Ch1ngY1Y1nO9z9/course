@@ -12,7 +12,7 @@
                         <h3 class="card-title">課程公告管理</h3>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/class_announcement/create">新增公告</a>
+                        <a class="btn btn-success" href="/micro-course/class_announcement/create">新增公告</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
@@ -47,18 +47,18 @@
                                     <td width="170">
                                         @if($item->sort == 0)
                                             <button class="btn btn-sm btn-primary" data-listid="{{$item->id}}">置頂</button>
-                                            <form class="to_top-form" action="/admin/class_announcement/totop/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                            <form class="to_top-form" action="/micro-course/class_announcement/totop/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                                 {{ csrf_field() }}
                                             </form>
                                         @else
                                             <button class="btn btn-sm btn-primary" data-listid="{{$item->id}}">取消置頂</button>
-                                            <form class="to_top-form" action="/admin/class_announcement/totop/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                            <form class="to_top-form" action="/micro-course/class_announcement/totop/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                                 {{ csrf_field() }}
                                             </form>
                                         @endif
-                                        <a class="btn btn-sm btn-success" href="/admin/class_announcement/edit/{{$item->id}}">編輯</a>
+                                        <a class="btn btn-sm btn-success" href="/micro-course/class_announcement/edit/{{$item->id}}">編輯</a>
                                         <button class="btn btn-sm btn-danger" data-listid="{{$item->id}}">刪除</button>
-                                        <form class="delete-form" action="/admin/class_announcement/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
+                                        <form class="delete-form" action="/micro-course/class_announcement/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                             {{ csrf_field() }}
                                         </form>
                                     </td>
