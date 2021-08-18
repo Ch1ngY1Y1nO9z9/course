@@ -122,10 +122,6 @@ Route::group(['prefix' => 'micro-course','middleware' => 'auth'], function () {
     // Route::post('/class_announcement/delete/{id}', 'ClassAnnouncementController@delete');
     // Route::post('/class_announcement/totop/{id}', 'ClassAnnouncementController@totop');
 
-<<<<<<< HEAD
-    
-
-=======
     // course_records
     Route::get('/course', 'CourseClassController@index');
     Route::get('/course/detail/{id}', 'CourseClassController@detail');
@@ -133,7 +129,6 @@ Route::group(['prefix' => 'micro-course','middleware' => 'auth'], function () {
     Route::get('/course/export', 'CourseClassController@export');
 
     Route::post('/course/export_query', 'CourseClassController@export_query');
->>>>>>> 7775003e7ccaaeb97e26940807dc08d89d78115d
 
     // tutorial
     Route::get('/tutorial','TutorialController@index');
