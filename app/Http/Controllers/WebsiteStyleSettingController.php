@@ -22,6 +22,7 @@ class WebsiteStyleSettingController extends Controller
         $website_style_setting -> main_navbar_bg_color = $request -> main_navbar_bg_color;
         $website_style_setting -> more_navbar_bg_color = $request -> more_navbar_bg_color;
         $website_style_setting -> footer_bg_color = $request -> footer_bg_color;
+        $website_style_setting -> background_size = $request -> background_size;
 
         if($request-> hasFile('content_page_bg_img')) {
             File::delete(public_path() . $website_style_setting->content_page_bg_img);

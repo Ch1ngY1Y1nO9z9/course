@@ -19,6 +19,7 @@ class CreateWebsiteStyleSetting extends Migration
             $table->string('more_navbar_bg_color', 255)->nullable();
             $table->string('footer_bg_color', 255)->nullable();
             $table->string('content_page_bg_img', 255)->nullable();
+            $table->string('background_size', 255)->nullable();
         });
     }
 

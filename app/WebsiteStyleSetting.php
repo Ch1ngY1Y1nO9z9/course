@@ -10,6 +10,6 @@ class WebsiteStyleSetting extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'main_navbar_bg_color','more_navbar_bg_color','footer_bg_color','content_page_bg_img'
+        'main_navbar_bg_color','more_navbar_bg_color','footer_bg_color','content_page_bg_img','background_size'
     ];
 }

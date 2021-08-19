@@ -45,6 +45,11 @@
                             <input class="form-control" type="file" name="content_page_bg_img" />
                         </div>
                         <hr>
+                        <div class="col-sm-12">
+                            <label for="title">是否填滿背景?</label>
+                            <input class="ml-3" type="checkbox" name="background_size" value="0" @if($website_style_setting->background_size == '0') checked="true" @endif />
+                        </div>
+                        <hr>
                         <div class="center-block text-center">
                             <button style="margin-top: 15px" class="btn btn-primary">
                             更新設定

@@ -44,9 +44,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <link rel="stylesheet" href="/css/layout.css">
+    @if($default_website_setting->background_size == '0')
+        <style>
+            #main {
+                background:url("{{$default_website_setting->content_page_bg_img}}");
+                background-size:cover;
+                background-repeat: no-repeat;
+            }
+
+            .content.container {
+                background-color: rgba(255,255,255,0.8);
+                border-radius: 10px;
+            }
+
+
+        </style>
+    @else
+        <style>
+            body{
+                background:url("{{$default_website_setting->content_page_bg_img}}");
+            }
+        </style>
+    @endif
+
     <style>
-        body{
-            background:url("{{$default_website_setting->content_page_bg_img}}");
+        nav.breadcrumb,nav.breadcrumb ol.breadcrumb{
+            background-color: {{$default_website_setting->main_navbar_bg_color}}
         }
     </style>
     @yield('css')
