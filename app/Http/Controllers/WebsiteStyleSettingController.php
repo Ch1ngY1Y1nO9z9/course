@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\WebsiteInfoSetting;
 use App\WebsiteStyleSetting;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
@@ -28,9 +29,9 @@ class WebsiteStyleSettingController extends Controller
         }
         $website_style_setting -> save();
 
-        return redirect('/admin/website_style_setting');
+        return redirect('/micro-course/website_style_setting');
     }
- 
+
     //Baner圖片上傳
      public function upload_file($file){
          $allowed_extensions = ["png", "jpg", "gif", "PNG", "JPG", "GIF"];

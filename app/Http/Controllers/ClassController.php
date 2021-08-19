@@ -49,10 +49,10 @@ class ClassController extends Controller
         $role = Auth::user()->role;
 
         if($role == 'admin')
-            return redirect('/admin/class');
+            return redirect('/micro-course/class');
         elseif($role == 'teacher')
             Mail::to('admin@gmail.com')->send(new NewCourseToAdmin());
-            return redirect('/admin/teacher/class');
+            return redirect('/micro-course/teacher/class');
     }
 
     public function check($id)
@@ -89,9 +89,9 @@ class ClassController extends Controller
         $role = Auth::user()->role;
 
         if($role == 'admin')
-            return redirect('/admin/class');
+            return redirect('/micro-course/class');
         elseif($role == 'teacher')
-            return redirect('/admin/teacher/class');
+            return redirect('/micro-course/teacher/class');
     }
 
     public function delete(Request $request,$id)
@@ -103,9 +103,9 @@ class ClassController extends Controller
         $role = Auth::user()->role;
 
         if($role == 'admin')
-            return redirect('/admin/class');
+            return redirect('/micro-course/class');
         elseif($role == 'teacher')
-            return redirect('/admin/teacher/class');
+            return redirect('/micro-course/teacher/class');
     }
 
     public function copy(Request $request,$id)
@@ -198,9 +198,9 @@ class ClassController extends Controller
         }
 
         if(Auth::user()->role == 'admin')
-            return redirect('/admin/class')->with('passed','期末課程評分已完成!');
+            return redirect('/micro-course/class')->with('passed','期末課程評分已完成!');
         elseif(Auth::user()->role == 'teacher')
-            return redirect('/admin/teacher/class')->with('passed','期末課程評分已完成!');
+            return redirect('/micro-course/teacher/class')->with('passed','期末課程評分已完成!');
 
     }
 
@@ -225,7 +225,7 @@ class ClassController extends Controller
             'time'=> $request->time,
         ]);
 
-        return redirect('/admin/class/roll_call_online/'.$id);
+        return redirect('/micro-course/class/roll_call_online/'.$id);
     }
 
     public function roll_call_online($id)
@@ -280,7 +280,7 @@ class ClassController extends Controller
             }
         }
 
-        return redirect('/admin/class/roll_call_online/'.$record->course_id)->with('success','編輯成功!');
+        return redirect('/micro-course/class/roll_call_online/'.$record->course_id)->with('success','編輯成功!');
     }
 
     public function student_roll_call($id)
@@ -291,7 +291,7 @@ class ClassController extends Controller
 
         // 檢查是否有報名
         if(!in_array($user_id,$list)){
-            return redirect('/admin/qrcode/rollcall_status')->with('status_msg', '您並未報名此課程!');
+            return redirect('/micro-course/qrcode/rollcall_status')->with('status_msg', '您並未報名此課程!');
         }
 
         // 檢查是否有重複點名
@@ -301,9 +301,9 @@ class ClassController extends Controller
             $roll_call_record->students_id = json_encode($list);
             $roll_call_record->save();
 
-            return redirect('/admin/qrcode/rollcall_status')->with('status_msg','您已成功點名!');
+            return redirect('/micro-course/qrcode/rollcall_status')->with('status_msg','您已成功點名!');
         }elseif(in_array($user_id, json_decode($roll_call_record->students_id))){
-            return redirect('/admin/qrcode/rollcall_status')->with('status_msg','您已重複點名!');
+            return redirect('/micro-course/qrcode/rollcall_status')->with('status_msg','您已重複點名!');
         }
 
     }
@@ -313,7 +313,7 @@ class ClassController extends Controller
         if(Session::get('status_msg'))
             return view('admin.course.student.qr_code.signup_status');
         else
-            return redirect('/admin/dashboard');
+            return redirect('/micro-course/dashboard');
     }
 
     public function qrcode_status()
@@ -350,7 +350,7 @@ class ClassController extends Controller
         }
         $item->save();
 
-        return redirect('/admin/class_review');
+        return redirect('/micro-course/class_review');
     }
 
     public function fail()

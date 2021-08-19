@@ -107,12 +107,31 @@
                     USR
                 </div>
 
+
                 <li class="nav-item">
+                    <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#website_setting">
+                        <i class="fas fa-file-signature"></i>
+                        <span>網站設定</span>
+                    </a>
+                    <div id="website_setting" class="collapse">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="/micro-course/website_style_setting">
+                                樣式設定
+                            </a>
+
+                            <a class="collapse-item" href="/micro-course/website_info_setting">
+                                頁尾資訊設定
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+                {{-- <li class="nav-item">
                     <a class="nav-link collapsed py-2" href="/micro-course/website_style_setting">
                         <i class="fas fa-file-signature"></i>
                         <span>網站樣式設定</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">

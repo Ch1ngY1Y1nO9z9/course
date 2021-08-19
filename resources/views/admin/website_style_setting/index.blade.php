@@ -13,7 +13,7 @@
                     <h3 class="card-title">網頁樣式設定</h3>
                 </div>
                 <div class="card-body">
-                    <form action="/admin/website_style_setting/update" method="post" enctype="multipart/form-data">
+                    <form action="/micro-course/website_style_setting/update" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>" />
                         <div class="col-sm-12">
                             <label for="title">導覽列背景顏色</label>

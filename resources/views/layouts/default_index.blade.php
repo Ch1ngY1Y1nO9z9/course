@@ -6,6 +6,7 @@
     <?php
         $default_seo=\App\Seo::where('page','default')->first();
         $default_website_setting=\App\WebsiteStyleSetting::find(1);
+        $default_website_info=\App\WebsiteInfoSetting::find(1);
         $countNumbers=\App\WebCount::pluck('ip');
         $countNumbers=count($countNumbers->toArray())+ 5000;
     ?>
@@ -167,19 +168,19 @@
                         <div class="col-12 col-md-6">
                             <div class="information">
                                 <p>學校地址</p>
-                                <p>40201 台中市南區建國北路一段110號</p>
+                                <p>{{$default_website_info->address}}</p>
                             </div>
                             <div class="information">
                                 <p>辦公室位置</p>
-                                <p>正心樓12樓1201辦公室</p>
+                                <p>{{$default_website_info->office_location}}</p>
                             </div>
                             <div class="information">
                                 <p>聯絡電話</p>
-                                <p>04-24730022 #1321 #11343</p>
+                                <p>{{$default_website_info->tel}}</p>
                             </div>
                             <div class="information">
                                 <p>聯絡信箱</p>
-                                <p>jenny60067@gmail.com、sylvialiutaiwan@gmail.com</p>
+                                <p>{{$default_website_info->mail}}</p>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">

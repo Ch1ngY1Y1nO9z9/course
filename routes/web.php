@@ -233,6 +233,10 @@ Route::group(['prefix' => 'micro-course','middleware' => 'auth'], function () {
     Route::get('website_style_setting','WebsiteStyleSettingController@index');
     Route::post('website_style_setting/update','WebsiteStyleSettingController@update');
 
+    //website_style_setting
+    Route::get('website_info_setting','WebsiteInfoSettingController@index');
+    Route::post('website_info_setting/update','WebsiteInfoSettingController@update');
+
     //seo
     Route::get('seo','SeoController@index');
     Route::post('seo/update/{page}','SeoController@update');
