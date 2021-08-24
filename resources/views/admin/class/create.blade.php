@@ -86,25 +86,32 @@
                             <div class="form-group row">
                                 <label for="experience" class="col-sm-2 control-label">教師經歷</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="experience" name="experience" required>
+                                    <textarea id="experience" name="experience" class="form-control" cols="30" rows="10" required></textarea>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="class_start" class="col-sm-2 control-label">課程開始日期</label>
+                                <label for="class_start" class="col-sm-2 control-label">單元課程開始時間</label>
                                 <div class="col-sm-10">
                                     <input type="datetime-local" class="form-control" id="class_start" name="class_start" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="class_end" class="col-sm-2 control-label">課程結束日期</label>
+                                <label for="class_end" class="col-sm-2 control-label">單元課程結束時間</label>
                                 <div class="col-sm-10">
                                     <input type="datetime-local" class="form-control" id="class_end" name="class_end" required>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group row">
+                                <label for="total_hours" class="col-sm-2 control-label">時數</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="total_hours" name="total_hours" value="0.0" min="0" step="0.5">
+                                </div>
+                            </div>
+                            
+                            {{-- <div class="form-group row">
                                 <label for="radio1" class="col-sm-2 control-label">是否提供報名?</label>
                                 <div class="col-sm-10">
                                     <div class="form-check">
@@ -120,45 +127,38 @@
                                         </label>
                                       </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             
                             <div class="form-group row">
-                                <label for="number" class="col-sm-2 control-label">報名人數</label>
+                                <label for="number" class="col-sm-2 control-label">報名人數上限</label>
                                 <div class="col-sm-10">
                                     <input type="number" class="form-control" id="number" name="number" value="1" min="1">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="sign_up_start_date" class="col-sm-2 control-label">開始報名日期</label>
+                                <label for="sign_up_start_date" class="col-sm-2 control-label">報名開始日期</label>
                                 <div class="col-sm-10">
                                     <input type="datetime-local" class="form-control" id="sign_up_start_date" name="sign_up_start_date" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="sign_up_end_date" class="col-sm-2 control-label">截止報名日期</label>
+                                <label for="sign_up_end_date" class="col-sm-2 control-label">報名截止日期</label>
                                 <div class="col-sm-10">
                                     <input type="datetime-local" class="form-control" id="sign_up_end_date" name="sign_up_end_date" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="location" class="col-sm-2 control-label">授課地點</label>
+                                <label for="location" class="col-sm-2 control-label">上課地點</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="location" name="location" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="total_hours" class="col-sm-2 control-label">時數</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="total_hours" name="total_hours" value="0.0" min="0" step="0.5">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="content" class="col-sm-2 control-label">內容</label>
+                                <label for="content" class="col-sm-2 control-label">單元課程介紹</label>
                                 <div class="col-sm-10">
                                     <textarea class="summernote" id="content" name="content" required>
 
@@ -169,25 +169,25 @@
                             <div class="form-group row">
                                 <label for="contact" class="col-sm-2 control-label">聯絡人</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="contact" name="contact" required>
+                                    <input type="text" class="form-control" id="contact" name="contact">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="phone" class="col-sm-2 control-label">聯絡電話</label>
+                                <label for="phone" class="col-sm-2 control-label">聯絡方式</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="phone" name="phone" required>
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="請填寫聯絡email或電話">
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label for="extend" class="col-sm-2 control-label">附加說明</label>
                                 <div class="col-sm-10">
                                     <textarea class="summernote" id="extend" name="extend">
 
                                     </textarea>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group row">
                                 <label for="files" class="col-sm-2 control-label">附件</label>
@@ -199,7 +199,7 @@
                             <div class="form-group row">
                                 <label for="remarks" class="col-sm-2 control-label">備註</label>
                                 <div class="col-sm-10">
-                                    <textarea id="remarks" name="remarks" class="form-control" rows="6" placeholder="供審核人員查看, 其他人無法看見"></textarea>
+                                    <textarea id="remarks" name="remarks" class="form-control" rows="6" placeholder="供審核人員查看, 其他人無法看見" data-toggle="tooltip" data-placement="top" title="此欄位僅供後台審核人員觀看"></textarea>
                                 </div>
                             </div>
 

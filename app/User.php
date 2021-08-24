@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','account_id','role'
+        'name', 'email', 'password','account_id','role', 'score'
     ];
 
     /**
@@ -26,4 +26,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function scoreRequest()
+    {
+        return $this->hasMany('App\ScoreRequest','student_id','account_id');
+    }
+
 }

@@ -117,16 +117,16 @@ class Courses extends Model
     // 取得學生已修學分
     public function scopeGetStudentsScore($query)
     {
-        $passed_list = SignUp::where('pass','通過')->get();
+        $student_list = User::where('role','student')->get();
         $totalScore = 0;
 
-        foreach($passed_list as $passed)
+        foreach($student_list as $student)
         {
-            $score = $passed->getCoursesDetail->total_hours;
+            $score = $student->score;
             $totalScore += $score;
         }
         
-        return floor($totalScore / 18);
+        return $totalScore;
     }
 
     // 取得學生總時數

@@ -189,7 +189,12 @@ Route::group(['prefix' => 'micro-course','middleware' => 'auth'], function () {
     Route::get('/teacher/class/check/{id}/rollCall', 'TeacherClassController@rollCall');
     Route::get('/teacher/class/check/{id}/rollCall_records', 'TeacherClassController@rollCall_records');
     Route::get('/teacher/class/check/{id}/rollCall_records/check', 'TeacherClassController@rollCall_records_check');
-    
+
+    // score_request
+    Route::get('/request', 'ScoreRequestController@index');
+    Route::post('/request/store', 'ScoreRequestController@store');
+    Route::post('/request/passed/{id}', 'ScoreRequestController@score_passed');
+    Route::post('/request/fail/{id}', 'ScoreRequestController@acore_failed');
     
     // Route::get('/teacher/class/edit/{id}', 'TeacherClassController@edit');
 

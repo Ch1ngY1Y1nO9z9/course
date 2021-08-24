@@ -21,7 +21,7 @@ class CreateCoursesTable extends Migration
             $table->string('class_name')->nullable();
             $table->string('teacher_name')->nullable();
             $table->string('degree')->nullable();
-            $table->string('experience')->nullable();
+            $table->longText('experience')->nullable();
             $table->string('class_start')->nullable();
             $table->string('class_end')->nullable();
             $table->string('open')->nullable();

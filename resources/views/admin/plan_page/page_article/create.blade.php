@@ -14,7 +14,7 @@
                         <h3 class="card-title">USR計畫管理 - 相關法規管理 - 新增</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="/micro-course-course-course-course-course/plan_article/store" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="post" action="/micro-course-course-course-course/plan_article/store" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
                             <div class="form-group row">
@@ -94,7 +94,7 @@
                 $.ajax({
                     data: data,
                     type: "POST",
-                    url: "/micro-course-course-course-course-course/img/post",
+                    url: "/micro-course-course-course-course/img/post",
                     cache: false,
                     contentType: false,
                     processData: false,

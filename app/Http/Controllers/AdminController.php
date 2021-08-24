@@ -108,7 +108,7 @@ class AdminController extends Controller
             $info = [
                 'totalStudentClass' => SignUp::getTotalStudentClass()->count(),
                 'startingClass' => SignUp::getStartingClass(),
-                'totalScore' => SignUp::getStudentScore(),
+                'totalScore' => Auth::user()->score,
                 'totalTime' => SignUp::getStudentTime(),
 
             ];

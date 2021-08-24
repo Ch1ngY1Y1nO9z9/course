@@ -27,7 +27,7 @@
                                 </div>
                                 <label for="date" class="col-sm-1 control-label">日期</label>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="date" name="date" data-toggle="datepicker" value="{{$list->date}}">
+                                    <input type="text" class="form-control" id="date" name="date" data-toggle="datepicker" value="{{$list->date}}" required>
                                 </div>
                             </div>
 
@@ -36,7 +36,7 @@
                             <div class="form-group row">
                                 <label for="title" class="col-sm-1 control-label">文章標題</label>
                                 <div class="col-sm-11">
-                                    <input type="text" class="form-control" id="title" name="title" value="{{$list->title}}">
+                                    <input type="text" class="form-control" id="title" name="title" value="{{$list->title}}" required>
                                 </div>
                             </div>
 

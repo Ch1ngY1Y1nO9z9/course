@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->integer('blocked');
             $table->string('role');
             $table->string('account_id');
+            $table->integer('score');
             $table->rememberToken();
             $table->timestamps();
         });

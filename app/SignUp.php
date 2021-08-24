@@ -75,12 +75,6 @@ class SignUp extends Model
         return $this->where('course_id',$course_id);
     }
 
-    // 取得該學生修課總學分(學生端用)
-    public function scopeGetStudentScore($query)
-    {   
-        return floor($this->getStudentTime() / 18);
-    }
-
     // 取得所有學生名單(Admin端用)
     public function scopeGetRecords($query)
     {
@@ -105,4 +99,18 @@ class SignUp extends Model
     {   
         return floor($this->GetAllStudentTime($id) / 18);
     }
+
+    // 取得該學生修課總時數(Admin端認列學分用)
+    public function scopeCheckStudentAllTime($query, $id)
+    {
+        $classes = $this->where('student_id',$id)->where('pass','通過')->get();
+        $totalTime = 0;
+
+        foreach($classes as $class){
+            $totalTime += $class->getCoursesDetail->total_hours;
+        }
+
+        return $totalTime;
+    }
+    
 }

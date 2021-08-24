@@ -11,7 +11,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">媒體頻道管理 － 編輯文章</h3>
+                        <h3 class="card-title">課程專區管理 － 編輯文章</h3>
                     </div>
                     <div class="card-body">
                         <form class="form-horizontal" method="post" action="/micro-course/article_course/update/{{$list->id}}" enctype="multipart/form-data">
@@ -20,7 +20,7 @@
                             <div class="form-group row">
                                 <label for="date" class="col-sm-2 control-label">日期</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="date" name="date" data-toggle="datepicker" value="{{$list->date}}">
+                                    <input type="text" class="form-control" id="date" name="date" data-toggle="datepicker" value="{{$list->date}}" required>
                                 </div>
                             </div>
 
@@ -29,7 +29,7 @@
                             <div class="form-group row">
                                 <label for="title" class="col-sm-2 control-label">文章標題</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="title" name="title" value="{{$list->title}}">
+                                    <input type="text" class="form-control" id="title" name="title" value="{{$list->title}}" required>
                                 </div>
                             </div>
 

@@ -30,7 +30,7 @@
                             <div class="form-group row">
                                 <label for="date" class="col-sm-2 control-label">日期</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="date" name="date" data-toggle="datepicker">
+                                    <input type="text" class="form-control" id="date" name="date" data-toggle="datepicker" required>
                                 </div>
                             </div>
 
@@ -39,7 +39,7 @@
                             <div class="form-group row">
                                 <label for="title" class="col-sm-2 control-label">文章標題</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="title" name="title">
+                                    <input type="text" class="form-control" id="title" name="title" required>
                                 </div>
                             </div>
 

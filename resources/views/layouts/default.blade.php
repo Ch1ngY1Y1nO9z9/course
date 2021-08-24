@@ -48,11 +48,11 @@
         <style>
             #main {
                 background:url("{{$default_website_setting->content_page_bg_img}}");
-                background-size:cover;
+                background-size: content;
                 background-repeat: no-repeat;
             }
 
-            .content.container {
+            .content.container, .summer-note-content.container {
                 background-color: rgba(255,255,255,0.8);
                 border-radius: 10px;
             }

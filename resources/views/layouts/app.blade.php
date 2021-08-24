@@ -200,7 +200,7 @@
                         <div id="collapse_plan_location" class="collapse">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <a class="collapse-item" href="/micro-course/plan_page/6">
-                                    石崗
+                                    石岡
                                 </a>
                             </div>
                         </div>
@@ -298,6 +298,10 @@
                     <a class="nav-link collapsed py-2" href="/micro-course/course">
                         <i class="fas fa-file-signature"></i>
                         <span>學生修課紀錄</span>
+                    </a>
+                    <a class="nav-link collapsed py-2" href="/micro-course/request">
+                        <i class="fas fa-file-signature"></i>
+                        <span>認列學分申請</span>
                     </a>
                 </li>
             @endif

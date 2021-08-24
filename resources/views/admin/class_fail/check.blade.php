@@ -75,25 +75,32 @@
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">教師經歷</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" value="{{$item->experience}}" readonly>
+                                <textarea id="experience" name="experience" class="form-control" cols="30" rows="10" readonly>{{$item->experience}}</textarea>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 control-label">課程開始日期</label>
+                            <label class="col-sm-2 control-label">單元課程開始時間</label>
                             <div class="col-sm-10">
                                 <input type="datetime-local" class="form-control"  value="{{$item->class_start}}" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 control-label">課程結束日期</label>
+                            <label class="col-sm-2 control-label">單元課程結束時間</label>
                             <div class="col-sm-10">
                                 <input type="datetime-local" class="form-control"  value="{{$item->class_end}}" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row">
+                            <label class="col-sm-2 control-label">時數</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" value="{{$item->total_hours}}" readonly>
+                            </div>
+                        </div>
+
+                        {{-- <div class="form-group row">
                             <label class="col-sm-2 control-label">是否提供報名?</label>
                             <div class="col-sm-10">
                                 <div class="form-check">
@@ -109,10 +116,10 @@
                                     </label>
                                     </div>
                             </div>
-                        </div>
+                        </div> --}}
                         
                         <div class="form-group row">
-                            <label class="col-sm-2 control-label">報名人數</label>
+                            <label class="col-sm-2 control-label">報名人數上限</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" value="{{$item->number}}" readonly>
                             </div>
@@ -126,35 +133,28 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 control-label">報名結束日期</label>
+                            <label class="col-sm-2 control-label">報名截止日期</label>
                             <div class="col-sm-10">
                                 <input type="datetime-local" class="form-control" value="{{$item->sign_up_end_date}}" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 control-label">授課地點</label>
+                            <label class="col-sm-2 control-label">上課地點</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" value="{{$item->location}}" readonly>
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label">時數</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" value="{{$item->total_hours}}" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-sm-2 control-label">學分數</label>
                             <div class="col-sm-10">
                                 <input type="number" class="form-control" value="{{$item->credit}}" readonly>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row">
-                            <label class="col-sm-2 control-label">內容</label>
+                            <label class="col-sm-2 control-label">單元課程介紹</label>
                             <div class="col-sm-10">
                                 <textarea class="summernote1" readonly>
                                     {!!$item->content!!}
@@ -170,20 +170,20 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 control-label">聯絡電話</label>
+                            <label class="col-sm-2 control-label">聯絡方式</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" value="{{$item->phone}}" readonly>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-sm-2 control-label">附加說明</label>
                             <div class="col-sm-10">
                                 <textarea class="summernote2" readonly>
                                     {!!$item->extend!!}
                                 </textarea>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row">
                             <label for="upload_file" class="col-sm-2 control-label">附件</label>
@@ -199,7 +199,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">備註</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" rows="6" placeholder="供審核人員查看, 其他人無法看見" readonly>
+                                <textarea class="form-control" rows="6" placeholder="供審核人員查看, 其他人無法看見" data-toggle="tooltip" data-placement="top" title="此欄位僅供後台審核人員觀看" readonly>
                                     {{$item->remarks}}
                                 </textarea>
                             </div>

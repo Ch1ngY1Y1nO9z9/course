@@ -67,7 +67,8 @@ class ClassController extends Controller
         $feature_name = '單元管理';
         $item = Courses::find($id);
         $tutorials = Tutorials::getAll()->get();
-        return view('admin.class.edit',compact('item','tutorials','feature_name'));
+        $academic_years = $this->get_academic_year();
+        return view('admin.class.edit',compact('item','tutorials','feature_name','academic_years'));
     }
 
     public function update(Request $request,$id)
