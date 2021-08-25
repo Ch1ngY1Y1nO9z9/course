@@ -18,6 +18,10 @@
         .swiper-container.videoSwiper .swiper-slide .video-slide{
             height: 400px;
         }
+
+        .swiper-container.videoSwiper .swiper-slide .video-slide img.video-img{
+            transform: initial;
+        }
     </style>
 @endsection
 
@@ -31,7 +35,7 @@
         </div>
     </nav>
     
-    <div class="summer-note-content container p-3">
+    <div class="summer-note-content container pt-3">
         <h3>
             {!! $article->title !!}
         </h3>
