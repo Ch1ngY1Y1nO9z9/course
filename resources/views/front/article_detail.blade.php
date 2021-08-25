@@ -14,6 +14,10 @@
         .summer-note-content table , .summer-note-content img{
             max-width: 100%;
         }
+
+        .swiper-container.videoSwiper .swiper-slide .video-slide{
+            height: 400px;
+        }
     </style>
 @endsection
 
@@ -83,7 +87,7 @@
         $("table").wrap( "<div class='table-responsive'></div>" ).addClass('table');
 
         var swiper = new Swiper(".videoSwiper", {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 40,
             navigation: {
                 nextEl: ".swiper-button-next",
