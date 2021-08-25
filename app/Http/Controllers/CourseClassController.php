@@ -25,9 +25,9 @@ class CourseClassController extends Controller
 
     public function detail($id)
     {
-        $item = Courses::find($id);
+        $items = SignUp::where('student_id', $id)->get();
 
-        return view('admin.course.student_detail', compact('item'));
+        return view('admin.course.student_detail', compact('items'));
     }
 
     public function class_detail($class_id)
@@ -38,7 +38,9 @@ class CourseClassController extends Controller
 
     public function export()
     {
-        return view('admin.course.export');
+        $academics = SignUp::all()->unique('academic_year');
+
+        return view('admin.course.export',compact('academics'));
     }
 
     public function export_query(Request $request)

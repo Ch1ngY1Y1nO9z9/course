@@ -24,19 +24,24 @@
                         <form class="form-horizontal" method="post" action="/micro-course/course/export_query">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label for="year" class="col-sm-2 control-label">輸入學年</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="year" name="year" required>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group row">
-                                <label for="academic" class="col-sm-2 control-label">選擇學期</label>
+                                <label for="academic" class="col-sm-2 control-label">選擇學年度</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" id="academic" name="academic">
-                                        <option value="-1" selected>上學期</option>
-                                        <option value="-2">下學期</option>
+                                        @foreach($academics as $academic)
+                                            @if($academic->checkAcademic($academic->academic_year) == 1)
+                                                <option value="{{$academic->academic_year}}">{{$academic->checkYear($academic->academic_year)}}上學期</option>
+                                            @elseif($academic->checkAcademic($academic->academic_year) == 2)
+                                                <option value="{{$academic->academic_year}}">{{$academic->checkYear($academic->academic_year)}}下學期</option>
+                                            @endif
+                                        @endforeach
                                       </select>
                                 </div>
                             </div>

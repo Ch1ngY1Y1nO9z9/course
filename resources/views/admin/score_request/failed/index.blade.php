@@ -9,17 +9,15 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">學生修課紀錄</h3>
+                        <h3 class="card-title">認列學分 - 不通過</h3>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/micro-course/course/export">匯出修課紀錄</a>
-                        <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>姓名(學號)</th>
-                                <th>總學分</th>
-                                <th>時數</th>
+                                <th>學號</th>
+                                <th>學生姓名</th>
+                                <th>審核日期</th>
                                 <th>功能</th>
                             </tr>
                             </thead>
@@ -27,20 +25,16 @@
                                 @foreach($items as $item)
                                 <tr>
                                     <td>
-                                        {{$item->student_name}}({{$item->student_id}})
+                                        {{$item->student_id}}
                                     </td>
                                     <td>
-                                        {{$item->GetAllStudentScore($item->student_id)}}
+                                        {{$item->student->name}}
                                     </td>
                                     <td>
-                                        {{$item->GetAllStudentTime($item->student_id)}}
+                                        {{$item->created_at}}
                                     </td>
-                                    <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/micro-course/course/detail/{{$item->student_id}}">檢視</a>
-                                        {{-- <button class="btn btn-sm btn-danger" data-listid="1">刪除</button>
-                                        <form class="delete-form" action="/micro-course/class/delete/1" method="POST" style="display: none;" data-listid="1">
-                                            {{ csrf_field() }}
-                                        </form> --}}
+                                    <td width="150">
+                                        <a class="btn btn-sm btn-success" href="/micro-course/request/failed/check/{{$item->id}}">檢視</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -61,7 +55,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[3,'desc']],
+                "order": [[0,'desc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",
@@ -85,6 +79,6 @@
                 }
             });
         } );
-
     </script>
+
 @endsection

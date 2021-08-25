@@ -192,6 +192,11 @@ Route::group(['prefix' => 'micro-course','middleware' => 'auth'], function () {
 
     // score_request
     Route::get('/request', 'ScoreRequestController@index');
+    Route::get('/request/check/{id}', 'ScoreRequestController@check');
+    Route::get('/request/success', 'ScoreRequestController@success_index');
+    Route::get('/request/success/check/{id}', 'ScoreRequestController@success_check');
+    Route::get('/request/failed', 'ScoreRequestController@failed_index');
+    Route::get('/request/failed/check/{id}', 'ScoreRequestController@failed_check');
     Route::post('/request/store', 'ScoreRequestController@store');
     Route::post('/request/passed/{id}', 'ScoreRequestController@score_passed');
     Route::post('/request/fail/{id}', 'ScoreRequestController@acore_failed');

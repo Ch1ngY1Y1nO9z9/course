@@ -9,49 +9,38 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">修課紀錄</h3>
+                        <h3 class="card-title">認列學分 - 通過</h3>
                     </div>
                     <div class="card-body">
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>單元類別</th>
-                                <th>課程名稱</th>
-                                <th>課程日期</th>
-                                <th>時數</th>
-                                <th>報名人數</th>
-                                <th>成績</th>
+                                <th>學號</th>
+                                <th>學生姓名</th>
+                                <th>已認列學分</th>
+                                <th>審核日期</th>
                                 <th>功能</th>
                             </tr>
                             </thead>
                             <tbody>
                                 @foreach($items as $item)
-                                    <tr>
-                                        <td>
-                                            {{$item->getCoursesDetail->class_type}}
-                                        </td>
-                                        <td>
-                                            {{$item->getCoursesDetail->tutorial->tutorial_name_cn}}<br>
-                                            {{$item->getCoursesDetail->class_name}}
-                                        </td>
-                                        <td>
-                                            {{$item->getCoursesDetail->getDate($item->getCoursesDetail->class_start)}}<br>
-                                            {{$item->getCoursesDetail->getDate($item->getCoursesDetail->class_end)}}
-                                        </td>
-                                        <td>
-                                            {{$item->getCoursesDetail->total_hours}}
-                                        </td>
-                                        <td>
-                                            {{$item->getCoursesDetail->number}} / {{count($item->getCoursesDetail->signupList)}}
-                                        </td>
-                                        <td>
-                                            {{$item->pass}}
-                                        </td>
-                                        <td width="200">
-                                            <a class="btn btn-sm btn-primary" href="/micro-course/student/course_records/check/{{$item->course_id}}">檢視</a>
-                                            <a class="btn btn-sm btn-warning text-dark" href="/micro-course/student/course_records/announce/{{$item->course_id}}">課程公告</a>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>
+                                        {{$item->student_id}}
+                                    </td>
+                                    <td>
+                                        {{$item->student->name}}
+                                    </td>
+                                    <td>
+                                        {{$item->score}}
+                                    </td>
+                                    <td>
+                                        {{$item->created_at}}
+                                    </td>
+                                    <td width="150">
+                                        <a class="btn btn-sm btn-success" href="/micro-course/request/success/check/{{$item->id}}">檢視</a>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -70,12 +59,12 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[3,'desc']],
+                "order": [[0,'desc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",
                     "lengthMenu":   "顯示 _MENU_ 項結果",
-                    "zeroRecords":  "目前尚未選課",
+                    "zeroRecords":  "沒有符合的結果",
                     "info":         "顯示第 _START_ 至 _END_ 項結果，共 _TOTAL_ 項",
                     "infoEmpty":    "顯示第 0 至 0 項結果，共 0 項",
                     "infoFiltered": "(從 _MAX_ 項結果中過濾)",
@@ -95,12 +84,22 @@
             });
         } );
 
-        $('.btn-danger').click(function(){
+        $('.fail').click(function(){
             var listid = $(this).data("listid");
-            if (confirm('確認取消報名？')){
+            if (confirm('確認取消此申請？')){
                 event.preventDefault();
-                // $('.delete-form[data-listid="' + listid + '"]').submit();
+                $('.delete-form[data-listid="' + listid + '"]').submit();
             }
         });
+
+        $('.pass').click(function(){
+            var listid = $(this).data("listid");
+            if (confirm('確認通過此認列申請？')){
+                event.preventDefault();
+                $('.pass-form[data-listid="' + listid + '"]').submit();
+            }
+        });
+
     </script>
+
 @endsection

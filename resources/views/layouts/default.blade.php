@@ -96,7 +96,7 @@
                         <a class="dropdown-item" href="/plan_vision">目標願景</a>
                         <a class="dropdown-item" href="/organization">組織架構</a>
                         <a class="dropdown-item" href="/usr_committee">USR委員會</a>
-                        <a class="dropdown-item" href="/office_member">辦公室成員</a>
+                        <a class="dropdown-item" href="/office_member">教師成長</a>
                         <a class="dropdown-item" href="/results_report">成果報告</a>
                     </div>
                 </li>
@@ -214,7 +214,7 @@
                             <a class="nav-link" href="/plan_vision">目標願景</a>
                             <a class="nav-link" href="/organization">組織架構</a>
                             <a class="nav-link" href="/usr_committee">USR委員會</a>
-                            <a class="nav-link" href="/office_member">辦公室成員</a>
+                            <a class="nav-link" href="/office_member">教師成長</a>
                             <a class="nav-link" href="/results_report">成果報告</a>
                         </nav>
                         <nav class="nav flex-column">

@@ -9,39 +9,36 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">認列學分申請</h3>
+                        <h3 class="card-title">已通過的認列學分申請 - 檢視</h3>
                     </div>
                     <div class="card-body">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <a href="javascript:history.back()">
+                                    <button type="submit" class="btn btn-primary">返回</button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <hr>
+
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>學號</th>
-                                <th>學生姓名</th>
-                                <th>可認列學分</th>
-                                <th>功能</th>
+                                <th>提出申請時已通過的課程</th>
+                                <th>時數</th>
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach($items as $item)
+                                @foreach(json_decode($item->passed_courses) as $signUp_id)
+                                <?php  $class = $item->getCourse($signUp_id); ?>
                                 <tr>
                                     <td>
-                                        {{$item->student_id}}
+                                        {{$class->getCoursesDetail->tutorial->tutorial_name_cn}} -
+                                        {{$class->getCoursesDetail->class_name}}
                                     </td>
                                     <td>
-                                        {{$item->student->name}}
-                                    </td>
-                                    <td>
-                                        {{floor($item->checkRemainTime($item->student_id) / 18)}}
-                                    </td>
-                                    <td width="150">
-                                        <button class="btn btn-sm btn-success pass mt-1" data-listid="{{$item->id}}">通過</button>
-                                        <form class="pass-form" action="/micro-course/request/passed/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
-                                            {{ csrf_field() }}
-                                        </form>
-                                        <button class="btn btn-sm btn-danger fail mt-1" data-listid="{{$item->id}}">不通過</button>
-                                        <form class="delete-form" action="/micro-course/request/fail/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
-                                            {{ csrf_field() }}
-                                        </form>
+                                        {{$class->getCoursesDetail->total_hours}}
                                     </td>
                                 </tr>
                                 @endforeach
@@ -62,7 +59,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[3,'desc']],
+                "order": [[0,'desc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",
@@ -86,23 +83,6 @@
                 }
             });
         } );
-
-        $('.fail').click(function(){
-            var listid = $(this).data("listid");
-            if (confirm('確認取消此申請？')){
-                event.preventDefault();
-                $('.delete-form[data-listid="' + listid + '"]').submit();
-            }
-        });
-
-        $('.pass').click(function(){
-            var listid = $(this).data("listid");
-            if (confirm('確認通過此認列申請？')){
-                event.preventDefault();
-                $('.pass-form[data-listid="' + listid + '"]').submit();
-            }
-        });
-
     </script>
 
 @endsection

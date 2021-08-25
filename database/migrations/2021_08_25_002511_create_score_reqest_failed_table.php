@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateScoreReqestTable extends Migration
+class CreateScoreReqestFailedTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateScoreReqestTable extends Migration
      */
     public function up()
     {
-        Schema::create('score_reqest', function (Blueprint $table) {
+        Schema::create('score_reqest_failed', function (Blueprint $table) {
             $table->increments('id');
             $table->string('student_id')->nullale();
+            $table->string('passed_courses')->nullale();
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateScoreReqestTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('score_reqest');
+        Schema::dropIfExists('score_reqest_failed');
     }
 }

@@ -9,38 +9,36 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">學生修課紀錄</h3>
+                        <h3 class="card-title">未通過的認列學分申請 - 檢視</h3>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/micro-course/course/export">匯出修課紀錄</a>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <a href="javascript:history.back()">
+                                    <button type="submit" class="btn btn-primary">返回</button>
+                                </a>
+                            </div>
+                        </div>
+
                         <hr>
+
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>姓名(學號)</th>
-                                <th>總學分</th>
+                                <th>提出申請時已通過的課程</th>
                                 <th>時數</th>
-                                <th>功能</th>
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach($items as $item)
+                                @foreach(json_decode($item->passed_courses) as $signUp_id)
+                                <?php  $class = $item->getCourse($signUp_id); ?>
                                 <tr>
                                     <td>
-                                        {{$item->student_name}}({{$item->student_id}})
+                                        {{$class->getCoursesDetail->tutorial->tutorial_name_cn}} -
+                                        {{$class->getCoursesDetail->class_name}}
                                     </td>
                                     <td>
-                                        {{$item->GetAllStudentScore($item->student_id)}}
-                                    </td>
-                                    <td>
-                                        {{$item->GetAllStudentTime($item->student_id)}}
-                                    </td>
-                                    <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/micro-course/course/detail/{{$item->student_id}}">檢視</a>
-                                        {{-- <button class="btn btn-sm btn-danger" data-listid="1">刪除</button>
-                                        <form class="delete-form" action="/micro-course/class/delete/1" method="POST" style="display: none;" data-listid="1">
-                                            {{ csrf_field() }}
-                                        </form> --}}
+                                        {{$class->getCoursesDetail->total_hours}}
                                     </td>
                                 </tr>
                                 @endforeach
@@ -61,7 +59,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[3,'desc']],
+                "order": [[0,'desc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",
@@ -85,6 +83,6 @@
                 }
             });
         } );
-
     </script>
+
 @endsection

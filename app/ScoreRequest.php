@@ -10,7 +10,7 @@ class ScoreRequest extends Model
     protected $table = "score_reqest";
 
     protected $fillable = [
-        'student_id', 'passed','score'
+        'student_id'
     ];
 
     public function student()

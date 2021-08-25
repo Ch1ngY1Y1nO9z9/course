@@ -183,7 +183,7 @@
                                     </a>
 
                                     <a class="collapse-item" href="/micro-course/plan_page/4">
-                                        辦公室成員
+                                        教師成長
                                     </a>
 
                                     <a class="collapse-item" href="/micro-course/plan_page/5">
@@ -299,10 +299,28 @@
                         <i class="fas fa-file-signature"></i>
                         <span>學生修課紀錄</span>
                     </a>
-                    <a class="nav-link collapsed py-2" href="/micro-course/request">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed pt-2 pb-3" href="#" data-toggle="collapse" data-target="#collapse_request">
                         <i class="fas fa-file-signature"></i>
-                        <span>認列學分申請</span>
+                        <span>認列學分</span>
                     </a>
+                    <div id="collapse_request" class="collapse">
+                        <div class="bg-white py-2 collapse-inner rounded">
+
+                                <a class="collapse-item" href="/micro-course/request">
+                                    待審核
+                                </a>
+
+                                <a class="collapse-item" href="/micro-course/request/success">
+                                    已通過
+                                </a>
+
+                                <a class="collapse-item" href="/micro-course/request/failed">
+                                    未通過
+                                </a>
+                        </div>
+                    </div>
                 </li>
             @endif
 

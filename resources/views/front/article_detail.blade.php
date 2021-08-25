@@ -27,7 +27,7 @@
         </div>
     </nav>
     
-    <div class="summer-note-content container">
+    <div class="summer-note-content container p-3">
         <h3>
             {!! $article->title !!}
         </h3>
@@ -83,7 +83,7 @@
         $("table").wrap( "<div class='table-responsive'></div>" ).addClass('table');
 
         var swiper = new Swiper(".videoSwiper", {
-            slidesPerView: 3,
+            slidesPerView: 1,
             spaceBetween: 40,
             navigation: {
                 nextEl: ".swiper-button-next",

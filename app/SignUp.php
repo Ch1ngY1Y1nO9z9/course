@@ -23,6 +23,23 @@ class SignUp extends Model
         return $this->belongsTo('App\User','student_id');
     }
 
+    public function checkAcademic($academic_year)
+    {
+        $ary = explode('-', $academic_year);
+        if($ary[1] == '1'){
+            return 1;
+        }elseif($ary[1] == '2'){
+            return 2;
+        }
+    }
+
+    public function checkYear($academic_year)
+    {
+        $ary = explode('-', $academic_year);
+
+        return $ary[0];
+    }
+
     // 取得該學生所有已報名課程(學生端用)
     public function scopeGetTotalStudentClass($query)
     {
@@ -97,7 +114,8 @@ class SignUp extends Model
     // 取得該學生修課總學分(Admin端用)
     public function GetAllStudentScore($id)
     {   
-        return floor($this->GetAllStudentTime($id) / 18);
+        $student = User::where('account_id', $id)->first();
+        return $student->score;
     }
 
     // 取得該學生修課總時數(Admin端認列學分用)

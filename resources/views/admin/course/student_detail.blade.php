@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">王某某 - 修課紀錄</h3>
+                        <h3 class="card-title">修課紀錄</h3>
                     </div>
                     <div class="card-body">
                         <a class="btn btn-success" href="javascript:history.back()">返回上頁</a>
@@ -24,27 +24,28 @@
                             </tr>
                             </thead>
                             <tbody>
-
+                                @foreach ($items as $item)
                                 <tr>
                                     <td>
-                                        {{$item->tutorial->tutorial_name_cn}}<br>
-                                        {{$item->class_name}}
+                                        {{$item->getCoursesDetail->tutorial->tutorial_name_cn}}<br>
+                                        {{$item->getCoursesDetail->class_name}}
                                     </td>
                                     <td>
-                                        {{$item->getDate($item->class_start)}}<br>
-                                        {{$item->getDate($item->class_end)}}
+                                        {{$item->getCoursesDetail->getDate($item->class_start)}}<br>
+                                        {{$item->getCoursesDetail->getDate($item->class_end)}}
                                     </td>
                                     <td>
-                                        {{$item->total_hours}}
+                                        {{$item->getCoursesDetail->total_hours}}
                                     </td>
                                     <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/micro-course/course/class_detail/{{$item->id}}">檢視</a>
+                                        <a class="btn btn-sm btn-primary" href="/micro-course/course/class_detail/{{$item->getCoursesDetail->id}}">檢視</a>
                                         {{-- <button class="btn btn-sm btn-danger" data-listid="1">刪除</button>
                                         <form class="delete-form" action="/micro-course/class/delete/1" method="POST" style="display: none;" data-listid="1">
                                             {{ csrf_field() }}
                                         </form> --}}
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
