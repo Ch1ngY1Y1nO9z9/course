@@ -36,9 +36,13 @@ Route::get('/plan_results/{id}','FrontController@article_detail')->name('front_p
 //媒體頻道
 Route::get('/video','FrontController@article_view')->name('front_video');
 
-//課程專區
+//課程專區 - 通識課程
 Route::get('/course','FrontController@article_view')->name('front_course');
 Route::get('/course/{id}','FrontController@article_detail')->name('front_course_detail');
+
+//課程專區 - 微學分課程
+Route::get('/course2','FrontController@article_view')->name('front_course2');
+Route::get('/course2/{id}','FrontController@article_detail')->name('front_course_detail');
 
 //下載專區
 Route::get('/downloads','FrontController@article_view')->name('front_downloads');

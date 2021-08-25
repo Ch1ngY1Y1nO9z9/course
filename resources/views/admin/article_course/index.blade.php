@@ -19,6 +19,8 @@
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
+                                <th>課程類型</th>
+                                <th>文章類型</th>
                                 <th>標題</th>
                                 <th>日期</th>
                                 <th>功能</th>
@@ -27,6 +29,14 @@
                             <tbody>
                             @foreach($lists as $list)
                                 <tr>
+                                    <td>
+                                        @if($list->type == "9")
+                                            通識課程
+                                        @else
+                                            微學分課程
+                                        @endif
+                                    </td>
+                                    <td>{{$list->plan_type}}</td>
                                     <td>{{$list->title}}</td>
                                     <td>{{$list->date}}</td>
                                     <td width="170">
