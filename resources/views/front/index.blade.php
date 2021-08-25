@@ -15,7 +15,7 @@
 ?>
 
 <section id="main-section">
-    <section id="banner">
+    <section id="banner" class="position-relative">
         <div class="swiper-container bannerSwiper">
             <div class="swiper-wrapper">
                 @foreach($banners as $banner)
@@ -307,7 +307,7 @@
 
 <section id="links-section" @if($default_website_setting && $default_website_setting->more_navbar_bg_color != null) style="background-color: {{$default_website_setting->more_navbar_bg_color}} !important" @endif>
     <div class="container">
-        <div class="swiper-container links-Swiper">
+        <div class="swiper-container links-Swiper position-relative">
             <div class="swiper-wrapper">
                 @foreach($links as $link)
                     <div class="swiper-slide">
