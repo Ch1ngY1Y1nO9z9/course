@@ -205,7 +205,11 @@ class FrontController extends Controller
             });
         }
 
-        $articles =  $q->orderBy('top','desc')->orderBy('date','desc')->paginate(6);
+        if($route_name == "front_plan_results"){
+            $articles =  $q->orderBy('top','desc')->orderBy('date','desc')->get();
+        }else{
+            $articles =  $q->orderBy('top','desc')->orderBy('date','desc')->paginate(6);
+        }
 
         return view($viewName ,compact('seo','banners','links','articles','route_name'));
     }

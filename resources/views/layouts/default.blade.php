@@ -288,7 +288,7 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <script>
-        var swiper = new Swiper(".bannerSwiper", {
+        var bannerSwiper = new Swiper(".bannerSwiper", {
             slidesPerView: 'auto',
             centeredSlides: true,
             spaceBetween: 40,
@@ -304,7 +304,7 @@
             },
         });
 
-        var swiper = new Swiper(".links-Swiper", {
+        var linksSwiper = new Swiper(".links-Swiper", {
             slidesPerView: 'auto',
             spaceBetween: 40,
             grabCursor: true,

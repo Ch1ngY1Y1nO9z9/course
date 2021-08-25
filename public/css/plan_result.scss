@@ -1,5 +1,6 @@
 .swiper-container.videoSwiper {
     position: relative;
+    overflow: hidden;
 
     .swiper-button-prev:after,
         .swiper-container-rtl .swiper-button-next:after,
