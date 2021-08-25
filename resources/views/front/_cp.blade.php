@@ -7,7 +7,7 @@
     <nav class="breadcrumb">
         <div class="container">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                <li class="breadcrumb-item"><a href="/">首頁</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{$page->name}}</li>
               </ol>
         </div>

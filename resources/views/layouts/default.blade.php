@@ -160,7 +160,7 @@
         </section>
     </section>
     
-    <div id="main">
+    <div id="main" class="pb-5">
         @yield('content')
     </div>
 
