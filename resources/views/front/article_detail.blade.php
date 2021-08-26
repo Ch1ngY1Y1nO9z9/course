@@ -20,7 +20,8 @@
         }
 
         .swiper-container.videoSwiper .swiper-slide .video-slide img.video-img{
-            transform: initial;
+            transform: translateY(calc((400px - 100%) * 0.5));
+            height: initial;
         }
     </style>
 @endsection
