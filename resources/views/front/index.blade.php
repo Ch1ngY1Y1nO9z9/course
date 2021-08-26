@@ -420,7 +420,7 @@
 
     
     
-    var swiper = new Swiper(".bannerSwiper", {
+    var bannerSwiper = new Swiper(".bannerSwiper", {
         slidesPerView: 'auto',
         centeredSlides: true,
         spaceBetween: 40,
@@ -431,12 +431,12 @@
             clickable: true,
         },
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: ".bannerSwiper .swiper-button-next",
+            prevEl: ".bannerSwiper .swiper-button-prev",
         },
     });
 
-    var swiper = new Swiper(".videoSwiper", {
+    var videoSwiper = new Swiper("#video-section .videoSwiper", {
         slidesPerView: 'auto',
         spaceBetween: 40,
         loop: true,
@@ -446,13 +446,12 @@
         },
     });
 
-    var swiper = new Swiper(".links-Swiper", {
+    var linksswiper = new Swiper(".links-Swiper", {
         slidesPerView: 'auto',
-        spaceBetween: 40,
         grabCursor: true,
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: "#links-section .swiper-button-next",
+            prevEl: "#links-section .swiper-button-prev",
         },
     });
 </script>

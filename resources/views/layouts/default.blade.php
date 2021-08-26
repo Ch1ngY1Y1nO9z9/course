@@ -96,8 +96,6 @@
                         <a class="dropdown-item" href="/plan_vision">目標願景</a>
                         <a class="dropdown-item" href="/organization">組織架構</a>
                         <a class="dropdown-item" href="/usr_committee">USR委員會</a>
-                        <a class="dropdown-item" href="/office_member">教師成長</a>
-                        <a class="dropdown-item" href="/results_report">成果報告</a>
                     </div>
                 </li>
 
@@ -114,8 +112,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/news">最新消息</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/course">課程專區</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        課程專區
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+                        <a class="dropdown-item" href="/course">通識課程</a>
+                        <a class="dropdown-item" href="/course2">微學分課程</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/plan_results">成果專區</a>
@@ -160,7 +165,7 @@
         </section>
     </section>
     
-    <div id="main">
+    <div id="main" class="pb-5">
         @yield('content')
     </div>
 
@@ -214,8 +219,6 @@
                             <a class="nav-link" href="/plan_vision">目標願景</a>
                             <a class="nav-link" href="/organization">組織架構</a>
                             <a class="nav-link" href="/usr_committee">USR委員會</a>
-                            <a class="nav-link" href="/office_member">教師成長</a>
-                            <a class="nav-link" href="/results_report">成果報告</a>
                         </nav>
                         <nav class="nav flex-column">
                             <a class="nav-link title" href="#">場域介紹</a>
@@ -227,6 +230,8 @@
                         </nav>
                         <nav class="nav flex-column">
                             <a class="nav-link title" href="#">課程專區</a>
+                            <a class="nav-link" href="/course">通識課程</a>
+                            <a class="nav-link" href="/course2">微學分課程</a>
                         </nav>
                         <nav class="nav flex-column">
                             <a class="nav-link title" href="/plan_results">成果專區</a>
@@ -288,7 +293,7 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <script>
-        var swiper = new Swiper(".bannerSwiper", {
+        var bannerSwiper = new Swiper(".bannerSwiper", {
             slidesPerView: 'auto',
             centeredSlides: true,
             spaceBetween: 40,
@@ -304,7 +309,7 @@
             },
         });
 
-        var swiper = new Swiper(".links-Swiper", {
+        var linksSwiper = new Swiper(".links-Swiper", {
             slidesPerView: 'auto',
             spaceBetween: 40,
             grabCursor: true,

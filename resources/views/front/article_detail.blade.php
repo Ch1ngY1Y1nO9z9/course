@@ -29,7 +29,7 @@
     <nav class="breadcrumb">
         <div class="container">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                <li class="breadcrumb-item"><a href="/">首頁</a></li>
                 <li class="breadcrumb-item active" aria-current="page">查看文章內容</li>
               </ol>
         </div>

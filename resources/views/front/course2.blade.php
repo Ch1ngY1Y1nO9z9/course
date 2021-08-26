@@ -10,7 +10,7 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">首頁</a></li>
-                <li class="breadcrumb-item active" aria-current="page">課程專區 - 通識課程</li>
+                <li class="breadcrumb-item active" aria-current="page">課程專區 - 微學分課程</li>
               </ol>
         </div>
     </nav>
@@ -21,13 +21,13 @@
                     <div class="left-nav">
                         <div class="title">
                             <h3>Course</h3>
-                            <h2>課程專區 - 通識課程</h2>
+                            <h2>課程專區 - 微學分課程</h2>
                         </div>
-                        
+
                         <nav>
-                            <a class="btn btn-sm {{request()->get('type') == null ? 'btn-dark' : 'btn-secondary'}}" href="/course">全部</a>
-                            <a class="btn btn-sm {{request()->get('type') == '課程公告' ? 'btn-dark' : 'btn-secondary'}}" href="/course?type=課程公告">課程公告</a>
-                            <a class="btn btn-sm {{request()->get('type') == '課程成果' ? 'btn-dark' : 'btn-secondary'}}" href="/course?type=課程成果">課程成果</a>
+                            <a class="btn btn-sm {{request()->get('type') == null ? 'btn-dark' : 'btn-secondary'}}" href="/course2">全部</a>
+                            <a class="btn btn-sm {{request()->get('type') == '課程公告' ? 'btn-dark' : 'btn-secondary'}}" href="/course2?type=課程公告">課程公告</a>
+                            <a class="btn btn-sm {{request()->get('type') == '課程成果' ? 'btn-dark' : 'btn-secondary'}}" href="/course2?type=課程成果">課程成果</a>
                         </nav>
                     </div>
                 </div>

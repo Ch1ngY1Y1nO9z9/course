@@ -133,6 +133,11 @@ class FrontController extends Controller
                 $article_type = 9;
                 $viewName = "front.course";
                 break;
+            
+            case 'front_course2':
+                $article_type = 10;
+                $viewName = "front.course2";
+                break;
         }
 
         $q = Article::where('type',$article_type);
@@ -205,7 +210,11 @@ class FrontController extends Controller
             });
         }
 
-        $articles =  $q->orderBy('top','desc')->orderBy('date','desc')->paginate(6);
+        if($route_name == "front_plan_results"){
+            $articles =  $q->orderBy('top','desc')->orderBy('date','desc')->get();
+        }else{
+            $articles =  $q->orderBy('top','desc')->orderBy('date','desc')->paginate(6);
+        }
 
         return view($viewName ,compact('seo','banners','links','articles','route_name'));
     }

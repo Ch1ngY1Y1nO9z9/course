@@ -236,7 +236,7 @@ class ArticleController extends Controller
     #region 課程專區
     public function course_index()
     {
-        $lists =  Article::where('type',9)->get();
+        $lists =  Article::whereIn('type',[9,10])->get();
         return view('admin.article_course.index',compact('lists'));
     }
 
@@ -248,7 +248,7 @@ class ArticleController extends Controller
     public function course_store(Request $request)
     {
         $new_list = new Article();
-        $new_list -> type = 9;
+        $new_list -> type = $request->type;
         $new_list -> plan_type = $request->plan_type;
         $new_list -> title = $request->title;
         $new_list -> content = $request-> main_content;
@@ -266,7 +266,7 @@ class ArticleController extends Controller
     public function course_edit($id)
     {
         $list = Article::find($id);
-        if($list->type == 9){
+        if($list->type == 9 || $list->type == 10){
             $files = DownloadFile::where('article_id',$id) -> get();
             return view('admin.article_course.edit',compact('list','files'));
         }else {
@@ -277,7 +277,8 @@ class ArticleController extends Controller
     public function course_update(Request $request,$id)
     {
         $list = Article::find($id);
-        if($list->type == 9){
+        if($list->type == 9 || $list->type == 10){
+            $list->type = $request->type;
             $list->plan_type = $request->plan_type;
             $list -> title = $request->title;
             $list -> content = $request-> main_content;

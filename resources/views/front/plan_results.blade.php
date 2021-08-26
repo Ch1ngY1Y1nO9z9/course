@@ -14,7 +14,7 @@
     <nav class="breadcrumb">
         <div class="container">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                <li class="breadcrumb-item"><a href="/">首頁</a></li>
                 <li class="breadcrumb-item active" aria-current="page">成果專區</li>
               </ol>
         </div>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 
-                <div class="new-content">
+                <div class="new-content position-relative">
                     @if(count($articles_1) == 0)
                         <p>目前沒有最新消息！</p>
                     @endif
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="new2-content">
+                    <div class="new2-content position-relative">
                         @if(count($articles_2) == 0)
                             <p>目前沒有此類別項目！</p>
                         @endif
@@ -131,7 +131,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="new3-content">
+                    <div class="new3-content position-relative">
                         @if(count($articles_3) == 0)
                             <p>目前沒有此類別項目！</p>
                         @endif
@@ -175,7 +175,7 @@
 
 @section('js')
 <script>
-    var swiper = new Swiper(".new-content .videoSwiper", {
+    var plan_results_swiper = new Swiper(".new-content .videoSwiper", {
         slidesPerView: 3,
         spaceBetween: 40,
         navigation: {
@@ -184,7 +184,7 @@
         },
     });
 
-    var swiper = new Swiper("new2-content .videoSwiper", {
+    var plan_results_swiper2 = new Swiper(".new2-content .videoSwiper", {
         slidesPerView: 3,
         spaceBetween: 40,
         navigation: {
@@ -193,7 +193,7 @@
         },
     });
 
-    var swiper = new Swiper(".new3-content .videoSwiper", {
+    var plan_results_swiper3 = new Swiper(".new3-content .videoSwiper", {
         slidesPerView: 3,
         spaceBetween: 40,
         navigation: {

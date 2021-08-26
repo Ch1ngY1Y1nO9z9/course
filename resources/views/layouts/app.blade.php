@@ -181,14 +181,6 @@
                                     <a class="collapse-item" href="/micro-course/plan_page/3">
                                         USR委員會
                                     </a>
-
-                                    <a class="collapse-item" href="/micro-course/plan_page/4">
-                                        教師成長
-                                    </a>
-
-                                    <a class="collapse-item" href="/micro-course/plan_page/5">
-                                        成果報告
-                                    </a>
                             </div>
                         </div>
                     </li>
