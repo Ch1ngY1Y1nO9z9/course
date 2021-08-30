@@ -57,7 +57,6 @@
                 border-radius: 10px;
             }
 
-
         </style>
     @else
         <style>

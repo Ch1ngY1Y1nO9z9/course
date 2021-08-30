@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\ImageNews;
+use App\IndexBackgrounds;
 use App\PlanArticle;
 use App\PlanPage;
 use App\Seo;
@@ -48,12 +49,17 @@ class FrontController extends Controller
         $news_type_3 = $news_all_collection->where('plan_type','場域活動')->take(5);
         $news_type_4 = $news_all_collection->where('plan_type','其他公告')->take(5);
         $news_type_5 = $news_all_collection->where('plan_type','資訊轉知')->take(5);
+
+        $main_section_bg = IndexBackgrounds::find(1);
+        $news_section_bg = IndexBackgrounds::find(2);
+        $schedule_section_bg = IndexBackgrounds::find(3);
+        $download_section_bg = IndexBackgrounds::find(4);
         
         
         $downloads = Article::where('type',5)->OrderBy('date','desc')->take(3)->with('download_files')->get();
         $videos = Article::where('type',4)->OrderBy('date','desc')->take(6)->with('download_files')->get();
 
-        return view($this->index,compact('seo','about','about_2','news','news_type_1','news_type_2','news_type_3','news_type_4','news_type_5','banners','downloads','links','videos'));
+        return view($this->index,compact('seo','about','about_2','news','news_type_1','news_type_2','news_type_3','news_type_4','news_type_5','banners','downloads','links','videos','main_section_bg','news_section_bg','schedule_section_bg','download_section_bg'));
     }
 
     public function plan_cp(Request $request)
