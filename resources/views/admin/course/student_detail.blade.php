@@ -31,8 +31,8 @@
                                         {{$item->getCoursesDetail->class_name}}
                                     </td>
                                     <td>
-                                        {{$item->getCoursesDetail->getDate($item->class_start)}}<br>
-                                        {{$item->getCoursesDetail->getDate($item->class_end)}}
+                                        {{$item->getCoursesDetail->getDate($item->getCoursesDetail->class_start)}}<br>
+                                        {{$item->getCoursesDetail->getDate($item->getCoursesDetail->class_end)}}
                                     </td>
                                     <td>
                                         {{$item->getCoursesDetail->total_hours}}
