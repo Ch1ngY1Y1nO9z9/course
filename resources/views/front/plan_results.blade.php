@@ -7,6 +7,10 @@
         section#news-section .news-nav{
             margin-bottom:30px;
         }
+
+        .swiper-container.videoSwiper .swiper-slide .video-slide img.video-img {
+            height: initial;
+        }
     </style>
 @endsection
 

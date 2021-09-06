@@ -118,7 +118,9 @@
                             <a class="collapse-item" href="/micro-course/website_style_setting">
                                 樣式設定
                             </a>
-
+                            <a class="collapse-item" href="/micro-course/index_background_setting">
+                                首頁背景圖設定
+                            </a>
                             <a class="collapse-item" href="/micro-course/website_info_setting">
                                 頁尾資訊設定
                             </a>

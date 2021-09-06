@@ -27,7 +27,7 @@
                                 </div>
                                 <label for="date" class="col-sm-1 control-label">日期</label>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="date" name="date" data-toggle="datepicker" value="{{$list->date}}" required>
+                                    <input type="text" class="form-control" id="date" name="date" data-toggle="datepicker" value="{{$list->date}}">
                                 </div>
                             </div>
 

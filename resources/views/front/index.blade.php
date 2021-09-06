@@ -14,7 +14,7 @@
     $default_website_setting=\App\WebsiteStyleSetting::find(1);
 ?>
 
-<section id="main-section">
+<section id="main-section" style="background-image:url({{$main_section_bg->background_link}});@if($main_section_bg->background_size == '0') background-size: cover @endif">
     <section id="banner" class="position-relative">
         <div class="swiper-container bannerSwiper">
             <div class="swiper-wrapper">
@@ -60,7 +60,7 @@
 
 </section>
 
-<section id="news-section">
+<section id="news-section" style="background-image:url({{$news_section_bg->background_link}});@if($news_section_bg->background_size == '0') background-size: cover @endif">
     <div class="container">
         <div class="news-nav">
             <div class="left-nav">
@@ -164,7 +164,7 @@
     </div>
 </section>
 
-<section id="schedule-section">
+<section id="schedule-section" style="background-image:url({{$schedule_section_bg->background_link}});@if($schedule_section_bg->background_size == '0') background-size: cover @endif">
     <div class="container">
         <div class="schedule-nav">
             <div class="title">
@@ -258,7 +258,7 @@
     </div>
 </section>
 
-<section id="download-section">
+<section id="download-section" style="background-image:url({{$download_section_bg->background_link}});@if($download_section_bg->background_size == '0') background-size: cover @endif">
     <div class="container">
         <div class="download-nav">
             <div class="title">
