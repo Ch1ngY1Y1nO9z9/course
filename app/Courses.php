@@ -54,6 +54,19 @@ class Courses extends Model
         return $this->hasMany('App\SignUp','course_id');
     }
 
+    // 取得正取學生的數量
+    public function checkSignupList($course_id)
+    {
+        return SignUp::where('course_id', $course_id)->where('status', '正取')->count();
+    }
+
+    // 取得備取學生的數量
+    public function checkAvailable($course_id)
+    {
+        return SignUp::where('course_id', $course_id)->where('status', '備取')->count();
+    }
+
+
     // 計算全部的課程
     public function scopeAdminDashBoard()
     {

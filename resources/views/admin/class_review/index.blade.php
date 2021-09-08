@@ -43,7 +43,8 @@
                                         </td>
                                         <td>
                                             @if($item->open == 1)
-                                            {{$item->number}} / {{count($item->signupList)}}
+                                            正取:{{$item->number}} / {{$item->checkSignupList($item->id)}} <br>
+                                            備取: 10 / {{$item->checkAvailable($item->id) ?? 0}}
                                             @elseif($item->open == 0)
                                             不開放報名
                                             @endif

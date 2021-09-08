@@ -13,7 +13,8 @@
 
 //前端
 
-Route::get('/testmail','CourseClassController@testqueue');
+Route::get('/annocunce','CourseClassController@annocunce');
+Route::get('/checkClassStatus','CourseClassController@checkClassStatus');
 
 Route::get('/','FrontController@index');
 

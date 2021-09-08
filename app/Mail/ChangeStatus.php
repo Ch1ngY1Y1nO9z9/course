@@ -2,26 +2,25 @@
 
 namespace App\Mail;
 
-use App\Courses;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class Announce extends Mailable
+class ChangeStatus extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $class_id;
+    protected $class;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($class_id)
+    public function __construct($class)
     {
-        $this->class_id = $class_id;
+        $this->class = $class;
     }
 
     /**
@@ -31,7 +30,6 @@ class Announce extends Mailable
      */
     public function build()
     {
-        $class = Courses::find($this->class_id);
-        return $this->subject($class->class_name.'課程公告通知')->markdown('emails.Announce.AnnounceMessage')->with('class',$class);
+        return $this->subject($this->class->name_cn.'課程備取轉正通知')->markdown('emails.signup.changeStatus')->with('class',$this->class);
     }
 }

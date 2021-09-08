@@ -37,7 +37,7 @@ class CheckCoursesStatus implements ShouldQueue
 
         foreach($passed_course as $passed_class)
         {
-            $class_start_day = strtotime(date('m/d/Y', $passed_class->class_start));
+            $class_start_day = strtotime($passed_class->class_start);
             if($date >= $class_start_day){
                 $passed_class->status = '已開課';
                 $passed_class->save();
@@ -49,7 +49,7 @@ class CheckCoursesStatus implements ShouldQueue
         
         foreach($starting_course as $starting_class)
         {
-            $class_end_day = strtotime(date('m/d/Y', $starting_class->class_end));
+            $class_end_day = strtotime($starting_class->class_end);
             if($date >= $class_end_day){
                 $starting_class->status = '已結束';
                 $starting_class->save();

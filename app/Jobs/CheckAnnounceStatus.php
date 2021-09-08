@@ -38,7 +38,6 @@ class CheckAnnounceStatus implements ShouldQueue
                                         ->get();
 
         $date = strtotime(date('m/d/Y h:i:s a', time()));
-
         foreach($Announce_list as $Announce){
             // 檢查是否可上架
             if($date > strtotime($Announce->start_date)){

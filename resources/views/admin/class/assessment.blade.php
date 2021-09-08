@@ -16,7 +16,7 @@
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
                             @foreach($class->signupList as $student)
-
+                                @if($student->status == '正取')
                                 <div class="form-group row">
                                     <label class="col-sm-2 control-label">{{$student->student_name}}</label>
                                     <div class="col-sm-10">
@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
                                 <hr>
-
+                                @endif
                             @endforeach
                             <div class="form-group row">
                                 <div class="col-sm-12 text-center">

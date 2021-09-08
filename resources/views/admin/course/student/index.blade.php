@@ -43,7 +43,8 @@
                                     </td>
                                     <td>
                                         @if($item->open == 1)
-                                        {{$item->number}} / {{count($item->signupList)}}
+                                        正取:{{$item->number}} / {{$item->checkSignupList($item->id)}} <br>
+                                        備取: 10 / {{$item->checkAvailable($item->id) ?? 0}}
                                         @elseif($item->open == 0)
                                         不開放報名
                                         @endif
@@ -128,6 +129,10 @@
     <script>
         alert('名額已滿!')
     </script>
+    @elseif(Session::has('available_success'))
+    <script>
+        alert('目前可報名人數已滿! 您已列入備取名單, 若轉正取會寄信通知!');
+    </script>
     @endif
     
     @if(Session::has('delete_success'))
@@ -135,4 +140,5 @@
         alert('取消成功!');
     </script>
     @endif
+    
 @endsection

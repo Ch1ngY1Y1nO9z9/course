@@ -42,7 +42,7 @@
                                             {{$item->getCoursesDetail->total_hours}}
                                         </td>
                                         <td>
-                                            {{$item->getCoursesDetail->number}} / {{count($item->getCoursesDetail->signupList)}}
+                                            {{$item->getCoursesDetail->number}} / {{$item->getCoursesDetail->checkSignupList($item->getCoursesDetail->id)}}
                                         </td>
                                         <td>
                                             {{$item->pass}}

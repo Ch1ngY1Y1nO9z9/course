@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\SignUp;
 use App\Courses;
 use App\Tutorials;
 use App\RollCallQR;
 use App\ClassAnnounces;
 use App\RollCallRecords;
+use App\Mail\ChangeStatus;
 use Illuminate\Http\Request;
 use App\Mail\NewCourseToAdmin;
 use Illuminate\Support\Facades\Auth;
@@ -387,10 +389,30 @@ class ClassController extends Controller
     public function sign_up($id)
     {
         // 報名前先注意是否額滿 若額滿則回full
-        $signup_number = count(SignUp::where('course_id',$id)->get());
+        $signup_number = SignUp::where('course_id',$id)->count();
         $course = Courses::find($id);
+        $available = SignUp::where('course_id',$id)->where('status', '備取')->count();
 
+
+
+
+        // 先判斷是否滿人 若滿人則再判斷備取是否滿10人
         if($signup_number >= $course->number) {
+            if($available <= 10) {
+                $user = Auth::user();
+                SignUp::create([
+                    'course_id'=> $id,
+                    'student_id'=> $user->account_id,
+                    'student_name'=> $user->name,
+                    'academic_year'=> $course->academic_year,
+                    'status'=> '備取'
+                ]);
+
+                // 回覆成功備取
+                return redirect()->back()->with('available_success','');
+            }
+
+            // 學生與備取人數皆滿才回覆滿人
             return redirect()->back()->with('signup_full','');
         }
 
@@ -409,9 +431,26 @@ class ClassController extends Controller
 
     public function remove_sign_up($id)
     {
+        // 刪除報名資料
         $user = Auth::user()->account_id;
         $record = Signup::where('course_id',$id)->where('student_id',$user)->first();
         $record->delete();
+
+        // 檢查備取人數 若有人備取則將最早報名的人轉正(資料庫按ID排序 所以抓資料篩選後的第一筆就會是最早報備取的人)
+        $available_student = SignUp::where('course_id',$id)->where('status', '備取')->first();
+    
+
+        // 判斷有人才轉正並寄信
+        if($available_student){
+            $available_student->status = '正取';
+            $available_student->save();
+            $student = User::where('account_id', $available_student->student_id)->first();
+
+            // 寄信並帶課程資料過去信中
+            $class = Courses::find($available_student->course_id);
+            mail::to($student->email)->send(new ChangeStatus($class));
+        }
+
 
         return redirect()->back()->with('delete_success','');
     }

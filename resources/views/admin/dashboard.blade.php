@@ -229,6 +229,8 @@
             <p>
                 微學分採「追認制」，該學期完成 18小時或36小時的課程後，至USR微學分網站，按下認列學分申請按鈕，並在下個學期選課「通識─微學分」，方可認列學分。微學分可認列畢業學分，最高以 2 學分為限。學生應完成修業系所所規定之必修學分以及總學分數方能畢業，且不得因修習微學分課程延長修業年限。
             </p>
+
+            <a class="btn btn-primary" href="/micro-course/student/course_records">查看已修課程</a>
             
             <button class="btn btn-success" href="/micro-course/tutorial/create">認列學分</button>
             <form class="pass-form" action="/micro-course/request/store" method="POST" style="display: none;">

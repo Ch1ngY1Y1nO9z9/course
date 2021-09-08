@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">@if($academic == '-1'){{$year}}學年上學期 @elseif($academic == '-2'){{$year}}學年下學期 @endif- 學生修課紀錄</h3>
+                        <h3 class="card-title">{{$year}} - 學生修課紀錄</h3>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
