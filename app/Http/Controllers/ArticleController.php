@@ -31,6 +31,8 @@ class ArticleController extends Controller
         $new_list -> title = $request->title;
         $new_list -> content = $request-> main_content;
         $new_list -> date = $request-> date;
+        $new_list -> schedule = $request-> schedule;
+        
 
         if( $request->hasFile('upload_files')){
             $files = $request->file('upload_files');
@@ -66,6 +68,7 @@ class ArticleController extends Controller
             $list -> title = $request->title;
             $list -> content = $request-> main_content;
             $list -> date = $request-> date;
+            $list -> schedule = $request-> schedule;
 
             if($request->del_files != null){
                 $del_files = $request->del_files;

@@ -51,17 +51,17 @@ Route::get('/downloads','FrontController@article_view')->name('front_downloads')
 
 Route::get('/activity_calendar','FrontController@activity_calendar');
 Route::get('/calendar_api',function (){
-    $calendar_day = \App\Article::where('type',1)->where('plan_type','課程公告')->select('id','title','date')->get()->toArray();
+    $calendar_day = \App\Article::where('type',1)->where('plan_type','課程公告')->where('schedule','1')->select('id','title','date')->get()->toArray();
     return response(json_encode( $calendar_day, JSON_UNESCAPED_UNICODE))->header('Content-Type', 'application/json');
 });
 
 Route::get('/calendar_api2',function (){
-    $calendar_day = \App\Article::where('type',1)->where('plan_type','校內活動')->select('id','title','date')->get()->toArray();
+    $calendar_day = \App\Article::where('type',1)->where('plan_type','校內活動')->where('schedule','1')->select('id','title','date')->get()->toArray();
     return response(json_encode( $calendar_day, JSON_UNESCAPED_UNICODE))->header('Content-Type', 'application/json');
 });
 
 Route::get('/calendar_api3',function (){
-    $calendar_day = \App\Article::where('type',1)->where('plan_type','場域活動')->select('id','title','date')->get()->toArray();
+    $calendar_day = \App\Article::where('type',1)->where('plan_type','場域活動')->where('schedule','1')->select('id','title','date')->get()->toArray();
     return response(json_encode( $calendar_day, JSON_UNESCAPED_UNICODE))->header('Content-Type', 'application/json');
 });
 
