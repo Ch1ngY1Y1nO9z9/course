@@ -436,15 +436,17 @@
         },
     });
 
-    var videoSwiper = new Swiper("#video-section .videoSwiper", {
-        slidesPerView: 'auto',
-        spaceBetween: 40,
-        loop: true,
-        navigation: {
-            nextEl: ".video-content .swiper-button-next",
-            prevEl: ".video-content .swiper-button-prev",
-        },
-    });
+    @if (count($videos)>0)
+        var videoSwiper = new Swiper("#video-section .videoSwiper", {
+            slidesPerView: 'auto',
+            spaceBetween: 40,
+            loop: true,
+            navigation: {
+                nextEl: ".video-content .swiper-button-next",
+                prevEl: ".video-content .swiper-button-prev",
+            },
+        });
+    @endif
 
     var linksswiper = new Swiper(".links-Swiper", {
         slidesPerView: 'auto',
