@@ -204,7 +204,7 @@
     </div>
 </section>
 
-<section id="video-section">
+<section id="video-section" style="background-image:url({{$video_section_bg->background_link}});@if($video_section_bg->background_size == '0') background-size: cover @endif">
     <div class="container">
         <div class="video-nav">
             <div class="title">
