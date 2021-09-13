@@ -71,6 +71,17 @@
             background-color: {{$default_website_setting->main_navbar_bg_color}}
         }
     </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K6EFFCQWNR"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-K6EFFCQWNR');
+    </script>
+    
     @yield('css')
 </head>
 
