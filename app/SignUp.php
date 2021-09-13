@@ -68,7 +68,9 @@ class SignUp extends Model
         $totalTime = 0;
 
         foreach($classes as $class){
-            $totalTime += $class->getCoursesDetail->total_hours;
+            if($class->getCoursesDetail){
+                $totalTime += $class->getCoursesDetail->total_hours;
+            }
         }
 
         return $totalTime;
@@ -127,7 +129,9 @@ class SignUp extends Model
         $totalTime = 0;
 
         foreach($classes as $class){
-            $totalTime += $class->getCoursesDetail->total_hours;
+            if($class->getCoursesDetail){
+                $totalTime += $class->getCoursesDetail->total_hours;
+            }
         }
 
         return $totalTime;
