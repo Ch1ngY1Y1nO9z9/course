@@ -150,7 +150,9 @@ class Courses extends Model
 
         foreach($passed_list as $passed)
         {
-            $totalTime += $passed->getCoursesDetail->total_hours;
+            if($passed->getCoursesDetail){
+                $totalTime += $passed->getCoursesDetail->total_hours;
+            }
         }
 
         return $totalTime;
