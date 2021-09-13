@@ -21,6 +21,8 @@ class IndexBackgrounds extends Model
             return '行事曆';  
         }elseif($section == 'download'){
             return '下載'; 
+        }elseif($section == 'video'){
+            return '影片'; 
         }
     }
 
@@ -34,6 +36,8 @@ class IndexBackgrounds extends Model
             return '1270';  
         }elseif($section == 'download'){
             return '441'; 
+        }elseif($section == 'video'){
+            return '450'; 
         }
     }
 }

@@ -59,6 +59,13 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label for="schedule" class="col-sm-2 control-label">是否顯示於行事曆上<br> <small>(僅有課程公告、校內活動、場域活動三個類別才可顯示)</small> </label>
+                                <div class="col-sm-10">
+                                    <input type="checkbox" id="schedule" name="schedule" value="1" checked>
+                                </div>
+                            </div>
+
                             <hr>
 
                             <div class="form-group row">

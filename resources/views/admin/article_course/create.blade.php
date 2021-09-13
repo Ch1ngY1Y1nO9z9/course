@@ -41,7 +41,7 @@
                                 <div class="col-sm-10">
                                     <select id="plan_type" class="form-control" name="plan_type">
                                         <option value="課程公告">課程公告</option>
-                                        <option value="選課公告">選課公告</option>
+                                        <option value="課程成果">課程成果</option>
                                     </select>
                                 </div>
                             </div>
