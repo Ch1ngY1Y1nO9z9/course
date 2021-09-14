@@ -52,7 +52,7 @@
                                         <span class="type float-right">{{$course->plan_type}}</span>
                                     </div>
                                     <div class="title">
-                                        <a href="{{/course/{{$course->id}}}}">
+                                        <a href="/course/{{{{$course->id}}}}">
                                             {{$course->title}}
                                         </a>
                                     </div>
