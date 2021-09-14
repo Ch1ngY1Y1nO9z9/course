@@ -41,9 +41,11 @@ class CheckAnnounceStatus implements ShouldQueue
         foreach($Announce_list as $Announce){
             // 檢查是否可上架
             if($date > strtotime($Announce->start_date)){
-                dispatch(new SendAnnounceMail($Announce->announces->signupList));
-                $Announce->pushed = 1;
-                $Announce->save();
+                if($Announce->announces->signupList){
+                    dispatch(new SendAnnounceMail($Announce->announces->signupList));
+                    $Announce->pushed = 1;
+                    $Announce->save();
+                }
             }
         }
     }
