@@ -17,7 +17,6 @@ class CourseClassController extends Controller
 {
     public function annocunce()
     {
-        Mail::to('l123050891@gmail.com')->send(new Testmail());
         dispatch(new CheckAnnounceStatus());
     }
 
