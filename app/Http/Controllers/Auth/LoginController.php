@@ -116,7 +116,7 @@ class LoginController extends Controller
     {
         $account = $request->email;
         $password = $request->password;
-        $url = 'http://sais.csmu.edu.tw/eeptestcheckid/IDentityUser.aspx?account='.$account.'&password='.$password;
+        $url = 'http://sais.csmu.edu.tw/IDentityUserInfo/IDentityUser.aspx?account='.$account.'&password='.$password;
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
