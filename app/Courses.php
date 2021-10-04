@@ -120,7 +120,7 @@ class Courses extends Model
     public function scopeGetRunningClass($query, $courses)
     {
         $runningClass = $this->where('user_id',$this->getUser()->id)
-                                    ->where('status','已開課')
+                                    ->whereIn('status', ['已通過','已開課'])
                                     ->get()
                                     ->count();
 
@@ -215,11 +215,11 @@ class Courses extends Model
                     ->whereIn('status', ['待審核','未送出']);
     }
 
-    // 類型: 已開課 已結束
+    // 類型: 已通過 已開課 已結束
     public function scopeStarted($query)
     {
         return $this->where('user_id', $this->getUser()->id)
-                    ->whereIn('status', ['已開課','已結束']);
+                    ->whereIn('status', ['已通過','已開課','已結束']);
     }
 
 }

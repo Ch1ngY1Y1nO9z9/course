@@ -110,7 +110,6 @@ class AdminController extends Controller
                 'startingClass' => SignUp::getStartingClass(),
                 'totalScore' => Auth::user()->score,
                 'totalTime' => SignUp::getStudentTime(),
-
             ];
         }
 
