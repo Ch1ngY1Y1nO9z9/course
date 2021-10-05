@@ -8,7 +8,9 @@ use App\ClassAnnounces;
 use Illuminate\Http\Request;
 use App\Jobs\CheckCoursesStatus;
 use App\Jobs\CheckAnnounceStatus;
+use App\Mail\Testmail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 
 class CourseClassController extends Controller

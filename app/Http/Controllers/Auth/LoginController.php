@@ -44,7 +44,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $Account = $this->checkAccount($request);
-
+        
         // 記錄過多次嘗試登入
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
@@ -66,7 +66,18 @@ class LoginController extends Controller
         
         if ($Account[0] == 1) {
 
-            $user = User::firstOrCreate(['account_id' => $Account[10]]);
+            // 確認資料返回成功後開始處理資料提供給帳號建立使用
+            $Account = array_values(array_filter($Account));
+            $AccountData = array_slice($Account, 0, array_search($request->email, $Account));
+
+            // 驗證陣列中鍵值2的資料是否是信箱 若不是則將鍵值2和鍵值1合併 並重置陣列的鍵值
+            if(stristr($AccountData[2], '@') == false){
+                $AccountData[1] = $AccountData[1].$AccountData[2];
+                unset($AccountData[2]);
+                $AccountData = array_values($AccountData);
+            }
+            
+            $user = User::firstOrCreate(['account_id' => $request->email]);
 
             if($user->name){
                 Auth::guard()->login($user);
@@ -84,7 +95,7 @@ class LoginController extends Controller
             $user->password = bcrypt($password);
 
             // 查詢編號第一位是否為t
-            $roleCheck = substr($Account[10], 0, 1);
+            $roleCheck = substr($request->email, 0, 1);
             // 若是t代表為教師初次登入 將role改成教師
             if($roleCheck == 't'){
                 $user->role = 'teacher';
