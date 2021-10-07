@@ -119,7 +119,11 @@ class SignUp extends Model
     public function GetAllStudentScore($id)
     {   
         $student = User::where('account_id', $id)->first();
-        return $student->score;
+        if($student){
+            return $student->score;
+        }else{
+            return 0;
+        }
     }
 
     // 取得該學生修課總時數(Admin端認列學分用)
