@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\WhiteList;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +45,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $Account = $this->checkAccount($request);
-        
+
         // 記錄過多次嘗試登入
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
@@ -70,15 +71,27 @@ class LoginController extends Controller
             $Account = array_values(array_filter($Account));
             $AccountData = array_slice($Account, 0, array_search($request->email, $Account));
 
-            // 驗證陣列中鍵值2的資料是否是信箱 若不是則將鍵值2和鍵值1合併 並重置陣列的鍵值
-            if(stristr($AccountData[2], '@') == false){
-                $AccountData[1] = $AccountData[1].$AccountData[2];
-                unset($AccountData[2]);
-                $AccountData = array_values($AccountData);
+            
+            // 搜尋陣列中含有@的key值 然後將該key值以前的所有資料合併(除了key0), 並將當前該值儲存成email等待使用
+            foreach($AccountData as $key => $data){
+                if(strstr($data, "@") != false){
+                    $name = join(array_slice( $AccountData , 1 , $key-1));
+                    $email = $data;
+                }      
             }
             
-            $user = User::firstOrCreate(['account_id' => $request->email]);
+            $account_id = $request->email;
 
+            // 上方資料處理完成後 確認此帳號是否在白名單中 若是Admin或Teacher則不檢查
+
+            $user = User::where('account_id', $account_id)->first();
+
+            // if($user && $user->role == 'student'){
+            //     if(!WhiteList::where('student_id', $user->account_id)->first()){
+            //         return $this->sendFailedLoginResponse($request); 
+            //     }
+            // }
+            
             if($user->name){
                 Auth::guard()->login($user);
 
@@ -87,16 +100,18 @@ class LoginController extends Controller
             }
 
             // 以上都沒被執行代表沒有帳號 以下建立帳號並登入
+
+            $user = User::create(['account_id' => $account_id]);
             
             $password = $request->password;
 
-            $user->name = $Account[1];
-            $user->email = $Account[2];
+            $user->name = $name;
+            $user->email = $email;
             $user->password = bcrypt($password);
 
-            // 查詢編號第一位是否為t
-            $roleCheck = substr($request->email, 0, 1);
             // 若是t代表為教師初次登入 將role改成教師
+            $roleCheck = substr($account_id, 0, 1);
+            
             if($roleCheck == 't'){
                 $user->role = 'teacher';
                 $user->save();

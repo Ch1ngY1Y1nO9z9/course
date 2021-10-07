@@ -249,6 +249,18 @@
                         <span>儀表板</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed py-2" href="/micro-course/white_list">
+                        <i class="fas fa-file-signature"></i>
+                        <span>白名單管理</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed py-2" href="/micro-course/mail">
+                        <i class="fas fa-file-signature"></i>
+                        <span>信件寄送</span>
+                    </a>
+                </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link collapsed py-2" href="/micro-course/class_announcement">
                         <i class="fas fa-file-signature"></i>

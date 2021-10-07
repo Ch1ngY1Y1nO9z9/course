@@ -131,6 +131,16 @@ Route::group(['prefix' => 'micro-course','middleware' => 'auth'], function () {
     // Route::post('/class_announcement/delete/{id}', 'ClassAnnouncementController@delete');
     // Route::post('/class_announcement/totop/{id}', 'ClassAnnouncementController@totop');
 
+
+    // white list
+    Route::get('/white_list/create','WhitelistController@create');
+    Route::resource('/white_list','WhitelistController');
+
+    // email
+    Route::get('/mail', 'EmailController@index');
+    Route::post('/mail/check_account', 'EmailController@check');
+    Route::post('/mail/send', 'EmailController@send');
+
     // course_records
     Route::get('/course', 'CourseClassController@index');
     Route::get('/course/detail/{id}', 'CourseClassController@detail');
