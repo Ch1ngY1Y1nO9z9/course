@@ -92,7 +92,7 @@ class LoginController extends Controller
                 }
             }
             
-            if($user->name){
+            if($user){
                 Auth::guard()->login($user);
 
                 return $this->authenticated($request, $this->guard()->user())
