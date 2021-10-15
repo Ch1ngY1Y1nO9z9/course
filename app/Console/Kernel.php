@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        \App\Console\Commands\checkClassStatus::class,
+        \App\Console\Commands\checkAnnounce::class,
     ];
 
     /**
@@ -26,6 +27,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->command('command:checkClassStatus')->daily();
+        $schedule->command('command:checkClassStatus')->everyTenMinutes();
     }
 
     /**
