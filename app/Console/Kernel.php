@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Jobs\CheckCoursesStatus;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -27,8 +28,11 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        // $schedule->command('command:checkClassStatus')->daily();
-        $schedule->command('checkClassStatus')->everyMinute();
+        // $schedule->command('checkClassStatus')->daily();
+        // $schedule->command('checkAnnounce')->everyTenMinutes();
+        $schedule->call(function(){
+            dispatch(new CheckCoursesStatus());
+        })->everyMinute();
     }
 
     /**

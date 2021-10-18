@@ -12,7 +12,7 @@ class checkAnnounce extends Command
      *
      * @var string
      */
-    protected $signature = 'command:checkClassStatus';
+    protected $signature = 'checkAnnounce';
 
     /**
      * The console command description.
