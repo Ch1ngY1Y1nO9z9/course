@@ -29,10 +29,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        // $schedule->command('checkClassStatus')->daily();
-        // $schedule->command('checkAnnounce')->everyTenMinutes();
-
-        $schedule->command('test:Log')->everyMinute();
+        $schedule->command('checkClassStatus')->daily();
+        $schedule->command('checkAnnounce')->everyTenMinutes();
     }
 
     /**
