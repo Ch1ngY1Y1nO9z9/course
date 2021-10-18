@@ -16,7 +16,6 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \App\Console\Commands\checkClassStatus::class,
         \App\Console\Commands\checkAnnounce::class,
-        \App\Console\Commands\TestLog::class,
     ];
 
     /**
