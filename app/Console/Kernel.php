@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \App\Console\Commands\checkClassStatus::class,
         \App\Console\Commands\checkAnnounce::class,
+        \App\Console\Commands\TestLog::class,
     ];
 
     /**
@@ -30,9 +31,8 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         // $schedule->command('checkClassStatus')->daily();
         // $schedule->command('checkAnnounce')->everyTenMinutes();
-        $schedule->call(function(){
-            dispatch(new CheckCoursesStatus());
-        })->everyMinute();
+
+        $schedule->command('test:Log')->everyMinute();
     }
 
     /**
