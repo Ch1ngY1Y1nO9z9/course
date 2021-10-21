@@ -16,7 +16,7 @@
                         
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <a href="javascript:history.back()">
+                                <a href="/micro-course/class">
                                     <button type="submit" class="btn btn-success">返回</button>
                                 </a>
                                 <hr>
