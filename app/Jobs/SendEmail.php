@@ -38,6 +38,7 @@ class SendEmail implements ShouldQueue
     public function handle()
     {
         $Email = EmailRecord::find($this->mail_id);
+        $recipient = 'csmuusr@csmu.edu.tw';
 
         if($Email->filter == 'all'){
             $all_student = User::where('role', 'student')
@@ -52,7 +53,7 @@ class SendEmail implements ShouldQueue
                 }
             }
 
-            Mail::to('admin@gmail.com')
+            Mail::to($recipient)
             ->bcc($student_ary)
             ->queue(new SendMicroEmail($Email));
 
@@ -67,13 +68,13 @@ class SendEmail implements ShouldQueue
                 array_push($email_ary, $user_data->email);
             }
 
-            Mail::to('admin@gmail.com')
+            Mail::to($recipient)
                 ->bcc($email_ary)
                 ->queue(new SendMicroEmail($Email));
 
         }else if($Email->filter == 'student'){
             $student = User::where('account_id', $Email->account_id)->first(); 
-            Mail::to('admin@gmail.com')
+            Mail::to($recipient)
                 ->bcc($student->email)
                 ->queue(new SendMicroEmail($Email));
         }

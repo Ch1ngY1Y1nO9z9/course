@@ -9,43 +9,37 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">{{Auth::user()->name}} - 點名紀錄</h3>
+                        <h3 class="card-title">寄件備份</h3>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/micro-course/class/check/{{$id}}">返回</a>
-                        <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>日期</th>
-                                <th>QR Code</th>
-                                <th>開放時間</th>
+                                <th>寄送對象</th>
+                                <th>信件標題</th>
+                                <th>寄送時間</th>
                                 <th>功能</th>
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach($records as $record)
+                                @foreach($items as $item)
                                 <tr>
                                     <td>
-                                        {{$record->date}}分
+                                        {{$item->MailTo($item->id)}}
                                     </td>
                                     <td>
-                                        @if(time() < strtotime($record->date."+ $record->time minute"))
-                                            {!! QrCode::size(150)->generate('https://usr.csmu.edu.tw/micro-course/qrcode/rollcall/'.$record->id) !!}
-                                        @else
-                                            <span class="text-danger" >已超過時間, 若要補點名請點擊後方的"編輯"進行手動點名</span>
-                                        @endif
+                                        {{$item->title}}
                                     </td>
                                     <td>
-                                        {{$record->time}} 分
+                                        {{$item->created_at}}
                                     </td>
+
                                     <td width="150">
-                                        <a class="btn btn-sm btn-primary" href="/micro-course/class/check/{{$record->id}}/rollCall_records/check">檢視</a>
-                                        <a class="btn btn-sm btn-success" href="/micro-course/class/check/{{$record->id}}/rollCall_records/edit">編輯</a>
-                                        {{-- <button class="btn btn-sm btn-danger" data-listid="{{$record->id}}">取消</button>
-                                        <form class="delete-form" action="/micro-course/class/delete/{{$record->id}}" method="POST" style="display: none;" data-listid="{{$record->id}}">
+                                        <a class="btn btn-sm btn-primary mt-1" href="/micro-course/mail_backup/{{$item->id}}">檢視</a>
+                                        <button class="btn btn-sm btn-danger mt-1 del" data-listid="{{$item->id}}">撤下</button>
+                                        <form class="delete-form" action="/micro-course/mail_backup/delete/{{$item->id}}" method="POST" style="display: none;" data-listid="{{$item->id}}">
                                             {{ csrf_field() }}
-                                        </form> --}}
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -66,7 +60,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[2,'asc']],
+                "order": [[3,'desc']],
                 language:{
                     "processing":   "處理中...",
                     "loadingRecords": "載入中...",
@@ -90,21 +84,5 @@
                 }
             });
         } );
-
-        $('.btn-danger').click(function(){
-            var listid = $(this).data("listid");
-            if (confirm('確認是否刪除點名紀錄？')){
-                event.preventDefault();
-                $('.delete-form[data-listid="' + listid + '"]').submit();
-            }
-        });
-
-
     </script>
-
-    @if(Session::has('success'))
-    <script>
-        alert('點名編輯成功!')
-    </script>
-    @endif
 @endsection

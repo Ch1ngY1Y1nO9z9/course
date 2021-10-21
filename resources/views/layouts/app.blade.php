@@ -256,10 +256,21 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link collapsed py-2" href="/micro-course/mail">
+                    <a class="nav-link collapsed pt-2 pb-3" href="#" data-toggle="collapse" data-target="#collapse_mail">
                         <i class="fas fa-file-signature"></i>
                         <span>信件寄送</span>
                     </a>
+                    <div id="collapse_mail" class="collapse">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            
+                            <a class="collapse-item" href="/micro-course/mail">
+                                信件寄送
+                            </a>
+                            <a class="collapse-item" href="/micro-course/mail_backup">
+                                寄件備份
+                            </a>
+                        </div>
+                    </div>
                 </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link collapsed py-2" href="/micro-course/class_announcement">

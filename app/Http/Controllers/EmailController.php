@@ -16,7 +16,7 @@ class EmailController extends Controller
         $items = User::where('role','student')->get();
         $classes = Courses::whereIn('status', ['已通過','已開課','已結束'])->get();
         
-        return view('admin.email.index',compact('items','classes'));
+        return view('admin.email.index', compact('items','classes'));
     }
 
     public function check(Request $request)
@@ -39,5 +39,19 @@ class EmailController extends Controller
         dispatch(new SendEmail($mail->id));
 
         return redirect('/micro-course/mail')->with('success','');
+    }
+
+    public function backup()
+    {
+        $items = EmailRecord::all();
+
+        return view('admin.email.backup', compact('items'));
+    }
+
+    public function backup_check($id)
+    {
+        $item = EmailRecord::find($id);
+
+        return view('admin.email.check', compact('item'));
     }
 }

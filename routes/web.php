@@ -140,6 +140,8 @@ Route::group(['prefix' => 'micro-course','middleware' => 'auth'], function () {
     Route::get('/mail', 'EmailController@index');
     Route::post('/mail/check_account', 'EmailController@check');
     Route::post('/mail/send', 'EmailController@send');
+    Route::get('/mail_backup', 'EmailController@backup');
+    Route::get('/mail_backup/{id}', 'EmailController@backup_check');
 
     // course_records
     Route::get('/course', 'CourseClassController@index');

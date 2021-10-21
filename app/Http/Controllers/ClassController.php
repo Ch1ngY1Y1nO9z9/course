@@ -186,6 +186,7 @@ class ClassController extends Controller
     public function assessment_store(Request $request,$id)
     {
         // 送入通過的學號陣列 用has_key去尋找該學號是否在通過的學號陣列中 有就改尚未評分變成通過 沒有則改成未通過
+
         $passed_array = $request->assessment;
 
         $student_list = Courses::find($id)->signupList;

@@ -94,7 +94,7 @@
                                         @endif
 
                                         @if($item->status != '未送出'&& $item->status != '待審核' && $item->status != '已撤下' && $item->status != '審核未通過')
-                                        <a class="btn btn-sm btn-secondary mt-1" href="/micro-course/class/assessment/{{$item->id}}">期末評量</a>
+                                        <a class="btn btn-sm btn-secondary mt-1" href="/micro-course/class/assessment/{{$item->id}}">課堂評量</a>
                                         @endif
 
                                         @if($feature_name != '單元審核')
