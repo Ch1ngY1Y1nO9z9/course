@@ -86,11 +86,12 @@ class LoginController extends Controller
 
             $user = User::where('account_id', $account_id)->first();
 
-            if($user && $user->role == 'student'){
-                if(!WhiteList::where('student_id', $user->account_id)->first()){
-                    return $this->sendFailedLoginResponse($request); 
-                }
-            }
+            // 暫時移除登入時的白名單判斷
+            // if($user && $user->role == 'student'){
+            //     if(!WhiteList::where('student_id', $user->account_id)->first()){
+            //         return $this->sendFailedLoginResponse($request); 
+            //     }
+            // }
             
             if($user){
                 Auth::guard()->login($user);
