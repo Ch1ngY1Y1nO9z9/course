@@ -118,6 +118,6 @@ class AdminController extends Controller
     }
 
     public function output($date){
-        return Response::download(storage_path('logs\laravel-'.$date.'.log'));
+        return Response::download(storage_path('logs/laravel-'.$date.'.log'));
     }
  }
