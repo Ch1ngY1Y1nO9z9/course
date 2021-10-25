@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\WhiteList;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -62,7 +63,7 @@ class LoginController extends Controller
 
 
         // 判斷登入
-        
+
         // 先判斷是否在白名單內
         $account_id = $request->email;
         $user = User::where('account_id', $account_id)->first();
@@ -129,6 +130,8 @@ class LoginController extends Controller
 
     protected function checkAccount(Request $request)
     {
+        Log::info($request->email);
+
         $account = $request->email;
         $password = $request->password;
         $url = 'http://sais.csmu.edu.tw/eeptestcheckid/IDentityUser.aspx?account='.$account.'&password='.$password;
@@ -139,6 +142,8 @@ class LoginController extends Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         $reply = curl_exec($ch);
         curl_close($ch);
+
+        Log::info($reply);
 
         $reply = mb_split("\s",$reply);
 
