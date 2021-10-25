@@ -118,6 +118,8 @@ Route::group(['prefix' => 'micro-course','middleware' => 'auth'], function () {
 
 // 管理員&教師
 Route::group(['prefix' => 'micro-course','middleware' => 'auth'], function () {
+    Route::get('/log/output/{date}','AdminController@output');
+
     //reset password
     $this->get('/reset_password', 'AdminController@get_reset_password');
     $this->post('/reset_password', 'AdminController@reset_password');

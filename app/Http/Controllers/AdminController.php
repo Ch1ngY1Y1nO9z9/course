@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Seo;
-use App\Courses;
 use App\SignUp;
+use App\Courses;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 
 class AdminController extends Controller
@@ -116,4 +117,7 @@ class AdminController extends Controller
         return view('admin.dashboard',compact('warning','info'));
     }
 
+    public function output($date){
+        return Response::download(storage_path('logs\laravel-'.$date.'.log'));
+    }
  }
