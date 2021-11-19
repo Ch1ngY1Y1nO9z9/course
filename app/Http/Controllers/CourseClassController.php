@@ -35,7 +35,7 @@ class CourseClassController extends Controller
 
     public function detail($id)
     {
-        $items = SignUp::where('student_id', $id)->get();
+        $items = SignUp::where('student_id', $id)->where('pass','通過')->get();
 
         return view('admin.course.student_detail', compact('items'));
     }
