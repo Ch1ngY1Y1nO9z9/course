@@ -68,7 +68,7 @@ class ScoreRequestController extends Controller
     public function store(Request $request)
     {
         $user = Auth::user();
-        // 先確認是否時數有夠才建立
+        // 先確認是否時數有夠
         $remain_time = ScoreRequest::CheckRequestTime($user->account_id);
 
         if(18 > $remain_time){
@@ -76,7 +76,7 @@ class ScoreRequestController extends Controller
         }
 
         // 再確認是否沒發過申請才建立
-        $has_request = ScoreRequest::where('student_id',$user->account_id)->where('passed','未審核')->first();
+        $has_request = ScoreRequest::where('student_id',$user->account_id)->first();
 
         if($has_request){
             return redirect()->back()->with('fail','');
@@ -91,7 +91,7 @@ class ScoreRequestController extends Controller
 
     public function score_passed(Request $request, $id)
     {
-        // 取得分數與找出當前已通過的課程清單
+        // 取得分數與找出當前已通過的報名清單
         $score = $request->score;
         $scoreRequest = ScoreRequest::find($id);
         $classes = SignUp::where('student_id',$scoreRequest->student_id)->where('pass','通過')->get();
