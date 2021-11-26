@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\SignUp;
 use App\Courses;
+use App\Mail\Testmail;
 use App\ClassAnnounces;
 use Illuminate\Http\Request;
 use App\Jobs\CheckCoursesStatus;
 use App\Jobs\CheckAnnounceStatus;
-use App\Mail\Testmail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
@@ -88,7 +89,9 @@ class CourseClassController extends Controller
             $items = SignUp::where('academic_year', $academic)->where('student_id', $request->student_id)->get()->unique('student_id');
         }
 
-        return view('admin.course.query',compact('items','year'));
+        $student = User::where('account_id',$request->student_id)->first();
+
+        return view('admin.course.query',compact('items','year','student'));
     }
 
     public function export_to_excel(Request $request)

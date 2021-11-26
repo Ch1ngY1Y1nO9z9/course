@@ -27,8 +27,7 @@
                                 @foreach ($items as $item)
                                 <tr>
                                     <td>
-                                        {{$item->getCoursesDetail->tutorial->tutorial_name_cn}}<br>
-                                        {{$item->getCoursesDetail->class_name}}
+                                        {{$item->getCoursesDetail->tutorial->tutorial_name_cn}} - {{$item->getCoursesDetail->class_name}}
                                     </td>
                                     <td>
                                         {{$item->getCoursesDetail->getDate($item->getCoursesDetail->class_start)}}<br>
