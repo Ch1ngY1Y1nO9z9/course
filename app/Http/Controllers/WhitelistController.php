@@ -31,7 +31,7 @@ class WhitelistController extends Controller
     public function store(Request $request)
     {
 
-        Excel::load($request->file('upload_file'), function($reader) {
+        Excel::import($request->file('upload_file'), function($reader) {
             WhiteList::truncate();
 
             $reader = $reader->getSheet(0);
