@@ -23,26 +23,41 @@
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>學號</th>
-                                <th>學生姓名</th>
-                                <th>已通過的修課時數</th>
-                                <th>學分數</th>
+                                <th>學號/姓名</th>
+                                <th>已通過的課程名稱</th>
+                                <th>修課時數</th>
+                                <th>認列總學分數</th>
                             </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>
+                                        {{$student->account_id}} / {{$student->name}}
+                                    </td>
+                                    <td>
+                                        -
+                                    </td>
+                                    <td>
+                                        -
+                                    </td>
+                                    <td>
+                                        {{$student->score}}
+                                    </td>
+                                </tr>
+
                                 @foreach($items as $item)
                                 <tr>
                                     <td>
-                                        {{$item->student_id}}
+                                        -
                                     </td>
                                     <td>
-                                        {{$item->student_name}}
+                                        {{$item->getCoursesDetail->class_name}}
                                     </td>
                                     <td>
                                         {{$item->GetAllStudentTime($item->student_id)}}
                                     </td>
                                     <td>
-                                        {{$item->GetAllStudentScore($item->student_id)}}
+                                        -
                                     </td>
                                 </tr>
                                 @endforeach
@@ -68,6 +83,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
+                "order": [[0,'desc']],
                 dom: 'Bfrtip',
                 buttons: [{
                     extend: "excel",
