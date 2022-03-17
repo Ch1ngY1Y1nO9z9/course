@@ -6,6 +6,7 @@ use App\WhiteList;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
+use App\Imports\WhiteListImport;
 
 
 class WhitelistController extends Controller
@@ -31,26 +32,10 @@ class WhitelistController extends Controller
     public function store(Request $request)
     {
 
-        Excel::import($request->file('upload_file'), function($reader) {
-            WhiteList::truncate();
-
-            $reader = $reader->getSheet(0);
-
-            $data  = $reader->toArray();
-
-            foreach($data as $student){
-                if($student[1]){
-                    WhiteList::create([
-                        'name'=>$student[0],
-                        'student_id'=>$student[1],
-                        'grade'=>$student[2]
-                    ]);
-                }
-            }
-            // 刪除excel標題資料
-            $first_data = WhiteList::first();
-            $first_data->delete();
-        });
+        WhiteList::truncate();
+        Excel::import(new WhiteListImport, $request->file('upload_file'));
+        // 刪除excel標題資料
+        WhiteList::find(1)->delete();
 
         return redirect()->action('WhitelistController@index');
     }
