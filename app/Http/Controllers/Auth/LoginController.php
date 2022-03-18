@@ -76,6 +76,19 @@ class LoginController extends Controller
 
         // 判斷資料庫是否有資料 有則直接登入
         if($user){
+            //check role
+            if($user->role == null || $user->role == ""){
+                $roleCheck = substr($user->account_id, 0, 1);
+            
+                if($roleCheck == 't'){
+                    $user->role = 'teacher';
+                    $user->save();
+                }else{
+                    $user->role = 'student';
+                    $user->save();
+                }
+            }
+
             Auth::guard()->login($user);
 
             return $this->authenticated($request, $this->guard()->user())
