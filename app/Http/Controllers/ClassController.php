@@ -389,13 +389,12 @@ class ClassController extends Controller
 
     public function sign_up($id)
     {
-        // 報名前先注意是否額滿 若額滿則回full
-        $signup_number = SignUp::where('course_id',$id)->count();
         $course = Courses::find($id);
+        $date = strtotime(date('m/d/Y h:i:s a', time()));
+        if( $date > strtotime($course->sign_up_start_date) && $date < strtotime($course->sign_up_end_date)){
+            // 報名前先注意是否額滿 若額滿則回full
+        $signup_number = SignUp::where('course_id',$id)->count();
         $available = SignUp::where('course_id',$id)->where('status', '備取')->count();
-
-
-
 
         // 先判斷是否滿人 若滿人則再判斷備取是否滿10人
         if($signup_number >= $course->number) {
@@ -428,6 +427,10 @@ class ClassController extends Controller
         ]);
 
         return redirect()->back()->with('signup_success');
+
+        }else{
+            abort(404, 'Page not found');
+        }
     }
 
     public function remove_sign_up($id)
