@@ -16,34 +16,38 @@
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
-                            <tr>
-                                <th>課程名稱</th>
-                                <th>課程日期</th>
-                                <th>時數</th>
-                                <th>功能</th>
-                            </tr>
+                                <tr>
+                                    <th>課程名稱</th>
+                                    <th>課程日期</th>
+                                    <th>時數</th>
+                                    <th>功能</th>
+                                </tr>
                             </thead>
                             <tbody>
                                 @foreach ($items as $item)
-                                <tr>
-                                    <td>
-                                        {{$item->getCoursesDetail->tutorial->tutorial_name_cn}} - {{$item->getCoursesDetail->class_name}}
-                                    </td>
-                                    <td>
-                                        {{$item->getCoursesDetail->getDate($item->getCoursesDetail->class_start)}}<br>
-                                        {{$item->getCoursesDetail->getDate($item->getCoursesDetail->class_end)}}
-                                    </td>
-                                    <td>
-                                        {{$item->getCoursesDetail->total_hours}}
-                                    </td>
-                                    <td width="170">
-                                        <a class="btn btn-sm btn-primary" href="/micro-course/course/class_detail/{{$item->getCoursesDetail->id}}">檢視</a>
-                                        {{-- <button class="btn btn-sm btn-danger" data-listid="1">刪除</button>
+                                    @if ($item->getCoursesDetail)
+                                        <tr>
+                                            <td>
+                                                {{ $item->getCoursesDetail->tutorial->tutorial_name_cn }} -
+                                                {{ $item->getCoursesDetail->class_name }}
+                                            </td>
+                                            <td>
+                                                {{ $item->getCoursesDetail->getDate($item->getCoursesDetail->class_start) }}<br>
+                                                {{ $item->getCoursesDetail->getDate($item->getCoursesDetail->class_end) }}
+                                            </td>
+                                            <td>
+                                                {{ $item->getCoursesDetail->total_hours }}
+                                            </td>
+                                            <td width="170">
+                                                <a class="btn btn-sm btn-primary"
+                                                    href="/micro-course/course/class_detail/{{ $item->getCoursesDetail->id }}">檢視</a>
+                                                {{-- <button class="btn btn-sm btn-danger" data-listid="1">刪除</button>
                                         <form class="delete-form" action="/micro-course/class/delete/1" method="POST" style="display: none;" data-listid="1">
                                             {{ csrf_field() }}
                                         </form> --}}
-                                    </td>
-                                </tr>
+                                            </td>
+                                        </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
@@ -62,17 +66,19 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[3,'desc']],
-                language:{
-                    "processing":   "處理中...",
+                "order": [
+                    [3, 'desc']
+                ],
+                language: {
+                    "processing": "處理中...",
                     "loadingRecords": "載入中...",
-                    "lengthMenu":   "顯示 _MENU_ 項結果",
-                    "zeroRecords":  "沒有符合的結果",
-                    "info":         "顯示第 _START_ 至 _END_ 項結果，共 _TOTAL_ 項",
-                    "infoEmpty":    "顯示第 0 至 0 項結果，共 0 項",
+                    "lengthMenu": "顯示 _MENU_ 項結果",
+                    "zeroRecords": "沒有符合的結果",
+                    "info": "顯示第 _START_ 至 _END_ 項結果，共 _TOTAL_ 項",
+                    "infoEmpty": "顯示第 0 至 0 項結果，共 0 項",
                     "infoFiltered": "(從 _MAX_ 項結果中過濾)",
-                    "infoPostFix":  "",
-                    "search":       "搜尋:",
+                    "infoPostFix": "",
+                    "search": "搜尋:",
                     "paginate": {
                         "first": "<<",
                         "last": ">>",
@@ -80,12 +86,11 @@
                         "previous": "<"
                     },
                     "aria": {
-                        "sortAscending":  ": 升冪排列",
+                        "sortAscending": ": 升冪排列",
                         "sortDescending": ": 降冪排列"
                     }
                 }
             });
-        } );
-
+        });
     </script>
 @endsection
