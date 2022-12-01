@@ -81,12 +81,16 @@ class CourseClassController extends Controller
             }
         }
 
-
         if (!$request->student_id) {
             // 尋找本年度有報名過課程的學生
             $items = SignUp::where('academic_year', $academic)->where('pass', '通過')->get()->unique('student_id');
         }else{
-            $items = SignUp::where('academic_year', $academic)->where('student_id', $request->student_id)->get()->unique('student_id');
+            $items = SignUp::where('academic_year', $academic)->where('student_id', $request->student_id)->where('pass', '通過')->get()->unique('student_id');
+        }
+
+        // 指定學生資料沒有資料也返回
+        if(!count($items)){
+            return redirect()->back()->with('error','未查詢到資料!');
         }
 
         $student = User::where('account_id',$request->student_id)->first();

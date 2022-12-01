@@ -46,8 +46,7 @@ class ScoreRequestController extends Controller
 
     public function success_check($id)
     {
-        $item = ScoreRequestFailed::find($id);
-
+        $item = ScoreRequestSuccess::find($id);
         return view('admin.score_request.success.check', compact('item'));
     }
 
