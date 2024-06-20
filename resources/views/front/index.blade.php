@@ -332,8 +332,8 @@
 @endsection
 
 @section('js')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/locale/zh-tw.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/locale/zh-tw.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
 <script>
     $(function() {
